@@ -4,11 +4,78 @@ All URIs are relative to https://api.pay.jp, except if the operation defines ano
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**attachPaymentMethod()**](PaymentMethodsApi.md#attachPaymentMethod) | **POST** /v2/payment_methods/{payment_method_id}/attach | Attach Payment Method |
 | [**createPaymentMethod()**](PaymentMethodsApi.md#createPaymentMethod) | **POST** /v2/payment_methods | Create Payment Method |
+| [**detachPaymentMethod()**](PaymentMethodsApi.md#detachPaymentMethod) | **POST** /v2/payment_methods/{payment_method_id}/detach | Detach Payment Method |
 | [**getAllPaymentMethods()**](PaymentMethodsApi.md#getAllPaymentMethods) | **GET** /v2/payment_methods | Get All Payment Methods |
 | [**getPaymentMethod()**](PaymentMethodsApi.md#getPaymentMethod) | **GET** /v2/payment_methods/{payment_method_id} | Get Payment Method |
 | [**updatePaymentMethod()**](PaymentMethodsApi.md#updatePaymentMethod) | **POST** /v2/payment_methods/{payment_method_id} | Update Payment Method |
 
+
+## `attachPaymentMethod()`
+
+```php
+attachPaymentMethod($payment_method_id, $payment_method_attach_request): \PAYJPV2\Model\PaymentMethodResponse
+```
+
+Attach Payment Method
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: HTTPBasic
+$config = PAYJPV2\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: HTTPBearer
+$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new PAYJPV2\Api\PaymentMethodsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$payment_method_id = 'payment_method_id_example'; // string
+$payment_method_attach_request = new \PAYJPV2\Model\PaymentMethodAttachRequest(); // \PAYJPV2\Model\PaymentMethodAttachRequest
+
+try {
+    $result = $apiInstance->attachPaymentMethod($payment_method_id, $payment_method_attach_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PaymentMethodsApi->attachPaymentMethod: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **payment_method_id** | **string**|  | |
+| **payment_method_attach_request** | [**\PAYJPV2\Model\PaymentMethodAttachRequest**](../Model/PaymentMethodAttachRequest.md)|  | |
+
+### Return type
+
+[**\PAYJPV2\Model\PaymentMethodResponse**](../Model/PaymentMethodResponse.md)
+
+### Authorization
+
+[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`, `application/problem+json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `createPaymentMethod()`
 
@@ -25,10 +92,13 @@ Create Payment Method
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: APIKeyHeader
-$config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure HTTP basic authorization: HTTPBasic
+$config = PAYJPV2\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: HTTPBearer
+$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new PAYJPV2\Api\PaymentMethodsApi(
@@ -59,7 +129,7 @@ try {
 
 ### Authorization
 
-[APIKeyHeader](../../README.md#APIKeyHeader)
+[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -70,10 +140,73 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `detachPaymentMethod()`
+
+```php
+detachPaymentMethod($payment_method_id): \PAYJPV2\Model\PaymentMethodResponse
+```
+
+Detach Payment Method
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: HTTPBasic
+$config = PAYJPV2\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: HTTPBearer
+$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new PAYJPV2\Api\PaymentMethodsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$payment_method_id = 'payment_method_id_example'; // string
+
+try {
+    $result = $apiInstance->detachPaymentMethod($payment_method_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PaymentMethodsApi->detachPaymentMethod: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **payment_method_id** | **string**|  | |
+
+### Return type
+
+[**\PAYJPV2\Model\PaymentMethodResponse**](../Model/PaymentMethodResponse.md)
+
+### Authorization
+
+[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/problem+json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getAllPaymentMethods()`
 
 ```php
-getAllPaymentMethods($limit, $offset): \PAYJPV2\Model\PaymentMethodListResponse
+getAllPaymentMethods($limit, $starting_after, $ending_before): \PAYJPV2\Model\PaymentMethodListResponse
 ```
 
 Get All Payment Methods
@@ -85,10 +218,13 @@ Get All Payment Methods
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: APIKeyHeader
-$config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure HTTP basic authorization: HTTPBasic
+$config = PAYJPV2\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: HTTPBearer
+$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new PAYJPV2\Api\PaymentMethodsApi(
@@ -98,10 +234,11 @@ $apiInstance = new PAYJPV2\Api\PaymentMethodsApi(
     $config
 );
 $limit = 10; // int | 取得するデータの最大件数
-$offset = 0; // int | データ取得を行う開始位置
+$starting_after = 'starting_after_example'; // string | このIDより後のデータを取得
+$ending_before = 'ending_before_example'; // string | このIDより前のデータを取得
 
 try {
-    $result = $apiInstance->getAllPaymentMethods($limit, $offset);
+    $result = $apiInstance->getAllPaymentMethods($limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentMethodsApi->getAllPaymentMethods: ', $e->getMessage(), PHP_EOL;
@@ -113,7 +250,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **limit** | **int**| 取得するデータの最大件数 | [optional] [default to 10] |
-| **offset** | **int**| データ取得を行う開始位置 | [optional] [default to 0] |
+| **starting_after** | **string**| このIDより後のデータを取得 | [optional] |
+| **ending_before** | **string**| このIDより前のデータを取得 | [optional] |
 
 ### Return type
 
@@ -121,7 +259,7 @@ try {
 
 ### Authorization
 
-[APIKeyHeader](../../README.md#APIKeyHeader)
+[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -147,10 +285,13 @@ Get Payment Method
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: APIKeyHeader
-$config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure HTTP basic authorization: HTTPBasic
+$config = PAYJPV2\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: HTTPBearer
+$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new PAYJPV2\Api\PaymentMethodsApi(
@@ -181,7 +322,7 @@ try {
 
 ### Authorization
 
-[APIKeyHeader](../../README.md#APIKeyHeader)
+[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -207,10 +348,13 @@ Update Payment Method
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: APIKeyHeader
-$config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure HTTP basic authorization: HTTPBasic
+$config = PAYJPV2\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: HTTPBearer
+$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new PAYJPV2\Api\PaymentMethodsApi(
@@ -243,7 +387,7 @@ try {
 
 ### Authorization
 
-[APIKeyHeader](../../README.md#APIKeyHeader)
+[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 

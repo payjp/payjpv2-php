@@ -8,6 +8,7 @@ All URIs are relative to https://api.pay.jp, except if the operation defines ano
 | [**deleteCustomer()**](CustomersApi.md#deleteCustomer) | **DELETE** /v2/customers/{customer_id} | Delete Customer |
 | [**getAllCustomers()**](CustomersApi.md#getAllCustomers) | **GET** /v2/customers | Get All Customers |
 | [**getCustomer()**](CustomersApi.md#getCustomer) | **GET** /v2/customers/{customer_id} | Get Customer |
+| [**getCustomerPaymentMethods()**](CustomersApi.md#getCustomerPaymentMethods) | **GET** /v2/customers/{customer_id}/payment_methods | Get Customer Payment Methods |
 | [**updateCustomer()**](CustomersApi.md#updateCustomer) | **POST** /v2/customers/{customer_id} | Update Customer |
 
 
@@ -26,10 +27,13 @@ Create Customer
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: APIKeyHeader
-$config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure HTTP basic authorization: HTTPBasic
+$config = PAYJPV2\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: HTTPBearer
+$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new PAYJPV2\Api\CustomersApi(
@@ -60,7 +64,7 @@ try {
 
 ### Authorization
 
-[APIKeyHeader](../../README.md#APIKeyHeader)
+[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -86,10 +90,13 @@ Delete Customer
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: APIKeyHeader
-$config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure HTTP basic authorization: HTTPBasic
+$config = PAYJPV2\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: HTTPBearer
+$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new PAYJPV2\Api\CustomersApi(
@@ -120,7 +127,7 @@ try {
 
 ### Authorization
 
-[APIKeyHeader](../../README.md#APIKeyHeader)
+[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -134,7 +141,7 @@ try {
 ## `getAllCustomers()`
 
 ```php
-getAllCustomers($limit, $offset): \PAYJPV2\Model\CustomerListResponse
+getAllCustomers($limit, $starting_after, $ending_before): \PAYJPV2\Model\CustomerListResponse
 ```
 
 Get All Customers
@@ -146,10 +153,13 @@ Get All Customers
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: APIKeyHeader
-$config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure HTTP basic authorization: HTTPBasic
+$config = PAYJPV2\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: HTTPBearer
+$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new PAYJPV2\Api\CustomersApi(
@@ -159,10 +169,11 @@ $apiInstance = new PAYJPV2\Api\CustomersApi(
     $config
 );
 $limit = 10; // int | 取得するデータの最大件数
-$offset = 0; // int | データ取得を行う開始位置
+$starting_after = 'starting_after_example'; // string | このIDより後のデータを取得
+$ending_before = 'ending_before_example'; // string | このIDより前のデータを取得
 
 try {
-    $result = $apiInstance->getAllCustomers($limit, $offset);
+    $result = $apiInstance->getAllCustomers($limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomersApi->getAllCustomers: ', $e->getMessage(), PHP_EOL;
@@ -174,7 +185,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **limit** | **int**| 取得するデータの最大件数 | [optional] [default to 10] |
-| **offset** | **int**| データ取得を行う開始位置 | [optional] [default to 0] |
+| **starting_after** | **string**| このIDより後のデータを取得 | [optional] |
+| **ending_before** | **string**| このIDより前のデータを取得 | [optional] |
 
 ### Return type
 
@@ -182,7 +194,7 @@ try {
 
 ### Authorization
 
-[APIKeyHeader](../../README.md#APIKeyHeader)
+[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -208,10 +220,13 @@ Get Customer
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: APIKeyHeader
-$config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure HTTP basic authorization: HTTPBasic
+$config = PAYJPV2\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: HTTPBearer
+$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new PAYJPV2\Api\CustomersApi(
@@ -242,7 +257,76 @@ try {
 
 ### Authorization
 
-[APIKeyHeader](../../README.md#APIKeyHeader)
+[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/problem+json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getCustomerPaymentMethods()`
+
+```php
+getCustomerPaymentMethods($customer_id, $limit, $starting_after, $ending_before): \PAYJPV2\Model\PaymentMethodListResponse
+```
+
+Get Customer Payment Methods
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: HTTPBasic
+$config = PAYJPV2\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: HTTPBearer
+$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new PAYJPV2\Api\CustomersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$customer_id = 'customer_id_example'; // string
+$limit = 10; // int | 取得するデータの最大件数
+$starting_after = 'starting_after_example'; // string | このIDより後のデータを取得
+$ending_before = 'ending_before_example'; // string | このIDより前のデータを取得
+
+try {
+    $result = $apiInstance->getCustomerPaymentMethods($customer_id, $limit, $starting_after, $ending_before);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomersApi->getCustomerPaymentMethods: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **customer_id** | **string**|  | |
+| **limit** | **int**| 取得するデータの最大件数 | [optional] [default to 10] |
+| **starting_after** | **string**| このIDより後のデータを取得 | [optional] |
+| **ending_before** | **string**| このIDより前のデータを取得 | [optional] |
+
+### Return type
+
+[**\PAYJPV2\Model\PaymentMethodListResponse**](../Model/PaymentMethodListResponse.md)
+
+### Authorization
+
+[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -268,10 +352,13 @@ Update Customer
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: APIKeyHeader
-$config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure HTTP basic authorization: HTTPBasic
+$config = PAYJPV2\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: HTTPBearer
+$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new PAYJPV2\Api\CustomersApi(
@@ -304,7 +391,7 @@ try {
 
 ### Authorization
 
-[APIKeyHeader](../../README.md#APIKeyHeader)
+[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 

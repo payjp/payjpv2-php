@@ -48,25 +48,28 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-// Configure API key authorization: APIKeyHeader
-$config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure HTTP basic authorization: HTTPBasic
+$config = PAYJPV2\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: HTTPBearer
+$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new PAYJPV2\Api\CheckoutSessionsApi(
+$apiInstance = new PAYJPV2\Api\BalancesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$checkout_session_create_request = new \PAYJPV2\Model\CheckoutSessionCreateRequest(); // \PAYJPV2\Model\CheckoutSessionCreateRequest
+$balance_id = 'balance_id_example'; // string
 
 try {
-    $result = $apiInstance->createCheckoutSession($checkout_session_create_request);
+    $result = $apiInstance->createBalanceUrl($balance_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutSessionsApi->createCheckoutSession: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BalancesApi->createBalanceUrl: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -77,6 +80,9 @@ All URIs are relative to *https://api.pay.jp*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*BalancesApi* | [**createBalanceUrl**](docs/Api/BalancesApi.md#createbalanceurl) | **POST** /v2/balances/{balance_id}/balance_urls | Create Balance Url
+*BalancesApi* | [**getAllBalances**](docs/Api/BalancesApi.md#getallbalances) | **GET** /v2/balances | Get All Balances
+*BalancesApi* | [**retrieveBalance**](docs/Api/BalancesApi.md#retrievebalance) | **GET** /v2/balances/{balance_id} | Retrieve Balance
 *CheckoutSessionsApi* | [**createCheckoutSession**](docs/Api/CheckoutSessionsApi.md#createcheckoutsession) | **POST** /v2/checkout/sessions | Create Checkout Session
 *CheckoutSessionsApi* | [**getAllCheckoutSessions**](docs/Api/CheckoutSessionsApi.md#getallcheckoutsessions) | **GET** /v2/checkout/sessions | Get All Checkout Sessions
 *CheckoutSessionsApi* | [**getCheckoutSession**](docs/Api/CheckoutSessionsApi.md#getcheckoutsession) | **GET** /v2/checkout/sessions/{checkout_session_id} | Get Checkout Session
@@ -85,21 +91,29 @@ Class | Method | HTTP request | Description
 *CustomersApi* | [**deleteCustomer**](docs/Api/CustomersApi.md#deletecustomer) | **DELETE** /v2/customers/{customer_id} | Delete Customer
 *CustomersApi* | [**getAllCustomers**](docs/Api/CustomersApi.md#getallcustomers) | **GET** /v2/customers | Get All Customers
 *CustomersApi* | [**getCustomer**](docs/Api/CustomersApi.md#getcustomer) | **GET** /v2/customers/{customer_id} | Get Customer
+*CustomersApi* | [**getCustomerPaymentMethods**](docs/Api/CustomersApi.md#getcustomerpaymentmethods) | **GET** /v2/customers/{customer_id}/payment_methods | Get Customer Payment Methods
 *CustomersApi* | [**updateCustomer**](docs/Api/CustomersApi.md#updatecustomer) | **POST** /v2/customers/{customer_id} | Update Customer
 *EventsApi* | [**getAllEvents**](docs/Api/EventsApi.md#getallevents) | **GET** /v2/events | Get All Events
 *EventsApi* | [**getEvent**](docs/Api/EventsApi.md#getevent) | **GET** /v2/events/{event_id} | Get Event
-*PaymentIntentsApi* | [**cancelPaymentIntent**](docs/Api/PaymentIntentsApi.md#cancelpaymentintent) | **POST** /v2/payment_intents/{payment_intent_id}/cancel | Cancel Payment Intent
-*PaymentIntentsApi* | [**capturePaymentIntent**](docs/Api/PaymentIntentsApi.md#capturepaymentintent) | **POST** /v2/payment_intents/{payment_intent_id}/capture | Capture Payment Intent
-*PaymentIntentsApi* | [**confirmPaymentIntent**](docs/Api/PaymentIntentsApi.md#confirmpaymentintent) | **POST** /v2/payment_intents/{payment_intent_id}/confirm | Confirm Payment Intent
-*PaymentIntentsApi* | [**createPaymentIntent**](docs/Api/PaymentIntentsApi.md#createpaymentintent) | **POST** /v2/payment_intents | Create Payment Intent
-*PaymentIntentsApi* | [**getAllPaymentIntent**](docs/Api/PaymentIntentsApi.md#getallpaymentintent) | **GET** /v2/payment_intents | Get All Payment Intent
-*PaymentIntentsApi* | [**incrementAuthorizationPaymentIntent**](docs/Api/PaymentIntentsApi.md#incrementauthorizationpaymentintent) | **POST** /v2/payment_intents/{payment_intent_id}/increment_authorization | Increment Authorization Payment Intent
-*PaymentIntentsApi* | [**retrievePaymentIntent**](docs/Api/PaymentIntentsApi.md#retrievepaymentintent) | **GET** /v2/payment_intents/{payment_intent_id} | Retrieve Payment Intent
-*PaymentIntentsApi* | [**updatePaymentIntent**](docs/Api/PaymentIntentsApi.md#updatepaymentintent) | **POST** /v2/payment_intents/{payment_intent_id} | Update Payment Intent
+*PaymentFlowsApi* | [**cancelPaymentFlow**](docs/Api/PaymentFlowsApi.md#cancelpaymentflow) | **POST** /v2/payment_flows/{payment_flow_id}/cancel | Cancel Payment Flow
+*PaymentFlowsApi* | [**capturePaymentFlow**](docs/Api/PaymentFlowsApi.md#capturepaymentflow) | **POST** /v2/payment_flows/{payment_flow_id}/capture | Capture Payment Flow
+*PaymentFlowsApi* | [**confirmPaymentFlow**](docs/Api/PaymentFlowsApi.md#confirmpaymentflow) | **POST** /v2/payment_flows/{payment_flow_id}/confirm | Confirm Payment Flow
+*PaymentFlowsApi* | [**createPaymentFlow**](docs/Api/PaymentFlowsApi.md#createpaymentflow) | **POST** /v2/payment_flows | Create Payment Flow
+*PaymentFlowsApi* | [**getAllPaymentFlow**](docs/Api/PaymentFlowsApi.md#getallpaymentflow) | **GET** /v2/payment_flows | Get All Payment Flow
+*PaymentFlowsApi* | [**incrementAuthorizationPaymentFlow**](docs/Api/PaymentFlowsApi.md#incrementauthorizationpaymentflow) | **POST** /v2/payment_flows/{payment_flow_id}/increment_authorization | Increment Authorization Payment Flow
+*PaymentFlowsApi* | [**retrievePaymentFlow**](docs/Api/PaymentFlowsApi.md#retrievepaymentflow) | **GET** /v2/payment_flows/{payment_flow_id} | Retrieve Payment Flow
+*PaymentFlowsApi* | [**updatePaymentFlow**](docs/Api/PaymentFlowsApi.md#updatepaymentflow) | **POST** /v2/payment_flows/{payment_flow_id} | Update Payment Flow
+*PaymentMethodConfigurationsApi* | [**getAllPaymentMethodConfigurations**](docs/Api/PaymentMethodConfigurationsApi.md#getallpaymentmethodconfigurations) | **GET** /v2/payment_method_configurations | Get All Payment Method Configurations
+*PaymentMethodConfigurationsApi* | [**getPaymentMethodConfiguration**](docs/Api/PaymentMethodConfigurationsApi.md#getpaymentmethodconfiguration) | **GET** /v2/payment_method_configurations/{payment_method_configuration_id} | Get Payment Method Configuration
+*PaymentMethodConfigurationsApi* | [**updatePaymentMethodConfiguration**](docs/Api/PaymentMethodConfigurationsApi.md#updatepaymentmethodconfiguration) | **POST** /v2/payment_method_configurations/{payment_method_configuration_id} | Update Payment Method Configuration
+*PaymentMethodsApi* | [**attachPaymentMethod**](docs/Api/PaymentMethodsApi.md#attachpaymentmethod) | **POST** /v2/payment_methods/{payment_method_id}/attach | Attach Payment Method
 *PaymentMethodsApi* | [**createPaymentMethod**](docs/Api/PaymentMethodsApi.md#createpaymentmethod) | **POST** /v2/payment_methods | Create Payment Method
+*PaymentMethodsApi* | [**detachPaymentMethod**](docs/Api/PaymentMethodsApi.md#detachpaymentmethod) | **POST** /v2/payment_methods/{payment_method_id}/detach | Detach Payment Method
 *PaymentMethodsApi* | [**getAllPaymentMethods**](docs/Api/PaymentMethodsApi.md#getallpaymentmethods) | **GET** /v2/payment_methods | Get All Payment Methods
 *PaymentMethodsApi* | [**getPaymentMethod**](docs/Api/PaymentMethodsApi.md#getpaymentmethod) | **GET** /v2/payment_methods/{payment_method_id} | Get Payment Method
 *PaymentMethodsApi* | [**updatePaymentMethod**](docs/Api/PaymentMethodsApi.md#updatepaymentmethod) | **POST** /v2/payment_methods/{payment_method_id} | Update Payment Method
+*PaymentTransactionsApi* | [**getAllPaymentTransaction**](docs/Api/PaymentTransactionsApi.md#getallpaymenttransaction) | **GET** /v2/payment_transactions | Get All Payment Transaction
+*PaymentTransactionsApi* | [**retrievePaymentTransaction**](docs/Api/PaymentTransactionsApi.md#retrievepaymenttransaction) | **GET** /v2/payment_transactions/{payment_transaction_id} | Retrieve Payment Transaction
 *PricesApi* | [**createPrice**](docs/Api/PricesApi.md#createprice) | **POST** /v2/prices | Create Price
 *PricesApi* | [**getAllPrices**](docs/Api/PricesApi.md#getallprices) | **GET** /v2/prices | Get All Prices
 *PricesApi* | [**getPrice**](docs/Api/PricesApi.md#getprice) | **GET** /v2/prices/{price_id} | Get Price
@@ -114,28 +128,39 @@ Class | Method | HTTP request | Description
 *RefundsApi* | [**getAllRefunds**](docs/Api/RefundsApi.md#getallrefunds) | **GET** /v2/refunds | Get All Refunds
 *RefundsApi* | [**retrieveRefund**](docs/Api/RefundsApi.md#retrieverefund) | **GET** /v2/refunds/{refund_id} | Retrieve Refund
 *RefundsApi* | [**updateRefund**](docs/Api/RefundsApi.md#updaterefund) | **POST** /v2/refunds/{refund_id} | Update Refund
-*SetupIntentsApi* | [**cancelSetupIntent**](docs/Api/SetupIntentsApi.md#cancelsetupintent) | **POST** /v2/setup_intents/{setup_intent_id}/cancel | Cancel Setup Intent
-*SetupIntentsApi* | [**confirmSetupIntent**](docs/Api/SetupIntentsApi.md#confirmsetupintent) | **POST** /v2/setup_intents/{setup_intent_id}/confirm | Confirm Setup Intent
-*SetupIntentsApi* | [**createSetupIntent**](docs/Api/SetupIntentsApi.md#createsetupintent) | **POST** /v2/setup_intents | Create Setup Intent
-*SetupIntentsApi* | [**getAllSetupIntent**](docs/Api/SetupIntentsApi.md#getallsetupintent) | **GET** /v2/setup_intents | Get All Setup Intent
-*SetupIntentsApi* | [**retrieveSetupIntent**](docs/Api/SetupIntentsApi.md#retrievesetupintent) | **GET** /v2/setup_intents/{setup_intent_id} | Retrieve Setup Intent
-*SetupIntentsApi* | [**updateSetupIntent**](docs/Api/SetupIntentsApi.md#updatesetupintent) | **POST** /v2/setup_intents/{setup_intent_id} | Update Setup Intent
+*SetupFlowsApi* | [**cancelSetupFlow**](docs/Api/SetupFlowsApi.md#cancelsetupflow) | **POST** /v2/setup_flows/{setup_flow_id}/cancel | Cancel Setup Flow
+*SetupFlowsApi* | [**confirmSetupFlow**](docs/Api/SetupFlowsApi.md#confirmsetupflow) | **POST** /v2/setup_flows/{setup_flow_id}/confirm | Confirm Setup Flow
+*SetupFlowsApi* | [**createSetupFlow**](docs/Api/SetupFlowsApi.md#createsetupflow) | **POST** /v2/setup_flows | Create Setup Flow
+*SetupFlowsApi* | [**getAllSetupFlow**](docs/Api/SetupFlowsApi.md#getallsetupflow) | **GET** /v2/setup_flows | Get All Setup Flow
+*SetupFlowsApi* | [**retrieveSetupFlow**](docs/Api/SetupFlowsApi.md#retrievesetupflow) | **GET** /v2/setup_flows/{setup_flow_id} | Retrieve Setup Flow
+*SetupFlowsApi* | [**updateSetupFlow**](docs/Api/SetupFlowsApi.md#updatesetupflow) | **POST** /v2/setup_flows/{setup_flow_id} | Update Setup Flow
+*StatementsApi* | [**createStatementUrl**](docs/Api/StatementsApi.md#createstatementurl) | **POST** /v2/statements/{statement_id}/statement_urls | Create Statement Url
+*StatementsApi* | [**getAllStatements**](docs/Api/StatementsApi.md#getallstatements) | **GET** /v2/statements | Get All Statements
+*StatementsApi* | [**retrieveStatement**](docs/Api/StatementsApi.md#retrievestatement) | **GET** /v2/statements/{statement_id} | Retrieve Statement
 *TaxRatesApi* | [**createTaxRate**](docs/Api/TaxRatesApi.md#createtaxrate) | **POST** /v2/tax_rates | Create Tax Rate
 *TaxRatesApi* | [**getAllTaxRates**](docs/Api/TaxRatesApi.md#getalltaxrates) | **GET** /v2/tax_rates | Get All Tax Rates
 *TaxRatesApi* | [**getTaxRate**](docs/Api/TaxRatesApi.md#gettaxrate) | **GET** /v2/tax_rates/{tax_rate_id} | Get Tax Rate
 *TaxRatesApi* | [**updateTaxRate**](docs/Api/TaxRatesApi.md#updatetaxrate) | **POST** /v2/tax_rates/{tax_rate_id} | Update Tax Rate
+*TermsApi* | [**getAllTerm**](docs/Api/TermsApi.md#getallterm) | **GET** /v2/terms | Get All Term
+*TermsApi* | [**retrieveTerm**](docs/Api/TermsApi.md#retrieveterm) | **GET** /v2/terms/{term_id} | Retrieve Term
 
 ## Models
 
+- [BalanceListResponse](docs/Model/BalanceListResponse.md)
+- [BalanceResponse](docs/Model/BalanceResponse.md)
+- [BalanceState](docs/Model/BalanceState.md)
+- [BalanceURLResponse](docs/Model/BalanceURLResponse.md)
+- [BankInfoResponse](docs/Model/BankInfoResponse.md)
 - [BillingAddressCollection](docs/Model/BillingAddressCollection.md)
 - [CaptureMethod](docs/Model/CaptureMethod.md)
+- [CardConfigRequest](docs/Model/CardConfigRequest.md)
 - [CheckoutSessionCreateRequest](docs/Model/CheckoutSessionCreateRequest.md)
 - [CheckoutSessionDetailsResponse](docs/Model/CheckoutSessionDetailsResponse.md)
 - [CheckoutSessionLineItemDataResponse](docs/Model/CheckoutSessionLineItemDataResponse.md)
-- [CheckoutSessionLineItemPriceResponse](docs/Model/CheckoutSessionLineItemPriceResponse.md)
 - [CheckoutSessionLineItemsResponse](docs/Model/CheckoutSessionLineItemsResponse.md)
 - [CheckoutSessionListResponse](docs/Model/CheckoutSessionListResponse.md)
 - [CheckoutSessionMode](docs/Model/CheckoutSessionMode.md)
+- [CheckoutSessionStatus](docs/Model/CheckoutSessionStatus.md)
 - [CheckoutSessionSubmitType](docs/Model/CheckoutSessionSubmitType.md)
 - [CheckoutSessionUIMode](docs/Model/CheckoutSessionUIMode.md)
 - [CheckoutSessionUpdateRequest](docs/Model/CheckoutSessionUpdateRequest.md)
@@ -147,6 +172,7 @@ Class | Method | HTTP request | Description
 - [CustomerListResponse](docs/Model/CustomerListResponse.md)
 - [CustomerResponse](docs/Model/CustomerResponse.md)
 - [CustomerUpdateRequest](docs/Model/CustomerUpdateRequest.md)
+- [DisplayPreferenceRequest](docs/Model/DisplayPreferenceRequest.md)
 - [ErrorResponse](docs/Model/ErrorResponse.md)
 - [EventListResponse](docs/Model/EventListResponse.md)
 - [EventResponse](docs/Model/EventResponse.md)
@@ -154,25 +180,35 @@ Class | Method | HTTP request | Description
 - [LineItemRequest](docs/Model/LineItemRequest.md)
 - [Locale](docs/Model/Locale.md)
 - [MetadataValue](docs/Model/MetadataValue.md)
-- [PaymentIntent](docs/Model/PaymentIntent.md)
-- [PaymentIntentCancelRequest](docs/Model/PaymentIntentCancelRequest.md)
-- [PaymentIntentCaptureRequest](docs/Model/PaymentIntentCaptureRequest.md)
-- [PaymentIntentConfirmRequest](docs/Model/PaymentIntentConfirmRequest.md)
-- [PaymentIntentCreateRequest](docs/Model/PaymentIntentCreateRequest.md)
-- [PaymentIntentDataRequest](docs/Model/PaymentIntentDataRequest.md)
-- [PaymentIntentIncrementAuthorizationRequest](docs/Model/PaymentIntentIncrementAuthorizationRequest.md)
-- [PaymentIntentListResponse](docs/Model/PaymentIntentListResponse.md)
-- [PaymentIntentResponse](docs/Model/PaymentIntentResponse.md)
-- [PaymentIntentStatus](docs/Model/PaymentIntentStatus.md)
-- [PaymentIntentUpdateRequest](docs/Model/PaymentIntentUpdateRequest.md)
+- [PayPayConfigRequest](docs/Model/PayPayConfigRequest.md)
+- [PaymentFlow](docs/Model/PaymentFlow.md)
+- [PaymentFlowCancelRequest](docs/Model/PaymentFlowCancelRequest.md)
+- [PaymentFlowCaptureRequest](docs/Model/PaymentFlowCaptureRequest.md)
+- [PaymentFlowConfirmRequest](docs/Model/PaymentFlowConfirmRequest.md)
+- [PaymentFlowCreateRequest](docs/Model/PaymentFlowCreateRequest.md)
+- [PaymentFlowDataRequestInput](docs/Model/PaymentFlowDataRequestInput.md)
+- [PaymentFlowDataRequestOutput](docs/Model/PaymentFlowDataRequestOutput.md)
+- [PaymentFlowIncrementAuthorizationRequest](docs/Model/PaymentFlowIncrementAuthorizationRequest.md)
+- [PaymentFlowListResponse](docs/Model/PaymentFlowListResponse.md)
+- [PaymentFlowResponse](docs/Model/PaymentFlowResponse.md)
+- [PaymentFlowStatus](docs/Model/PaymentFlowStatus.md)
+- [PaymentFlowUpdateRequest](docs/Model/PaymentFlowUpdateRequest.md)
+- [PaymentMethodApplePayCreateRequest](docs/Model/PaymentMethodApplePayCreateRequest.md)
+- [PaymentMethodAttachRequest](docs/Model/PaymentMethodAttachRequest.md)
 - [PaymentMethodBillingAddressRequest](docs/Model/PaymentMethodBillingAddressRequest.md)
 - [PaymentMethodBillingAddressResponse](docs/Model/PaymentMethodBillingAddressResponse.md)
 - [PaymentMethodBillingDetailsRequest](docs/Model/PaymentMethodBillingDetailsRequest.md)
 - [PaymentMethodBillingDetailsResponse](docs/Model/PaymentMethodBillingDetailsResponse.md)
+- [PaymentMethodCardBillingDetailsRequest](docs/Model/PaymentMethodCardBillingDetailsRequest.md)
 - [PaymentMethodCardCreateRequest](docs/Model/PaymentMethodCardCreateRequest.md)
 - [PaymentMethodCardDetailsResponse](docs/Model/PaymentMethodCardDetailsResponse.md)
 - [PaymentMethodCardResponse](docs/Model/PaymentMethodCardResponse.md)
 - [PaymentMethodCardUpdateRequest](docs/Model/PaymentMethodCardUpdateRequest.md)
+- [PaymentMethodConfigurationDetailsResponse](docs/Model/PaymentMethodConfigurationDetailsResponse.md)
+- [PaymentMethodConfigurationDisplayPreference](docs/Model/PaymentMethodConfigurationDisplayPreference.md)
+- [PaymentMethodConfigurationListResponse](docs/Model/PaymentMethodConfigurationListResponse.md)
+- [PaymentMethodConfigurationSettingResponse](docs/Model/PaymentMethodConfigurationSettingResponse.md)
+- [PaymentMethodConfigurationUpdateRequest](docs/Model/PaymentMethodConfigurationUpdateRequest.md)
 - [PaymentMethodCreateCardDetailsRequest](docs/Model/PaymentMethodCreateCardDetailsRequest.md)
 - [PaymentMethodCreateRequest](docs/Model/PaymentMethodCreateRequest.md)
 - [PaymentMethodListResponse](docs/Model/PaymentMethodListResponse.md)
@@ -182,10 +218,12 @@ Class | Method | HTTP request | Description
 - [PaymentMethodPayPayResponse](docs/Model/PaymentMethodPayPayResponse.md)
 - [PaymentMethodResponse](docs/Model/PaymentMethodResponse.md)
 - [PaymentMethodTypes](docs/Model/PaymentMethodTypes.md)
-- [PaymentMethodUpdateCardDetailsRequest](docs/Model/PaymentMethodUpdateCardDetailsRequest.md)
 - [PaymentRefundReason](docs/Model/PaymentRefundReason.md)
 - [PaymentRefundStatus](docs/Model/PaymentRefundStatus.md)
 - [PaymentRefundUpdateRequest](docs/Model/PaymentRefundUpdateRequest.md)
+- [PaymentTransactionListResponse](docs/Model/PaymentTransactionListResponse.md)
+- [PaymentTransactionResponse](docs/Model/PaymentTransactionResponse.md)
+- [PaymentTransactionType](docs/Model/PaymentTransactionType.md)
 - [PriceCreateRequest](docs/Model/PriceCreateRequest.md)
 - [PriceDetailsResponse](docs/Model/PriceDetailsResponse.md)
 - [PriceListResponse](docs/Model/PriceListResponse.md)
@@ -199,30 +237,40 @@ Class | Method | HTTP request | Description
 - [RefundCreateRequest](docs/Model/RefundCreateRequest.md)
 - [RefundListResponse](docs/Model/RefundListResponse.md)
 - [RefundResponse](docs/Model/RefundResponse.md)
-- [SetupIntentCancelRequest](docs/Model/SetupIntentCancelRequest.md)
-- [SetupIntentConfirmRequest](docs/Model/SetupIntentConfirmRequest.md)
-- [SetupIntentCreateRequest](docs/Model/SetupIntentCreateRequest.md)
-- [SetupIntentDataRequest](docs/Model/SetupIntentDataRequest.md)
-- [SetupIntentListResponse](docs/Model/SetupIntentListResponse.md)
-- [SetupIntentResponse](docs/Model/SetupIntentResponse.md)
-- [SetupIntentStatus](docs/Model/SetupIntentStatus.md)
-- [SetupIntentUpdateRequest](docs/Model/SetupIntentUpdateRequest.md)
+- [SetupFlowCancelRequest](docs/Model/SetupFlowCancelRequest.md)
+- [SetupFlowCancellationReason](docs/Model/SetupFlowCancellationReason.md)
+- [SetupFlowConfirmRequest](docs/Model/SetupFlowConfirmRequest.md)
+- [SetupFlowCreateRequest](docs/Model/SetupFlowCreateRequest.md)
+- [SetupFlowDataRequest](docs/Model/SetupFlowDataRequest.md)
+- [SetupFlowListResponse](docs/Model/SetupFlowListResponse.md)
+- [SetupFlowResponse](docs/Model/SetupFlowResponse.md)
+- [SetupFlowStatus](docs/Model/SetupFlowStatus.md)
+- [SetupFlowUpdateRequest](docs/Model/SetupFlowUpdateRequest.md)
+- [StatementItemResponse](docs/Model/StatementItemResponse.md)
+- [StatementListResponse](docs/Model/StatementListResponse.md)
+- [StatementResponse](docs/Model/StatementResponse.md)
+- [StatementSubject](docs/Model/StatementSubject.md)
+- [StatementType](docs/Model/StatementType.md)
+- [StatementURLResponse](docs/Model/StatementURLResponse.md)
 - [TaxRateCreateRequest](docs/Model/TaxRateCreateRequest.md)
 - [TaxRateDetailsResponse](docs/Model/TaxRateDetailsResponse.md)
 - [TaxRateListResponse](docs/Model/TaxRateListResponse.md)
 - [TaxRateUpdateRequest](docs/Model/TaxRateUpdateRequest.md)
 - [TaxType](docs/Model/TaxType.md)
+- [TermListResponse](docs/Model/TermListResponse.md)
+- [TermResponse](docs/Model/TermResponse.md)
 - [Usage](docs/Model/Usage.md)
 
 ## Authorization
 
 Authentication schemes defined for the API:
-### APIKeyHeader
+### HTTPBasic
 
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
+- **Type**: HTTP basic authentication
 
+### HTTPBearer
+
+- **Type**: Bearer authentication
 
 ## Tests
 
@@ -243,5 +291,5 @@ This PHP package is automatically generated by the [OpenAPI Generator](https://o
 
 - API version: `2.0.0`
     - Package version: `2.0.0`
-    - Generator version: `7.13.0`
+    - Generator version: `7.14.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`
