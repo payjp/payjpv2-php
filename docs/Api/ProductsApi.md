@@ -26,10 +26,13 @@ Create Product
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: APIKeyHeader
-$config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure HTTP basic authorization: HTTPBasic
+$config = PAYJPV2\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: HTTPBearer
+$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new PAYJPV2\Api\ProductsApi(
@@ -60,7 +63,7 @@ try {
 
 ### Authorization
 
-[APIKeyHeader](../../README.md#APIKeyHeader)
+[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -86,10 +89,13 @@ Delete Product
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: APIKeyHeader
-$config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure HTTP basic authorization: HTTPBasic
+$config = PAYJPV2\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: HTTPBearer
+$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new PAYJPV2\Api\ProductsApi(
@@ -120,7 +126,7 @@ try {
 
 ### Authorization
 
-[APIKeyHeader](../../README.md#APIKeyHeader)
+[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -134,7 +140,7 @@ try {
 ## `getAllProducts()`
 
 ```php
-getAllProducts($limit, $offset): \PAYJPV2\Model\ProductListResponse
+getAllProducts($limit, $starting_after, $ending_before): \PAYJPV2\Model\ProductListResponse
 ```
 
 Get All Products
@@ -146,10 +152,13 @@ Get All Products
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: APIKeyHeader
-$config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure HTTP basic authorization: HTTPBasic
+$config = PAYJPV2\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: HTTPBearer
+$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new PAYJPV2\Api\ProductsApi(
@@ -159,10 +168,11 @@ $apiInstance = new PAYJPV2\Api\ProductsApi(
     $config
 );
 $limit = 10; // int | 取得するデータの最大件数
-$offset = 0; // int | データ取得を行う開始位置
+$starting_after = 'starting_after_example'; // string | このIDより後のデータを取得
+$ending_before = 'ending_before_example'; // string | このIDより前のデータを取得
 
 try {
-    $result = $apiInstance->getAllProducts($limit, $offset);
+    $result = $apiInstance->getAllProducts($limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductsApi->getAllProducts: ', $e->getMessage(), PHP_EOL;
@@ -174,7 +184,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **limit** | **int**| 取得するデータの最大件数 | [optional] [default to 10] |
-| **offset** | **int**| データ取得を行う開始位置 | [optional] [default to 0] |
+| **starting_after** | **string**| このIDより後のデータを取得 | [optional] |
+| **ending_before** | **string**| このIDより前のデータを取得 | [optional] |
 
 ### Return type
 
@@ -182,7 +193,7 @@ try {
 
 ### Authorization
 
-[APIKeyHeader](../../README.md#APIKeyHeader)
+[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -208,10 +219,13 @@ Get Product
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: APIKeyHeader
-$config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure HTTP basic authorization: HTTPBasic
+$config = PAYJPV2\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: HTTPBearer
+$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new PAYJPV2\Api\ProductsApi(
@@ -242,7 +256,7 @@ try {
 
 ### Authorization
 
-[APIKeyHeader](../../README.md#APIKeyHeader)
+[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -268,10 +282,13 @@ Update Product
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: APIKeyHeader
-$config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = PAYJPV2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure HTTP basic authorization: HTTPBasic
+$config = PAYJPV2\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: HTTPBearer
+$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new PAYJPV2\Api\ProductsApi(
@@ -304,7 +321,7 @@ try {
 
 ### Authorization
 
-[APIKeyHeader](../../README.md#APIKeyHeader)
+[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 

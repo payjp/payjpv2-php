@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **object** | **string** |  | [optional] [default to 'payment_method']
 **id** | **string** | ID |
-**type** | **string** |  |
+**type** | **string** |  | [default to 'card']
 **customer** | **string** |  | [optional]
 **livemode** | **bool** | 本番環境かどうか |
 **created_at** | **\DateTime** | 作成日時 (UTC, ISO 8601 形式) |

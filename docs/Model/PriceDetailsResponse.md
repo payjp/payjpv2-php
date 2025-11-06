@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **object** | **string** |  | [optional] [default to 'price']
 **livemode** | **bool** | 本番環境かどうか | [optional]
 **active** | **bool** | 価格が有効かどうか。デフォルトは &#x60;true&#x60;。 | [optional]
-**metadata** | **object** | メタデータ | [optional]
+**metadata** | **array<string,mixed>** | メタデータ | [optional]
 **nickname** | **string** |  | [optional]
 **type** | [**\PAYJPV2\Model\PriceType**](PriceType.md) | 価格が一度限りの購入か、継続的な（サブスクリプション）購入かに応じて、&#x60;one_time&#x60; または &#x60;recurring&#x60; のいずれかとなります。  | 指定できる値 | |:---| | **one_time**: 1回限りの価格。 | | **recurring**: 継続的な価格。 | | [optional]
 **lookup_key** | **string** |  | [optional]

@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **livemode** | **bool** | 本番環境かどうか |
 **type** | **string** | イベントの種類 |
 **pending_webhooks** | **int** | 設定されたURLへの通知が完了していない(2xxのレスポンスが得られていない)webhookの数 |
-**data** | **object** | このイベントに関連したリソースオブジェクト |
+**data** | **array<string,mixed>** | このイベントに関連したリソースオブジェクト |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
