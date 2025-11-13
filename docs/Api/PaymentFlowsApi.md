@@ -9,7 +9,6 @@ All URIs are relative to https://api.pay.jp, except if the operation defines ano
 | [**confirmPaymentFlow()**](PaymentFlowsApi.md#confirmPaymentFlow) | **POST** /v2/payment_flows/{payment_flow_id}/confirm | Confirm Payment Flow |
 | [**createPaymentFlow()**](PaymentFlowsApi.md#createPaymentFlow) | **POST** /v2/payment_flows | Create Payment Flow |
 | [**getAllPaymentFlow()**](PaymentFlowsApi.md#getAllPaymentFlow) | **GET** /v2/payment_flows | Get All Payment Flow |
-| [**incrementAuthorizationPaymentFlow()**](PaymentFlowsApi.md#incrementAuthorizationPaymentFlow) | **POST** /v2/payment_flows/{payment_flow_id}/increment_authorization | Increment Authorization Payment Flow |
 | [**retrievePaymentFlow()**](PaymentFlowsApi.md#retrievePaymentFlow) | **GET** /v2/payment_flows/{payment_flow_id} | Retrieve Payment Flow |
 | [**updatePaymentFlow()**](PaymentFlowsApi.md#updatePaymentFlow) | **POST** /v2/payment_flows/{payment_flow_id} | Update Payment Flow |
 
@@ -335,71 +334,6 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/problem+json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `incrementAuthorizationPaymentFlow()`
-
-```php
-incrementAuthorizationPaymentFlow($payment_flow_id, $payment_flow_increment_authorization_request): \PAYJPV2\Model\PaymentFlowResponse
-```
-
-Increment Authorization Payment Flow
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: HTTPBasic
-$config = PAYJPV2\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure Bearer authorization: HTTPBearer
-$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new PAYJPV2\Api\PaymentFlowsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$payment_flow_id = 'payment_flow_id_example'; // string
-$payment_flow_increment_authorization_request = new \PAYJPV2\Model\PaymentFlowIncrementAuthorizationRequest(); // \PAYJPV2\Model\PaymentFlowIncrementAuthorizationRequest
-
-try {
-    $result = $apiInstance->incrementAuthorizationPaymentFlow($payment_flow_id, $payment_flow_increment_authorization_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PaymentFlowsApi->incrementAuthorizationPaymentFlow: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **payment_flow_id** | **string**|  | |
-| **payment_flow_increment_authorization_request** | [**\PAYJPV2\Model\PaymentFlowIncrementAuthorizationRequest**](../Model/PaymentFlowIncrementAuthorizationRequest.md)|  | |
-
-### Return type
-
-[**\PAYJPV2\Model\PaymentFlowResponse**](../Model/PaymentFlowResponse.md)
-
-### Authorization
-
-[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/problem+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

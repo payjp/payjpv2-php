@@ -57,8 +57,6 @@ class SetupFlowConfirmRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payment_method' => 'string',
-        'payment_method_data' => '\PAYJPV2\Model\PaymentMethodCreateRequest',
         'payment_method_options' => 'array<string,mixed>',
         'return_url' => 'string',
         'use_payjp_sdk' => 'bool'
@@ -72,8 +70,6 @@ class SetupFlowConfirmRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'payment_method' => null,
-        'payment_method_data' => null,
         'payment_method_options' => null,
         'return_url' => null,
         'use_payjp_sdk' => null
@@ -85,8 +81,6 @@ class SetupFlowConfirmRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'payment_method' => false,
-        'payment_method_data' => false,
         'payment_method_options' => false,
         'return_url' => false,
         'use_payjp_sdk' => false
@@ -178,8 +172,6 @@ class SetupFlowConfirmRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'payment_method' => 'payment_method',
-        'payment_method_data' => 'payment_method_data',
         'payment_method_options' => 'payment_method_options',
         'return_url' => 'return_url',
         'use_payjp_sdk' => 'use_payjp_sdk'
@@ -191,8 +183,6 @@ class SetupFlowConfirmRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'payment_method' => 'setPaymentMethod',
-        'payment_method_data' => 'setPaymentMethodData',
         'payment_method_options' => 'setPaymentMethodOptions',
         'return_url' => 'setReturnUrl',
         'use_payjp_sdk' => 'setUsePayjpSdk'
@@ -204,8 +194,6 @@ class SetupFlowConfirmRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'payment_method' => 'getPaymentMethod',
-        'payment_method_data' => 'getPaymentMethodData',
         'payment_method_options' => 'getPaymentMethodOptions',
         'return_url' => 'getReturnUrl',
         'use_payjp_sdk' => 'getUsePayjpSdk'
@@ -268,8 +256,6 @@ class SetupFlowConfirmRequest implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('payment_method', $data ?? [], null);
-        $this->setIfExists('payment_method_data', $data ?? [], null);
         $this->setIfExists('payment_method_options', $data ?? [], null);
         $this->setIfExists('return_url', $data ?? [], null);
         $this->setIfExists('use_payjp_sdk', $data ?? [], null);
@@ -316,60 +302,6 @@ class SetupFlowConfirmRequest implements ModelInterface, ArrayAccess, \JsonSeria
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets payment_method
-     *
-     * @return string|null
-     */
-    public function getPaymentMethod()
-    {
-        return $this->container['payment_method'];
-    }
-
-    /**
-     * Sets payment_method
-     *
-     * @param string|null $payment_method この SetupFlow に紐付ける決済方法のID
-     *
-     * @return self
-     */
-    public function setPaymentMethod($payment_method)
-    {
-        if (is_null($payment_method)) {
-            throw new \InvalidArgumentException('non-nullable payment_method cannot be null');
-        }
-        $this->container['payment_method'] = $payment_method;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_method_data
-     *
-     * @return \PAYJPV2\Model\PaymentMethodCreateRequest|null
-     */
-    public function getPaymentMethodData()
-    {
-        return $this->container['payment_method_data'];
-    }
-
-    /**
-     * Sets payment_method_data
-     *
-     * @param \PAYJPV2\Model\PaymentMethodCreateRequest|null $payment_method_data 支払い方法データ
-     *
-     * @return self
-     */
-    public function setPaymentMethodData($payment_method_data)
-    {
-        if (is_null($payment_method_data)) {
-            throw new \InvalidArgumentException('non-nullable payment_method_data cannot be null');
-        }
-        $this->container['payment_method_data'] = $payment_method_data;
-
-        return $this;
-    }
 
     /**
      * Gets payment_method_options

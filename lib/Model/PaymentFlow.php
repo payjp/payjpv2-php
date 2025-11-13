@@ -58,7 +58,29 @@ class PaymentFlow implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'id' => 'string',
+        'object' => 'string',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime',
+        'livemode' => 'bool',
+        'amount' => 'int',
+        'amount_capturable' => 'int',
+        'amount_received' => 'int',
+        'client_secret' => 'string',
+        'confirmation_method' => 'string',
+        'customer' => 'string',
+        'description' => 'string',
+        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
+        'payment_method' => 'string',
+        'payment_method_options' => 'array<string,mixed>',
+        'payment_method_types' => 'string[]',
+        'receipt_email' => 'string',
+        'status' => '\PAYJPV2\Model\PaymentFlowStatus',
+        'next_action' => 'array<string,mixed>',
+        'return_url' => 'string',
+        'capture_method' => '\PAYJPV2\Model\CaptureMethod',
+        'setup_future_usage' => '\PAYJPV2\Model\Usage',
+        'last_payment_error' => 'array<string,mixed>'
     ];
 
     /**
@@ -69,7 +91,29 @@ class PaymentFlow implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        
+        'id' => null,
+        'object' => null,
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time',
+        'livemode' => null,
+        'amount' => null,
+        'amount_capturable' => null,
+        'amount_received' => null,
+        'client_secret' => null,
+        'confirmation_method' => null,
+        'customer' => null,
+        'description' => null,
+        'metadata' => null,
+        'payment_method' => null,
+        'payment_method_options' => null,
+        'payment_method_types' => null,
+        'receipt_email' => null,
+        'status' => null,
+        'next_action' => null,
+        'return_url' => null,
+        'capture_method' => null,
+        'setup_future_usage' => null,
+        'last_payment_error' => null
     ];
 
     /**
@@ -78,7 +122,29 @@ class PaymentFlow implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        
+        'id' => false,
+        'object' => false,
+        'created_at' => false,
+        'updated_at' => false,
+        'livemode' => false,
+        'amount' => false,
+        'amount_capturable' => false,
+        'amount_received' => false,
+        'client_secret' => false,
+        'confirmation_method' => false,
+        'customer' => false,
+        'description' => false,
+        'metadata' => false,
+        'payment_method' => false,
+        'payment_method_options' => false,
+        'payment_method_types' => false,
+        'receipt_email' => false,
+        'status' => false,
+        'next_action' => false,
+        'return_url' => false,
+        'capture_method' => false,
+        'setup_future_usage' => false,
+        'last_payment_error' => false
     ];
 
     /**
@@ -167,7 +233,29 @@ class PaymentFlow implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'id' => 'id',
+        'object' => 'object',
+        'created_at' => 'created_at',
+        'updated_at' => 'updated_at',
+        'livemode' => 'livemode',
+        'amount' => 'amount',
+        'amount_capturable' => 'amount_capturable',
+        'amount_received' => 'amount_received',
+        'client_secret' => 'client_secret',
+        'confirmation_method' => 'confirmation_method',
+        'customer' => 'customer',
+        'description' => 'description',
+        'metadata' => 'metadata',
+        'payment_method' => 'payment_method',
+        'payment_method_options' => 'payment_method_options',
+        'payment_method_types' => 'payment_method_types',
+        'receipt_email' => 'receipt_email',
+        'status' => 'status',
+        'next_action' => 'next_action',
+        'return_url' => 'return_url',
+        'capture_method' => 'capture_method',
+        'setup_future_usage' => 'setup_future_usage',
+        'last_payment_error' => 'last_payment_error'
     ];
 
     /**
@@ -176,7 +264,29 @@ class PaymentFlow implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        
+        'id' => 'setId',
+        'object' => 'setObject',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt',
+        'livemode' => 'setLivemode',
+        'amount' => 'setAmount',
+        'amount_capturable' => 'setAmountCapturable',
+        'amount_received' => 'setAmountReceived',
+        'client_secret' => 'setClientSecret',
+        'confirmation_method' => 'setConfirmationMethod',
+        'customer' => 'setCustomer',
+        'description' => 'setDescription',
+        'metadata' => 'setMetadata',
+        'payment_method' => 'setPaymentMethod',
+        'payment_method_options' => 'setPaymentMethodOptions',
+        'payment_method_types' => 'setPaymentMethodTypes',
+        'receipt_email' => 'setReceiptEmail',
+        'status' => 'setStatus',
+        'next_action' => 'setNextAction',
+        'return_url' => 'setReturnUrl',
+        'capture_method' => 'setCaptureMethod',
+        'setup_future_usage' => 'setSetupFutureUsage',
+        'last_payment_error' => 'setLastPaymentError'
     ];
 
     /**
@@ -185,7 +295,29 @@ class PaymentFlow implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        
+        'id' => 'getId',
+        'object' => 'getObject',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt',
+        'livemode' => 'getLivemode',
+        'amount' => 'getAmount',
+        'amount_capturable' => 'getAmountCapturable',
+        'amount_received' => 'getAmountReceived',
+        'client_secret' => 'getClientSecret',
+        'confirmation_method' => 'getConfirmationMethod',
+        'customer' => 'getCustomer',
+        'description' => 'getDescription',
+        'metadata' => 'getMetadata',
+        'payment_method' => 'getPaymentMethod',
+        'payment_method_options' => 'getPaymentMethodOptions',
+        'payment_method_types' => 'getPaymentMethodTypes',
+        'receipt_email' => 'getReceiptEmail',
+        'status' => 'getStatus',
+        'next_action' => 'getNextAction',
+        'return_url' => 'getReturnUrl',
+        'capture_method' => 'getCaptureMethod',
+        'setup_future_usage' => 'getSetupFutureUsage',
+        'last_payment_error' => 'getLastPaymentError'
     ];
 
     /**
@@ -229,6 +361,19 @@ class PaymentFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const OBJECT_PAYMENT_FLOW = 'payment_flow';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getObjectAllowableValues()
+    {
+        return [
+            self::OBJECT_PAYMENT_FLOW,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -245,6 +390,29 @@ class PaymentFlow implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('object', $data ?? [], 'payment_flow');
+        $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
+        $this->setIfExists('livemode', $data ?? [], null);
+        $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('amount_capturable', $data ?? [], null);
+        $this->setIfExists('amount_received', $data ?? [], null);
+        $this->setIfExists('client_secret', $data ?? [], null);
+        $this->setIfExists('confirmation_method', $data ?? [], null);
+        $this->setIfExists('customer', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('payment_method', $data ?? [], null);
+        $this->setIfExists('payment_method_options', $data ?? [], null);
+        $this->setIfExists('payment_method_types', $data ?? [], null);
+        $this->setIfExists('receipt_email', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('next_action', $data ?? [], null);
+        $this->setIfExists('return_url', $data ?? [], null);
+        $this->setIfExists('capture_method', $data ?? [], null);
+        $this->setIfExists('setup_future_usage', $data ?? [], null);
+        $this->setIfExists('last_payment_error', $data ?? [], null);
     }
 
     /**
@@ -274,6 +442,54 @@ class PaymentFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        $allowedValues = $this->getObjectAllowableValues();
+        if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'object', must be one of '%s'",
+                $this->container['object'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['created_at'] === null) {
+            $invalidProperties[] = "'created_at' can't be null";
+        }
+        if ($this->container['updated_at'] === null) {
+            $invalidProperties[] = "'updated_at' can't be null";
+        }
+        if ($this->container['livemode'] === null) {
+            $invalidProperties[] = "'livemode' can't be null";
+        }
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
+        }
+        if ($this->container['amount_capturable'] === null) {
+            $invalidProperties[] = "'amount_capturable' can't be null";
+        }
+        if ($this->container['amount_received'] === null) {
+            $invalidProperties[] = "'amount_received' can't be null";
+        }
+        if ($this->container['client_secret'] === null) {
+            $invalidProperties[] = "'client_secret' can't be null";
+        }
+        if ($this->container['confirmation_method'] === null) {
+            $invalidProperties[] = "'confirmation_method' can't be null";
+        }
+        if ($this->container['payment_method_types'] === null) {
+            $invalidProperties[] = "'payment_method_types' can't be null";
+        }
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
+        if ($this->container['capture_method'] === null) {
+            $invalidProperties[] = "'capture_method' can't be null";
+        }
+        if ($this->container['last_payment_error'] === null) {
+            $invalidProperties[] = "'last_payment_error' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -288,6 +504,637 @@ class PaymentFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id 支払いインテントID
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets object
+     *
+     * @return string|null
+     */
+    public function getObject()
+    {
+        return $this->container['object'];
+    }
+
+    /**
+     * Sets object
+     *
+     * @param string|null $object object
+     *
+     * @return self
+     */
+    public function setObject($object)
+    {
+        if (is_null($object)) {
+            throw new \InvalidArgumentException('non-nullable object cannot be null');
+        }
+        $allowedValues = $this->getObjectAllowableValues();
+        if (!in_array($object, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'object', must be one of '%s'",
+                    $object,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['object'] = $object;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime $created_at 作成日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        if (is_null($created_at)) {
+            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+        }
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime $updated_at 更新日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        if (is_null($updated_at)) {
+            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+        }
+        $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets livemode
+     *
+     * @return bool
+     */
+    public function getLivemode()
+    {
+        return $this->container['livemode'];
+    }
+
+    /**
+     * Sets livemode
+     *
+     * @param bool $livemode 本番環境かどうか
+     *
+     * @return self
+     */
+    public function setLivemode($livemode)
+    {
+        if (is_null($livemode)) {
+            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
+        }
+        $this->container['livemode'] = $livemode;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount
+     *
+     * @return int
+     */
+    public function getAmount()
+    {
+        return $this->container['amount'];
+    }
+
+    /**
+     * Sets amount
+     *
+     * @param int $amount 支払い予定の金額。50円以上9,999,999円以下である必要があります。支払い手段によって上限金額は異なります。
+     *
+     * @return self
+     */
+    public function setAmount($amount)
+    {
+        if (is_null($amount)) {
+            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+        }
+        $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount_capturable
+     *
+     * @return int
+     */
+    public function getAmountCapturable()
+    {
+        return $this->container['amount_capturable'];
+    }
+
+    /**
+     * Sets amount_capturable
+     *
+     * @param int $amount_capturable amount_capturable
+     *
+     * @return self
+     */
+    public function setAmountCapturable($amount_capturable)
+    {
+        if (is_null($amount_capturable)) {
+            throw new \InvalidArgumentException('non-nullable amount_capturable cannot be null');
+        }
+        $this->container['amount_capturable'] = $amount_capturable;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount_received
+     *
+     * @return int
+     */
+    public function getAmountReceived()
+    {
+        return $this->container['amount_received'];
+    }
+
+    /**
+     * Sets amount_received
+     *
+     * @param int $amount_received amount_received
+     *
+     * @return self
+     */
+    public function setAmountReceived($amount_received)
+    {
+        if (is_null($amount_received)) {
+            throw new \InvalidArgumentException('non-nullable amount_received cannot be null');
+        }
+        $this->container['amount_received'] = $amount_received;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_secret
+     *
+     * @return string
+     */
+    public function getClientSecret()
+    {
+        return $this->container['client_secret'];
+    }
+
+    /**
+     * Sets client_secret
+     *
+     * @param string $client_secret このPaymentFlowのクライアントシークレットです。フロントエンドで公開APIキーと合わせて使用しPaymentFlowの情報を取得や支払い処理を行います。**この値はこのPaymentFlowの支払いを行う顧客以外へ公開しないでください。**また保存やログへの記録なども行わないでください。
+     *
+     * @return self
+     */
+    public function setClientSecret($client_secret)
+    {
+        if (is_null($client_secret)) {
+            throw new \InvalidArgumentException('non-nullable client_secret cannot be null');
+        }
+        $this->container['client_secret'] = $client_secret;
+
+        return $this;
+    }
+
+    /**
+     * Gets confirmation_method
+     *
+     * @return string
+     */
+    public function getConfirmationMethod()
+    {
+        return $this->container['confirmation_method'];
+    }
+
+    /**
+     * Sets confirmation_method
+     *
+     * @param string $confirmation_method confirmation_method
+     *
+     * @return self
+     */
+    public function setConfirmationMethod($confirmation_method)
+    {
+        if (is_null($confirmation_method)) {
+            throw new \InvalidArgumentException('non-nullable confirmation_method cannot be null');
+        }
+        $this->container['confirmation_method'] = $confirmation_method;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer
+     *
+     * @return string|null
+     */
+    public function getCustomer()
+    {
+        return $this->container['customer'];
+    }
+
+    /**
+     * Sets customer
+     *
+     * @param string|null $customer customer
+     *
+     * @return self
+     */
+    public function setCustomer($customer)
+    {
+        if (is_null($customer)) {
+            throw new \InvalidArgumentException('non-nullable customer cannot be null');
+        }
+        $this->container['customer'] = $customer;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description description
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        }
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return array<string,\PAYJPV2\Model\MetadataValue>|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata メタデータ
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        if (is_null($metadata)) {
+            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+        }
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_method
+     *
+     * @return string|null
+     */
+    public function getPaymentMethod()
+    {
+        return $this->container['payment_method'];
+    }
+
+    /**
+     * Sets payment_method
+     *
+     * @param string|null $payment_method payment_method
+     *
+     * @return self
+     */
+    public function setPaymentMethod($payment_method)
+    {
+        if (is_null($payment_method)) {
+            throw new \InvalidArgumentException('non-nullable payment_method cannot be null');
+        }
+        $this->container['payment_method'] = $payment_method;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_method_options
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getPaymentMethodOptions()
+    {
+        return $this->container['payment_method_options'];
+    }
+
+    /**
+     * Sets payment_method_options
+     *
+     * @param array<string,mixed>|null $payment_method_options payment_method_options
+     *
+     * @return self
+     */
+    public function setPaymentMethodOptions($payment_method_options)
+    {
+        if (is_null($payment_method_options)) {
+            throw new \InvalidArgumentException('non-nullable payment_method_options cannot be null');
+        }
+        $this->container['payment_method_options'] = $payment_method_options;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_method_types
+     *
+     * @return string[]
+     */
+    public function getPaymentMethodTypes()
+    {
+        return $this->container['payment_method_types'];
+    }
+
+    /**
+     * Sets payment_method_types
+     *
+     * @param string[] $payment_method_types このPaymentFlowで使用できる支払い方法の種類（カードなど）のリストです。 指定しない場合は、PAY.JPは支払い方法の設定から利用可能な支払い方法を動的に表示します。
+     *
+     * @return self
+     */
+    public function setPaymentMethodTypes($payment_method_types)
+    {
+        if (is_null($payment_method_types)) {
+            throw new \InvalidArgumentException('non-nullable payment_method_types cannot be null');
+        }
+        $this->container['payment_method_types'] = $payment_method_types;
+
+        return $this;
+    }
+
+    /**
+     * Gets receipt_email
+     *
+     * @return string|null
+     */
+    public function getReceiptEmail()
+    {
+        return $this->container['receipt_email'];
+    }
+
+    /**
+     * Sets receipt_email
+     *
+     * @param string|null $receipt_email receipt_email
+     *
+     * @return self
+     */
+    public function setReceiptEmail($receipt_email)
+    {
+        if (is_null($receipt_email)) {
+            throw new \InvalidArgumentException('non-nullable receipt_email cannot be null');
+        }
+        $this->container['receipt_email'] = $receipt_email;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return \PAYJPV2\Model\PaymentFlowStatus
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param \PAYJPV2\Model\PaymentFlowStatus $status このPaymentFlowのステータスです。<a href=\"https://docs.pay.jp/v2/payment_flows#status\" target=\"_blank\">ステータスの詳細についてはこちらをご覧ください。</a>  | 値 | |:---| | **requires_payment_method**: 支払い方法が必要です。 | | **requires_confirmation**: 確認が必要です。 | | **requires_action**: 顧客のアクションが必要です。 | | **processing**: 処理中です。 | | **requires_capture**: 確定が必要です。 | | **canceled**: キャンセルされました。 | | **succeeded**: 成功しました。 |
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_action
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getNextAction()
+    {
+        return $this->container['next_action'];
+    }
+
+    /**
+     * Sets next_action
+     *
+     * @param array<string,mixed>|null $next_action next_action
+     *
+     * @return self
+     */
+    public function setNextAction($next_action)
+    {
+        if (is_null($next_action)) {
+            throw new \InvalidArgumentException('non-nullable next_action cannot be null');
+        }
+        $this->container['next_action'] = $next_action;
+
+        return $this;
+    }
+
+    /**
+     * Gets return_url
+     *
+     * @return string|null
+     */
+    public function getReturnUrl()
+    {
+        return $this->container['return_url'];
+    }
+
+    /**
+     * Sets return_url
+     *
+     * @param string|null $return_url return_url
+     *
+     * @return self
+     */
+    public function setReturnUrl($return_url)
+    {
+        if (is_null($return_url)) {
+            throw new \InvalidArgumentException('non-nullable return_url cannot be null');
+        }
+        $this->container['return_url'] = $return_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets capture_method
+     *
+     * @return \PAYJPV2\Model\CaptureMethod
+     */
+    public function getCaptureMethod()
+    {
+        return $this->container['capture_method'];
+    }
+
+    /**
+     * Sets capture_method
+     *
+     * @param \PAYJPV2\Model\CaptureMethod $capture_method 支払いの確定方法を指定します。  | 指定できる値 | |:---| | **automatic**: (デフォルト) 顧客が支払いを承認すると、自動的に確定させます。 | | **manual**: 顧客が支払いを承認すると一旦確定を保留し、後で Capture API を使用して確定します。（すべての支払い方法がこれをサポートしているわけではありません）。 |
+     *
+     * @return self
+     */
+    public function setCaptureMethod($capture_method)
+    {
+        if (is_null($capture_method)) {
+            throw new \InvalidArgumentException('non-nullable capture_method cannot be null');
+        }
+        $this->container['capture_method'] = $capture_method;
+
+        return $this;
+    }
+
+    /**
+     * Gets setup_future_usage
+     *
+     * @return \PAYJPV2\Model\Usage|null
+     */
+    public function getSetupFutureUsage()
+    {
+        return $this->container['setup_future_usage'];
+    }
+
+    /**
+     * Sets setup_future_usage
+     *
+     * @param \PAYJPV2\Model\Usage|null $setup_future_usage setup_future_usage
+     *
+     * @return self
+     */
+    public function setSetupFutureUsage($setup_future_usage)
+    {
+        if (is_null($setup_future_usage)) {
+            throw new \InvalidArgumentException('non-nullable setup_future_usage cannot be null');
+        }
+        $this->container['setup_future_usage'] = $setup_future_usage;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_payment_error
+     *
+     * @return array<string,mixed>
+     */
+    public function getLastPaymentError()
+    {
+        return $this->container['last_payment_error'];
+    }
+
+    /**
+     * Sets last_payment_error
+     *
+     * @param array<string,mixed> $last_payment_error last_payment_error
+     *
+     * @return self
+     */
+    public function setLastPaymentError($last_payment_error)
+    {
+        if (is_null($last_payment_error)) {
+            throw new \InvalidArgumentException('non-nullable last_payment_error cannot be null');
+        }
+        $this->container['last_payment_error'] = $last_payment_error;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

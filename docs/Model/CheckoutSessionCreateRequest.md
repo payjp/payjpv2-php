@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **currency** | [**\PAYJPV2\Model\Currency**](Currency.md) | 価格の通貨。現在は &#x60;jpy&#x60; のみサポートしています。 | [optional]
 **expires_at** | **\DateTime** | Checkout Session の有効期限が失効する日時。 | [optional]
 **locale** | [**\PAYJPV2\Model\Locale**](Locale.md) | Checkout 画面の表示言語を指定します。  | 指定できる値 | |:---| | **ja**: 日本語で表示します。 | | [optional]
-**payment_flow_data** | [**\PAYJPV2\Model\PaymentFlowDataRequestInput**](PaymentFlowDataRequestInput.md) | &#x60;payment&#x60; モード指定時に PaymentFlow 作成に使用するパラメーター。 | [optional]
+**payment_flow_data** | [**\PAYJPV2\Model\PaymentFlowDataRequest**](PaymentFlowDataRequest.md) | &#x60;payment&#x60; モード指定時に PaymentFlow 作成に使用するパラメーター。 | [optional]
 **payment_method_options** | [**\PAYJPV2\Model\PaymentMethodOptionsRequest**](PaymentMethodOptionsRequest.md) | この PaymentFlow の支払い方法の個別設定。 | [optional]
 **payment_method_types** | [**\PAYJPV2\Model\PaymentMethodTypes[]**](PaymentMethodTypes.md) | この PaymentFlow で使用できる支払い方法の種類（カードなど）のリストです。 指定しない場合、ダッシュボードで利用可能な状態にしている支払い方法を自動的に表示します。 | [optional]
 **setup_flow_data** | [**\PAYJPV2\Model\SetupFlowDataRequest**](SetupFlowDataRequest.md) | &#x60;setup&#x60; モードの Checkout Session を作成する際、SetupFlow の作成に渡されるパラメーター | [optional]

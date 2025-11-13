@@ -78,6 +78,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'next_action' => 'array<string,mixed>',
         'return_url' => 'string',
         'capture_method' => '\PAYJPV2\Model\CaptureMethod',
+        'setup_future_usage' => '\PAYJPV2\Model\Usage',
         'last_payment_error' => 'array<string,mixed>'
     ];
 
@@ -110,6 +111,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'next_action' => null,
         'return_url' => null,
         'capture_method' => null,
+        'setup_future_usage' => null,
         'last_payment_error' => null
     ];
 
@@ -140,6 +142,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'next_action' => true,
         'return_url' => true,
         'capture_method' => false,
+        'setup_future_usage' => true,
         'last_payment_error' => true
     ];
 
@@ -250,6 +253,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'next_action' => 'next_action',
         'return_url' => 'return_url',
         'capture_method' => 'capture_method',
+        'setup_future_usage' => 'setup_future_usage',
         'last_payment_error' => 'last_payment_error'
     ];
 
@@ -280,6 +284,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'next_action' => 'setNextAction',
         'return_url' => 'setReturnUrl',
         'capture_method' => 'setCaptureMethod',
+        'setup_future_usage' => 'setSetupFutureUsage',
         'last_payment_error' => 'setLastPaymentError'
     ];
 
@@ -310,6 +315,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'next_action' => 'getNextAction',
         'return_url' => 'getReturnUrl',
         'capture_method' => 'getCaptureMethod',
+        'setup_future_usage' => 'getSetupFutureUsage',
         'last_payment_error' => 'getLastPaymentError'
     ];
 
@@ -404,6 +410,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('next_action', $data ?? [], null);
         $this->setIfExists('return_url', $data ?? [], null);
         $this->setIfExists('capture_method', $data ?? [], null);
+        $this->setIfExists('setup_future_usage', $data ?? [], null);
         $this->setIfExists('last_payment_error', $data ?? [], null);
     }
 
@@ -1140,6 +1147,40 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable capture_method cannot be null');
         }
         $this->container['capture_method'] = $capture_method;
+
+        return $this;
+    }
+
+    /**
+     * Gets setup_future_usage
+     *
+     * @return \PAYJPV2\Model\Usage|null
+     */
+    public function getSetupFutureUsage()
+    {
+        return $this->container['setup_future_usage'];
+    }
+
+    /**
+     * Sets setup_future_usage
+     *
+     * @param \PAYJPV2\Model\Usage|null $setup_future_usage setup_future_usage
+     *
+     * @return self
+     */
+    public function setSetupFutureUsage($setup_future_usage)
+    {
+        if (is_null($setup_future_usage)) {
+            array_push($this->openAPINullablesSetToNull, 'setup_future_usage');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('setup_future_usage', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['setup_future_usage'] = $setup_future_usage;
 
         return $this;
     }

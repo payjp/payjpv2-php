@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **payment_flow** | [**\PAYJPV2\Model\PaymentFlow**](PaymentFlow.md) |  | [optional]
 **payment_method_types** | [**\PAYJPV2\Model\PaymentMethodTypes[]**](PaymentMethodTypes.md) |  | [optional]
 **payment_method_options** | **array<string,mixed>** |  | [optional]
-**setup_flow** | [**\PAYJPV2\Model\PaymentFlowDataRequestOutput**](PaymentFlowDataRequestOutput.md) |  | [optional]
+**setup_flow** | [**\PAYJPV2\Model\SetupFlow**](SetupFlow.md) |  | [optional]
 **submit_type** | [**\PAYJPV2\Model\CheckoutSessionSubmitType**](CheckoutSessionSubmitType.md) |  | [optional]
 **mode** | [**\PAYJPV2\Model\CheckoutSessionMode**](CheckoutSessionMode.md) | Checkout Session のモード  | 指定できる値 | |:---| | **hosted**: PAY.JPでホスティングしている画面を使用します。 | | [optional]
 **ui_mode** | [**\PAYJPV2\Model\CheckoutSessionUIMode**](CheckoutSessionUIMode.md) | Checkout Session の UI モード。デフォルトは &#x60;hosted&#x60; です。&lt;br&gt;  | 指定できる値 | |:---| | **hosted**: PAY.JPでホスティングしている画面を使用します。 | | [optional]

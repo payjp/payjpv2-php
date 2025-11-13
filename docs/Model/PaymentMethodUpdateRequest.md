@@ -1,4 +1,4 @@
-# # PaymentMethodCardUpdateRequest
+# # PaymentMethodUpdateRequest
 
 ## Properties
 

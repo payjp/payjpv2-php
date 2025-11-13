@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **next_action** | **array<string,mixed>** |  | [optional]
 **return_url** | **string** |  | [optional]
 **capture_method** | [**\PAYJPV2\Model\CaptureMethod**](CaptureMethod.md) | 支払いの確定方法を指定します。  | 指定できる値 | |:---| | **automatic**: (デフォルト) 顧客が支払いを承認すると、自動的に確定させます。 | | **manual**: 顧客が支払いを承認すると一旦確定を保留し、後で Capture API を使用して確定します。（すべての支払い方法がこれをサポートしているわけではありません）。 | |
+**setup_future_usage** | [**\PAYJPV2\Model\Usage**](Usage.md) |  | [optional]
 **last_payment_error** | **array<string,mixed>** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

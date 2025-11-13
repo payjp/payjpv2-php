@@ -1,6 +1,6 @@
 <?php
 /**
- * SetupFlowUpdateRequest
+ * PaymentFlowDataRequest
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \PAYJPV2\ObjectSerializer;
 
 /**
- * SetupFlowUpdateRequest Class Doc Comment
+ * PaymentFlowDataRequest Class Doc Comment
  *
  * @category Class
  * @package  PAYJPV2
@@ -40,7 +40,7 @@ use \PAYJPV2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SetupFlowUpdateRequest';
+    protected static $openAPIModelName = 'PaymentFlowDataRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,9 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'customer' => 'string',
-        'payment_method_options' => 'array<string,mixed>',
-        'payment_method_types' => 'string[]',
-        'description' => 'string',
-        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>'
+        'capture_method' => '\PAYJPV2\Model\CaptureMethod',
+        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
+        'setup_future_usage' => 'string'
     ];
 
     /**
@@ -72,11 +70,9 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'customer' => null,
-        'payment_method_options' => null,
-        'payment_method_types' => null,
-        'description' => null,
-        'metadata' => null
+        'capture_method' => null,
+        'metadata' => null,
+        'setup_future_usage' => null
     ];
 
     /**
@@ -85,11 +81,9 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'customer' => false,
-        'payment_method_options' => false,
-        'payment_method_types' => true,
-        'description' => false,
-        'metadata' => false
+        'capture_method' => false,
+        'metadata' => false,
+        'setup_future_usage' => false
     ];
 
     /**
@@ -178,11 +172,9 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'customer' => 'customer',
-        'payment_method_options' => 'payment_method_options',
-        'payment_method_types' => 'payment_method_types',
-        'description' => 'description',
-        'metadata' => 'metadata'
+        'capture_method' => 'capture_method',
+        'metadata' => 'metadata',
+        'setup_future_usage' => 'setup_future_usage'
     ];
 
     /**
@@ -191,11 +183,9 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'customer' => 'setCustomer',
-        'payment_method_options' => 'setPaymentMethodOptions',
-        'payment_method_types' => 'setPaymentMethodTypes',
-        'description' => 'setDescription',
-        'metadata' => 'setMetadata'
+        'capture_method' => 'setCaptureMethod',
+        'metadata' => 'setMetadata',
+        'setup_future_usage' => 'setSetupFutureUsage'
     ];
 
     /**
@@ -204,11 +194,9 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'customer' => 'getCustomer',
-        'payment_method_options' => 'getPaymentMethodOptions',
-        'payment_method_types' => 'getPaymentMethodTypes',
-        'description' => 'getDescription',
-        'metadata' => 'getMetadata'
+        'capture_method' => 'getCaptureMethod',
+        'metadata' => 'getMetadata',
+        'setup_future_usage' => 'getSetupFutureUsage'
     ];
 
     /**
@@ -252,19 +240,19 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
-    public const PAYMENT_METHOD_TYPES_CARD = 'card';
-    public const PAYMENT_METHOD_TYPES_APPLE_PAY = 'apple_pay';
+    public const SETUP_FUTURE_USAGE_OFF_SESSION = 'off_session';
+    public const SETUP_FUTURE_USAGE_ON_SESSION = 'on_session';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getPaymentMethodTypesAllowableValues()
+    public function getSetupFutureUsageAllowableValues()
     {
         return [
-            self::PAYMENT_METHOD_TYPES_CARD,
-            self::PAYMENT_METHOD_TYPES_APPLE_PAY,
+            self::SETUP_FUTURE_USAGE_OFF_SESSION,
+            self::SETUP_FUTURE_USAGE_ON_SESSION,
         ];
     }
 
@@ -283,11 +271,9 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('customer', $data ?? [], null);
-        $this->setIfExists('payment_method_options', $data ?? [], null);
-        $this->setIfExists('payment_method_types', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('capture_method', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('setup_future_usage', $data ?? [], null);
     }
 
     /**
@@ -317,6 +303,15 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getSetupFutureUsageAllowableValues();
+        if (!is_null($this->container['setup_future_usage']) && !in_array($this->container['setup_future_usage'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'setup_future_usage', must be one of '%s'",
+                $this->container['setup_future_usage'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -333,125 +328,28 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets customer
+     * Gets capture_method
      *
-     * @return string|null
+     * @return \PAYJPV2\Model\CaptureMethod|null
      */
-    public function getCustomer()
+    public function getCaptureMethod()
     {
-        return $this->container['customer'];
+        return $this->container['capture_method'];
     }
 
     /**
-     * Sets customer
+     * Sets capture_method
      *
-     * @param string|null $customer この SetupFlow が属する顧客の ID。SetupFlow に PaymentMethod が設定されている場合、SetupFlow の設定が成功するとその PaymentMethod は顧客に紐付きます。別の顧客に紐付いている PaymentMethod をこの SetupFlow で使用することはできません。
+     * @param \PAYJPV2\Model\CaptureMethod|null $capture_method 支払いの確定方法を指定します。  | 指定できる値 | |:---| | **automatic**: (デフォルト) 顧客が支払いを承認すると自動的に確定します。 | | **manual**: 顧客が支払いを承認すると一旦確定を保留し、後で Capture API を使用して確定します。（すべての支払い方法がこれをサポートしているわけではありません）。 |
      *
      * @return self
      */
-    public function setCustomer($customer)
+    public function setCaptureMethod($capture_method)
     {
-        if (is_null($customer)) {
-            throw new \InvalidArgumentException('non-nullable customer cannot be null');
+        if (is_null($capture_method)) {
+            throw new \InvalidArgumentException('non-nullable capture_method cannot be null');
         }
-        $this->container['customer'] = $customer;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_method_options
-     *
-     * @return array<string,mixed>|null
-     */
-    public function getPaymentMethodOptions()
-    {
-        return $this->container['payment_method_options'];
-    }
-
-    /**
-     * Sets payment_method_options
-     *
-     * @param array<string,mixed>|null $payment_method_options この SetupFlow の支払い方法の個別設定。
-     *
-     * @return self
-     */
-    public function setPaymentMethodOptions($payment_method_options)
-    {
-        if (is_null($payment_method_options)) {
-            throw new \InvalidArgumentException('non-nullable payment_method_options cannot be null');
-        }
-        $this->container['payment_method_options'] = $payment_method_options;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_method_types
-     *
-     * @return string[]|null
-     */
-    public function getPaymentMethodTypes()
-    {
-        return $this->container['payment_method_types'];
-    }
-
-    /**
-     * Sets payment_method_types
-     *
-     * @param string[]|null $payment_method_types payment_method_types
-     *
-     * @return self
-     */
-    public function setPaymentMethodTypes($payment_method_types)
-    {
-        if (is_null($payment_method_types)) {
-            array_push($this->openAPINullablesSetToNull, 'payment_method_types');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('payment_method_types', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $allowedValues = $this->getPaymentMethodTypesAllowableValues();
-        if (!is_null($payment_method_types) && array_diff($payment_method_types, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'payment_method_types', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['payment_method_types'] = $payment_method_types;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description 説明。顧客に表示されます。
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
-        }
-        $this->container['description'] = $description;
+        $this->container['capture_method'] = $capture_method;
 
         return $this;
     }
@@ -479,6 +377,43 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
         $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets setup_future_usage
+     *
+     * @return string|null
+     */
+    public function getSetupFutureUsage()
+    {
+        return $this->container['setup_future_usage'];
+    }
+
+    /**
+     * Sets setup_future_usage
+     *
+     * @param string|null $setup_future_usage この PaymentFlow に設定されている支払い方法で今後決済を行うかの設定です。<br><br> PaymentFlow に Customer を指定した場合、このパラメータを使って PaymentFlow を確定できます。 その後、顧客が必要な操作を完了すると、支払い方法を Customer に紐付けることが可能です。また、Customer を指定しない場合でも、取引が完了した後に支払い方法を Customer に紐付けることはできます。
+     *
+     * @return self
+     */
+    public function setSetupFutureUsage($setup_future_usage)
+    {
+        if (is_null($setup_future_usage)) {
+            throw new \InvalidArgumentException('non-nullable setup_future_usage cannot be null');
+        }
+        $allowedValues = $this->getSetupFutureUsageAllowableValues();
+        if (!in_array($setup_future_usage, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'setup_future_usage', must be one of '%s'",
+                    $setup_future_usage,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['setup_future_usage'] = $setup_future_usage;
 
         return $this;
     }

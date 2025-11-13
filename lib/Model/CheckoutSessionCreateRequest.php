@@ -71,7 +71,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
         'currency' => '\PAYJPV2\Model\Currency',
         'expires_at' => '\DateTime',
         'locale' => '\PAYJPV2\Model\Locale',
-        'payment_flow_data' => '\PAYJPV2\Model\PaymentFlowDataRequestInput',
+        'payment_flow_data' => '\PAYJPV2\Model\PaymentFlowDataRequest',
         'payment_method_options' => '\PAYJPV2\Model\PaymentMethodOptionsRequest',
         'payment_method_types' => '\PAYJPV2\Model\PaymentMethodTypes[]',
         'setup_flow_data' => '\PAYJPV2\Model\SetupFlowDataRequest',
@@ -806,7 +806,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets payment_flow_data
      *
-     * @return \PAYJPV2\Model\PaymentFlowDataRequestInput|null
+     * @return \PAYJPV2\Model\PaymentFlowDataRequest|null
      */
     public function getPaymentFlowData()
     {
@@ -816,7 +816,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets payment_flow_data
      *
-     * @param \PAYJPV2\Model\PaymentFlowDataRequestInput|null $payment_flow_data `payment` モード指定時に PaymentFlow 作成に使用するパラメーター。
+     * @param \PAYJPV2\Model\PaymentFlowDataRequest|null $payment_flow_data `payment` モード指定時に PaymentFlow 作成に使用するパラメーター。
      *
      * @return self
      */

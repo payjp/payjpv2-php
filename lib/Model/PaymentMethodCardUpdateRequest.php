@@ -57,7 +57,6 @@ class PaymentMethodCardUpdateRequest implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'customer' => 'string',
         'billing_details' => '\PAYJPV2\Model\PaymentMethodBillingDetailsRequest',
         'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
         'type' => 'string'
@@ -71,7 +70,6 @@ class PaymentMethodCardUpdateRequest implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'customer' => null,
         'billing_details' => null,
         'metadata' => null,
         'type' => null
@@ -83,7 +81,6 @@ class PaymentMethodCardUpdateRequest implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'customer' => false,
         'billing_details' => false,
         'metadata' => false,
         'type' => false
@@ -175,7 +172,6 @@ class PaymentMethodCardUpdateRequest implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
-        'customer' => 'customer',
         'billing_details' => 'billing_details',
         'metadata' => 'metadata',
         'type' => 'type'
@@ -187,7 +183,6 @@ class PaymentMethodCardUpdateRequest implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
-        'customer' => 'setCustomer',
         'billing_details' => 'setBillingDetails',
         'metadata' => 'setMetadata',
         'type' => 'setType'
@@ -199,7 +194,6 @@ class PaymentMethodCardUpdateRequest implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
-        'customer' => 'getCustomer',
         'billing_details' => 'getBillingDetails',
         'metadata' => 'getMetadata',
         'type' => 'getType'
@@ -275,7 +269,6 @@ class PaymentMethodCardUpdateRequest implements ModelInterface, ArrayAccess, \Js
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('customer', $data ?? [], null);
         $this->setIfExists('billing_details', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
@@ -334,33 +327,6 @@ class PaymentMethodCardUpdateRequest implements ModelInterface, ArrayAccess, \Js
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets customer
-     *
-     * @return string|null
-     */
-    public function getCustomer()
-    {
-        return $this->container['customer'];
-    }
-
-    /**
-     * Sets customer
-     *
-     * @param string|null $customer 顧客ID
-     *
-     * @return self
-     */
-    public function setCustomer($customer)
-    {
-        if (is_null($customer)) {
-            throw new \InvalidArgumentException('non-nullable customer cannot be null');
-        }
-        $this->container['customer'] = $customer;
-
-        return $this;
-    }
 
     /**
      * Gets billing_details
@@ -429,7 +395,7 @@ class PaymentMethodCardUpdateRequest implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param string $type クレジットカード決済の場合は `card` を指定します。
      *
      * @return self
      */

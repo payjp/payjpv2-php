@@ -73,7 +73,7 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
         'payment_flow' => '\PAYJPV2\Model\PaymentFlow',
         'payment_method_types' => '\PAYJPV2\Model\PaymentMethodTypes[]',
         'payment_method_options' => 'array<string,mixed>',
-        'setup_flow' => '\PAYJPV2\Model\PaymentFlowDataRequestOutput',
+        'setup_flow' => '\PAYJPV2\Model\SetupFlow',
         'submit_type' => '\PAYJPV2\Model\CheckoutSessionSubmitType',
         'mode' => '\PAYJPV2\Model\CheckoutSessionMode',
         'ui_mode' => '\PAYJPV2\Model\CheckoutSessionUIMode',
@@ -1015,7 +1015,7 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets setup_flow
      *
-     * @return \PAYJPV2\Model\PaymentFlowDataRequestOutput|null
+     * @return \PAYJPV2\Model\SetupFlow|null
      */
     public function getSetupFlow()
     {
@@ -1025,7 +1025,7 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets setup_flow
      *
-     * @param \PAYJPV2\Model\PaymentFlowDataRequestOutput|null $setup_flow setup_flow
+     * @param \PAYJPV2\Model\SetupFlow|null $setup_flow setup_flow
      *
      * @return self
      */

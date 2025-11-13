@@ -336,7 +336,7 @@ try {
 ## `updatePaymentMethod()`
 
 ```php
-updatePaymentMethod($payment_method_id, $payment_method_card_update_request): \PAYJPV2\Model\PaymentMethodResponse
+updatePaymentMethod($payment_method_id, $payment_method_update_request): \PAYJPV2\Model\PaymentMethodResponse
 ```
 
 Update Payment Method
@@ -364,10 +364,10 @@ $apiInstance = new PAYJPV2\Api\PaymentMethodsApi(
     $config
 );
 $payment_method_id = 'payment_method_id_example'; // string
-$payment_method_card_update_request = new \PAYJPV2\Model\PaymentMethodCardUpdateRequest(); // \PAYJPV2\Model\PaymentMethodCardUpdateRequest
+$payment_method_update_request = new \PAYJPV2\Model\PaymentMethodUpdateRequest(); // \PAYJPV2\Model\PaymentMethodUpdateRequest
 
 try {
-    $result = $apiInstance->updatePaymentMethod($payment_method_id, $payment_method_card_update_request);
+    $result = $apiInstance->updatePaymentMethod($payment_method_id, $payment_method_update_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentMethodsApi->updatePaymentMethod: ', $e->getMessage(), PHP_EOL;
@@ -379,7 +379,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **payment_method_id** | **string**|  | |
-| **payment_method_card_update_request** | [**\PAYJPV2\Model\PaymentMethodCardUpdateRequest**](../Model/PaymentMethodCardUpdateRequest.md)|  | |
+| **payment_method_update_request** | [**\PAYJPV2\Model\PaymentMethodUpdateRequest**](../Model/PaymentMethodUpdateRequest.md)|  | |
 
 ### Return type
 

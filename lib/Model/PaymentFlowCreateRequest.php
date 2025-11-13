@@ -58,7 +58,6 @@ class PaymentFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPITypes = [
         'payment_method' => 'string',
-        'payment_method_data' => '\PAYJPV2\Model\PaymentMethodCreateRequest',
         'payment_method_options' => '\PAYJPV2\Model\PaymentMethodOptionsRequest',
         'payment_method_types' => '\PAYJPV2\Model\PaymentMethodTypes[]',
         'receipt_email' => 'string',
@@ -81,7 +80,6 @@ class PaymentFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPIFormats = [
         'payment_method' => null,
-        'payment_method_data' => null,
         'payment_method_options' => null,
         'payment_method_types' => null,
         'receipt_email' => null,
@@ -102,7 +100,6 @@ class PaymentFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static array $openAPINullables = [
         'payment_method' => false,
-        'payment_method_data' => false,
         'payment_method_options' => false,
         'payment_method_types' => false,
         'receipt_email' => false,
@@ -203,7 +200,6 @@ class PaymentFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $attributeMap = [
         'payment_method' => 'payment_method',
-        'payment_method_data' => 'payment_method_data',
         'payment_method_options' => 'payment_method_options',
         'payment_method_types' => 'payment_method_types',
         'receipt_email' => 'receipt_email',
@@ -224,7 +220,6 @@ class PaymentFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $setters = [
         'payment_method' => 'setPaymentMethod',
-        'payment_method_data' => 'setPaymentMethodData',
         'payment_method_options' => 'setPaymentMethodOptions',
         'payment_method_types' => 'setPaymentMethodTypes',
         'receipt_email' => 'setReceiptEmail',
@@ -245,7 +240,6 @@ class PaymentFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $getters = [
         'payment_method' => 'getPaymentMethod',
-        'payment_method_data' => 'getPaymentMethodData',
         'payment_method_options' => 'getPaymentMethodOptions',
         'payment_method_types' => 'getPaymentMethodTypes',
         'receipt_email' => 'getReceiptEmail',
@@ -317,7 +311,6 @@ class PaymentFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     public function __construct(?array $data = null)
     {
         $this->setIfExists('payment_method', $data ?? [], null);
-        $this->setIfExists('payment_method_data', $data ?? [], null);
         $this->setIfExists('payment_method_options', $data ?? [], null);
         $this->setIfExists('payment_method_types', $data ?? [], null);
         $this->setIfExists('receipt_email', $data ?? [], null);
@@ -407,33 +400,6 @@ class PaymentFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable payment_method cannot be null');
         }
         $this->container['payment_method'] = $payment_method;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_method_data
-     *
-     * @return \PAYJPV2\Model\PaymentMethodCreateRequest|null
-     */
-    public function getPaymentMethodData()
-    {
-        return $this->container['payment_method_data'];
-    }
-
-    /**
-     * Sets payment_method_data
-     *
-     * @param \PAYJPV2\Model\PaymentMethodCreateRequest|null $payment_method_data 指定した場合、PaymentMethodの作成に使用されます。新しいPaymentMethodは、PaymentFlowのpayment_methodプロパティに表示されます。
-     *
-     * @return self
-     */
-    public function setPaymentMethodData($payment_method_data)
-    {
-        if (is_null($payment_method_data)) {
-            throw new \InvalidArgumentException('non-nullable payment_method_data cannot be null');
-        }
-        $this->container['payment_method_data'] = $payment_method_data;
 
         return $this;
     }

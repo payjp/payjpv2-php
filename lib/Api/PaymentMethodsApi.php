@@ -1715,16 +1715,16 @@ class PaymentMethodsApi
      * Update Payment Method
      *
      * @param  string $payment_method_id payment_method_id (required)
-     * @param  \PAYJPV2\Model\PaymentMethodCardUpdateRequest $payment_method_card_update_request payment_method_card_update_request (required)
+     * @param  \PAYJPV2\Model\PaymentMethodUpdateRequest $payment_method_update_request payment_method_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePaymentMethod'] to see the possible values for this operation
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PAYJPV2\Model\PaymentMethodResponse|\PAYJPV2\Model\ErrorResponse
      */
-    public function updatePaymentMethod($payment_method_id, $payment_method_card_update_request, string $contentType = self::contentTypes['updatePaymentMethod'][0])
+    public function updatePaymentMethod($payment_method_id, $payment_method_update_request, string $contentType = self::contentTypes['updatePaymentMethod'][0])
     {
-        list($response) = $this->updatePaymentMethodWithHttpInfo($payment_method_id, $payment_method_card_update_request, $contentType);
+        list($response) = $this->updatePaymentMethodWithHttpInfo($payment_method_id, $payment_method_update_request, $contentType);
         return $response;
     }
 
@@ -1734,16 +1734,16 @@ class PaymentMethodsApi
      * Update Payment Method
      *
      * @param  string $payment_method_id (required)
-     * @param  \PAYJPV2\Model\PaymentMethodCardUpdateRequest $payment_method_card_update_request (required)
+     * @param  \PAYJPV2\Model\PaymentMethodUpdateRequest $payment_method_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePaymentMethod'] to see the possible values for this operation
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PAYJPV2\Model\PaymentMethodResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePaymentMethodWithHttpInfo($payment_method_id, $payment_method_card_update_request, string $contentType = self::contentTypes['updatePaymentMethod'][0])
+    public function updatePaymentMethodWithHttpInfo($payment_method_id, $payment_method_update_request, string $contentType = self::contentTypes['updatePaymentMethod'][0])
     {
-        $request = $this->updatePaymentMethodRequest($payment_method_id, $payment_method_card_update_request, $contentType);
+        $request = $this->updatePaymentMethodRequest($payment_method_id, $payment_method_update_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1834,15 +1834,15 @@ class PaymentMethodsApi
      * Update Payment Method
      *
      * @param  string $payment_method_id (required)
-     * @param  \PAYJPV2\Model\PaymentMethodCardUpdateRequest $payment_method_card_update_request (required)
+     * @param  \PAYJPV2\Model\PaymentMethodUpdateRequest $payment_method_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePaymentMethod'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePaymentMethodAsync($payment_method_id, $payment_method_card_update_request, string $contentType = self::contentTypes['updatePaymentMethod'][0])
+    public function updatePaymentMethodAsync($payment_method_id, $payment_method_update_request, string $contentType = self::contentTypes['updatePaymentMethod'][0])
     {
-        return $this->updatePaymentMethodAsyncWithHttpInfo($payment_method_id, $payment_method_card_update_request, $contentType)
+        return $this->updatePaymentMethodAsyncWithHttpInfo($payment_method_id, $payment_method_update_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1856,16 +1856,16 @@ class PaymentMethodsApi
      * Update Payment Method
      *
      * @param  string $payment_method_id (required)
-     * @param  \PAYJPV2\Model\PaymentMethodCardUpdateRequest $payment_method_card_update_request (required)
+     * @param  \PAYJPV2\Model\PaymentMethodUpdateRequest $payment_method_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePaymentMethod'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePaymentMethodAsyncWithHttpInfo($payment_method_id, $payment_method_card_update_request, string $contentType = self::contentTypes['updatePaymentMethod'][0])
+    public function updatePaymentMethodAsyncWithHttpInfo($payment_method_id, $payment_method_update_request, string $contentType = self::contentTypes['updatePaymentMethod'][0])
     {
         $returnType = '\PAYJPV2\Model\PaymentMethodResponse';
-        $request = $this->updatePaymentMethodRequest($payment_method_id, $payment_method_card_update_request, $contentType);
+        $request = $this->updatePaymentMethodRequest($payment_method_id, $payment_method_update_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1907,13 +1907,13 @@ class PaymentMethodsApi
      * Create request for operation 'updatePaymentMethod'
      *
      * @param  string $payment_method_id (required)
-     * @param  \PAYJPV2\Model\PaymentMethodCardUpdateRequest $payment_method_card_update_request (required)
+     * @param  \PAYJPV2\Model\PaymentMethodUpdateRequest $payment_method_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePaymentMethod'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updatePaymentMethodRequest($payment_method_id, $payment_method_card_update_request, string $contentType = self::contentTypes['updatePaymentMethod'][0])
+    public function updatePaymentMethodRequest($payment_method_id, $payment_method_update_request, string $contentType = self::contentTypes['updatePaymentMethod'][0])
     {
 
         // verify the required parameter 'payment_method_id' is set
@@ -1923,10 +1923,10 @@ class PaymentMethodsApi
             );
         }
 
-        // verify the required parameter 'payment_method_card_update_request' is set
-        if ($payment_method_card_update_request === null || (is_array($payment_method_card_update_request) && count($payment_method_card_update_request) === 0)) {
+        // verify the required parameter 'payment_method_update_request' is set
+        if ($payment_method_update_request === null || (is_array($payment_method_update_request) && count($payment_method_update_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $payment_method_card_update_request when calling updatePaymentMethod'
+                'Missing the required parameter $payment_method_update_request when calling updatePaymentMethod'
             );
         }
 
@@ -1957,12 +1957,12 @@ class PaymentMethodsApi
         );
 
         // for model (json/xml)
-        if (isset($payment_method_card_update_request)) {
+        if (isset($payment_method_update_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payment_method_card_update_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payment_method_update_request));
             } else {
-                $httpBody = $payment_method_card_update_request;
+                $httpBody = $payment_method_update_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

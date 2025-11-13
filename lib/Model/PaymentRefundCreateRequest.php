@@ -1,6 +1,6 @@
 <?php
 /**
- * SetupFlowUpdateRequest
+ * PaymentRefundCreateRequest
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \PAYJPV2\ObjectSerializer;
 
 /**
- * SetupFlowUpdateRequest Class Doc Comment
+ * PaymentRefundCreateRequest Class Doc Comment
  *
  * @category Class
  * @package  PAYJPV2
@@ -40,7 +40,7 @@ use \PAYJPV2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class PaymentRefundCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SetupFlowUpdateRequest';
+    protected static $openAPIModelName = 'PaymentRefundCreateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,10 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'customer' => 'string',
-        'payment_method_options' => 'array<string,mixed>',
-        'payment_method_types' => 'string[]',
-        'description' => 'string',
-        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>'
+        'payment_flow' => 'string',
+        'amount' => 'int',
+        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
+        'reason' => '\PAYJPV2\Model\PaymentRefundReason'
     ];
 
     /**
@@ -72,11 +71,10 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'customer' => null,
-        'payment_method_options' => null,
-        'payment_method_types' => null,
-        'description' => null,
-        'metadata' => null
+        'payment_flow' => null,
+        'amount' => null,
+        'metadata' => null,
+        'reason' => null
     ];
 
     /**
@@ -85,11 +83,10 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'customer' => false,
-        'payment_method_options' => false,
-        'payment_method_types' => true,
-        'description' => false,
-        'metadata' => false
+        'payment_flow' => false,
+        'amount' => false,
+        'metadata' => false,
+        'reason' => false
     ];
 
     /**
@@ -178,11 +175,10 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'customer' => 'customer',
-        'payment_method_options' => 'payment_method_options',
-        'payment_method_types' => 'payment_method_types',
-        'description' => 'description',
-        'metadata' => 'metadata'
+        'payment_flow' => 'payment_flow',
+        'amount' => 'amount',
+        'metadata' => 'metadata',
+        'reason' => 'reason'
     ];
 
     /**
@@ -191,11 +187,10 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'customer' => 'setCustomer',
-        'payment_method_options' => 'setPaymentMethodOptions',
-        'payment_method_types' => 'setPaymentMethodTypes',
-        'description' => 'setDescription',
-        'metadata' => 'setMetadata'
+        'payment_flow' => 'setPaymentFlow',
+        'amount' => 'setAmount',
+        'metadata' => 'setMetadata',
+        'reason' => 'setReason'
     ];
 
     /**
@@ -204,11 +199,10 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'customer' => 'getCustomer',
-        'payment_method_options' => 'getPaymentMethodOptions',
-        'payment_method_types' => 'getPaymentMethodTypes',
-        'description' => 'getDescription',
-        'metadata' => 'getMetadata'
+        'payment_flow' => 'getPaymentFlow',
+        'amount' => 'getAmount',
+        'metadata' => 'getMetadata',
+        'reason' => 'getReason'
     ];
 
     /**
@@ -252,21 +246,6 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
-    public const PAYMENT_METHOD_TYPES_CARD = 'card';
-    public const PAYMENT_METHOD_TYPES_APPLE_PAY = 'apple_pay';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getPaymentMethodTypesAllowableValues()
-    {
-        return [
-            self::PAYMENT_METHOD_TYPES_CARD,
-            self::PAYMENT_METHOD_TYPES_APPLE_PAY,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -283,11 +262,10 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('customer', $data ?? [], null);
-        $this->setIfExists('payment_method_options', $data ?? [], null);
-        $this->setIfExists('payment_method_types', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('payment_flow', $data ?? [], null);
+        $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('reason', $data ?? [], null);
     }
 
     /**
@@ -317,6 +295,13 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
+        if ($this->container['payment_flow'] === null) {
+            $invalidProperties[] = "'payment_flow' can't be null";
+        }
+        if (!is_null($this->container['amount']) && ($this->container['amount'] < 0)) {
+            $invalidProperties[] = "invalid value for 'amount', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -333,125 +318,60 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets customer
+     * Gets payment_flow
      *
-     * @return string|null
+     * @return string
      */
-    public function getCustomer()
+    public function getPaymentFlow()
     {
-        return $this->container['customer'];
+        return $this->container['payment_flow'];
     }
 
     /**
-     * Sets customer
+     * Sets payment_flow
      *
-     * @param string|null $customer この SetupFlow が属する顧客の ID。SetupFlow に PaymentMethod が設定されている場合、SetupFlow の設定が成功するとその PaymentMethod は顧客に紐付きます。別の顧客に紐付いている PaymentMethod をこの SetupFlow で使用することはできません。
+     * @param string $payment_flow 返金対象となる PaymentFlow の ID
      *
      * @return self
      */
-    public function setCustomer($customer)
+    public function setPaymentFlow($payment_flow)
     {
-        if (is_null($customer)) {
-            throw new \InvalidArgumentException('non-nullable customer cannot be null');
+        if (is_null($payment_flow)) {
+            throw new \InvalidArgumentException('non-nullable payment_flow cannot be null');
         }
-        $this->container['customer'] = $customer;
+        $this->container['payment_flow'] = $payment_flow;
 
         return $this;
     }
 
     /**
-     * Gets payment_method_options
+     * Gets amount
      *
-     * @return array<string,mixed>|null
+     * @return int|null
      */
-    public function getPaymentMethodOptions()
+    public function getAmount()
     {
-        return $this->container['payment_method_options'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets payment_method_options
+     * Sets amount
      *
-     * @param array<string,mixed>|null $payment_method_options この SetupFlow の支払い方法の個別設定。
+     * @param int|null $amount 返金金額
      *
      * @return self
      */
-    public function setPaymentMethodOptions($payment_method_options)
+    public function setAmount($amount)
     {
-        if (is_null($payment_method_options)) {
-            throw new \InvalidArgumentException('non-nullable payment_method_options cannot be null');
+        if (is_null($amount)) {
+            throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
-        $this->container['payment_method_options'] = $payment_method_options;
 
-        return $this;
-    }
-
-    /**
-     * Gets payment_method_types
-     *
-     * @return string[]|null
-     */
-    public function getPaymentMethodTypes()
-    {
-        return $this->container['payment_method_types'];
-    }
-
-    /**
-     * Sets payment_method_types
-     *
-     * @param string[]|null $payment_method_types payment_method_types
-     *
-     * @return self
-     */
-    public function setPaymentMethodTypes($payment_method_types)
-    {
-        if (is_null($payment_method_types)) {
-            array_push($this->openAPINullablesSetToNull, 'payment_method_types');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('payment_method_types', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (($amount < 0)) {
+            throw new \InvalidArgumentException('invalid value for $amount when calling PaymentRefundCreateRequest., must be bigger than or equal to 0.');
         }
-        $allowedValues = $this->getPaymentMethodTypesAllowableValues();
-        if (!is_null($payment_method_types) && array_diff($payment_method_types, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'payment_method_types', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['payment_method_types'] = $payment_method_types;
 
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description 説明。顧客に表示されます。
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
-        }
-        $this->container['description'] = $description;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
@@ -479,6 +399,33 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
         $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets reason
+     *
+     * @return \PAYJPV2\Model\PaymentRefundReason|null
+     */
+    public function getReason()
+    {
+        return $this->container['reason'];
+    }
+
+    /**
+     * Sets reason
+     *
+     * @param \PAYJPV2\Model\PaymentRefundReason|null $reason 返金理由  | 指定できる値 | |:---| | **duplicate**: 重複した支払い | | **fraudulent**: 不正な支払い | | **requested_by_customer**: 顧客の要求 |
+     *
+     * @return self
+     */
+    public function setReason($reason)
+    {
+        if (is_null($reason)) {
+            throw new \InvalidArgumentException('non-nullable reason cannot be null');
+        }
+        $this->container['reason'] = $reason;
 
         return $this;
     }
