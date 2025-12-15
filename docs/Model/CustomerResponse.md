@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **livemode** | **bool** | 本番環境かどうか |
 **email** | **string** |  |
 **description** | **string** |  |
-**defaultPaymentMethod** | **string** |  |
+**defaultPaymentMethodId** | **string** |  |
 **metadata** | [**array<string,\PAYJPV2\Model\MetadataValue>**](MetadataValue.md) | メタデータ |
 **createdAt** | **\DateTime** | 作成日時 (UTC, ISO 8601 形式) |
 **updatedAt** | **\DateTime** | 更新日時 (UTC, ISO 8601 形式) |

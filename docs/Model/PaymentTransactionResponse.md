@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 **fee** | **int** | 手数料 |
 **type** | [**\PAYJPV2\Model\PaymentTransactionType**](PaymentTransactionType.md) | PaymentTransactionの種類 |
 **paymentMethodType** | [**\PAYJPV2\Model\PaymentMethodTypes**](PaymentMethodTypes.md) | 支払い方法の種類 |
-**term** | **string** | 期間ID |
+**termId** | **string** | 期間ID |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
