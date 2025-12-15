@@ -11,7 +11,7 @@ All URIs are relative to https://api.pay.jp, except if the operation defines ano
 ## `getAllTerms()`
 
 ```php
-getAllTerms($limit, $offset, $sinceStartAt, $untilStartAt): \PAYJPV2\Model\TermListResponse
+getAllTerms($limit, $startingAfter, $endingBefore, $sinceStartAt, $untilStartAt): \PAYJPV2\Model\TermListResponse
 ```
 
 Get All Terms
@@ -39,12 +39,13 @@ $apiInstance = new PAYJPV2\Api\TermsApi(
     $config
 );
 $limit = 10; // int | 取得するデータの最大件数
-$offset = 0; // int | データ取得を行う開始位置
+$startingAfter = 'startingAfter_example'; // string | このIDより後のデータを取得
+$endingBefore = 'endingBefore_example'; // string | このIDより前のデータを取得
 $sinceStartAt = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | start_atが指定した日付以降のデータを取得
 $untilStartAt = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | start_atが指定した日付以前のデータを取得
 
 try {
-    $result = $apiInstance->getAllTerms($limit, $offset, $sinceStartAt, $untilStartAt);
+    $result = $apiInstance->getAllTerms($limit, $startingAfter, $endingBefore, $sinceStartAt, $untilStartAt);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TermsApi->getAllTerms: ', $e->getMessage(), PHP_EOL;
@@ -56,7 +57,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **limit** | **int**| 取得するデータの最大件数 | [optional] [default to 10] |
-| **offset** | **int**| データ取得を行う開始位置 | [optional] [default to 0] |
+| **startingAfter** | **string**| このIDより後のデータを取得 | [optional] |
+| **endingBefore** | **string**| このIDより前のデータを取得 | [optional] |
 | **sinceStartAt** | **\DateTime**| start_atが指定した日付以降のデータを取得 | [optional] |
 | **untilStartAt** | **\DateTime**| start_atが指定した日付以前のデータを取得 | [optional] |
 
