@@ -75,7 +75,7 @@ try {
 ## `getAllStatements()`
 
 ```php
-getAllStatements($since, $until, $limit, $startingAfter, $endingBefore, $owner, $sourceTransfer, $tenant, $type, $term): \PAYJPV2\Model\StatementListResponse
+getAllStatements($since, $until, $limit, $startingAfter, $endingBefore, $type, $termId): \PAYJPV2\Model\StatementListResponse
 ```
 
 Get All Statements
@@ -107,14 +107,11 @@ $until = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | 指定した
 $limit = 10; // int | 取得するデータの最大件数
 $startingAfter = 'startingAfter_example'; // string | このIDより後のデータを取得
 $endingBefore = 'endingBefore_example'; // string | このIDより前のデータを取得
-$owner = 'owner_example'; // string | オーナータイプでフィルタ (merchant または tenant)
-$sourceTransfer = 'sourceTransfer_example'; // string | 送金元IDでフィルタ
-$tenant = 'tenant_example'; // string | テナントIDでフィルタ
 $type = new \PAYJPV2\Model\\PAYJPV2\Model\StatementType(); // \PAYJPV2\Model\StatementType | 明細タイプでフィルタ
-$term = 'term_example'; // string | 期間IDでフィルタ
+$termId = 'termId_example'; // string | 期間IDでフィルタ
 
 try {
-    $result = $apiInstance->getAllStatements($since, $until, $limit, $startingAfter, $endingBefore, $owner, $sourceTransfer, $tenant, $type, $term);
+    $result = $apiInstance->getAllStatements($since, $until, $limit, $startingAfter, $endingBefore, $type, $termId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StatementsApi->getAllStatements: ', $e->getMessage(), PHP_EOL;
@@ -130,11 +127,8 @@ try {
 | **limit** | **int**| 取得するデータの最大件数 | [optional] [default to 10] |
 | **startingAfter** | **string**| このIDより後のデータを取得 | [optional] |
 | **endingBefore** | **string**| このIDより前のデータを取得 | [optional] |
-| **owner** | **string**| オーナータイプでフィルタ (merchant または tenant) | [optional] |
-| **sourceTransfer** | **string**| 送金元IDでフィルタ | [optional] |
-| **tenant** | **string**| テナントIDでフィルタ | [optional] |
 | **type** | [**\PAYJPV2\Model\StatementType**](../Model/.md)| 明細タイプでフィルタ | [optional] |
-| **term** | **string**| 期間IDでフィルタ | [optional] |
+| **termId** | **string**| 期間IDでフィルタ | [optional] |
 
 ### Return type
 

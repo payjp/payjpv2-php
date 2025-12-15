@@ -4,8 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**adjustableQuantity** | [**\PAYJPV2\Model\LineItemAdjustableQuantityRequest**](LineItemAdjustableQuantityRequest.md) | Checkout 画面で顧客がこの商品の購入数量を変更できるようにする。 | [optional]
-**price** | **string** | 料金ID | [optional]
+**priceId** | **string** | 料金ID |
 **quantity** | **int** | 購入する商品の数量 |
 **taxRates** | **string[]** | 税率ID | [optional]
 

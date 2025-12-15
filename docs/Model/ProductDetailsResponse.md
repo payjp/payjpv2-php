@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **object** | **string** |  | [optional] [default to 'product']
 **name** | **string** | Checkoutなどで顧客に表示される商品名。 |
 **active** | **bool** | 商品が購入可能かどうか。デフォルトは &#x60;true&#x60;。 |
-**defaultPrice** | **string** |  |
+**defaultPriceId** | **string** |  |
 **description** | **string** |  |
 **unitLabel** | **string** |  |
 **url** | **string** |  |
