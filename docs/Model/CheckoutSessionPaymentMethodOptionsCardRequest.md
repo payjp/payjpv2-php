@@ -1,4 +1,4 @@
-# # PaymentMethodOptionsCardRequest
+# # CheckoutSessionPaymentMethodOptionsCardRequest
 
 ## Properties
 

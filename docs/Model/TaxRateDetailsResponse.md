@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **active** | **bool** | この税率が有効であるかどうか。無効にした場合でも、すでに設定されている定期課金などでは使用可能です。 |
 **country** | [**\PAYJPV2\Model\Country**](Country.md) |  |
 **description** | **string** |  |
-**taxType** | [**\PAYJPV2\Model\TaxType**](TaxType.md) |  |
 **metadata** | [**array<string,\PAYJPV2\Model\MetadataValue>**](MetadataValue.md) | メタデータ |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

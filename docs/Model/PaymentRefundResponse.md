@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **livemode** | **bool** | 本番環境かどうか |
 **amount** | **int** | 返金金額 |
 **status** | [**\PAYJPV2\Model\PaymentRefundStatus**](PaymentRefundStatus.md) | 返金ステータス  &lt;a href&#x3D;\&quot;https://docs.pay.jp/v2/payment_refunds#refund_status\&quot; target&#x3D;\&quot;_blank\&quot;&gt;返金ステータスの詳細についてはこちらを参照してください。&lt;/a&gt;  | 指定できる値 | |:---| | **succeeded**: 成功 | | **failed**: 失敗 | | **pending**: 保留中 | | **canceled**: キャンセル | |
-**paymentFlow** | **string** | 返金対象となる PaymentFlow の ID |
+**paymentFlowId** | **string** | 返金対象となる PaymentFlow の ID |
 **reason** | [**\PAYJPV2\Model\PaymentRefundReason**](PaymentRefundReason.md) |  |
 **metadata** | [**array<string,\PAYJPV2\Model\MetadataValue>**](MetadataValue.md) | メタデータ |
 
