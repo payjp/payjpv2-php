@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **createdAt** | **\DateTime** | 更新時の日時 (UTC, ISO 8601 形式) |
 **updatedAt** | **\DateTime** | 更新時の日時 (UTC, ISO 8601 形式) |
 **term** | [**\PAYJPV2\Model\TermResponse**](TermResponse.md) |  |
-**balance** | **string** |  |
+**balanceId** | **string** |  |
 **items** | [**\PAYJPV2\Model\StatementItemResponse[]**](StatementItemResponse.md) | 明細項目のリスト |
 **net** | **int** | 含まれるstatement_itemの金額合計 |
 
