@@ -5,7 +5,6 @@ All URIs are relative to https://api.pay.jp, except if the operation defines ano
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**cancelSetupFlow()**](SetupFlowsApi.md#cancelSetupFlow) | **POST** /v2/setup_flows/{setup_flow_id}/cancel | Cancel Setup Flow |
-| [**confirmSetupFlow()**](SetupFlowsApi.md#confirmSetupFlow) | **POST** /v2/setup_flows/{setup_flow_id}/confirm | Confirm Setup Flow |
 | [**createSetupFlow()**](SetupFlowsApi.md#createSetupFlow) | **POST** /v2/setup_flows | Create Setup Flow |
 | [**getAllSetupFlows()**](SetupFlowsApi.md#getAllSetupFlows) | **GET** /v2/setup_flows | Get All Setup Flows |
 | [**getSetupFlow()**](SetupFlowsApi.md#getSetupFlow) | **GET** /v2/setup_flows/{setup_flow_id} | Get Setup Flow |
@@ -59,71 +58,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **setupFlowId** | **string**|  | |
 | **setupFlowCancelRequest** | [**\PAYJPV2\Model\SetupFlowCancelRequest**](../Model/SetupFlowCancelRequest.md)|  | [optional] |
-
-### Return type
-
-[**\PAYJPV2\Model\SetupFlowResponse**](../Model/SetupFlowResponse.md)
-
-### Authorization
-
-[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`, `application/problem+json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `confirmSetupFlow()`
-
-```php
-confirmSetupFlow($setupFlowId, $setupFlowConfirmRequest): \PAYJPV2\Model\SetupFlowResponse
-```
-
-Confirm Setup Flow
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: HTTPBasic
-$config = PAYJPV2\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure Bearer authorization: HTTPBearer
-$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new PAYJPV2\Api\SetupFlowsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$setupFlowId = 'setupFlowId_example'; // string
-$setupFlowConfirmRequest = new \PAYJPV2\Model\SetupFlowConfirmRequest(); // \PAYJPV2\Model\SetupFlowConfirmRequest
-
-try {
-    $result = $apiInstance->confirmSetupFlow($setupFlowId, $setupFlowConfirmRequest);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SetupFlowsApi->confirmSetupFlow: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **setupFlowId** | **string**|  | |
-| **setupFlowConfirmRequest** | [**\PAYJPV2\Model\SetupFlowConfirmRequest**](../Model/SetupFlowConfirmRequest.md)|  | [optional] |
 
 ### Return type
 
