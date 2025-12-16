@@ -42,7 +42,7 @@ class SetupFlowCancellationReason
     /**
      * Possible values of this enum
      */
-    public const ABONDONED = 'abondoned';
+    public const ABANDONED = 'abandoned';
 
     public const DUPLICATE = 'duplicate';
 
@@ -55,7 +55,7 @@ class SetupFlowCancellationReason
     public static function getAllowableEnumValues()
     {
         return [
-            self::ABONDONED,
+            self::ABANDONED,
             self::DUPLICATE,
             self::REQUESTED_BY_CUSTOMER,
         ];
