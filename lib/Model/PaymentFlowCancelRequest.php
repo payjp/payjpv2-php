@@ -232,7 +232,7 @@ class PaymentFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSeri
     public const CANCELLATION_REASON_DUPLICATE = 'duplicate';
     public const CANCELLATION_REASON_FRAUDULENT = 'fraudulent';
     public const CANCELLATION_REASON_REQUESTED_BY_CUSTOMER = 'requested_by_customer';
-    public const CANCELLATION_REASON_ABONDONED = 'abondoned';
+    public const CANCELLATION_REASON_ABANDONED = 'abandoned';
 
     /**
      * Gets allowable values of the enum
@@ -245,7 +245,7 @@ class PaymentFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSeri
             self::CANCELLATION_REASON_DUPLICATE,
             self::CANCELLATION_REASON_FRAUDULENT,
             self::CANCELLATION_REASON_REQUESTED_BY_CUSTOMER,
-            self::CANCELLATION_REASON_ABONDONED,
+            self::CANCELLATION_REASON_ABANDONED,
         ];
     }
 

@@ -1,11 +1,6 @@
 {
     "name": "payjp/payjpv2-php",
     "description": "PAY.JP API v2 PHP SDK",
-    "config": {
-        "platform": {
-            "php": "8.1"
-        }
-    },
     "keywords": [
         "openapitools",
         "openapi-generator",
