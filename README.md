@@ -19,21 +19,9 @@ PHP 8.1 and later.
 
 To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
 
-```json
-{
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/payjp/payjpv2-php.git"
-    }
-  ],
-  "require": {
-    "payjp/payjpv2-php": "*@dev"
-  }
-}
+```bash
+composer require payjp/payjpv2-php
 ```
-
-Then run `composer install`
 
 ### Manual Installation
 
