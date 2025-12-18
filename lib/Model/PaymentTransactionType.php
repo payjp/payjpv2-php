@@ -37,30 +37,19 @@ namespace PAYJPV2\Model;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PaymentTransactionType
+enum PaymentTransactionType: string
 {
-    /**
-     * Possible values of this enum
-     */
-    public const PAYMENT = 'payment';
-
-    public const REFUND = 'refund';
-
-    public const CHARGEBACK = 'chargeback';
-
-    public const CHARGEBACK_CANCEL = 'chargeback_cancel';
+    case PAYMENT = 'payment';
+    case REFUND = 'refund';
+    case CHARGEBACK = 'chargeback';
+    case CHARGEBACK_CANCEL = 'chargeback_cancel';
 
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
-        return [
-            self::PAYMENT,
-            self::REFUND,
-            self::CHARGEBACK,
-            self::CHARGEBACK_CANCEL,
-        ];
+        return array_column(self::cases(), 'value');
     }
 }

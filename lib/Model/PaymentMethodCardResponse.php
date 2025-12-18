@@ -481,6 +481,10 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function getId(): string
     {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
         return $this->container['id'];
     }
 
@@ -508,6 +512,10 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function getType(): string
     {
+        if ($this->container['type'] === null) {
+            throw new \LogicException('Property "type" is required but has not been set.');
+        }
+
         return $this->container['type'];
     }
 
@@ -613,6 +621,10 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function getLivemode(): bool
     {
+        if ($this->container['livemode'] === null) {
+            throw new \LogicException('Property "livemode" is required but has not been set.');
+        }
+
         return $this->container['livemode'];
     }
 
@@ -640,6 +652,10 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function getCreatedAt(): \DateTime
     {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
         return $this->container['createdAt'];
     }
 
@@ -667,6 +683,10 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function getUpdatedAt(): \DateTime
     {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
         return $this->container['updatedAt'];
     }
 
@@ -694,6 +714,10 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function getMetadata(): array
     {
+        if ($this->container['metadata'] === null) {
+            throw new \LogicException('Property "metadata" is required but has not been set.');
+        }
+
         return $this->container['metadata'];
     }
 
@@ -721,6 +745,10 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function getBillingDetails(): \PAYJPV2\Model\PaymentMethodBillingDetailsResponse
     {
+        if ($this->container['billingDetails'] === null) {
+            throw new \LogicException('Property "billingDetails" is required but has not been set.');
+        }
+
         return $this->container['billingDetails'];
     }
 
@@ -748,6 +776,10 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function getCard(): \PAYJPV2\Model\PaymentMethodCardDetailsResponse
     {
+        if ($this->container['card'] === null) {
+            throw new \LogicException('Property "card" is required but has not been set.');
+        }
+
         return $this->container['card'];
     }
 

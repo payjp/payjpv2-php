@@ -382,6 +382,10 @@ class PaymentFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function getAmount(): int
     {
+        if ($this->container['amount'] === null) {
+            throw new \LogicException('Property "amount" is required but has not been set.');
+        }
+
         return $this->container['amount'];
     }
 
@@ -525,6 +529,10 @@ class PaymentFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function getCurrency(): \PAYJPV2\Model\Currency
     {
+        if ($this->container['currency'] === null) {
+            throw new \LogicException('Property "currency" is required but has not been set.');
+        }
+
         return $this->container['currency'];
     }
 

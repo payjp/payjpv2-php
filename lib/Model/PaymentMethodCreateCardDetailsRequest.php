@@ -354,6 +354,10 @@ class PaymentMethodCreateCardDetailsRequest implements ModelInterface, ArrayAcce
      */
     public function getNumber(): string
     {
+        if ($this->container['number'] === null) {
+            throw new \LogicException('Property "number" is required but has not been set.');
+        }
+
         return $this->container['number'];
     }
 
@@ -386,6 +390,10 @@ class PaymentMethodCreateCardDetailsRequest implements ModelInterface, ArrayAcce
      */
     public function getExpMonth(): int
     {
+        if ($this->container['expMonth'] === null) {
+            throw new \LogicException('Property "expMonth" is required but has not been set.');
+        }
+
         return $this->container['expMonth'];
     }
 
@@ -421,6 +429,10 @@ class PaymentMethodCreateCardDetailsRequest implements ModelInterface, ArrayAcce
      */
     public function getExpYear(): int
     {
+        if ($this->container['expYear'] === null) {
+            throw new \LogicException('Property "expYear" is required but has not been set.');
+        }
+
         return $this->container['expYear'];
     }
 
@@ -456,6 +468,10 @@ class PaymentMethodCreateCardDetailsRequest implements ModelInterface, ArrayAcce
      */
     public function getCvc(): string
     {
+        if ($this->container['cvc'] === null) {
+            throw new \LogicException('Property "cvc" is required but has not been set.');
+        }
+
         return $this->container['cvc'];
     }
 

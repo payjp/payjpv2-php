@@ -37,21 +37,16 @@ namespace PAYJPV2\Model;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PriceType
+enum PriceType: string
 {
-    /**
-     * Possible values of this enum
-     */
-    public const ONE_TIME = 'one_time';
+    case ONE_TIME = 'one_time';
 
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
-        return [
-            self::ONE_TIME,
-        ];
+        return array_column(self::cases(), 'value');
     }
 }

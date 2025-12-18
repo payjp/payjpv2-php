@@ -38,24 +38,17 @@ namespace PAYJPV2\Model;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Locale
+enum Locale: string
 {
-    /**
-     * Possible values of this enum
-     */
-    public const AUTO = 'auto';
-
-    public const JA = 'ja';
+    case AUTO = 'auto';
+    case JA = 'ja';
 
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
-        return [
-            self::AUTO,
-            self::JA,
-        ];
+        return array_column(self::cases(), 'value');
     }
 }

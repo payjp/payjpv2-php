@@ -334,6 +334,10 @@ class StatementItemResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function getSubject(): \PAYJPV2\Model\StatementSubject
     {
+        if ($this->container['subject'] === null) {
+            throw new \LogicException('Property "subject" is required but has not been set.');
+        }
+
         return $this->container['subject'];
     }
 
@@ -395,6 +399,10 @@ class StatementItemResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function getAmount(): int
     {
+        if ($this->container['amount'] === null) {
+            throw new \LogicException('Property "amount" is required but has not been set.');
+        }
+
         return $this->container['amount'];
     }
 

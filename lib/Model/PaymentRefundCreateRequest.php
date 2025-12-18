@@ -325,6 +325,10 @@ class PaymentRefundCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function getPaymentFlowId(): string
     {
+        if ($this->container['paymentFlowId'] === null) {
+            throw new \LogicException('Property "paymentFlowId" is required but has not been set.');
+        }
+
         return $this->container['paymentFlowId'];
     }
 

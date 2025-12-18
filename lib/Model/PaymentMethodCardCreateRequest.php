@@ -384,6 +384,10 @@ class PaymentMethodCardCreateRequest implements ModelInterface, ArrayAccess, \Js
      */
     public function getBillingDetails(): \PAYJPV2\Model\PaymentMethodCardBillingDetailsRequest
     {
+        if ($this->container['billingDetails'] === null) {
+            throw new \LogicException('Property "billingDetails" is required but has not been set.');
+        }
+
         return $this->container['billingDetails'];
     }
 
@@ -438,6 +442,10 @@ class PaymentMethodCardCreateRequest implements ModelInterface, ArrayAccess, \Js
      */
     public function getType(): string
     {
+        if ($this->container['type'] === null) {
+            throw new \LogicException('Property "type" is required but has not been set.');
+        }
+
         return $this->container['type'];
     }
 
@@ -475,6 +483,10 @@ class PaymentMethodCardCreateRequest implements ModelInterface, ArrayAccess, \Js
      */
     public function getCard(): \PAYJPV2\Model\PaymentMethodCreateCardDetailsRequest
     {
+        if ($this->container['card'] === null) {
+            throw new \LogicException('Property "card" is required but has not been set.');
+        }
+
         return $this->container['card'];
     }
 

@@ -424,6 +424,10 @@ class PaymentMethodPayPayCreateRequest implements ModelInterface, ArrayAccess, \
      */
     public function getType(): string
     {
+        if ($this->container['type'] === null) {
+            throw new \LogicException('Property "type" is required but has not been set.');
+        }
+
         return $this->container['type'];
     }
 

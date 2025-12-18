@@ -37,24 +37,17 @@ namespace PAYJPV2\Model;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CheckoutSessionMode
+enum CheckoutSessionMode: string
 {
-    /**
-     * Possible values of this enum
-     */
-    public const PAYMENT = 'payment';
-
-    public const SETUP = 'setup';
+    case PAYMENT = 'payment';
+    case SETUP = 'setup';
 
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
-        return [
-            self::PAYMENT,
-            self::SETUP,
-        ];
+        return array_column(self::cases(), 'value');
     }
 }

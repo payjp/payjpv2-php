@@ -457,6 +457,10 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function getId(): string
     {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
         return $this->container['id'];
     }
 
@@ -484,6 +488,10 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function getLivemode(): bool
     {
+        if ($this->container['livemode'] === null) {
+            throw new \LogicException('Property "livemode" is required but has not been set.');
+        }
+
         return $this->container['livemode'];
     }
 
@@ -545,6 +553,10 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function getType(): \PAYJPV2\Model\StatementType
     {
+        if ($this->container['type'] === null) {
+            throw new \LogicException('Property "type" is required but has not been set.');
+        }
+
         return $this->container['type'];
     }
 
@@ -572,6 +584,10 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function getCreatedAt(): \DateTime
     {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
         return $this->container['createdAt'];
     }
 
@@ -599,6 +615,10 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function getUpdatedAt(): \DateTime
     {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
         return $this->container['updatedAt'];
     }
 
@@ -694,6 +714,10 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function getItems(): array
     {
+        if ($this->container['items'] === null) {
+            throw new \LogicException('Property "items" is required but has not been set.');
+        }
+
         return $this->container['items'];
     }
 
@@ -721,6 +745,10 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function getNet(): int
     {
+        if ($this->container['net'] === null) {
+            throw new \LogicException('Property "net" is required but has not been set.');
+        }
+
         return $this->container['net'];
     }
 

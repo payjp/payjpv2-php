@@ -433,6 +433,10 @@ class PaymentMethodBillingDetailsResponse implements ModelInterface, ArrayAccess
      */
     public function getAddress(): \PAYJPV2\Model\PaymentMethodBillingAddressResponse
     {
+        if ($this->container['address'] === null) {
+            throw new \LogicException('Property "address" is required but has not been set.');
+        }
+
         return $this->container['address'];
     }
 

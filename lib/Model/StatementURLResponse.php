@@ -377,6 +377,10 @@ class StatementURLResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function getUrl(): string
     {
+        if ($this->container['url'] === null) {
+            throw new \LogicException('Property "url" is required but has not been set.');
+        }
+
         return $this->container['url'];
     }
 
@@ -404,6 +408,10 @@ class StatementURLResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function getExpires(): \DateTime
     {
+        if ($this->container['expires'] === null) {
+            throw new \LogicException('Property "expires" is required but has not been set.');
+        }
+
         return $this->container['expires'];
     }
 

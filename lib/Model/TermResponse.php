@@ -370,6 +370,10 @@ class TermResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getId(): string
     {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
         return $this->container['id'];
     }
 
@@ -434,6 +438,10 @@ class TermResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getLivemode(): bool
     {
+        if ($this->container['livemode'] === null) {
+            throw new \LogicException('Property "livemode" is required but has not been set.');
+        }
+
         return $this->container['livemode'];
     }
 
@@ -461,6 +469,10 @@ class TermResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getStartAt(): \DateTime
     {
+        if ($this->container['startAt'] === null) {
+            throw new \LogicException('Property "startAt" is required but has not been set.');
+        }
+
         return $this->container['startAt'];
     }
 
@@ -488,6 +500,10 @@ class TermResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getEndAt(): \DateTime
     {
+        if ($this->container['endAt'] === null) {
+            throw new \LogicException('Property "endAt" is required but has not been set.');
+        }
+
         return $this->container['endAt'];
     }
 
@@ -515,6 +531,10 @@ class TermResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getClosed(): bool
     {
+        if ($this->container['closed'] === null) {
+            throw new \LogicException('Property "closed" is required but has not been set.');
+        }
+
         return $this->container['closed'];
     }
 

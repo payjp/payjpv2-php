@@ -340,6 +340,10 @@ class ProductDeletedResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function getId(): string
     {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
         return $this->container['id'];
     }
 
@@ -404,6 +408,10 @@ class ProductDeletedResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function getDeleted(): bool
     {
+        if ($this->container['deleted'] === null) {
+            throw new \LogicException('Property "deleted" is required but has not been set.');
+        }
+
         return $this->container['deleted'];
     }
 

@@ -351,6 +351,10 @@ class PaymentMethodCardDetailsResponse implements ModelInterface, ArrayAccess, \
      */
     public function getLast4(): string
     {
+        if ($this->container['last4'] === null) {
+            throw new \LogicException('Property "last4" is required but has not been set.');
+        }
+
         return $this->container['last4'];
     }
 
@@ -378,6 +382,10 @@ class PaymentMethodCardDetailsResponse implements ModelInterface, ArrayAccess, \
      */
     public function getBrand(): string
     {
+        if ($this->container['brand'] === null) {
+            throw new \LogicException('Property "brand" is required but has not been set.');
+        }
+
         return $this->container['brand'];
     }
 
@@ -405,6 +413,10 @@ class PaymentMethodCardDetailsResponse implements ModelInterface, ArrayAccess, \
      */
     public function getExpMonth(): int
     {
+        if ($this->container['expMonth'] === null) {
+            throw new \LogicException('Property "expMonth" is required but has not been set.');
+        }
+
         return $this->container['expMonth'];
     }
 
@@ -432,6 +444,10 @@ class PaymentMethodCardDetailsResponse implements ModelInterface, ArrayAccess, \
      */
     public function getExpYear(): int
     {
+        if ($this->container['expYear'] === null) {
+            throw new \LogicException('Property "expYear" is required but has not been set.');
+        }
+
         return $this->container['expYear'];
     }
 
@@ -459,6 +475,10 @@ class PaymentMethodCardDetailsResponse implements ModelInterface, ArrayAccess, \
      */
     public function getFingerprint(): string
     {
+        if ($this->container['fingerprint'] === null) {
+            throw new \LogicException('Property "fingerprint" is required but has not been set.');
+        }
+
         return $this->container['fingerprint'];
     }
 

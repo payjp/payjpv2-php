@@ -390,6 +390,10 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getId(): string
     {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
         return $this->container['id'];
     }
 
@@ -454,6 +458,10 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getCreatedAt(): \DateTime
     {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
         return $this->container['createdAt'];
     }
 
@@ -481,6 +489,10 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getUpdatedAt(): \DateTime
     {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
         return $this->container['updatedAt'];
     }
 
@@ -508,6 +520,10 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getLivemode(): bool
     {
+        if ($this->container['livemode'] === null) {
+            throw new \LogicException('Property "livemode" is required but has not been set.');
+        }
+
         return $this->container['livemode'];
     }
 
@@ -535,6 +551,10 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getType(): string
     {
+        if ($this->container['type'] === null) {
+            throw new \LogicException('Property "type" is required but has not been set.');
+        }
+
         return $this->container['type'];
     }
 
@@ -562,6 +582,10 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getPendingWebhooks(): int
     {
+        if ($this->container['pendingWebhooks'] === null) {
+            throw new \LogicException('Property "pendingWebhooks" is required but has not been set.');
+        }
+
         return $this->container['pendingWebhooks'];
     }
 
@@ -589,6 +613,10 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getData(): array
     {
+        if ($this->container['data'] === null) {
+            throw new \LogicException('Property "data" is required but has not been set.');
+        }
+
         return $this->container['data'];
     }
 

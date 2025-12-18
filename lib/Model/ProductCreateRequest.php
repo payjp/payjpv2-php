@@ -478,6 +478,10 @@ class ProductCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function getName(): string
     {
+        if ($this->container['name'] === null) {
+            throw new \LogicException('Property "name" is required but has not been set.');
+        }
+
         return $this->container['name'];
     }
 

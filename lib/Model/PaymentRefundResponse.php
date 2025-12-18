@@ -410,6 +410,10 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function getId(): string
     {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
         return $this->container['id'];
     }
 
@@ -474,6 +478,10 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function getCreatedAt(): \DateTime
     {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
         return $this->container['createdAt'];
     }
 
@@ -501,6 +509,10 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function getUpdatedAt(): \DateTime
     {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
         return $this->container['updatedAt'];
     }
 
@@ -528,6 +540,10 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function getLivemode(): bool
     {
+        if ($this->container['livemode'] === null) {
+            throw new \LogicException('Property "livemode" is required but has not been set.');
+        }
+
         return $this->container['livemode'];
     }
 
@@ -555,6 +571,10 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function getAmount(): int
     {
+        if ($this->container['amount'] === null) {
+            throw new \LogicException('Property "amount" is required but has not been set.');
+        }
+
         return $this->container['amount'];
     }
 
@@ -582,6 +602,10 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function getStatus(): \PAYJPV2\Model\PaymentRefundStatus
     {
+        if ($this->container['status'] === null) {
+            throw new \LogicException('Property "status" is required but has not been set.');
+        }
+
         return $this->container['status'];
     }
 
@@ -609,6 +633,10 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function getPaymentFlowId(): string
     {
+        if ($this->container['paymentFlowId'] === null) {
+            throw new \LogicException('Property "paymentFlowId" is required but has not been set.');
+        }
+
         return $this->container['paymentFlowId'];
     }
 
@@ -670,6 +698,10 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function getMetadata(): array
     {
+        if ($this->container['metadata'] === null) {
+            throw new \LogicException('Property "metadata" is required but has not been set.');
+        }
+
         return $this->container['metadata'];
     }
 

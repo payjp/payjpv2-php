@@ -301,6 +301,10 @@ class PaymentMethodAttachRequest implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function getCustomerId(): string
     {
+        if ($this->container['customerId'] === null) {
+            throw new \LogicException('Property "customerId" is required but has not been set.');
+        }
+
         return $this->container['customerId'];
     }
 

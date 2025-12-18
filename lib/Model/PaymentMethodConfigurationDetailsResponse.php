@@ -380,6 +380,10 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
      */
     public function getId(): string
     {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
         return $this->container['id'];
     }
 
@@ -444,6 +448,10 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
      */
     public function getActive(): bool
     {
+        if ($this->container['active'] === null) {
+            throw new \LogicException('Property "active" is required but has not been set.');
+        }
+
         return $this->container['active'];
     }
 
@@ -471,6 +479,10 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
      */
     public function getLivemode(): bool
     {
+        if ($this->container['livemode'] === null) {
+            throw new \LogicException('Property "livemode" is required but has not been set.');
+        }
+
         return $this->container['livemode'];
     }
 
@@ -532,6 +544,10 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
      */
     public function getPaypay(): \PAYJPV2\Model\PaymentMethodConfigurationSettingResponse
     {
+        if ($this->container['paypay'] === null) {
+            throw new \LogicException('Property "paypay" is required but has not been set.');
+        }
+
         return $this->container['paypay'];
     }
 
@@ -559,6 +575,10 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
      */
     public function getCard(): \PAYJPV2\Model\PaymentMethodConfigurationSettingResponse
     {
+        if ($this->container['card'] === null) {
+            throw new \LogicException('Property "card" is required but has not been set.');
+        }
+
         return $this->container['card'];
     }
 

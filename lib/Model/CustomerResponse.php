@@ -400,6 +400,10 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getId(): string
     {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
         return $this->container['id'];
     }
 
@@ -464,6 +468,10 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getLivemode(): bool
     {
+        if ($this->container['livemode'] === null) {
+            throw new \LogicException('Property "livemode" is required but has not been set.');
+        }
+
         return $this->container['livemode'];
     }
 
@@ -593,6 +601,10 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getMetadata(): array
     {
+        if ($this->container['metadata'] === null) {
+            throw new \LogicException('Property "metadata" is required but has not been set.');
+        }
+
         return $this->container['metadata'];
     }
 
@@ -620,6 +632,10 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getCreatedAt(): \DateTime
     {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
         return $this->container['createdAt'];
     }
 
@@ -647,6 +663,10 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getUpdatedAt(): \DateTime
     {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
         return $this->container['updatedAt'];
     }
 

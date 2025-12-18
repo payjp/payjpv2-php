@@ -37,27 +37,18 @@ namespace PAYJPV2\Model;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class SetupFlowCancellationReason
+enum SetupFlowCancellationReason: string
 {
-    /**
-     * Possible values of this enum
-     */
-    public const ABANDONED = 'abandoned';
-
-    public const DUPLICATE = 'duplicate';
-
-    public const REQUESTED_BY_CUSTOMER = 'requested_by_customer';
+    case ABANDONED = 'abandoned';
+    case DUPLICATE = 'duplicate';
+    case REQUESTED_BY_CUSTOMER = 'requested_by_customer';
 
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
-        return [
-            self::ABANDONED,
-            self::DUPLICATE,
-            self::REQUESTED_BY_CUSTOMER,
-        ];
+        return array_column(self::cases(), 'value');
     }
 }

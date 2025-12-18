@@ -520,6 +520,10 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function getId(): string
     {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
         return $this->container['id'];
     }
 
@@ -584,6 +588,10 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function getCreatedAt(): \DateTime
     {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
         return $this->container['createdAt'];
     }
 
@@ -611,6 +619,10 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function getUpdatedAt(): \DateTime
     {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
         return $this->container['updatedAt'];
     }
 
@@ -638,6 +650,10 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function getLivemode(): bool
     {
+        if ($this->container['livemode'] === null) {
+            throw new \LogicException('Property "livemode" is required but has not been set.');
+        }
+
         return $this->container['livemode'];
     }
 
@@ -665,6 +681,10 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function getAmount(): int
     {
+        if ($this->container['amount'] === null) {
+            throw new \LogicException('Property "amount" is required but has not been set.');
+        }
+
         return $this->container['amount'];
     }
 
@@ -692,6 +712,10 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function getCurrency(): \PAYJPV2\Model\Currency
     {
+        if ($this->container['currency'] === null) {
+            throw new \LogicException('Property "currency" is required but has not been set.');
+        }
+
         return $this->container['currency'];
     }
 
@@ -787,6 +811,10 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function getClientSecret(): string
     {
+        if ($this->container['clientSecret'] === null) {
+            throw new \LogicException('Property "clientSecret" is required but has not been set.');
+        }
+
         return $this->container['clientSecret'];
     }
 
@@ -882,6 +910,10 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function getMetadata(): array
     {
+        if ($this->container['metadata'] === null) {
+            throw new \LogicException('Property "metadata" is required but has not been set.');
+        }
+
         return $this->container['metadata'];
     }
 
@@ -977,6 +1009,10 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function getPaymentMethodTypes(): array
     {
+        if ($this->container['paymentMethodTypes'] === null) {
+            throw new \LogicException('Property "paymentMethodTypes" is required but has not been set.');
+        }
+
         return $this->container['paymentMethodTypes'];
     }
 
@@ -1004,6 +1040,10 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function getStatus(): \PAYJPV2\Model\PaymentFlowStatus
     {
+        if ($this->container['status'] === null) {
+            throw new \LogicException('Property "status" is required but has not been set.');
+        }
+
         return $this->container['status'];
     }
 
@@ -1099,6 +1139,10 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function getCaptureMethod(): \PAYJPV2\Model\CaptureMethod
     {
+        if ($this->container['captureMethod'] === null) {
+            throw new \LogicException('Property "captureMethod" is required but has not been set.');
+        }
+
         return $this->container['captureMethod'];
     }
 

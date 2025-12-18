@@ -38,69 +38,32 @@ namespace PAYJPV2\Model;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class StatementSubject
+enum StatementSubject: string
 {
-    /**
-     * Possible values of this enum
-     */
-    public const GROSS_SALES = 'gross_sales';
-
-    public const FEE = 'fee';
-
-    public const PLATFORM_FEE = 'platform_fee';
-
-    public const GROSS_REFUND = 'gross_refund';
-
-    public const REFUND_FEE_OFFSET = 'refund_fee_offset';
-
-    public const REFUND_PLATFORM_FEE_OFFSET = 'refund_platform_fee_offset';
-
-    public const CHARGEBACK = 'chargeback';
-
-    public const CHARGEBACK_FEE_OFFSET = 'chargeback_fee_offset';
-
-    public const CHARGEBACK_PLATFORM_FEE_OFFSET = 'chargeback_platform_fee_offset';
-
-    public const PROPLAN = 'proplan';
-
-    public const PLAN_FEE = 'plan_fee';
-
-    public const FORFEIT = 'forfeit';
-
-    public const REALLOCATION = 'reallocation';
-
-    public const YELL_BANK_COLLECTION = 'yell_bank_collection';
-
-    public const PYB_EARLY_DEPOSIT_SERVICE_FEE = 'pyb_early_deposit_service_fee';
-
-    public const TRANSFER_FEE = 'transfer_fee';
-
-    public const OTHER = 'other';
+    case GROSS_SALES = 'gross_sales';
+    case FEE = 'fee';
+    case PLATFORM_FEE = 'platform_fee';
+    case GROSS_REFUND = 'gross_refund';
+    case REFUND_FEE_OFFSET = 'refund_fee_offset';
+    case REFUND_PLATFORM_FEE_OFFSET = 'refund_platform_fee_offset';
+    case CHARGEBACK = 'chargeback';
+    case CHARGEBACK_FEE_OFFSET = 'chargeback_fee_offset';
+    case CHARGEBACK_PLATFORM_FEE_OFFSET = 'chargeback_platform_fee_offset';
+    case PROPLAN = 'proplan';
+    case PLAN_FEE = 'plan_fee';
+    case FORFEIT = 'forfeit';
+    case REALLOCATION = 'reallocation';
+    case YELL_BANK_COLLECTION = 'yell_bank_collection';
+    case PYB_EARLY_DEPOSIT_SERVICE_FEE = 'pyb_early_deposit_service_fee';
+    case TRANSFER_FEE = 'transfer_fee';
+    case OTHER = 'other';
 
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
-        return [
-            self::GROSS_SALES,
-            self::FEE,
-            self::PLATFORM_FEE,
-            self::GROSS_REFUND,
-            self::REFUND_FEE_OFFSET,
-            self::REFUND_PLATFORM_FEE_OFFSET,
-            self::CHARGEBACK,
-            self::CHARGEBACK_FEE_OFFSET,
-            self::CHARGEBACK_PLATFORM_FEE_OFFSET,
-            self::PROPLAN,
-            self::PLAN_FEE,
-            self::FORFEIT,
-            self::REALLOCATION,
-            self::YELL_BANK_COLLECTION,
-            self::PYB_EARLY_DEPOSIT_SERVICE_FEE,
-            self::TRANSFER_FEE,
-            self::OTHER,
-        ];
+        return array_column(self::cases(), 'value');
     }
 }

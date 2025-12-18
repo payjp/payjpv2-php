@@ -349,6 +349,10 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function getDisplayName(): string
     {
+        if ($this->container['displayName'] === null) {
+            throw new \LogicException('Property "displayName" is required but has not been set.');
+        }
+
         return $this->container['displayName'];
     }
 
@@ -376,6 +380,10 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function getInclusive(): bool
     {
+        if ($this->container['inclusive'] === null) {
+            throw new \LogicException('Property "inclusive" is required but has not been set.');
+        }
+
         return $this->container['inclusive'];
     }
 
@@ -403,6 +411,10 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function getPercentage(): float
     {
+        if ($this->container['percentage'] === null) {
+            throw new \LogicException('Property "percentage" is required but has not been set.');
+        }
+
         return $this->container['percentage'];
     }
 

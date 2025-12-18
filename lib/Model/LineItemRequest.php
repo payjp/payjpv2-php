@@ -318,6 +318,10 @@ class LineItemRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getPriceId(): string
     {
+        if ($this->container['priceId'] === null) {
+            throw new \LogicException('Property "priceId" is required but has not been set.');
+        }
+
         return $this->container['priceId'];
     }
 
@@ -345,6 +349,10 @@ class LineItemRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getQuantity(): int
     {
+        if ($this->container['quantity'] === null) {
+            throw new \LogicException('Property "quantity" is required but has not been set.');
+        }
+
         return $this->container['quantity'];
     }
 

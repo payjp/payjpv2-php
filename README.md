@@ -17,7 +17,7 @@ PHP 8.1 and later.
 
 ### Composer
 
-To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
+To install the bindings via [Composer](https://getcomposer.org/):
 
 ```bash
 composer require payjp/payjpv2-php

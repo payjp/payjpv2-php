@@ -38,27 +38,18 @@ namespace PAYJPV2\Model;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class BalanceState
+enum BalanceState: string
 {
-    /**
-     * Possible values of this enum
-     */
-    public const COLLECTING = 'collecting';
-
-    public const TRANSFER = 'transfer';
-
-    public const CLAIM = 'claim';
+    case COLLECTING = 'collecting';
+    case TRANSFER = 'transfer';
+    case CLAIM = 'claim';
 
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
-        return [
-            self::COLLECTING,
-            self::TRANSFER,
-            self::CLAIM,
-        ];
+        return array_column(self::cases(), 'value');
     }
 }

@@ -37,27 +37,18 @@ namespace PAYJPV2\Model;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PaymentRefundReason
+enum PaymentRefundReason: string
 {
-    /**
-     * Possible values of this enum
-     */
-    public const DUPLICATE = 'duplicate';
-
-    public const FRAUDULENT = 'fraudulent';
-
-    public const REQUESTED_BY_CUSTOMER = 'requested_by_customer';
+    case DUPLICATE = 'duplicate';
+    case FRAUDULENT = 'fraudulent';
+    case REQUESTED_BY_CUSTOMER = 'requested_by_customer';
 
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
-        return [
-            self::DUPLICATE,
-            self::FRAUDULENT,
-            self::REQUESTED_BY_CUSTOMER,
-        ];
+        return array_column(self::cases(), 'value');
     }
 }

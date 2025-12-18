@@ -440,6 +440,10 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function getId(): string
     {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
         return $this->container['id'];
     }
 
@@ -504,6 +508,10 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function getLivemode(): bool
     {
+        if ($this->container['livemode'] === null) {
+            throw new \LogicException('Property "livemode" is required but has not been set.');
+        }
+
         return $this->container['livemode'];
     }
 
@@ -531,6 +539,10 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function getActive(): bool
     {
+        if ($this->container['active'] === null) {
+            throw new \LogicException('Property "active" is required but has not been set.');
+        }
+
         return $this->container['active'];
     }
 
@@ -558,6 +570,10 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function getMetadata(): array
     {
+        if ($this->container['metadata'] === null) {
+            throw new \LogicException('Property "metadata" is required but has not been set.');
+        }
+
         return $this->container['metadata'];
     }
 
@@ -619,6 +635,10 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function getType(): \PAYJPV2\Model\PriceType
     {
+        if ($this->container['type'] === null) {
+            throw new \LogicException('Property "type" is required but has not been set.');
+        }
+
         return $this->container['type'];
     }
 
@@ -680,6 +700,10 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function getCurrency(): \PAYJPV2\Model\Currency
     {
+        if ($this->container['currency'] === null) {
+            throw new \LogicException('Property "currency" is required but has not been set.');
+        }
+
         return $this->container['currency'];
     }
 
@@ -707,6 +731,10 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function getProductId(): string
     {
+        if ($this->container['productId'] === null) {
+            throw new \LogicException('Property "productId" is required but has not been set.');
+        }
+
         return $this->container['productId'];
     }
 
@@ -734,6 +762,10 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function getUnitAmount(): int
     {
+        if ($this->container['unitAmount'] === null) {
+            throw new \LogicException('Property "unitAmount" is required but has not been set.');
+        }
+
         return $this->container['unitAmount'];
     }
 
@@ -761,6 +793,10 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function getCreatedAt(): \DateTime
     {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
         return $this->container['createdAt'];
     }
 
@@ -788,6 +824,10 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function getUpdatedAt(): \DateTime
     {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
         return $this->container['updatedAt'];
     }
 

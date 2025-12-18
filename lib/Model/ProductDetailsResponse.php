@@ -390,6 +390,10 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function getId(): string
     {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
         return $this->container['id'];
     }
 
@@ -454,6 +458,10 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function getName(): string
     {
+        if ($this->container['name'] === null) {
+            throw new \LogicException('Property "name" is required but has not been set.');
+        }
+
         return $this->container['name'];
     }
 
@@ -481,6 +489,10 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function getActive(): bool
     {
+        if ($this->container['active'] === null) {
+            throw new \LogicException('Property "active" is required but has not been set.');
+        }
+
         return $this->container['active'];
     }
 

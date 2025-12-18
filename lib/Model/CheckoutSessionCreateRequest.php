@@ -563,6 +563,10 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
      */
     public function getMode(): \PAYJPV2\Model\CheckoutSessionMode
     {
+        if ($this->container['mode'] === null) {
+            throw new \LogicException('Property "mode" is required but has not been set.');
+        }
+
         return $this->container['mode'];
     }
 
