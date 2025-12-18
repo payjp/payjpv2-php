@@ -37,27 +37,18 @@ namespace PAYJPV2\Model;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PaymentMethodTypes
+enum PaymentMethodTypes: string
 {
-    /**
-     * Possible values of this enum
-     */
-    public const CARD = 'card';
-
-    public const PAYPAY = 'paypay';
-
-    public const APPLE_PAY = 'apple_pay';
+    case CARD = 'card';
+    case PAYPAY = 'paypay';
+    case APPLE_PAY = 'apple_pay';
 
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
-        return [
-            self::CARD,
-            self::PAYPAY,
-            self::APPLE_PAY,
-        ];
+        return array_column(self::cases(), 'value');
     }
 }

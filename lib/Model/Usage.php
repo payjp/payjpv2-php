@@ -37,24 +37,17 @@ namespace PAYJPV2\Model;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Usage
+enum Usage: string
 {
-    /**
-     * Possible values of this enum
-     */
-    public const ON_SESSION = 'on_session';
-
-    public const OFF_SESSION = 'off_session';
+    case ON_SESSION = 'on_session';
+    case OFF_SESSION = 'off_session';
 
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
-        return [
-            self::ON_SESSION,
-            self::OFF_SESSION,
-        ];
+        return array_column(self::cases(), 'value');
     }
 }

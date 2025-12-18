@@ -38,33 +38,20 @@ namespace PAYJPV2\Model;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class StatementType
+enum StatementType: string
 {
-    /**
-     * Possible values of this enum
-     */
-    public const SALES = 'sales';
-
-    public const SERVICE_FEE = 'service_fee';
-
-    public const TRANSFER_FEE = 'transfer_fee';
-
-    public const FORFEIT = 'forfeit';
-
-    public const MISC = 'misc';
+    case SALES = 'sales';
+    case SERVICE_FEE = 'service_fee';
+    case TRANSFER_FEE = 'transfer_fee';
+    case FORFEIT = 'forfeit';
+    case MISC = 'misc';
 
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
-        return [
-            self::SALES,
-            self::SERVICE_FEE,
-            self::TRANSFER_FEE,
-            self::FORFEIT,
-            self::MISC,
-        ];
+        return array_column(self::cases(), 'value');
     }
 }

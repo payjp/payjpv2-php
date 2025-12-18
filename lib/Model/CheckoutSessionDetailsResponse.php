@@ -544,6 +544,10 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
      */
     public function getId(): string
     {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
         return $this->container['id'];
     }
 
@@ -608,6 +612,10 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
      */
     public function getLivemode(): bool
     {
+        if ($this->container['livemode'] === null) {
+            throw new \LogicException('Property "livemode" is required but has not been set.');
+        }
+
         return $this->container['livemode'];
     }
 
@@ -839,6 +847,10 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
      */
     public function getCurrency(): \PAYJPV2\Model\Currency
     {
+        if ($this->container['currency'] === null) {
+            throw new \LogicException('Property "currency" is required but has not been set.');
+        }
+
         return $this->container['currency'];
     }
 
@@ -1070,6 +1082,10 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
      */
     public function getMode(): \PAYJPV2\Model\CheckoutSessionMode
     {
+        if ($this->container['mode'] === null) {
+            throw new \LogicException('Property "mode" is required but has not been set.');
+        }
+
         return $this->container['mode'];
     }
 
@@ -1097,6 +1113,10 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
      */
     public function getUiMode(): \PAYJPV2\Model\CheckoutSessionUIMode
     {
+        if ($this->container['uiMode'] === null) {
+            throw new \LogicException('Property "uiMode" is required but has not been set.');
+        }
+
         return $this->container['uiMode'];
     }
 
@@ -1124,6 +1144,10 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
      */
     public function getCreatedAt(): \DateTime
     {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
         return $this->container['createdAt'];
     }
 
@@ -1151,6 +1175,10 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
      */
     public function getUpdatedAt(): \DateTime
     {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
         return $this->container['updatedAt'];
     }
 
@@ -1178,6 +1206,10 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
      */
     public function getMetadata(): array
     {
+        if ($this->container['metadata'] === null) {
+            throw new \LogicException('Property "metadata" is required but has not been set.');
+        }
+
         return $this->container['metadata'];
     }
 
@@ -1205,6 +1237,10 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
      */
     public function getStatus(): \PAYJPV2\Model\CheckoutSessionStatus
     {
+        if ($this->container['status'] === null) {
+            throw new \LogicException('Property "status" is required but has not been set.');
+        }
+
         return $this->container['status'];
     }
 
@@ -1266,6 +1302,10 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
      */
     public function getUrl(): string
     {
+        if ($this->container['url'] === null) {
+            throw new \LogicException('Property "url" is required but has not been set.');
+        }
+
         return $this->container['url'];
     }
 

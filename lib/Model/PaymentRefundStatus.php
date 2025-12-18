@@ -37,33 +37,20 @@ namespace PAYJPV2\Model;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PaymentRefundStatus
+enum PaymentRefundStatus: string
 {
-    /**
-     * Possible values of this enum
-     */
-    public const SUCCEEDED = 'succeeded';
-
-    public const FAILED = 'failed';
-
-    public const PENDING = 'pending';
-
-    public const CANCELED = 'canceled';
-
-    public const REQUIRES_ACTION = 'requires_action';
+    case SUCCEEDED = 'succeeded';
+    case FAILED = 'failed';
+    case PENDING = 'pending';
+    case CANCELED = 'canceled';
+    case REQUIRES_ACTION = 'requires_action';
 
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
-        return [
-            self::SUCCEEDED,
-            self::FAILED,
-            self::PENDING,
-            self::CANCELED,
-            self::REQUIRES_ACTION,
-        ];
+        return array_column(self::cases(), 'value');
     }
 }

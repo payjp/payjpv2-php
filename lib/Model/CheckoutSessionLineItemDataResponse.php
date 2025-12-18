@@ -437,6 +437,10 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
      */
     public function getId(): string
     {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
         return $this->container['id'];
     }
 
@@ -464,6 +468,10 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
      */
     public function getAmountSubtotal(): int
     {
+        if ($this->container['amountSubtotal'] === null) {
+            throw new \LogicException('Property "amountSubtotal" is required but has not been set.');
+        }
+
         return $this->container['amountSubtotal'];
     }
 
@@ -491,6 +499,10 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
      */
     public function getAmountTax(): int
     {
+        if ($this->container['amountTax'] === null) {
+            throw new \LogicException('Property "amountTax" is required but has not been set.');
+        }
+
         return $this->container['amountTax'];
     }
 
@@ -518,6 +530,10 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
      */
     public function getAmountTotal(): int
     {
+        if ($this->container['amountTotal'] === null) {
+            throw new \LogicException('Property "amountTotal" is required but has not been set.');
+        }
+
         return $this->container['amountTotal'];
     }
 
@@ -545,6 +561,10 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
      */
     public function getCurrency(): \PAYJPV2\Model\Currency
     {
+        if ($this->container['currency'] === null) {
+            throw new \LogicException('Property "currency" is required but has not been set.');
+        }
+
         return $this->container['currency'];
     }
 
@@ -572,6 +592,10 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
      */
     public function getDescription(): string
     {
+        if ($this->container['description'] === null) {
+            throw new \LogicException('Property "description" is required but has not been set.');
+        }
+
         return $this->container['description'];
     }
 
@@ -599,6 +623,10 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
      */
     public function getPrice(): \PAYJPV2\Model\PriceDetailsResponse
     {
+        if ($this->container['price'] === null) {
+            throw new \LogicException('Property "price" is required but has not been set.');
+        }
+
         return $this->container['price'];
     }
 
@@ -626,6 +654,10 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
      */
     public function getQuantity(): int
     {
+        if ($this->container['quantity'] === null) {
+            throw new \LogicException('Property "quantity" is required but has not been set.');
+        }
+
         return $this->container['quantity'];
     }
 

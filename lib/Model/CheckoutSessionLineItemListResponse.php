@@ -387,6 +387,10 @@ class CheckoutSessionLineItemListResponse implements ModelInterface, ArrayAccess
      */
     public function getUrl(): string
     {
+        if ($this->container['url'] === null) {
+            throw new \LogicException('Property "url" is required but has not been set.');
+        }
+
         return $this->container['url'];
     }
 
@@ -414,6 +418,10 @@ class CheckoutSessionLineItemListResponse implements ModelInterface, ArrayAccess
      */
     public function getHasMore(): bool
     {
+        if ($this->container['hasMore'] === null) {
+            throw new \LogicException('Property "hasMore" is required but has not been set.');
+        }
+
         return $this->container['hasMore'];
     }
 
@@ -441,6 +449,10 @@ class CheckoutSessionLineItemListResponse implements ModelInterface, ArrayAccess
      */
     public function getData(): array
     {
+        if ($this->container['data'] === null) {
+            throw new \LogicException('Property "data" is required but has not been set.');
+        }
+
         return $this->container['data'];
     }
 

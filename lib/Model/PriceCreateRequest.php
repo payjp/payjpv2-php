@@ -467,6 +467,10 @@ class PriceCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function getCurrency(): \PAYJPV2\Model\Currency
     {
+        if ($this->container['currency'] === null) {
+            throw new \LogicException('Property "currency" is required but has not been set.');
+        }
+
         return $this->container['currency'];
     }
 
@@ -521,6 +525,10 @@ class PriceCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function getProductId(): string
     {
+        if ($this->container['productId'] === null) {
+            throw new \LogicException('Property "productId" is required but has not been set.');
+        }
+
         return $this->container['productId'];
     }
 
@@ -548,6 +556,10 @@ class PriceCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function getUnitAmount(): int
     {
+        if ($this->container['unitAmount'] === null) {
+            throw new \LogicException('Property "unitAmount" is required but has not been set.');
+        }
+
         return $this->container['unitAmount'];
     }
 

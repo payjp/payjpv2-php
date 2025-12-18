@@ -37,24 +37,17 @@ namespace PAYJPV2\Model;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CustomerCreation
+enum CustomerCreation: string
 {
-    /**
-     * Possible values of this enum
-     */
-    public const ALWAYS = 'always';
-
-    public const IF_REQUIRED = 'if_required';
+    case ALWAYS = 'always';
+    case IF_REQUIRED = 'if_required';
 
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
-        return [
-            self::ALWAYS,
-            self::IF_REQUIRED,
-        ];
+        return array_column(self::cases(), 'value');
     }
 }

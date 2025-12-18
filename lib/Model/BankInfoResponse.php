@@ -351,6 +351,10 @@ class BankInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getBankCode(): string
     {
+        if ($this->container['bankCode'] === null) {
+            throw new \LogicException('Property "bankCode" is required but has not been set.');
+        }
+
         return $this->container['bankCode'];
     }
 
@@ -378,6 +382,10 @@ class BankInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getBankBranchCode(): string
     {
+        if ($this->container['bankBranchCode'] === null) {
+            throw new \LogicException('Property "bankBranchCode" is required but has not been set.');
+        }
+
         return $this->container['bankBranchCode'];
     }
 
@@ -405,6 +413,10 @@ class BankInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getBankAccountType(): string
     {
+        if ($this->container['bankAccountType'] === null) {
+            throw new \LogicException('Property "bankAccountType" is required but has not been set.');
+        }
+
         return $this->container['bankAccountType'];
     }
 
@@ -432,6 +444,10 @@ class BankInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getBankAccountNumber(): string
     {
+        if ($this->container['bankAccountNumber'] === null) {
+            throw new \LogicException('Property "bankAccountNumber" is required but has not been set.');
+        }
+
         return $this->container['bankAccountNumber'];
     }
 
@@ -459,6 +475,10 @@ class BankInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getBankAccountHolderName(): string
     {
+        if ($this->container['bankAccountHolderName'] === null) {
+            throw new \LogicException('Property "bankAccountHolderName" is required but has not been set.');
+        }
+
         return $this->container['bankAccountHolderName'];
     }
 
@@ -486,6 +506,10 @@ class BankInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getBankAccountStatus(): string
     {
+        if ($this->container['bankAccountStatus'] === null) {
+            throw new \LogicException('Property "bankAccountStatus" is required but has not been set.');
+        }
+
         return $this->container['bankAccountStatus'];
     }
 

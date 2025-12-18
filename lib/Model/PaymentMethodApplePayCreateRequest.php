@@ -435,6 +435,10 @@ class PaymentMethodApplePayCreateRequest implements ModelInterface, ArrayAccess,
      */
     public function getType(): string
     {
+        if ($this->container['type'] === null) {
+            throw new \LogicException('Property "type" is required but has not been set.');
+        }
+
         return $this->container['type'];
     }
 
@@ -472,6 +476,10 @@ class PaymentMethodApplePayCreateRequest implements ModelInterface, ArrayAccess,
      */
     public function getToken(): string
     {
+        if ($this->container['token'] === null) {
+            throw new \LogicException('Property "token" is required but has not been set.');
+        }
+
         return $this->container['token'];
     }
 

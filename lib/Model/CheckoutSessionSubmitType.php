@@ -37,30 +37,19 @@ namespace PAYJPV2\Model;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CheckoutSessionSubmitType
+enum CheckoutSessionSubmitType: string
 {
-    /**
-     * Possible values of this enum
-     */
-    public const AUTO = 'auto';
-
-    public const BOOK = 'book';
-
-    public const DONATE = 'donate';
-
-    public const PAY = 'pay';
+    case AUTO = 'auto';
+    case BOOK = 'book';
+    case DONATE = 'donate';
+    case PAY = 'pay';
 
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
-        return [
-            self::AUTO,
-            self::BOOK,
-            self::DONATE,
-            self::PAY,
-        ];
+        return array_column(self::cases(), 'value');
     }
 }

@@ -37,21 +37,16 @@ namespace PAYJPV2\Model;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Currency
+enum Currency: string
 {
-    /**
-     * Possible values of this enum
-     */
-    public const JPY = 'jpy';
+    case JPY = 'jpy';
 
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
-        return [
-            self::JPY,
-        ];
+        return array_column(self::cases(), 'value');
     }
 }

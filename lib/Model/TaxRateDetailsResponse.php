@@ -437,6 +437,10 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function getId(): string
     {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
         return $this->container['id'];
     }
 
@@ -464,6 +468,10 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function getDisplayName(): string
     {
+        if ($this->container['displayName'] === null) {
+            throw new \LogicException('Property "displayName" is required but has not been set.');
+        }
+
         return $this->container['displayName'];
     }
 
@@ -491,6 +499,10 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function getInclusive(): bool
     {
+        if ($this->container['inclusive'] === null) {
+            throw new \LogicException('Property "inclusive" is required but has not been set.');
+        }
+
         return $this->container['inclusive'];
     }
 
@@ -518,6 +530,10 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function getPercentage(): float
     {
+        if ($this->container['percentage'] === null) {
+            throw new \LogicException('Property "percentage" is required but has not been set.');
+        }
+
         return $this->container['percentage'];
     }
 
@@ -545,6 +561,10 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function getActive(): bool
     {
+        if ($this->container['active'] === null) {
+            throw new \LogicException('Property "active" is required but has not been set.');
+        }
+
         return $this->container['active'];
     }
 
@@ -640,6 +660,10 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function getMetadata(): array
     {
+        if ($this->container['metadata'] === null) {
+            throw new \LogicException('Property "metadata" is required but has not been set.');
+        }
+
         return $this->container['metadata'];
     }
 

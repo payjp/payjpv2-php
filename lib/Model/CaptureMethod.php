@@ -37,24 +37,17 @@ namespace PAYJPV2\Model;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CaptureMethod
+enum CaptureMethod: string
 {
-    /**
-     * Possible values of this enum
-     */
-    public const AUTOMATIC = 'automatic';
-
-    public const MANUAL = 'manual';
+    case AUTOMATIC = 'automatic';
+    case MANUAL = 'manual';
 
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
-        return [
-            self::AUTOMATIC,
-            self::MANUAL,
-        ];
+        return array_column(self::cases(), 'value');
     }
 }

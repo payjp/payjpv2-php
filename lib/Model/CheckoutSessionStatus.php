@@ -37,27 +37,18 @@ namespace PAYJPV2\Model;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CheckoutSessionStatus
+enum CheckoutSessionStatus: string
 {
-    /**
-     * Possible values of this enum
-     */
-    public const OPEN = 'open';
-
-    public const COMPLETE = 'complete';
-
-    public const EXPIRED = 'expired';
+    case OPEN = 'open';
+    case COMPLETE = 'complete';
+    case EXPIRED = 'expired';
 
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
-        return [
-            self::OPEN,
-            self::COMPLETE,
-            self::EXPIRED,
-        ];
+        return array_column(self::cases(), 'value');
     }
 }

@@ -326,6 +326,10 @@ class DisplayPreferenceRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function getPreference(): string
     {
+        if ($this->container['preference'] === null) {
+            throw new \LogicException('Property "preference" is required but has not been set.');
+        }
+
         return $this->container['preference'];
     }
 

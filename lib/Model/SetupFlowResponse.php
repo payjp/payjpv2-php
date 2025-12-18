@@ -470,6 +470,10 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function getId(): string
     {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
         return $this->container['id'];
     }
 
@@ -534,6 +538,10 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function getCreatedAt(): \DateTime
     {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
         return $this->container['createdAt'];
     }
 
@@ -561,6 +569,10 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function getUpdatedAt(): \DateTime
     {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
         return $this->container['updatedAt'];
     }
 
@@ -588,6 +600,10 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function getLivemode(): bool
     {
+        if ($this->container['livemode'] === null) {
+            throw new \LogicException('Property "livemode" is required but has not been set.');
+        }
+
         return $this->container['livemode'];
     }
 
@@ -615,6 +631,10 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function getClientSecret(): string
     {
+        if ($this->container['clientSecret'] === null) {
+            throw new \LogicException('Property "clientSecret" is required but has not been set.');
+        }
+
         return $this->container['clientSecret'];
     }
 
@@ -710,6 +730,10 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function getMetadata(): array
     {
+        if ($this->container['metadata'] === null) {
+            throw new \LogicException('Property "metadata" is required but has not been set.');
+        }
+
         return $this->container['metadata'];
     }
 
@@ -805,6 +829,10 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function getPaymentMethodTypes(): array
     {
+        if ($this->container['paymentMethodTypes'] === null) {
+            throw new \LogicException('Property "paymentMethodTypes" is required but has not been set.');
+        }
+
         return $this->container['paymentMethodTypes'];
     }
 
@@ -832,6 +860,10 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function getStatus(): \PAYJPV2\Model\SetupFlowStatus
     {
+        if ($this->container['status'] === null) {
+            throw new \LogicException('Property "status" is required but has not been set.');
+        }
+
         return $this->container['status'];
     }
 

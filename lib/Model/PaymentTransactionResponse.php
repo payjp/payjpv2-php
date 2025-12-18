@@ -444,6 +444,10 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function getId(): string
     {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
         return $this->container['id'];
     }
 
@@ -508,6 +512,10 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function getCreatedAt(): \DateTime
     {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
         return $this->container['createdAt'];
     }
 
@@ -535,6 +543,10 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function getUpdatedAt(): \DateTime
     {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
         return $this->container['updatedAt'];
     }
 
@@ -562,6 +574,10 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function getLivemode(): bool
     {
+        if ($this->container['livemode'] === null) {
+            throw new \LogicException('Property "livemode" is required but has not been set.');
+        }
+
         return $this->container['livemode'];
     }
 
@@ -589,6 +605,10 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function getResourceId(): string
     {
+        if ($this->container['resourceId'] === null) {
+            throw new \LogicException('Property "resourceId" is required but has not been set.');
+        }
+
         return $this->container['resourceId'];
     }
 
@@ -616,6 +636,10 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function getAmount(): int
     {
+        if ($this->container['amount'] === null) {
+            throw new \LogicException('Property "amount" is required but has not been set.');
+        }
+
         return $this->container['amount'];
     }
 
@@ -643,6 +667,10 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function getCurrency(): \PAYJPV2\Model\Currency
     {
+        if ($this->container['currency'] === null) {
+            throw new \LogicException('Property "currency" is required but has not been set.');
+        }
+
         return $this->container['currency'];
     }
 
@@ -670,6 +698,10 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function getFeeRate(): string
     {
+        if ($this->container['feeRate'] === null) {
+            throw new \LogicException('Property "feeRate" is required but has not been set.');
+        }
+
         return $this->container['feeRate'];
     }
 
@@ -702,6 +734,10 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function getFee(): int
     {
+        if ($this->container['fee'] === null) {
+            throw new \LogicException('Property "fee" is required but has not been set.');
+        }
+
         return $this->container['fee'];
     }
 
@@ -729,6 +765,10 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function getType(): \PAYJPV2\Model\PaymentTransactionType
     {
+        if ($this->container['type'] === null) {
+            throw new \LogicException('Property "type" is required but has not been set.');
+        }
+
         return $this->container['type'];
     }
 
@@ -756,6 +796,10 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function getPaymentMethodType(): \PAYJPV2\Model\PaymentMethodTypes
     {
+        if ($this->container['paymentMethodType'] === null) {
+            throw new \LogicException('Property "paymentMethodType" is required but has not been set.');
+        }
+
         return $this->container['paymentMethodType'];
     }
 
@@ -783,6 +827,10 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function getTermId(): string
     {
+        if ($this->container['termId'] === null) {
+            throw new \LogicException('Property "termId" is required but has not been set.');
+        }
+
         return $this->container['termId'];
     }
 

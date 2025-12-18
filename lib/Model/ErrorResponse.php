@@ -342,6 +342,10 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getType(): string
     {
+        if ($this->container['type'] === null) {
+            throw new \LogicException('Property "type" is required but has not been set.');
+        }
+
         return $this->container['type'];
     }
 
@@ -369,6 +373,10 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getTitle(): string
     {
+        if ($this->container['title'] === null) {
+            throw new \LogicException('Property "title" is required but has not been set.');
+        }
+
         return $this->container['title'];
     }
 
@@ -396,6 +404,10 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getStatus(): int
     {
+        if ($this->container['status'] === null) {
+            throw new \LogicException('Property "status" is required but has not been set.');
+        }
+
         return $this->container['status'];
     }
 

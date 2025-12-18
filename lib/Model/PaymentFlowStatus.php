@@ -37,39 +37,22 @@ namespace PAYJPV2\Model;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PaymentFlowStatus
+enum PaymentFlowStatus: string
 {
-    /**
-     * Possible values of this enum
-     */
-    public const CANCELED = 'canceled';
-
-    public const PROCESSING = 'processing';
-
-    public const REQUIRES_ACTION = 'requires_action';
-
-    public const REQUIRES_CAPTURE = 'requires_capture';
-
-    public const REQUIRES_CONFIRMATION = 'requires_confirmation';
-
-    public const REQUIRES_PAYMENT_METHOD = 'requires_payment_method';
-
-    public const SUCCEEDED = 'succeeded';
+    case CANCELED = 'canceled';
+    case PROCESSING = 'processing';
+    case REQUIRES_ACTION = 'requires_action';
+    case REQUIRES_CAPTURE = 'requires_capture';
+    case REQUIRES_CONFIRMATION = 'requires_confirmation';
+    case REQUIRES_PAYMENT_METHOD = 'requires_payment_method';
+    case SUCCEEDED = 'succeeded';
 
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
-        return [
-            self::CANCELED,
-            self::PROCESSING,
-            self::REQUIRES_ACTION,
-            self::REQUIRES_CAPTURE,
-            self::REQUIRES_CONFIRMATION,
-            self::REQUIRES_PAYMENT_METHOD,
-            self::SUCCEEDED,
-        ];
+        return array_column(self::cases(), 'value');
     }
 }

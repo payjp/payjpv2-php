@@ -467,6 +467,10 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getId(): string
     {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
         return $this->container['id'];
     }
 
@@ -494,6 +498,10 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getLivemode(): bool
     {
+        if ($this->container['livemode'] === null) {
+            throw new \LogicException('Property "livemode" is required but has not been set.');
+        }
+
         return $this->container['livemode'];
     }
 
@@ -521,6 +529,10 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getCreatedAt(): \DateTime
     {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
         return $this->container['createdAt'];
     }
 
@@ -548,6 +560,10 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getUpdatedAt(): \DateTime
     {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
         return $this->container['updatedAt'];
     }
 
@@ -575,6 +591,10 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getState(): \PAYJPV2\Model\BalanceState
     {
+        if ($this->container['state'] === null) {
+            throw new \LogicException('Property "state" is required but has not been set.');
+        }
+
         return $this->container['state'];
     }
 
@@ -602,6 +622,10 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getStatements(): array
     {
+        if ($this->container['statements'] === null) {
+            throw new \LogicException('Property "statements" is required but has not been set.');
+        }
+
         return $this->container['statements'];
     }
 
@@ -629,6 +653,10 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getClosed(): bool
     {
+        if ($this->container['closed'] === null) {
+            throw new \LogicException('Property "closed" is required but has not been set.');
+        }
+
         return $this->container['closed'];
     }
 
@@ -724,6 +752,10 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function getNet(): int
     {
+        if ($this->container['net'] === null) {
+            throw new \LogicException('Property "net" is required but has not been set.');
+        }
+
         return $this->container['net'];
     }
 

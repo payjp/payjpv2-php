@@ -70,6 +70,11 @@ class ObjectSerializer
             return $data;
         }
 
+        // PHP 8.1+ backed enum support
+        if ($data instanceof \BackedEnum) {
+            return $data->value;
+        }
+
         if ($data instanceof \DateTime) {
             return ($format === 'date') ? $data->format('Y-m-d') : $data->format(self::$dateTimeFormat);
         }
@@ -90,14 +95,17 @@ class ObjectSerializer
                     $getter = $data::getters()[$property];
                     $value = $data->$getter();
                     if ($value !== null && ! in_array($openAPIType, ['\DateTime', '\SplFileObject', 'array', 'bool', 'boolean', 'byte', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)) {
-                        $callable = [$openAPIType, 'getAllowableEnumValues'];
-                        if (is_callable($callable)) {
-                            /** array $callable */
-                            $allowedEnumTypes = $callable();
-                            if (! in_array($value, $allowedEnumTypes, true)) {
-                                $imploded = implode("', '", $allowedEnumTypes);
+                        // PHP 8.1+ backed enum - already type-safe, skip validation
+                        if (! ($value instanceof \BackedEnum)) {
+                            $callable = [$openAPIType, 'getAllowableEnumValues'];
+                            if (is_callable($callable)) {
+                                /** array $callable */
+                                $allowedEnumTypes = $callable();
+                                if (! in_array($value, $allowedEnumTypes, true)) {
+                                    $imploded = implode("', '", $allowedEnumTypes);
 
-                                throw new \InvalidArgumentException("Invalid value for enum '$openAPIType', must be one of: '$imploded'");
+                                    throw new \InvalidArgumentException("Invalid value for enum '$openAPIType', must be one of: '$imploded'");
+                                }
                             }
                         }
                     }
@@ -501,6 +509,11 @@ class ObjectSerializer
         }
 
 
+        // PHP 8.1+ backed enum support
+        if (enum_exists($class)) {
+            return $class::from($data);
+        }
+
         if (method_exists($class, 'getAllowableEnumValues')) {
             if (! in_array($data, $class::getAllowableEnumValues(), true)) {
                 $imploded = implode("', '", $class::getAllowableEnumValues());
@@ -509,47 +522,48 @@ class ObjectSerializer
             }
 
             return $data;
-        } else {
-            $data = is_string($data) ? json_decode($data) : $data;
-
-            if (is_array($data)) {
-                $data = (object)$data;
-            }
-
-            // If a discriminator is defined and points to a valid subclass, use it.
-            $discriminator = $class::DISCRIMINATOR;
-            if (! empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
-                $subclass = '\PAYJPV2\Model\\' . $data->{$discriminator};
-                if (is_subclass_of($subclass, $class)) {
-                    $class = $subclass;
-                }
-            }
-
-            /** @var ModelInterface $instance */
-            $instance = new $class();
-            foreach ($instance::openAPITypes() as $property => $type) {
-                $propertySetter = $instance::setters()[$property];
-
-                if (! isset($propertySetter)) {
-                    continue;
-                }
-
-                if (! isset($data->{$instance::attributeMap()[$property]})) {
-                    if ($instance::isNullable($property)) {
-                        $instance->$propertySetter(null);
-                    }
-
-                    continue;
-                }
-
-                if (isset($data->{$instance::attributeMap()[$property]})) {
-                    $propertyValue = $data->{$instance::attributeMap()[$property]};
-                    $instance->$propertySetter(self::deserialize($propertyValue, $type, null));
-                }
-            }
-
-            return $instance;
         }
+
+        // Model class deserialization
+        $data = is_string($data) ? json_decode($data) : $data;
+
+        if (is_array($data)) {
+            $data = (object)$data;
+        }
+
+        // If a discriminator is defined and points to a valid subclass, use it.
+        $discriminator = $class::DISCRIMINATOR;
+        if (! empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
+            $subclass = '\PAYJPV2\Model\\' . $data->{$discriminator};
+            if (is_subclass_of($subclass, $class)) {
+                $class = $subclass;
+            }
+        }
+
+        /** @var ModelInterface $instance */
+        $instance = new $class();
+        foreach ($instance::openAPITypes() as $property => $type) {
+            $propertySetter = $instance::setters()[$property];
+
+            if (! isset($propertySetter)) {
+                continue;
+            }
+
+            if (! isset($data->{$instance::attributeMap()[$property]})) {
+                if ($instance::isNullable($property)) {
+                    $instance->$propertySetter(null);
+                }
+
+                continue;
+            }
+
+            if (isset($data->{$instance::attributeMap()[$property]})) {
+                $propertyValue = $data->{$instance::attributeMap()[$property]};
+                $instance->$propertySetter(self::deserialize($propertyValue, $type, null));
+            }
+        }
+
+        return $instance;
     }
 
     /**
