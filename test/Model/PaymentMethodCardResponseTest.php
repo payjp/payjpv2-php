@@ -98,6 +98,15 @@ class PaymentMethodCardResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "livemode"
+     */
+    public function testPropertyLivemode()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "type"
      */
     public function testPropertyType()
@@ -125,9 +134,9 @@ class PaymentMethodCardResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "livemode"
+     * Test attribute "metadata"
      */
-    public function testPropertyLivemode()
+    public function testPropertyMetadata()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -146,15 +155,6 @@ class PaymentMethodCardResponseTest extends TestCase
      * Test attribute "updatedAt"
      */
     public function testPropertyUpdatedAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "metadata"
-     */
-    public function testPropertyMetadata()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

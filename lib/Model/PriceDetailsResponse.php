@@ -58,17 +58,17 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'object' => 'string',
+        'id' => 'string',
         'livemode' => 'bool',
+        'productId' => 'string',
+        'unitAmount' => 'int',
+        'currency' => '\PAYJPV2\Model\Currency',
         'active' => 'bool',
-        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
         'nickname' => 'string',
         'type' => '\PAYJPV2\Model\PriceType',
         'lookupKey' => 'string',
-        'currency' => '\PAYJPV2\Model\Currency',
-        'productId' => 'string',
-        'unitAmount' => 'int',
+        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
         'createdAt' => '\DateTime',
         'updatedAt' => '\DateTime',
     ];
@@ -81,17 +81,17 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'object' => null,
+        'id' => null,
         'livemode' => null,
+        'productId' => null,
+        'unitAmount' => null,
+        'currency' => null,
         'active' => null,
-        'metadata' => null,
         'nickname' => null,
         'type' => null,
         'lookupKey' => null,
-        'currency' => null,
-        'productId' => null,
-        'unitAmount' => null,
+        'metadata' => null,
         'createdAt' => 'date-time',
         'updatedAt' => 'date-time',
     ];
@@ -102,17 +102,17 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var bool[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
         'object' => false,
+        'id' => false,
         'livemode' => false,
+        'productId' => false,
+        'unitAmount' => false,
+        'currency' => false,
         'active' => false,
-        'metadata' => false,
         'nickname' => true,
         'type' => false,
         'lookupKey' => true,
-        'currency' => false,
-        'productId' => false,
-        'unitAmount' => false,
+        'metadata' => false,
         'createdAt' => false,
         'updatedAt' => false,
     ];
@@ -203,17 +203,17 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'object' => 'object',
+        'id' => 'id',
         'livemode' => 'livemode',
+        'productId' => 'product_id',
+        'unitAmount' => 'unit_amount',
+        'currency' => 'currency',
         'active' => 'active',
-        'metadata' => 'metadata',
         'nickname' => 'nickname',
         'type' => 'type',
         'lookupKey' => 'lookup_key',
-        'currency' => 'currency',
-        'productId' => 'product_id',
-        'unitAmount' => 'unit_amount',
+        'metadata' => 'metadata',
         'createdAt' => 'created_at',
         'updatedAt' => 'updated_at',
     ];
@@ -224,17 +224,17 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'object' => 'setObject',
+        'id' => 'setId',
         'livemode' => 'setLivemode',
+        'productId' => 'setProductId',
+        'unitAmount' => 'setUnitAmount',
+        'currency' => 'setCurrency',
         'active' => 'setActive',
-        'metadata' => 'setMetadata',
         'nickname' => 'setNickname',
         'type' => 'setType',
         'lookupKey' => 'setLookupKey',
-        'currency' => 'setCurrency',
-        'productId' => 'setProductId',
-        'unitAmount' => 'setUnitAmount',
+        'metadata' => 'setMetadata',
         'createdAt' => 'setCreatedAt',
         'updatedAt' => 'setUpdatedAt',
     ];
@@ -245,17 +245,17 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'object' => 'getObject',
+        'id' => 'getId',
         'livemode' => 'getLivemode',
+        'productId' => 'getProductId',
+        'unitAmount' => 'getUnitAmount',
+        'currency' => 'getCurrency',
         'active' => 'getActive',
-        'metadata' => 'getMetadata',
         'nickname' => 'getNickname',
         'type' => 'getType',
         'lookupKey' => 'getLookupKey',
-        'currency' => 'getCurrency',
-        'productId' => 'getProductId',
-        'unitAmount' => 'getUnitAmount',
+        'metadata' => 'getMetadata',
         'createdAt' => 'getCreatedAt',
         'updatedAt' => 'getUpdatedAt',
     ];
@@ -330,17 +330,17 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'price');
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('livemode', $data ?? [], null);
+        $this->setIfExists('productId', $data ?? [], null);
+        $this->setIfExists('unitAmount', $data ?? [], null);
+        $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('active', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('nickname', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('lookupKey', $data ?? [], null);
-        $this->setIfExists('currency', $data ?? [], null);
-        $this->setIfExists('productId', $data ?? [], null);
-        $this->setIfExists('unitAmount', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('createdAt', $data ?? [], null);
         $this->setIfExists('updatedAt', $data ?? [], null);
     }
@@ -372,9 +372,6 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (! is_null($this->container['object']) && ! in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -384,14 +381,23 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
             );
         }
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         if ($this->container['livemode'] === null) {
             $invalidProperties[] = "'livemode' can't be null";
         }
+        if ($this->container['productId'] === null) {
+            $invalidProperties[] = "'productId' can't be null";
+        }
+        if ($this->container['unitAmount'] === null) {
+            $invalidProperties[] = "'unitAmount' can't be null";
+        }
+        if ($this->container['currency'] === null) {
+            $invalidProperties[] = "'currency' can't be null";
+        }
         if ($this->container['active'] === null) {
             $invalidProperties[] = "'active' can't be null";
-        }
-        if ($this->container['metadata'] === null) {
-            $invalidProperties[] = "'metadata' can't be null";
         }
         if ($this->container['nickname'] === null) {
             $invalidProperties[] = "'nickname' can't be null";
@@ -402,14 +408,8 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         if ($this->container['lookupKey'] === null) {
             $invalidProperties[] = "'lookupKey' can't be null";
         }
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
-        }
-        if ($this->container['productId'] === null) {
-            $invalidProperties[] = "'productId' can't be null";
-        }
-        if ($this->container['unitAmount'] === null) {
-            $invalidProperties[] = "'unitAmount' can't be null";
+        if ($this->container['metadata'] === null) {
+            $invalidProperties[] = "'metadata' can't be null";
         }
         if ($this->container['createdAt'] === null) {
             $invalidProperties[] = "'createdAt' can't be null";
@@ -432,37 +432,6 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId(): string
-    {
-        if ($this->container['id'] === null) {
-            throw new \LogicException('Property "id" is required but has not been set.');
-        }
-
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id 料金ID
-     *
-     * @return self
-     */
-    public function setId(string $id): self
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets object
@@ -502,6 +471,37 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId(): string
+    {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id 料金 ID
+     *
+     * @return self
+     */
+    public function setId(string $id): self
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
      * Gets livemode
      *
      * @return bool
@@ -533,6 +533,99 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
+     * Gets productId
+     *
+     * @return string
+     */
+    public function getProductId(): string
+    {
+        if ($this->container['productId'] === null) {
+            throw new \LogicException('Property "productId" is required but has not been set.');
+        }
+
+        return $this->container['productId'];
+    }
+
+    /**
+     * Sets productId
+     *
+     * @param string $productId この価格が紐付く商品の ID
+     *
+     * @return self
+     */
+    public function setProductId(string $productId): self
+    {
+        if (is_null($productId)) {
+            throw new \InvalidArgumentException('non-nullable productId cannot be null');
+        }
+        $this->container['productId'] = $productId;
+
+        return $this;
+    }
+
+    /**
+     * Gets unitAmount
+     *
+     * @return int
+     */
+    public function getUnitAmount(): int
+    {
+        if ($this->container['unitAmount'] === null) {
+            throw new \LogicException('Property "unitAmount" is required but has not been set.');
+        }
+
+        return $this->container['unitAmount'];
+    }
+
+    /**
+     * Sets unitAmount
+     *
+     * @param int $unitAmount 価格の単価
+     *
+     * @return self
+     */
+    public function setUnitAmount(int $unitAmount): self
+    {
+        if (is_null($unitAmount)) {
+            throw new \InvalidArgumentException('non-nullable unitAmount cannot be null');
+        }
+        $this->container['unitAmount'] = $unitAmount;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return \PAYJPV2\Model\Currency
+     */
+    public function getCurrency(): \PAYJPV2\Model\Currency
+    {
+        if ($this->container['currency'] === null) {
+            throw new \LogicException('Property "currency" is required but has not been set.');
+        }
+
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param \PAYJPV2\Model\Currency $currency 価格の通貨。現在は `jpy` のみサポートしています。
+     *
+     * @return self
+     */
+    public function setCurrency(\PAYJPV2\Model\Currency $currency): self
+    {
+        if (is_null($currency)) {
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        }
+        $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
      * Gets active
      *
      * @return bool
@@ -549,7 +642,7 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets active
      *
-     * @param bool $active 価格が有効かどうか。デフォルトは `true`。
+     * @param bool $active 価格が有効かどうか
      *
      * @return self
      */
@@ -559,37 +652,6 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable active cannot be null');
         }
         $this->container['active'] = $active;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return array<string,\PAYJPV2\Model\MetadataValue>
-     */
-    public function getMetadata(): array
-    {
-        if ($this->container['metadata'] === null) {
-            throw new \LogicException('Property "metadata" is required but has not been set.');
-        }
-
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param array<string,\PAYJPV2\Model\MetadataValue> $metadata メタデータ
-     *
-     * @return self
-     */
-    public function setMetadata(array $metadata): self
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
 
         return $this;
     }
@@ -645,7 +707,7 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets type
      *
-     * @param \PAYJPV2\Model\PriceType $type 価格が一度限りの購入か、継続的な（サブスクリプション）購入かに応じて、`one_time` または `recurring` のいずれかとなります。  | 指定できる値 | |:---| | **one_time**: 1回限りの価格。 | | **recurring**: 継続的な価格。 |
+     * @param \PAYJPV2\Model\PriceType $type 一度限りの購入を表す `one_time` が入ります。
      *
      * @return self
      */
@@ -694,94 +756,32 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets currency
+     * Gets metadata
      *
-     * @return \PAYJPV2\Model\Currency
+     * @return array<string,\PAYJPV2\Model\MetadataValue>
      */
-    public function getCurrency(): \PAYJPV2\Model\Currency
+    public function getMetadata(): array
     {
-        if ($this->container['currency'] === null) {
-            throw new \LogicException('Property "currency" is required but has not been set.');
+        if ($this->container['metadata'] === null) {
+            throw new \LogicException('Property "metadata" is required but has not been set.');
         }
 
-        return $this->container['currency'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets currency
+     * Sets metadata
      *
-     * @param \PAYJPV2\Model\Currency $currency 価格の通貨。現在は `jpy` のみサポートしています。
+     * @param array<string,\PAYJPV2\Model\MetadataValue> $metadata メタデータ
      *
      * @return self
      */
-    public function setCurrency(\PAYJPV2\Model\Currency $currency): self
+    public function setMetadata(array $metadata): self
     {
-        if (is_null($currency)) {
-            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        if (is_null($metadata)) {
+            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets productId
-     *
-     * @return string
-     */
-    public function getProductId(): string
-    {
-        if ($this->container['productId'] === null) {
-            throw new \LogicException('Property "productId" is required but has not been set.');
-        }
-
-        return $this->container['productId'];
-    }
-
-    /**
-     * Sets productId
-     *
-     * @param string $productId この価格が紐付く商品のID。
-     *
-     * @return self
-     */
-    public function setProductId(string $productId): self
-    {
-        if (is_null($productId)) {
-            throw new \InvalidArgumentException('non-nullable productId cannot be null');
-        }
-        $this->container['productId'] = $productId;
-
-        return $this;
-    }
-
-    /**
-     * Gets unitAmount
-     *
-     * @return int
-     */
-    public function getUnitAmount(): int
-    {
-        if ($this->container['unitAmount'] === null) {
-            throw new \LogicException('Property "unitAmount" is required but has not been set.');
-        }
-
-        return $this->container['unitAmount'];
-    }
-
-    /**
-     * Sets unitAmount
-     *
-     * @param int $unitAmount 価格の単価。0以上の整数となります。
-     *
-     * @return self
-     */
-    public function setUnitAmount(int $unitAmount): self
-    {
-        if (is_null($unitAmount)) {
-            throw new \InvalidArgumentException('non-nullable unitAmount cannot be null');
-        }
-        $this->container['unitAmount'] = $unitAmount;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
@@ -803,7 +803,7 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets createdAt
      *
-     * @param \DateTime $createdAt 支払い方法作成時の日時 (UTC, ISO 8601 形式)
+     * @param \DateTime $createdAt 作成日時 (UTC, ISO 8601 形式)
      *
      * @return self
      */
@@ -834,7 +834,7 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets updatedAt
      *
-     * @param \DateTime $updatedAt 支払い方法更新時の日時 (UTC, ISO 8601 形式)
+     * @param \DateTime $updatedAt 更新日時 (UTC, ISO 8601 形式)
      *
      * @return self
      */

@@ -107,8 +107,8 @@ $until = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | 指定した
 $limit = 10; // int | 取得するデータの最大件数
 $startingAfter = 'startingAfter_example'; // string | このIDより後のデータを取得
 $endingBefore = 'endingBefore_example'; // string | このIDより前のデータを取得
-$state = new \PAYJPV2\Model\\PAYJPV2\Model\BalanceState(); // \PAYJPV2\Model\BalanceState | stateが指定した値であるオブジェクトに限定
-$closed = True; // bool | closedが指定した値であるオブジェクトに限定
+$state = new \PAYJPV2\Model\\PAYJPV2\Model\BalanceState(); // \PAYJPV2\Model\BalanceState | state が指定した値であるオブジェクトに限定
+$closed = True; // bool | closed が指定した値であるオブジェクトに限定
 $sinceDueDate = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | 入金予定日/振込期限日が指定した日時以降のデータのみ取得
 $untilDueDate = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | 入金予定日/振込期限日が指定した日時以前のデータのみ取得
 
@@ -129,8 +129,8 @@ try {
 | **limit** | **int**| 取得するデータの最大件数 | [optional] [default to 10] |
 | **startingAfter** | **string**| このIDより後のデータを取得 | [optional] |
 | **endingBefore** | **string**| このIDより前のデータを取得 | [optional] |
-| **state** | [**\PAYJPV2\Model\BalanceState**](../Model/.md)| stateが指定した値であるオブジェクトに限定 | [optional] |
-| **closed** | **bool**| closedが指定した値であるオブジェクトに限定 | [optional] |
+| **state** | [**\PAYJPV2\Model\BalanceState**](../Model/.md)| state が指定した値であるオブジェクトに限定 | [optional] |
+| **closed** | **bool**| closed が指定した値であるオブジェクトに限定 | [optional] |
 | **sinceDueDate** | **\DateTime**| 入金予定日/振込期限日が指定した日時以降のデータのみ取得 | [optional] |
 | **untilDueDate** | **\DateTime**| 入金予定日/振込期限日が指定した日時以前のデータのみ取得 | [optional] |
 

@@ -459,7 +459,7 @@ class StatementsApi
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
      * @param  \PAYJPV2\Model\StatementType|null $type 明細タイプでフィルタ (optional)
-     * @param  string|null $termId 期間IDでフィルタ (optional)
+     * @param  string|null $termId 集計区間 ID でフィルタ (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
@@ -484,7 +484,7 @@ class StatementsApi
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
      * @param  \PAYJPV2\Model\StatementType|null $type 明細タイプでフィルタ (optional)
-     * @param  string|null $termId 期間IDでフィルタ (optional)
+     * @param  string|null $termId 集計区間 ID でフィルタ (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
@@ -607,7 +607,7 @@ class StatementsApi
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
      * @param  \PAYJPV2\Model\StatementType|null $type 明細タイプでフィルタ (optional)
-     * @param  string|null $termId 期間IDでフィルタ (optional)
+     * @param  string|null $termId 集計区間 ID でフィルタ (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException
@@ -634,7 +634,7 @@ class StatementsApi
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
      * @param  \PAYJPV2\Model\StatementType|null $type 明細タイプでフィルタ (optional)
-     * @param  string|null $termId 期間IDでフィルタ (optional)
+     * @param  string|null $termId 集計区間 ID でフィルタ (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException
@@ -691,7 +691,7 @@ class StatementsApi
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
      * @param  \PAYJPV2\Model\StatementType|null $type 明細タイプでフィルタ (optional)
-     * @param  string|null $termId 期間IDでフィルタ (optional)
+     * @param  string|null $termId 集計区間 ID でフィルタ (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException

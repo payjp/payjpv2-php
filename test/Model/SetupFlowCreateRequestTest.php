@@ -89,24 +89,6 @@ class SetupFlowCreateRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "description"
-     */
-    public function testPropertyDescription()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "metadata"
-     */
-    public function testPropertyMetadata()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "paymentMethodOptions"
      */
     public function testPropertyPaymentMethodOptions()
@@ -128,6 +110,24 @@ class SetupFlowCreateRequestTest extends TestCase
      * Test attribute "usage"
      */
     public function testPropertyUsage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "metadata"
+     */
+    public function testPropertyMetadata()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

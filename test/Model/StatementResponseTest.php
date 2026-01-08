@@ -125,24 +125,6 @@ class StatementResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "createdAt"
-     */
-    public function testPropertyCreatedAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "updatedAt"
-     */
-    public function testPropertyUpdatedAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "term"
      */
     public function testPropertyTerm()
@@ -173,6 +155,24 @@ class StatementResponseTest extends TestCase
      * Test attribute "net"
      */
     public function testPropertyNet()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "createdAt"
+     */
+    public function testPropertyCreatedAt()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "updatedAt"
+     */
+    public function testPropertyUpdatedAt()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

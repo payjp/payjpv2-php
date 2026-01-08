@@ -58,16 +58,16 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'object' => 'string',
-        'createdAt' => '\DateTime',
-        'updatedAt' => '\DateTime',
+        'id' => 'string',
         'livemode' => 'bool',
+        'paymentFlowId' => 'string',
         'amount' => 'int',
         'status' => '\PAYJPV2\Model\PaymentRefundStatus',
-        'paymentFlowId' => 'string',
         'reason' => '\PAYJPV2\Model\PaymentRefundReason',
         'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
+        'createdAt' => '\DateTime',
+        'updatedAt' => '\DateTime',
     ];
 
     /**
@@ -78,16 +78,16 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'object' => null,
-        'createdAt' => 'date-time',
-        'updatedAt' => 'date-time',
+        'id' => null,
         'livemode' => null,
+        'paymentFlowId' => null,
         'amount' => null,
         'status' => null,
-        'paymentFlowId' => null,
         'reason' => null,
         'metadata' => null,
+        'createdAt' => 'date-time',
+        'updatedAt' => 'date-time',
     ];
 
     /**
@@ -96,16 +96,16 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var bool[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
         'object' => false,
-        'createdAt' => false,
-        'updatedAt' => false,
+        'id' => false,
         'livemode' => false,
+        'paymentFlowId' => false,
         'amount' => false,
         'status' => false,
-        'paymentFlowId' => false,
         'reason' => true,
         'metadata' => false,
+        'createdAt' => false,
+        'updatedAt' => false,
     ];
 
     /**
@@ -194,16 +194,16 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'object' => 'object',
-        'createdAt' => 'created_at',
-        'updatedAt' => 'updated_at',
+        'id' => 'id',
         'livemode' => 'livemode',
+        'paymentFlowId' => 'payment_flow_id',
         'amount' => 'amount',
         'status' => 'status',
-        'paymentFlowId' => 'payment_flow_id',
         'reason' => 'reason',
         'metadata' => 'metadata',
+        'createdAt' => 'created_at',
+        'updatedAt' => 'updated_at',
     ];
 
     /**
@@ -212,16 +212,16 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'object' => 'setObject',
-        'createdAt' => 'setCreatedAt',
-        'updatedAt' => 'setUpdatedAt',
+        'id' => 'setId',
         'livemode' => 'setLivemode',
+        'paymentFlowId' => 'setPaymentFlowId',
         'amount' => 'setAmount',
         'status' => 'setStatus',
-        'paymentFlowId' => 'setPaymentFlowId',
         'reason' => 'setReason',
         'metadata' => 'setMetadata',
+        'createdAt' => 'setCreatedAt',
+        'updatedAt' => 'setUpdatedAt',
     ];
 
     /**
@@ -230,16 +230,16 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'object' => 'getObject',
-        'createdAt' => 'getCreatedAt',
-        'updatedAt' => 'getUpdatedAt',
+        'id' => 'getId',
         'livemode' => 'getLivemode',
+        'paymentFlowId' => 'getPaymentFlowId',
         'amount' => 'getAmount',
         'status' => 'getStatus',
-        'paymentFlowId' => 'getPaymentFlowId',
         'reason' => 'getReason',
         'metadata' => 'getMetadata',
+        'createdAt' => 'getCreatedAt',
+        'updatedAt' => 'getUpdatedAt',
     ];
 
     /**
@@ -312,16 +312,16 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'payment_refund');
-        $this->setIfExists('createdAt', $data ?? [], null);
-        $this->setIfExists('updatedAt', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('livemode', $data ?? [], null);
+        $this->setIfExists('paymentFlowId', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('paymentFlowId', $data ?? [], null);
         $this->setIfExists('reason', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('createdAt', $data ?? [], null);
+        $this->setIfExists('updatedAt', $data ?? [], null);
     }
 
     /**
@@ -351,9 +351,6 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (! is_null($this->container['object']) && ! in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -363,14 +360,14 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
             );
         }
 
-        if ($this->container['createdAt'] === null) {
-            $invalidProperties[] = "'createdAt' can't be null";
-        }
-        if ($this->container['updatedAt'] === null) {
-            $invalidProperties[] = "'updatedAt' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
         if ($this->container['livemode'] === null) {
             $invalidProperties[] = "'livemode' can't be null";
+        }
+        if ($this->container['paymentFlowId'] === null) {
+            $invalidProperties[] = "'paymentFlowId' can't be null";
         }
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
@@ -378,14 +375,17 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
-        if ($this->container['paymentFlowId'] === null) {
-            $invalidProperties[] = "'paymentFlowId' can't be null";
-        }
         if ($this->container['reason'] === null) {
             $invalidProperties[] = "'reason' can't be null";
         }
         if ($this->container['metadata'] === null) {
             $invalidProperties[] = "'metadata' can't be null";
+        }
+        if ($this->container['createdAt'] === null) {
+            $invalidProperties[] = "'createdAt' can't be null";
+        }
+        if ($this->container['updatedAt'] === null) {
+            $invalidProperties[] = "'updatedAt' can't be null";
         }
 
         return $invalidProperties;
@@ -402,37 +402,6 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId(): string
-    {
-        if ($this->container['id'] === null) {
-            throw new \LogicException('Property "id" is required but has not been set.');
-        }
-
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id 返金対象となる PaymentFlow の ID
-     *
-     * @return self
-     */
-    public function setId(string $id): self
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets object
@@ -472,63 +441,32 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets createdAt
+     * Gets id
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getCreatedAt(): \DateTime
+    public function getId(): string
     {
-        if ($this->container['createdAt'] === null) {
-            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
         }
 
-        return $this->container['createdAt'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets createdAt
+     * Sets id
      *
-     * @param \DateTime $createdAt 作成時の日時 (UTC, ISO 8601 形式)
+     * @param string $id 返金 ID
      *
      * @return self
      */
-    public function setCreatedAt(\DateTime $createdAt): self
+    public function setId(string $id): self
     {
-        if (is_null($createdAt)) {
-            throw new \InvalidArgumentException('non-nullable createdAt cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['createdAt'] = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Gets updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt(): \DateTime
-    {
-        if ($this->container['updatedAt'] === null) {
-            throw new \LogicException('Property "updatedAt" is required but has not been set.');
-        }
-
-        return $this->container['updatedAt'];
-    }
-
-    /**
-     * Sets updatedAt
-     *
-     * @param \DateTime $updatedAt 更新時の日時 (UTC, ISO 8601 形式)
-     *
-     * @return self
-     */
-    public function setUpdatedAt(\DateTime $updatedAt): self
-    {
-        if (is_null($updatedAt)) {
-            throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
-        }
-        $this->container['updatedAt'] = $updatedAt;
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -560,6 +498,37 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable livemode cannot be null');
         }
         $this->container['livemode'] = $livemode;
+
+        return $this;
+    }
+
+    /**
+     * Gets paymentFlowId
+     *
+     * @return string
+     */
+    public function getPaymentFlowId(): string
+    {
+        if ($this->container['paymentFlowId'] === null) {
+            throw new \LogicException('Property "paymentFlowId" is required but has not been set.');
+        }
+
+        return $this->container['paymentFlowId'];
+    }
+
+    /**
+     * Sets paymentFlowId
+     *
+     * @param string $paymentFlowId 返金対象となる PaymentFlow の ID
+     *
+     * @return self
+     */
+    public function setPaymentFlowId(string $paymentFlowId): self
+    {
+        if (is_null($paymentFlowId)) {
+            throw new \InvalidArgumentException('non-nullable paymentFlowId cannot be null');
+        }
+        $this->container['paymentFlowId'] = $paymentFlowId;
 
         return $this;
     }
@@ -612,7 +581,7 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets status
      *
-     * @param \PAYJPV2\Model\PaymentRefundStatus $status 返金ステータス  <a href=\"https://docs.pay.jp/v2/payment_refunds#refund_status\" target=\"_blank\">返金ステータスの詳細についてはこちらを参照してください。</a>  | 指定できる値 | |:---| | **succeeded**: 成功 | | **failed**: 失敗 | | **pending**: 保留中 | | **canceled**: キャンセル |
+     * @param \PAYJPV2\Model\PaymentRefundStatus $status 返金ステータス  <a href=\"https://docs.pay.jp/v2/guide/status-management/refund#%E8%BF%94%E9%87%91%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%81%AE%E7%9B%A3%E8%A6%96\" target=\"_blank\">返金ステータスの詳細についてはこちらを参照してください。</a>  | 値 | |:---| | **succeeded**: 返金が成功しました | | **failed**: 返金が失敗しました | | **pending**: 返金処理中です | | **canceled**: 返金がキャンセルされました | | **requires_action**: 追加のアクションが必要です |
      *
      * @return self
      */
@@ -622,37 +591,6 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
         $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets paymentFlowId
-     *
-     * @return string
-     */
-    public function getPaymentFlowId(): string
-    {
-        if ($this->container['paymentFlowId'] === null) {
-            throw new \LogicException('Property "paymentFlowId" is required but has not been set.');
-        }
-
-        return $this->container['paymentFlowId'];
-    }
-
-    /**
-     * Sets paymentFlowId
-     *
-     * @param string $paymentFlowId 返金対象となる PaymentFlow の ID
-     *
-     * @return self
-     */
-    public function setPaymentFlowId(string $paymentFlowId): self
-    {
-        if (is_null($paymentFlowId)) {
-            throw new \InvalidArgumentException('non-nullable paymentFlowId cannot be null');
-        }
-        $this->container['paymentFlowId'] = $paymentFlowId;
 
         return $this;
     }
@@ -718,6 +656,68 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
         $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt(): \DateTime
+    {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
+        return $this->container['createdAt'];
+    }
+
+    /**
+     * Sets createdAt
+     *
+     * @param \DateTime $createdAt 作成日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setCreatedAt(\DateTime $createdAt): self
+    {
+        if (is_null($createdAt)) {
+            throw new \InvalidArgumentException('non-nullable createdAt cannot be null');
+        }
+        $this->container['createdAt'] = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt(): \DateTime
+    {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
+        return $this->container['updatedAt'];
+    }
+
+    /**
+     * Sets updatedAt
+     *
+     * @param \DateTime $updatedAt 更新日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setUpdatedAt(\DateTime $updatedAt): self
+    {
+        if (is_null($updatedAt)) {
+            throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
+        }
+        $this->container['updatedAt'] = $updatedAt;
 
         return $this;
     }

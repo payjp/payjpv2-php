@@ -144,7 +144,7 @@ class PricesApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\PriceDetailsResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\PriceDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function createPrice($priceCreateRequest, ?string $idempotencyKey = null)
     {
@@ -163,7 +163,7 @@ class PricesApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\PriceDetailsResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\PriceDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createPriceWithHttpInfo($priceCreateRequest, ?string $idempotencyKey = null)
     {
@@ -206,6 +206,12 @@ class PricesApi
                         $request,
                         $response,
                     );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
             }
 
 
@@ -240,6 +246,15 @@ class PricesApi
 
                     throw $e;
                 case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',
@@ -443,7 +458,7 @@ class PricesApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  string[]|null $lookupKeys 価格を動的に取得するために使用される検索キー。 (optional)
+     * @param  string[]|null $lookupKeys 価格を動的に取得するために使用される検索キー (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
@@ -465,7 +480,7 @@ class PricesApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  string[]|null $lookupKeys 価格を動的に取得するために使用される検索キー。 (optional)
+     * @param  string[]|null $lookupKeys 価格を動的に取得するために使用される検索キー (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
@@ -585,7 +600,7 @@ class PricesApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  string[]|null $lookupKeys 価格を動的に取得するために使用される検索キー。 (optional)
+     * @param  string[]|null $lookupKeys 価格を動的に取得するために使用される検索キー (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException
@@ -609,7 +624,7 @@ class PricesApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  string[]|null $lookupKeys 価格を動的に取得するために使用される検索キー。 (optional)
+     * @param  string[]|null $lookupKeys 価格を動的に取得するために使用される検索キー (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException
@@ -663,7 +678,7 @@ class PricesApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  string[]|null $lookupKeys 価格を動的に取得するために使用される検索キー。 (optional)
+     * @param  string[]|null $lookupKeys 価格を動的に取得するために使用される検索キー (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException
@@ -1111,7 +1126,7 @@ class PricesApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\PriceDetailsResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\PriceDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function updatePrice($priceId, $priceUpdateRequest, ?string $idempotencyKey = null)
     {
@@ -1131,7 +1146,7 @@ class PricesApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\PriceDetailsResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\PriceDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updatePriceWithHttpInfo($priceId, $priceUpdateRequest, ?string $idempotencyKey = null)
     {
@@ -1174,6 +1189,18 @@ class PricesApi
                         $request,
                         $response,
                     );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
             }
 
 
@@ -1208,6 +1235,24 @@ class PricesApi
 
                     throw $e;
                 case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',

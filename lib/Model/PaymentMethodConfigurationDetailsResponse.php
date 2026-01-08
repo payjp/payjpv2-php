@@ -58,10 +58,10 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'object' => 'string',
-        'active' => 'bool',
+        'id' => 'string',
         'livemode' => 'bool',
+        'active' => 'bool',
         'name' => 'string',
         'paypay' => '\PAYJPV2\Model\PaymentMethodConfigurationSettingResponse',
         'card' => '\PAYJPV2\Model\PaymentMethodConfigurationSettingResponse',
@@ -75,10 +75,10 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'object' => null,
-        'active' => null,
+        'id' => null,
         'livemode' => null,
+        'active' => null,
         'name' => null,
         'paypay' => null,
         'card' => null,
@@ -90,10 +90,10 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
       * @var bool[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
         'object' => false,
-        'active' => false,
+        'id' => false,
         'livemode' => false,
+        'active' => false,
         'name' => true,
         'paypay' => false,
         'card' => false,
@@ -185,10 +185,10 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'object' => 'object',
-        'active' => 'active',
+        'id' => 'id',
         'livemode' => 'livemode',
+        'active' => 'active',
         'name' => 'name',
         'paypay' => 'paypay',
         'card' => 'card',
@@ -200,10 +200,10 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'object' => 'setObject',
-        'active' => 'setActive',
+        'id' => 'setId',
         'livemode' => 'setLivemode',
+        'active' => 'setActive',
         'name' => 'setName',
         'paypay' => 'setPaypay',
         'card' => 'setCard',
@@ -215,10 +215,10 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'object' => 'getObject',
-        'active' => 'getActive',
+        'id' => 'getId',
         'livemode' => 'getLivemode',
+        'active' => 'getActive',
         'name' => 'getName',
         'paypay' => 'getPaypay',
         'card' => 'getCard',
@@ -294,10 +294,10 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'payment_method_configuration');
-        $this->setIfExists('active', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('livemode', $data ?? [], null);
+        $this->setIfExists('active', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('paypay', $data ?? [], null);
         $this->setIfExists('card', $data ?? [], null);
@@ -330,9 +330,6 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (! is_null($this->container['object']) && ! in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -342,11 +339,14 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
             );
         }
 
-        if ($this->container['active'] === null) {
-            $invalidProperties[] = "'active' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
         if ($this->container['livemode'] === null) {
             $invalidProperties[] = "'livemode' can't be null";
+        }
+        if ($this->container['active'] === null) {
+            $invalidProperties[] = "'active' can't be null";
         }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
@@ -372,37 +372,6 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId(): string
-    {
-        if ($this->container['id'] === null) {
-            throw new \LogicException('Property "id" is required but has not been set.');
-        }
-
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id ID
-     *
-     * @return self
-     */
-    public function setId(string $id): self
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets object
@@ -442,32 +411,32 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
     }
 
     /**
-     * Gets active
+     * Gets id
      *
-     * @return bool
+     * @return string
      */
-    public function getActive(): bool
+    public function getId(): string
     {
-        if ($this->container['active'] === null) {
-            throw new \LogicException('Property "active" is required but has not been set.');
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
         }
 
-        return $this->container['active'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets active
+     * Sets id
      *
-     * @param bool $active 設定が有効かどうか。
+     * @param string $id 支払い方法設定 ID
      *
      * @return self
      */
-    public function setActive(bool $active): self
+    public function setId(string $id): self
     {
-        if (is_null($active)) {
-            throw new \InvalidArgumentException('non-nullable active cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['active'] = $active;
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -499,6 +468,37 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
             throw new \InvalidArgumentException('non-nullable livemode cannot be null');
         }
         $this->container['livemode'] = $livemode;
+
+        return $this;
+    }
+
+    /**
+     * Gets active
+     *
+     * @return bool
+     */
+    public function getActive(): bool
+    {
+        if ($this->container['active'] === null) {
+            throw new \LogicException('Property "active" is required but has not been set.');
+        }
+
+        return $this->container['active'];
+    }
+
+    /**
+     * Sets active
+     *
+     * @param bool $active 設定が有効かどうか
+     *
+     * @return self
+     */
+    public function setActive(bool $active): self
+    {
+        if (is_null($active)) {
+            throw new \InvalidArgumentException('non-nullable active cannot be null');
+        }
+        $this->container['active'] = $active;
 
         return $this;
     }
@@ -554,7 +554,7 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
     /**
      * Sets paypay
      *
-     * @param \PAYJPV2\Model\PaymentMethodConfigurationSettingResponse $paypay PayPayの設定
+     * @param \PAYJPV2\Model\PaymentMethodConfigurationSettingResponse $paypay PayPay の設定
      *
      * @return self
      */

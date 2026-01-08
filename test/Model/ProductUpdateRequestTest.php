@@ -80,6 +80,24 @@ class ProductUpdateRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "name"
+     */
+    public function testPropertyName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "active"
+     */
+    public function testPropertyActive()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "defaultPriceId"
      */
     public function testPropertyDefaultPriceId()
@@ -110,24 +128,6 @@ class ProductUpdateRequestTest extends TestCase
      * Test attribute "url"
      */
     public function testPropertyUrl()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "name"
-     */
-    public function testPropertyName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "active"
-     */
-    public function testPropertyActive()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

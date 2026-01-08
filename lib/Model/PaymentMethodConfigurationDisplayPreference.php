@@ -360,7 +360,7 @@ class PaymentMethodConfigurationDisplayPreference implements ModelInterface, Arr
     /**
      * Sets preference
      *
-     * @param string|null $preference この支払い方法がアカウントで有効になっているかどうか。  | 指定できる値 | |:---| | **on**: この決済手段を決済画面に表示する | | **off**: この決済手段を決済画面に表示しない | | **none**: デフォルト設定を使用 |
+     * @param string|null $preference この支払い方法がアカウントで有効になっているかどうか  | 値 | |:---| | **on**: この決済手段を決済画面に表示する | | **off**: この決済手段を決済画面に表示しない | | **none**: デフォルト設定を使用 |
      *
      * @return self
      */
@@ -397,7 +397,7 @@ class PaymentMethodConfigurationDisplayPreference implements ModelInterface, Arr
     /**
      * Sets value
      *
-     * @param string|null $value この支払い方法を決済画面に表示するかどうか。  | 指定できる値 | |:---| | **on**: この決済手段を決済画面に表示する | | **off**: この決済手段を決済画面に表示しない |
+     * @param string|null $value この支払い方法を決済画面に表示するかどうか。  | 値 | |:---| | **on**: この決済手段を決済画面に表示する | | **off**: この決済手段を決済画面に表示しない |
      *
      * @return self
      */

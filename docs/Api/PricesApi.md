@@ -106,7 +106,7 @@ $apiInstance = new PAYJPV2\Api\PricesApi(
 $limit = 10; // int | 取得するデータの最大件数
 $startingAfter = 'startingAfter_example'; // string | このIDより後のデータを取得
 $endingBefore = 'endingBefore_example'; // string | このIDより前のデータを取得
-$lookupKeys = array('lookupKeys_example'); // string[] | 価格を動的に取得するために使用される検索キー。
+$lookupKeys = array('lookupKeys_example'); // string[] | 価格を動的に取得するために使用される検索キー
 
 try {
     $result = $apiInstance->getAllPrices($limit, $startingAfter, $endingBefore, $lookupKeys);
@@ -123,7 +123,7 @@ try {
 | **limit** | **int**| 取得するデータの最大件数 | [optional] [default to 10] |
 | **startingAfter** | **string**| このIDより後のデータを取得 | [optional] |
 | **endingBefore** | **string**| このIDより前のデータを取得 | [optional] |
-| **lookupKeys** | [**string[]**](../Model/string.md)| 価格を動的に取得するために使用される検索キー。 | [optional] |
+| **lookupKeys** | [**string[]**](../Model/string.md)| 価格を動的に取得するために使用される検索キー | [optional] |
 
 ### Return type
 

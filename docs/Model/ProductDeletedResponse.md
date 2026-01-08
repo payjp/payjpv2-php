@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | 商品ID |
 **object** | **string** |  | [optional] [default to 'product']
-**deleted** | **bool** | 削除されたかどうか | [readonly]
+**id** | **string** | 商品 ID |
+**deleted** | **bool** | 削除されたかどうか | [optional] [default to true]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

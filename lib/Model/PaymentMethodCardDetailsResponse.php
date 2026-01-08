@@ -485,7 +485,7 @@ class PaymentMethodCardDetailsResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets fingerprint
      *
-     * @param string $fingerprint fingerprint
+     * @param string $fingerprint このクレジットカード番号に紐づく値。同一番号のカードからは同一の値が生成されることが保証されています。
      *
      * @return self
      */

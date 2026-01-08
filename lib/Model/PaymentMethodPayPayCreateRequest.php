@@ -349,7 +349,7 @@ class PaymentMethodPayPayCreateRequest implements ModelInterface, ArrayAccess, \
     /**
      * Sets customerId
      *
-     * @param string|null $customerId 顧客ID
+     * @param string|null $customerId 顧客 ID
      *
      * @return self
      */
@@ -403,7 +403,7 @@ class PaymentMethodPayPayCreateRequest implements ModelInterface, ArrayAccess, \
     /**
      * Sets metadata
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。<a href=\"https://docs.pay.jp/v2/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
+     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
      *
      * @return self
      */
@@ -434,7 +434,7 @@ class PaymentMethodPayPayCreateRequest implements ModelInterface, ArrayAccess, \
     /**
      * Sets type
      *
-     * @param string $type PayPay決済の場合は `paypay` を指定します。
+     * @param string $type PayPay 決済の場合は `paypay` を指定します。
      *
      * @return self
      */

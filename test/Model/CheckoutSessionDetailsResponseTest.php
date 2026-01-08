@@ -80,18 +80,18 @@ class CheckoutSessionDetailsResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "object"
      */
-    public function testPropertyId()
+    public function testPropertyObject()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "object"
+     * Test attribute "id"
      */
-    public function testPropertyObject()
+    public function testPropertyId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -125,15 +125,6 @@ class CheckoutSessionDetailsResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "cancelUrl"
-     */
-    public function testPropertyCancelUrl()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "customerId"
      */
     public function testPropertyCustomerId()
@@ -146,6 +137,15 @@ class CheckoutSessionDetailsResponseTest extends TestCase
      * Test attribute "customerEmail"
      */
     public function testPropertyCustomerEmail()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "customerDetails"
+     */
+    public function testPropertyCustomerDetails()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -242,33 +242,6 @@ class CheckoutSessionDetailsResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "createdAt"
-     */
-    public function testPropertyCreatedAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "updatedAt"
-     */
-    public function testPropertyUpdatedAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "metadata"
-     */
-    public function testPropertyMetadata()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "status"
      */
     public function testPropertyStatus()
@@ -287,9 +260,45 @@ class CheckoutSessionDetailsResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "cancelUrl"
+     */
+    public function testPropertyCancelUrl()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "url"
      */
     public function testPropertyUrl()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "metadata"
+     */
+    public function testPropertyMetadata()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "createdAt"
+     */
+    public function testPropertyCreatedAt()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "updatedAt"
+     */
+    public function testPropertyUpdatedAt()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -80,6 +80,15 @@ class CheckoutSessionCreateRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "mode"
+     */
+    public function testPropertyMode()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "clientReferenceId"
      */
     public function testPropertyClientReferenceId()
@@ -119,15 +128,6 @@ class CheckoutSessionCreateRequestTest extends TestCase
      * Test attribute "lineItems"
      */
     public function testPropertyLineItems()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "mode"
-     */
-    public function testPropertyMode()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -188,9 +188,9 @@ class CheckoutSessionCreateRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "paymentFlowData"
+     * Test attribute "paymentMethodTypes"
      */
-    public function testPropertyPaymentFlowData()
+    public function testPropertyPaymentMethodTypes()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -206,18 +206,9 @@ class CheckoutSessionCreateRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "paymentMethodTypes"
+     * Test attribute "paymentFlowData"
      */
-    public function testPropertyPaymentMethodTypes()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "setupFlowData"
-     */
-    public function testPropertySetupFlowData()
+    public function testPropertyPaymentFlowData()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -227,6 +218,15 @@ class CheckoutSessionCreateRequestTest extends TestCase
      * Test attribute "submitType"
      */
     public function testPropertySubmitType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "setupFlowData"
+     */
+    public function testPropertySetupFlowData()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

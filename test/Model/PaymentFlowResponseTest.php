@@ -80,15 +80,6 @@ class PaymentFlowResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "object"
      */
     public function testPropertyObject()
@@ -98,18 +89,9 @@ class PaymentFlowResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "createdAt"
+     * Test attribute "id"
      */
-    public function testPropertyCreatedAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "updatedAt"
-     */
-    public function testPropertyUpdatedAt()
+    public function testPropertyId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -188,15 +170,6 @@ class PaymentFlowResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "metadata"
-     */
-    public function testPropertyMetadata()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "paymentMethodId"
      */
     public function testPropertyPaymentMethodId()
@@ -263,6 +236,51 @@ class PaymentFlowResponseTest extends TestCase
      * Test attribute "lastPaymentError"
      */
     public function testPropertyLastPaymentError()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "cancellationReason"
+     */
+    public function testPropertyCancellationReason()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "canceledAt"
+     */
+    public function testPropertyCanceledAt()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "metadata"
+     */
+    public function testPropertyMetadata()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "createdAt"
+     */
+    public function testPropertyCreatedAt()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "updatedAt"
+     */
+    public function testPropertyUpdatedAt()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

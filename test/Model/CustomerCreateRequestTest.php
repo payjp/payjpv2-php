@@ -80,6 +80,24 @@ class CustomerCreateRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "paymentMethodId"
+     */
+    public function testPropertyPaymentMethodId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "email"
      */
     public function testPropertyEmail()
@@ -101,24 +119,6 @@ class CustomerCreateRequestTest extends TestCase
      * Test attribute "metadata"
      */
     public function testPropertyMetadata()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "paymentMethodId"
-     */
-    public function testPropertyPaymentMethodId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

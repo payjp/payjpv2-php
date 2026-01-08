@@ -60,13 +60,13 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'object' => 'string',
         'id' => 'string',
+        'livemode' => 'bool',
         'type' => 'string',
         'customerId' => 'string',
         'detachedAt' => '\DateTime',
-        'livemode' => 'bool',
+        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
         'createdAt' => '\DateTime',
         'updatedAt' => '\DateTime',
-        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
         'billingDetails' => '\PAYJPV2\Model\PaymentMethodBillingDetailsResponse',
         'card' => '\PAYJPV2\Model\PaymentMethodCardDetailsResponse',
     ];
@@ -81,13 +81,13 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPIFormats = [
         'object' => null,
         'id' => null,
+        'livemode' => null,
         'type' => null,
         'customerId' => null,
         'detachedAt' => 'date-time',
-        'livemode' => null,
+        'metadata' => null,
         'createdAt' => 'date-time',
         'updatedAt' => 'date-time',
-        'metadata' => null,
         'billingDetails' => null,
         'card' => null,
     ];
@@ -100,13 +100,13 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
     protected static array $openAPINullables = [
         'object' => false,
         'id' => false,
+        'livemode' => false,
         'type' => false,
         'customerId' => true,
         'detachedAt' => true,
-        'livemode' => false,
+        'metadata' => false,
         'createdAt' => false,
         'updatedAt' => false,
-        'metadata' => false,
         'billingDetails' => false,
         'card' => false,
     ];
@@ -199,13 +199,13 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
     protected static $attributeMap = [
         'object' => 'object',
         'id' => 'id',
+        'livemode' => 'livemode',
         'type' => 'type',
         'customerId' => 'customer_id',
         'detachedAt' => 'detached_at',
-        'livemode' => 'livemode',
+        'metadata' => 'metadata',
         'createdAt' => 'created_at',
         'updatedAt' => 'updated_at',
-        'metadata' => 'metadata',
         'billingDetails' => 'billing_details',
         'card' => 'card',
     ];
@@ -218,13 +218,13 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
     protected static $setters = [
         'object' => 'setObject',
         'id' => 'setId',
+        'livemode' => 'setLivemode',
         'type' => 'setType',
         'customerId' => 'setCustomerId',
         'detachedAt' => 'setDetachedAt',
-        'livemode' => 'setLivemode',
+        'metadata' => 'setMetadata',
         'createdAt' => 'setCreatedAt',
         'updatedAt' => 'setUpdatedAt',
-        'metadata' => 'setMetadata',
         'billingDetails' => 'setBillingDetails',
         'card' => 'setCard',
     ];
@@ -237,13 +237,13 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
     protected static $getters = [
         'object' => 'getObject',
         'id' => 'getId',
+        'livemode' => 'getLivemode',
         'type' => 'getType',
         'customerId' => 'getCustomerId',
         'detachedAt' => 'getDetachedAt',
-        'livemode' => 'getLivemode',
+        'metadata' => 'getMetadata',
         'createdAt' => 'getCreatedAt',
         'updatedAt' => 'getUpdatedAt',
-        'metadata' => 'getMetadata',
         'billingDetails' => 'getBillingDetails',
         'card' => 'getCard',
     ];
@@ -335,13 +335,13 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
     {
         $this->setIfExists('object', $data ?? [], 'payment_method');
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('livemode', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('customerId', $data ?? [], null);
         $this->setIfExists('detachedAt', $data ?? [], null);
-        $this->setIfExists('livemode', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('createdAt', $data ?? [], null);
         $this->setIfExists('updatedAt', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('billingDetails', $data ?? [], null);
         $this->setIfExists('card', $data ?? [], null);
     }
@@ -385,6 +385,9 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
+        if ($this->container['livemode'] === null) {
+            $invalidProperties[] = "'livemode' can't be null";
+        }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
@@ -403,17 +406,14 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
         if ($this->container['detachedAt'] === null) {
             $invalidProperties[] = "'detachedAt' can't be null";
         }
-        if ($this->container['livemode'] === null) {
-            $invalidProperties[] = "'livemode' can't be null";
+        if ($this->container['metadata'] === null) {
+            $invalidProperties[] = "'metadata' can't be null";
         }
         if ($this->container['createdAt'] === null) {
             $invalidProperties[] = "'createdAt' can't be null";
         }
         if ($this->container['updatedAt'] === null) {
             $invalidProperties[] = "'updatedAt' can't be null";
-        }
-        if ($this->container['metadata'] === null) {
-            $invalidProperties[] = "'metadata' can't be null";
         }
         if ($this->container['billingDetails'] === null) {
             $invalidProperties[] = "'billingDetails' can't be null";
@@ -501,6 +501,37 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets livemode
+     *
+     * @return bool
+     */
+    public function getLivemode(): bool
+    {
+        if ($this->container['livemode'] === null) {
+            throw new \LogicException('Property "livemode" is required but has not been set.');
+        }
+
+        return $this->container['livemode'];
+    }
+
+    /**
+     * Sets livemode
+     *
+     * @param bool $livemode 本番環境かどうか
+     *
+     * @return self
+     */
+    public function setLivemode(bool $livemode): self
+    {
+        if (is_null($livemode)) {
+            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
+        }
+        $this->container['livemode'] = $livemode;
 
         return $this;
     }
@@ -615,32 +646,32 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
-     * Gets livemode
+     * Gets metadata
      *
-     * @return bool
+     * @return array<string,\PAYJPV2\Model\MetadataValue>
      */
-    public function getLivemode(): bool
+    public function getMetadata(): array
     {
-        if ($this->container['livemode'] === null) {
-            throw new \LogicException('Property "livemode" is required but has not been set.');
+        if ($this->container['metadata'] === null) {
+            throw new \LogicException('Property "metadata" is required but has not been set.');
         }
 
-        return $this->container['livemode'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets livemode
+     * Sets metadata
      *
-     * @param bool $livemode 本番環境かどうか
+     * @param array<string,\PAYJPV2\Model\MetadataValue> $metadata メタデータ
      *
      * @return self
      */
-    public function setLivemode(bool $livemode): self
+    public function setMetadata(array $metadata): self
     {
-        if (is_null($livemode)) {
-            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
+        if (is_null($metadata)) {
+            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
-        $this->container['livemode'] = $livemode;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
@@ -703,37 +734,6 @@ class PaymentMethodCardResponse implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
         }
         $this->container['updatedAt'] = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return array<string,\PAYJPV2\Model\MetadataValue>
-     */
-    public function getMetadata(): array
-    {
-        if ($this->container['metadata'] === null) {
-            throw new \LogicException('Property "metadata" is required but has not been set.');
-        }
-
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param array<string,\PAYJPV2\Model\MetadataValue> $metadata メタデータ
-     *
-     * @return self
-     */
-    public function setMetadata(array $metadata): self
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
 
         return $this;
     }

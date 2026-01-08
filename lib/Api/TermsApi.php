@@ -136,8 +136,8 @@ class TermsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  \DateTime|null $sinceStartAt start_atが指定した日付以降のデータを取得 (optional)
-     * @param  \DateTime|null $untilStartAt start_atが指定した日付以前のデータを取得 (optional)
+     * @param  \DateTime|null $sinceStartAt start_at が指定した日付以降のデータを取得 (optional)
+     * @param  \DateTime|null $untilStartAt start_at が指定した日付以前のデータを取得 (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
@@ -159,8 +159,8 @@ class TermsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  \DateTime|null $sinceStartAt start_atが指定した日付以降のデータを取得 (optional)
-     * @param  \DateTime|null $untilStartAt start_atが指定した日付以前のデータを取得 (optional)
+     * @param  \DateTime|null $sinceStartAt start_at が指定した日付以降のデータを取得 (optional)
+     * @param  \DateTime|null $untilStartAt start_at が指定した日付以前のデータを取得 (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
@@ -280,8 +280,8 @@ class TermsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  \DateTime|null $sinceStartAt start_atが指定した日付以降のデータを取得 (optional)
-     * @param  \DateTime|null $untilStartAt start_atが指定した日付以前のデータを取得 (optional)
+     * @param  \DateTime|null $sinceStartAt start_at が指定した日付以降のデータを取得 (optional)
+     * @param  \DateTime|null $untilStartAt start_at が指定した日付以前のデータを取得 (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException
@@ -305,8 +305,8 @@ class TermsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  \DateTime|null $sinceStartAt start_atが指定した日付以降のデータを取得 (optional)
-     * @param  \DateTime|null $untilStartAt start_atが指定した日付以前のデータを取得 (optional)
+     * @param  \DateTime|null $sinceStartAt start_at が指定した日付以降のデータを取得 (optional)
+     * @param  \DateTime|null $untilStartAt start_at が指定した日付以前のデータを取得 (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException
@@ -360,8 +360,8 @@ class TermsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  \DateTime|null $sinceStartAt start_atが指定した日付以降のデータを取得 (optional)
-     * @param  \DateTime|null $untilStartAt start_atが指定した日付以前のデータを取得 (optional)
+     * @param  \DateTime|null $sinceStartAt start_at が指定した日付以降のデータを取得 (optional)
+     * @param  \DateTime|null $untilStartAt start_at が指定した日付以前のデータを取得 (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException

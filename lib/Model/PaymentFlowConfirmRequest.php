@@ -338,7 +338,7 @@ class PaymentFlowConfirmRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets paymentMethodId
      *
-     * @param string|null $paymentMethodId 支払い方法ID。customer_idの指定が必須です。Customerが所持するPaymentMethodのみ指定できます。payment_method_idを指定せず、Customerにdefault_payment_method_idが設定されている場合はそちらが自動でセットされます。
+     * @param string|null $paymentMethodId 支払い方法 ID。customer_id の指定が必須です。Customer が所持する PaymentMethod のみ指定できます。payment_method_id を指定せず、Customer に default_payment_method_id が設定されている場合はそちらが自動でセットされます。
      *
      * @return self
      */
@@ -365,7 +365,7 @@ class PaymentFlowConfirmRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets paymentMethodOptions
      *
-     * @param \PAYJPV2\Model\PaymentFlowPaymentMethodOptionsRequest|null $paymentMethodOptions このPaymentFlow固有の支払い方法の設定
+     * @param \PAYJPV2\Model\PaymentFlowPaymentMethodOptionsRequest|null $paymentMethodOptions この PaymentFlow 固有の支払い方法の設定
      *
      * @return self
      */
@@ -392,7 +392,7 @@ class PaymentFlowConfirmRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets paymentMethodTypes
      *
-     * @param \PAYJPV2\Model\PaymentMethodTypes[]|null $paymentMethodTypes このPaymentFlowで使用できる支払い方法の種類のリスト。 指定しない場合は、PAY.JPは支払い方法の設定から利用可能な支払い方法を動的に表示します。
+     * @param \PAYJPV2\Model\PaymentMethodTypes[]|null $paymentMethodTypes この PaymentFlow で使用できる支払い方法の種類のリスト。指定しない場合は、PAY.JP は支払い方法の設定から利用可能な支払い方法を動的に表示します。
      *
      * @return self
      */
@@ -419,7 +419,7 @@ class PaymentFlowConfirmRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets captureMethod
      *
-     * @param \PAYJPV2\Model\CaptureMethod|null $captureMethod 支払いの確定方法を指定します。  | 指定できる値 | |:---| | **automatic**: (デフォルト) 顧客が支払いを承認すると、自動的に確定させます。 | | **manual**: 顧客が支払いを承認すると一旦確定を保留し、後で Capture API を使用して確定します。（すべての支払い方法がこれをサポートしているわけではありません）。 |
+     * @param \PAYJPV2\Model\CaptureMethod|null $captureMethod 支払いの確定方法を指定します。  | 値 | |:---| | **automatic**: (デフォルト) 顧客が支払いを承認すると、自動的に確定させます。 | | **manual**: 顧客が支払いを承認すると一旦確定を保留し、後で Capture API を使用して確定します。（すべての支払い方法がこれをサポートしているわけではありません）。 |
      *
      * @return self
      */
@@ -446,7 +446,7 @@ class PaymentFlowConfirmRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets returnUrl
      *
-     * @param string|null $returnUrl 顧客が支払いを完了後かキャンセルした後にリダイレクトされるURL。アプリにリダイレクトしたい場合は URI Scheme を指定できます。
+     * @param string|null $returnUrl 顧客が支払いを完了後かキャンセルした後にリダイレクトされる URL。アプリにリダイレクトしたい場合は URI Scheme を指定できます。
      *
      * @return self
      */

@@ -80,18 +80,18 @@ class PriceDetailsResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "object"
      */
-    public function testPropertyId()
+    public function testPropertyObject()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "object"
+     * Test attribute "id"
      */
-    public function testPropertyObject()
+    public function testPropertyId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -107,18 +107,36 @@ class PriceDetailsResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "active"
+     * Test attribute "productId"
      */
-    public function testPropertyActive()
+    public function testPropertyProductId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "metadata"
+     * Test attribute "unitAmount"
      */
-    public function testPropertyMetadata()
+    public function testPropertyUnitAmount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "currency"
+     */
+    public function testPropertyCurrency()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "active"
+     */
+    public function testPropertyActive()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -152,27 +170,9 @@ class PriceDetailsResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "currency"
+     * Test attribute "metadata"
      */
-    public function testPropertyCurrency()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "productId"
-     */
-    public function testPropertyProductId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "unitAmount"
-     */
-    public function testPropertyUnitAmount()
+    public function testPropertyMetadata()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

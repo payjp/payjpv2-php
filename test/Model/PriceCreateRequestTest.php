@@ -80,6 +80,51 @@ class PriceCreateRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "productId"
+     */
+    public function testPropertyProductId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "unitAmount"
+     */
+    public function testPropertyUnitAmount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "currency"
+     */
+    public function testPropertyCurrency()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "active"
+     */
+    public function testPropertyActive()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "nickname"
      */
     public function testPropertyNickname()
@@ -101,51 +146,6 @@ class PriceCreateRequestTest extends TestCase
      * Test attribute "metadata"
      */
     public function testPropertyMetadata()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "currency"
-     */
-    public function testPropertyCurrency()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "active"
-     */
-    public function testPropertyActive()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "productId"
-     */
-    public function testPropertyProductId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "unitAmount"
-     */
-    public function testPropertyUnitAmount()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

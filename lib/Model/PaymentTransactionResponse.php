@@ -58,10 +58,8 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'object' => 'string',
-        'createdAt' => '\DateTime',
-        'updatedAt' => '\DateTime',
+        'id' => 'string',
         'livemode' => 'bool',
         'resourceId' => 'string',
         'amount' => 'int',
@@ -71,6 +69,8 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
         'type' => '\PAYJPV2\Model\PaymentTransactionType',
         'paymentMethodType' => '\PAYJPV2\Model\PaymentMethodTypes',
         'termId' => 'string',
+        'createdAt' => '\DateTime',
+        'updatedAt' => '\DateTime',
     ];
 
     /**
@@ -81,10 +81,8 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'object' => null,
-        'createdAt' => 'date-time',
-        'updatedAt' => 'date-time',
+        'id' => null,
         'livemode' => null,
         'resourceId' => null,
         'amount' => null,
@@ -94,6 +92,8 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
         'type' => null,
         'paymentMethodType' => null,
         'termId' => null,
+        'createdAt' => 'date-time',
+        'updatedAt' => 'date-time',
     ];
 
     /**
@@ -102,10 +102,8 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var bool[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
         'object' => false,
-        'createdAt' => false,
-        'updatedAt' => false,
+        'id' => false,
         'livemode' => false,
         'resourceId' => false,
         'amount' => false,
@@ -115,6 +113,8 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
         'type' => false,
         'paymentMethodType' => false,
         'termId' => false,
+        'createdAt' => false,
+        'updatedAt' => false,
     ];
 
     /**
@@ -203,10 +203,8 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'object' => 'object',
-        'createdAt' => 'created_at',
-        'updatedAt' => 'updated_at',
+        'id' => 'id',
         'livemode' => 'livemode',
         'resourceId' => 'resource_id',
         'amount' => 'amount',
@@ -216,6 +214,8 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
         'type' => 'type',
         'paymentMethodType' => 'payment_method_type',
         'termId' => 'term_id',
+        'createdAt' => 'created_at',
+        'updatedAt' => 'updated_at',
     ];
 
     /**
@@ -224,10 +224,8 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'object' => 'setObject',
-        'createdAt' => 'setCreatedAt',
-        'updatedAt' => 'setUpdatedAt',
+        'id' => 'setId',
         'livemode' => 'setLivemode',
         'resourceId' => 'setResourceId',
         'amount' => 'setAmount',
@@ -237,6 +235,8 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
         'type' => 'setType',
         'paymentMethodType' => 'setPaymentMethodType',
         'termId' => 'setTermId',
+        'createdAt' => 'setCreatedAt',
+        'updatedAt' => 'setUpdatedAt',
     ];
 
     /**
@@ -245,10 +245,8 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'object' => 'getObject',
-        'createdAt' => 'getCreatedAt',
-        'updatedAt' => 'getUpdatedAt',
+        'id' => 'getId',
         'livemode' => 'getLivemode',
         'resourceId' => 'getResourceId',
         'amount' => 'getAmount',
@@ -258,6 +256,8 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
         'type' => 'getType',
         'paymentMethodType' => 'getPaymentMethodType',
         'termId' => 'getTermId',
+        'createdAt' => 'getCreatedAt',
+        'updatedAt' => 'getUpdatedAt',
     ];
 
     /**
@@ -330,10 +330,8 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'payment_transaction');
-        $this->setIfExists('createdAt', $data ?? [], null);
-        $this->setIfExists('updatedAt', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('livemode', $data ?? [], null);
         $this->setIfExists('resourceId', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
@@ -343,6 +341,8 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('paymentMethodType', $data ?? [], null);
         $this->setIfExists('termId', $data ?? [], null);
+        $this->setIfExists('createdAt', $data ?? [], null);
+        $this->setIfExists('updatedAt', $data ?? [], null);
     }
 
     /**
@@ -372,9 +372,6 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (! is_null($this->container['object']) && ! in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -384,11 +381,8 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
             );
         }
 
-        if ($this->container['createdAt'] === null) {
-            $invalidProperties[] = "'createdAt' can't be null";
-        }
-        if ($this->container['updatedAt'] === null) {
-            $invalidProperties[] = "'updatedAt' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
         if ($this->container['livemode'] === null) {
             $invalidProperties[] = "'livemode' can't be null";
@@ -421,6 +415,12 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
         if ($this->container['termId'] === null) {
             $invalidProperties[] = "'termId' can't be null";
         }
+        if ($this->container['createdAt'] === null) {
+            $invalidProperties[] = "'createdAt' can't be null";
+        }
+        if ($this->container['updatedAt'] === null) {
+            $invalidProperties[] = "'updatedAt' can't be null";
+        }
 
         return $invalidProperties;
     }
@@ -436,37 +436,6 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId(): string
-    {
-        if ($this->container['id'] === null) {
-            throw new \LogicException('Property "id" is required but has not been set.');
-        }
-
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id ID
-     *
-     * @return self
-     */
-    public function setId(string $id): self
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets object
@@ -506,63 +475,32 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Gets createdAt
+     * Gets id
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getCreatedAt(): \DateTime
+    public function getId(): string
     {
-        if ($this->container['createdAt'] === null) {
-            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
         }
 
-        return $this->container['createdAt'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets createdAt
+     * Sets id
      *
-     * @param \DateTime $createdAt 作成日時 (UTC, ISO 8601 形式)
+     * @param string $id 決済トランザクション ID
      *
      * @return self
      */
-    public function setCreatedAt(\DateTime $createdAt): self
+    public function setId(string $id): self
     {
-        if (is_null($createdAt)) {
-            throw new \InvalidArgumentException('non-nullable createdAt cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['createdAt'] = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Gets updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt(): \DateTime
-    {
-        if ($this->container['updatedAt'] === null) {
-            throw new \LogicException('Property "updatedAt" is required but has not been set.');
-        }
-
-        return $this->container['updatedAt'];
-    }
-
-    /**
-     * Sets updatedAt
-     *
-     * @param \DateTime $updatedAt 更新日時 (UTC, ISO 8601 形式)
-     *
-     * @return self
-     */
-    public function setUpdatedAt(\DateTime $updatedAt): self
-    {
-        if (is_null($updatedAt)) {
-            throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
-        }
-        $this->container['updatedAt'] = $updatedAt;
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -615,7 +553,7 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets resourceId
      *
-     * @param string $resourceId PaymentTransaction生成の元になったリソースのID
+     * @param string $resourceId PaymentTransaction 生成の元になったリソースの ID
      *
      * @return self
      */
@@ -775,7 +713,7 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets type
      *
-     * @param \PAYJPV2\Model\PaymentTransactionType $type PaymentTransactionの種類
+     * @param \PAYJPV2\Model\PaymentTransactionType $type PaymentTransaction の種類  | 値 | |:---| | **payment**: 支払い | | **refund**: 返金 | | **chargeback**: チャージバック | | **chargeback_cancel**: チャージバックのキャンセル |
      *
      * @return self
      */
@@ -837,7 +775,7 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets termId
      *
-     * @param string $termId 期間ID
+     * @param string $termId 集計区間 ID
      *
      * @return self
      */
@@ -847,6 +785,68 @@ class PaymentTransactionResponse implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable termId cannot be null');
         }
         $this->container['termId'] = $termId;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt(): \DateTime
+    {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
+        return $this->container['createdAt'];
+    }
+
+    /**
+     * Sets createdAt
+     *
+     * @param \DateTime $createdAt 作成日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setCreatedAt(\DateTime $createdAt): self
+    {
+        if (is_null($createdAt)) {
+            throw new \InvalidArgumentException('non-nullable createdAt cannot be null');
+        }
+        $this->container['createdAt'] = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt(): \DateTime
+    {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
+        return $this->container['updatedAt'];
+    }
+
+    /**
+     * Sets updatedAt
+     *
+     * @param \DateTime $updatedAt 更新日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setUpdatedAt(\DateTime $updatedAt): self
+    {
+        if (is_null($updatedAt)) {
+            throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
+        }
+        $this->container['updatedAt'] = $updatedAt;
 
         return $this;
     }

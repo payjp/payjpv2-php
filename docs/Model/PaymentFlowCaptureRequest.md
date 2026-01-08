@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amountToCapture** | **int** | PaymentFlowから確定させる金額は、元の金額以下で指定します。指定されていない場合は、全額（&#x60;amount_capturable&#x60;）がデフォルトになります。 | [optional]
+**amountToCapture** | **int** | PaymentFlow から確定させる金額は、元の金額以下で指定します。指定されていない場合は、全額（&#x60;amount_capturable&#x60;）がデフォルトになります。 | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

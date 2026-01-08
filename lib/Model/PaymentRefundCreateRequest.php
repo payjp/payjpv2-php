@@ -60,8 +60,8 @@ class PaymentRefundCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPITypes = [
         'paymentFlowId' => 'string',
         'amount' => 'int',
-        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
         'reason' => '\PAYJPV2\Model\PaymentRefundReason',
+        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
     ];
 
     /**
@@ -74,8 +74,8 @@ class PaymentRefundCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPIFormats = [
         'paymentFlowId' => null,
         'amount' => null,
-        'metadata' => null,
         'reason' => null,
+        'metadata' => null,
     ];
 
     /**
@@ -86,8 +86,8 @@ class PaymentRefundCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
     protected static array $openAPINullables = [
         'paymentFlowId' => false,
         'amount' => false,
-        'metadata' => false,
         'reason' => false,
+        'metadata' => false,
     ];
 
     /**
@@ -178,8 +178,8 @@ class PaymentRefundCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
     protected static $attributeMap = [
         'paymentFlowId' => 'payment_flow_id',
         'amount' => 'amount',
-        'metadata' => 'metadata',
         'reason' => 'reason',
+        'metadata' => 'metadata',
     ];
 
     /**
@@ -190,8 +190,8 @@ class PaymentRefundCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
     protected static $setters = [
         'paymentFlowId' => 'setPaymentFlowId',
         'amount' => 'setAmount',
-        'metadata' => 'setMetadata',
         'reason' => 'setReason',
+        'metadata' => 'setMetadata',
     ];
 
     /**
@@ -202,8 +202,8 @@ class PaymentRefundCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
     protected static $getters = [
         'paymentFlowId' => 'getPaymentFlowId',
         'amount' => 'getAmount',
-        'metadata' => 'getMetadata',
         'reason' => 'getReason',
+        'metadata' => 'getMetadata',
     ];
 
     /**
@@ -265,8 +265,8 @@ class PaymentRefundCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
     {
         $this->setIfExists('paymentFlowId', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('reason', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
     }
 
     /**
@@ -362,7 +362,7 @@ class PaymentRefundCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets amount
      *
-     * @param int|null $amount 返金金額
+     * @param int|null $amount 返金金額。省略すると全額返金となります。
      *
      * @return self
      */
@@ -382,33 +382,6 @@ class PaymentRefundCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Gets metadata
-     *
-     * @return array<string,\PAYJPV2\Model\MetadataValue>|null
-     */
-    public function getMetadata(): ?array
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。<a href=\"https://docs.pay.jp/v2/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
-     *
-     * @return self
-     */
-    public function setMetadata(?array $metadata): self
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
      * Gets reason
      *
      * @return \PAYJPV2\Model\PaymentRefundReason|null
@@ -421,7 +394,7 @@ class PaymentRefundCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets reason
      *
-     * @param \PAYJPV2\Model\PaymentRefundReason|null $reason 返金理由  | 指定できる値 | |:---| | **duplicate**: 重複した支払い | | **fraudulent**: 不正な支払い | | **requested_by_customer**: 顧客の要求 |
+     * @param \PAYJPV2\Model\PaymentRefundReason|null $reason 返金理由  | 値 | |:---| | **duplicate**: 重複した支払い | | **fraudulent**: 不正な支払い | | **requested_by_customer**: 顧客の要求 |
      *
      * @return self
      */
@@ -431,6 +404,33 @@ class PaymentRefundCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable reason cannot be null');
         }
         $this->container['reason'] = $reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return array<string,\PAYJPV2\Model\MetadataValue>|null
+     */
+    public function getMetadata(): ?array
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
+     *
+     * @return self
+     */
+    public function setMetadata(?array $metadata): self
+    {
+        if (is_null($metadata)) {
+            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+        }
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }

@@ -337,7 +337,7 @@ class PaymentMethodConfigurationSettingResponse implements ModelInterface, Array
     /**
      * Sets displayPreference
      *
-     * @param \PAYJPV2\Model\PaymentMethodConfigurationDisplayPreference|null $displayPreference 支払い方法の表示設定。
+     * @param \PAYJPV2\Model\PaymentMethodConfigurationDisplayPreference|null $displayPreference 支払い方法の表示設定
      *
      * @return self
      */

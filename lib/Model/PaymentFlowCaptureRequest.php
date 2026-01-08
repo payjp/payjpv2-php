@@ -311,7 +311,7 @@ class PaymentFlowCaptureRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets amountToCapture
      *
-     * @param int|null $amountToCapture PaymentFlowから確定させる金額は、元の金額以下で指定します。指定されていない場合は、全額（`amount_capturable`）がデフォルトになります。
+     * @param int|null $amountToCapture PaymentFlow から確定させる金額は、元の金額以下で指定します。指定されていない場合は、全額（`amount_capturable`）がデフォルトになります。
      *
      * @return self
      */
