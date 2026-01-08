@@ -63,12 +63,12 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'livemode' => 'bool',
         'title' => 'string',
         'type' => '\PAYJPV2\Model\StatementType',
-        'createdAt' => '\DateTime',
-        'updatedAt' => '\DateTime',
         'term' => '\PAYJPV2\Model\TermResponse',
         'balanceId' => 'string',
         'items' => '\PAYJPV2\Model\StatementItemResponse[]',
         'net' => 'int',
+        'createdAt' => '\DateTime',
+        'updatedAt' => '\DateTime',
     ];
 
     /**
@@ -84,12 +84,12 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'livemode' => null,
         'title' => null,
         'type' => null,
-        'createdAt' => 'date-time',
-        'updatedAt' => 'date-time',
         'term' => null,
         'balanceId' => null,
         'items' => null,
         'net' => null,
+        'createdAt' => 'date-time',
+        'updatedAt' => 'date-time',
     ];
 
     /**
@@ -103,12 +103,12 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'livemode' => false,
         'title' => true,
         'type' => false,
-        'createdAt' => false,
-        'updatedAt' => false,
         'term' => true,
         'balanceId' => true,
         'items' => false,
         'net' => false,
+        'createdAt' => false,
+        'updatedAt' => false,
     ];
 
     /**
@@ -202,12 +202,12 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'livemode' => 'livemode',
         'title' => 'title',
         'type' => 'type',
-        'createdAt' => 'created_at',
-        'updatedAt' => 'updated_at',
         'term' => 'term',
         'balanceId' => 'balance_id',
         'items' => 'items',
         'net' => 'net',
+        'createdAt' => 'created_at',
+        'updatedAt' => 'updated_at',
     ];
 
     /**
@@ -221,12 +221,12 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'livemode' => 'setLivemode',
         'title' => 'setTitle',
         'type' => 'setType',
-        'createdAt' => 'setCreatedAt',
-        'updatedAt' => 'setUpdatedAt',
         'term' => 'setTerm',
         'balanceId' => 'setBalanceId',
         'items' => 'setItems',
         'net' => 'setNet',
+        'createdAt' => 'setCreatedAt',
+        'updatedAt' => 'setUpdatedAt',
     ];
 
     /**
@@ -240,12 +240,12 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'livemode' => 'getLivemode',
         'title' => 'getTitle',
         'type' => 'getType',
-        'createdAt' => 'getCreatedAt',
-        'updatedAt' => 'getUpdatedAt',
         'term' => 'getTerm',
         'balanceId' => 'getBalanceId',
         'items' => 'getItems',
         'net' => 'getNet',
+        'createdAt' => 'getCreatedAt',
+        'updatedAt' => 'getUpdatedAt',
     ];
 
     /**
@@ -323,12 +323,12 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('livemode', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('createdAt', $data ?? [], null);
-        $this->setIfExists('updatedAt', $data ?? [], null);
         $this->setIfExists('term', $data ?? [], null);
         $this->setIfExists('balanceId', $data ?? [], null);
         $this->setIfExists('items', $data ?? [], null);
         $this->setIfExists('net', $data ?? [], null);
+        $this->setIfExists('createdAt', $data ?? [], null);
+        $this->setIfExists('updatedAt', $data ?? [], null);
     }
 
     /**
@@ -379,12 +379,6 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        if ($this->container['createdAt'] === null) {
-            $invalidProperties[] = "'createdAt' can't be null";
-        }
-        if ($this->container['updatedAt'] === null) {
-            $invalidProperties[] = "'updatedAt' can't be null";
-        }
         if ($this->container['term'] === null) {
             $invalidProperties[] = "'term' can't be null";
         }
@@ -396,6 +390,12 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         }
         if ($this->container['net'] === null) {
             $invalidProperties[] = "'net' can't be null";
+        }
+        if ($this->container['createdAt'] === null) {
+            $invalidProperties[] = "'createdAt' can't be null";
+        }
+        if ($this->container['updatedAt'] === null) {
+            $invalidProperties[] = "'updatedAt' can't be null";
         }
 
         return $invalidProperties;
@@ -467,7 +467,7 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets id
      *
-     * @param string $id 明細ID
+     * @param string $id 明細 ID
      *
      * @return self
      */
@@ -563,7 +563,7 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets type
      *
-     * @param \PAYJPV2\Model\StatementType $type 取引明細の区分  | 名 | 区分 | 詳細 | |---| --- | --- | | **sales** | 売上 | 決済による売上、決済手数料等 | | **service_fee** | サービス利用料 | 有料プランの月額費用など、salesに含まれないサービス利用料 | | **forfeit** | 残高失効 | - | | **transfer_fee** | 振込手数料 | - | | **misc** | その他 | 調整金など |
+     * @param \PAYJPV2\Model\StatementType $type 取引明細の区分  | 値 | 区分 | 詳細 | |---| --- | --- | | **sales** | 売上 | 決済による売上、決済手数料等 | | **service_fee** | サービス利用料 | 有料プランの月額費用など、sales に含まれないサービス利用料 | | **forfeit** | 残高失効 | - | | **transfer_fee** | 振込手数料 | - | | **misc** | その他 | 調整金など |
      *
      * @return self
      */
@@ -573,68 +573,6 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
         $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets createdAt
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt(): \DateTime
-    {
-        if ($this->container['createdAt'] === null) {
-            throw new \LogicException('Property "createdAt" is required but has not been set.');
-        }
-
-        return $this->container['createdAt'];
-    }
-
-    /**
-     * Sets createdAt
-     *
-     * @param \DateTime $createdAt 更新時の日時 (UTC, ISO 8601 形式)
-     *
-     * @return self
-     */
-    public function setCreatedAt(\DateTime $createdAt): self
-    {
-        if (is_null($createdAt)) {
-            throw new \InvalidArgumentException('non-nullable createdAt cannot be null');
-        }
-        $this->container['createdAt'] = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Gets updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt(): \DateTime
-    {
-        if ($this->container['updatedAt'] === null) {
-            throw new \LogicException('Property "updatedAt" is required but has not been set.');
-        }
-
-        return $this->container['updatedAt'];
-    }
-
-    /**
-     * Sets updatedAt
-     *
-     * @param \DateTime $updatedAt 更新時の日時 (UTC, ISO 8601 形式)
-     *
-     * @return self
-     */
-    public function setUpdatedAt(\DateTime $updatedAt): self
-    {
-        if (is_null($updatedAt)) {
-            throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
-        }
-        $this->container['updatedAt'] = $updatedAt;
 
         return $this;
     }
@@ -755,7 +693,7 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets net
      *
-     * @param int $net 含まれるstatement_itemの金額合計
+     * @param int $net 含まれる statement_item の金額合計
      *
      * @return self
      */
@@ -765,6 +703,68 @@ class StatementResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable net cannot be null');
         }
         $this->container['net'] = $net;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt(): \DateTime
+    {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
+        return $this->container['createdAt'];
+    }
+
+    /**
+     * Sets createdAt
+     *
+     * @param \DateTime $createdAt 作成日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setCreatedAt(\DateTime $createdAt): self
+    {
+        if (is_null($createdAt)) {
+            throw new \InvalidArgumentException('non-nullable createdAt cannot be null');
+        }
+        $this->container['createdAt'] = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt(): \DateTime
+    {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
+        return $this->container['updatedAt'];
+    }
+
+    /**
+     * Sets updatedAt
+     *
+     * @param \DateTime $updatedAt 更新日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setUpdatedAt(\DateTime $updatedAt): self
+    {
+        if (is_null($updatedAt)) {
+            throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
+        }
+        $this->container['updatedAt'] = $updatedAt;
 
         return $this;
     }

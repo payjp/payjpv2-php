@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | 顧客ID |
 **object** | **string** |  | [optional] [default to 'customer']
+**id** | **string** | 顧客 ID |
 **livemode** | **bool** | 本番環境かどうか |
 **email** | **string** |  |
 **description** | **string** |  |

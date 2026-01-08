@@ -58,14 +58,14 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'object' => 'string',
+        'id' => 'string',
         'livemode' => 'bool',
         'amountSubtotal' => 'int',
         'amountTotal' => 'int',
-        'cancelUrl' => 'string',
         'customerId' => 'string',
         'customerEmail' => 'string',
+        'customerDetails' => '\PAYJPV2\Model\CheckoutSessionCustomerDetailsResponse',
         'expiresAt' => '\DateTime',
         'currency' => '\PAYJPV2\Model\Currency',
         'locale' => '\PAYJPV2\Model\Locale',
@@ -76,12 +76,13 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
         'submitType' => '\PAYJPV2\Model\CheckoutSessionSubmitType',
         'mode' => '\PAYJPV2\Model\CheckoutSessionMode',
         'uiMode' => '\PAYJPV2\Model\CheckoutSessionUIMode',
-        'createdAt' => '\DateTime',
-        'updatedAt' => '\DateTime',
-        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
         'status' => '\PAYJPV2\Model\CheckoutSessionStatus',
         'successUrl' => 'string',
+        'cancelUrl' => 'string',
         'url' => 'string',
+        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
+        'createdAt' => '\DateTime',
+        'updatedAt' => '\DateTime',
     ];
 
     /**
@@ -92,14 +93,14 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'object' => null,
+        'id' => null,
         'livemode' => null,
         'amountSubtotal' => null,
         'amountTotal' => null,
-        'cancelUrl' => null,
         'customerId' => null,
         'customerEmail' => null,
+        'customerDetails' => null,
         'expiresAt' => 'date-time',
         'currency' => null,
         'locale' => null,
@@ -110,12 +111,13 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
         'submitType' => null,
         'mode' => null,
         'uiMode' => null,
-        'createdAt' => 'date-time',
-        'updatedAt' => 'date-time',
-        'metadata' => null,
         'status' => null,
         'successUrl' => null,
+        'cancelUrl' => null,
         'url' => null,
+        'metadata' => null,
+        'createdAt' => 'date-time',
+        'updatedAt' => 'date-time',
     ];
 
     /**
@@ -124,14 +126,14 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
       * @var bool[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
         'object' => false,
+        'id' => false,
         'livemode' => false,
         'amountSubtotal' => true,
         'amountTotal' => true,
-        'cancelUrl' => true,
         'customerId' => true,
         'customerEmail' => true,
+        'customerDetails' => true,
         'expiresAt' => true,
         'currency' => false,
         'locale' => true,
@@ -142,12 +144,13 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
         'submitType' => true,
         'mode' => false,
         'uiMode' => false,
-        'createdAt' => false,
-        'updatedAt' => false,
-        'metadata' => false,
         'status' => false,
         'successUrl' => true,
+        'cancelUrl' => true,
         'url' => false,
+        'metadata' => false,
+        'createdAt' => false,
+        'updatedAt' => false,
     ];
 
     /**
@@ -236,14 +239,14 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'object' => 'object',
+        'id' => 'id',
         'livemode' => 'livemode',
         'amountSubtotal' => 'amount_subtotal',
         'amountTotal' => 'amount_total',
-        'cancelUrl' => 'cancel_url',
         'customerId' => 'customer_id',
         'customerEmail' => 'customer_email',
+        'customerDetails' => 'customer_details',
         'expiresAt' => 'expires_at',
         'currency' => 'currency',
         'locale' => 'locale',
@@ -254,12 +257,13 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
         'submitType' => 'submit_type',
         'mode' => 'mode',
         'uiMode' => 'ui_mode',
-        'createdAt' => 'created_at',
-        'updatedAt' => 'updated_at',
-        'metadata' => 'metadata',
         'status' => 'status',
         'successUrl' => 'success_url',
+        'cancelUrl' => 'cancel_url',
         'url' => 'url',
+        'metadata' => 'metadata',
+        'createdAt' => 'created_at',
+        'updatedAt' => 'updated_at',
     ];
 
     /**
@@ -268,14 +272,14 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'object' => 'setObject',
+        'id' => 'setId',
         'livemode' => 'setLivemode',
         'amountSubtotal' => 'setAmountSubtotal',
         'amountTotal' => 'setAmountTotal',
-        'cancelUrl' => 'setCancelUrl',
         'customerId' => 'setCustomerId',
         'customerEmail' => 'setCustomerEmail',
+        'customerDetails' => 'setCustomerDetails',
         'expiresAt' => 'setExpiresAt',
         'currency' => 'setCurrency',
         'locale' => 'setLocale',
@@ -286,12 +290,13 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
         'submitType' => 'setSubmitType',
         'mode' => 'setMode',
         'uiMode' => 'setUiMode',
-        'createdAt' => 'setCreatedAt',
-        'updatedAt' => 'setUpdatedAt',
-        'metadata' => 'setMetadata',
         'status' => 'setStatus',
         'successUrl' => 'setSuccessUrl',
+        'cancelUrl' => 'setCancelUrl',
         'url' => 'setUrl',
+        'metadata' => 'setMetadata',
+        'createdAt' => 'setCreatedAt',
+        'updatedAt' => 'setUpdatedAt',
     ];
 
     /**
@@ -300,14 +305,14 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'object' => 'getObject',
+        'id' => 'getId',
         'livemode' => 'getLivemode',
         'amountSubtotal' => 'getAmountSubtotal',
         'amountTotal' => 'getAmountTotal',
-        'cancelUrl' => 'getCancelUrl',
         'customerId' => 'getCustomerId',
         'customerEmail' => 'getCustomerEmail',
+        'customerDetails' => 'getCustomerDetails',
         'expiresAt' => 'getExpiresAt',
         'currency' => 'getCurrency',
         'locale' => 'getLocale',
@@ -318,12 +323,13 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
         'submitType' => 'getSubmitType',
         'mode' => 'getMode',
         'uiMode' => 'getUiMode',
-        'createdAt' => 'getCreatedAt',
-        'updatedAt' => 'getUpdatedAt',
-        'metadata' => 'getMetadata',
         'status' => 'getStatus',
         'successUrl' => 'getSuccessUrl',
+        'cancelUrl' => 'getCancelUrl',
         'url' => 'getUrl',
+        'metadata' => 'getMetadata',
+        'createdAt' => 'getCreatedAt',
+        'updatedAt' => 'getUpdatedAt',
     ];
 
     /**
@@ -396,14 +402,14 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'checkout.session');
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('livemode', $data ?? [], null);
         $this->setIfExists('amountSubtotal', $data ?? [], null);
         $this->setIfExists('amountTotal', $data ?? [], null);
-        $this->setIfExists('cancelUrl', $data ?? [], null);
         $this->setIfExists('customerId', $data ?? [], null);
         $this->setIfExists('customerEmail', $data ?? [], null);
+        $this->setIfExists('customerDetails', $data ?? [], null);
         $this->setIfExists('expiresAt', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('locale', $data ?? [], null);
@@ -414,12 +420,13 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
         $this->setIfExists('submitType', $data ?? [], null);
         $this->setIfExists('mode', $data ?? [], null);
         $this->setIfExists('uiMode', $data ?? [], null);
-        $this->setIfExists('createdAt', $data ?? [], null);
-        $this->setIfExists('updatedAt', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('successUrl', $data ?? [], null);
+        $this->setIfExists('cancelUrl', $data ?? [], null);
         $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('createdAt', $data ?? [], null);
+        $this->setIfExists('updatedAt', $data ?? [], null);
     }
 
     /**
@@ -449,9 +456,6 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (! is_null($this->container['object']) && ! in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -461,6 +465,9 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
             );
         }
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         if ($this->container['livemode'] === null) {
             $invalidProperties[] = "'livemode' can't be null";
         }
@@ -469,9 +476,6 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
         }
         if ($this->container['amountTotal'] === null) {
             $invalidProperties[] = "'amountTotal' can't be null";
-        }
-        if ($this->container['cancelUrl'] === null) {
-            $invalidProperties[] = "'cancelUrl' can't be null";
         }
         if ($this->container['customerId'] === null) {
             $invalidProperties[] = "'customerId' can't be null";
@@ -503,23 +507,26 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
         if ($this->container['uiMode'] === null) {
             $invalidProperties[] = "'uiMode' can't be null";
         }
-        if ($this->container['createdAt'] === null) {
-            $invalidProperties[] = "'createdAt' can't be null";
-        }
-        if ($this->container['updatedAt'] === null) {
-            $invalidProperties[] = "'updatedAt' can't be null";
-        }
-        if ($this->container['metadata'] === null) {
-            $invalidProperties[] = "'metadata' can't be null";
-        }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
         if ($this->container['successUrl'] === null) {
             $invalidProperties[] = "'successUrl' can't be null";
         }
+        if ($this->container['cancelUrl'] === null) {
+            $invalidProperties[] = "'cancelUrl' can't be null";
+        }
         if ($this->container['url'] === null) {
             $invalidProperties[] = "'url' can't be null";
+        }
+        if ($this->container['metadata'] === null) {
+            $invalidProperties[] = "'metadata' can't be null";
+        }
+        if ($this->container['createdAt'] === null) {
+            $invalidProperties[] = "'createdAt' can't be null";
+        }
+        if ($this->container['updatedAt'] === null) {
+            $invalidProperties[] = "'updatedAt' can't be null";
         }
 
         return $invalidProperties;
@@ -536,37 +543,6 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId(): string
-    {
-        if ($this->container['id'] === null) {
-            throw new \LogicException('Property "id" is required but has not been set.');
-        }
-
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id ID
-     *
-     * @return self
-     */
-    public function setId(string $id): self
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets object
@@ -601,6 +577,37 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
             );
         }
         $this->container['object'] = $object;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId(): string
+    {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id Checkout Session ID
+     *
+     * @return self
+     */
+    public function setId(string $id): self
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -705,40 +712,6 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
     }
 
     /**
-     * Gets cancelUrl
-     *
-     * @return string|null
-     */
-    public function getCancelUrl(): ?string
-    {
-        return $this->container['cancelUrl'];
-    }
-
-    /**
-     * Sets cancelUrl
-     *
-     * @param string|null $cancelUrl cancelUrl
-     *
-     * @return self
-     */
-    public function setCancelUrl(?string $cancelUrl): self
-    {
-        if (is_null($cancelUrl)) {
-            array_push($this->openAPINullablesSetToNull, 'cancelUrl');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('cancelUrl', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['cancelUrl'] = $cancelUrl;
-
-        return $this;
-    }
-
-    /**
      * Gets customerId
      *
      * @return string|null
@@ -802,6 +775,40 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
             }
         }
         $this->container['customerEmail'] = $customerEmail;
+
+        return $this;
+    }
+
+    /**
+     * Gets customerDetails
+     *
+     * @return \PAYJPV2\Model\CheckoutSessionCustomerDetailsResponse|null
+     */
+    public function getCustomerDetails(): ?\PAYJPV2\Model\CheckoutSessionCustomerDetailsResponse
+    {
+        return $this->container['customerDetails'];
+    }
+
+    /**
+     * Sets customerDetails
+     *
+     * @param \PAYJPV2\Model\CheckoutSessionCustomerDetailsResponse|null $customerDetails customerDetails
+     *
+     * @return self
+     */
+    public function setCustomerDetails(?\PAYJPV2\Model\CheckoutSessionCustomerDetailsResponse $customerDetails): self
+    {
+        if (is_null($customerDetails)) {
+            array_push($this->openAPINullablesSetToNull, 'customerDetails');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customerDetails', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['customerDetails'] = $customerDetails;
 
         return $this;
     }
@@ -1092,7 +1099,7 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets mode
      *
-     * @param \PAYJPV2\Model\CheckoutSessionMode $mode Checkout Session のモード  | 指定できる値 | |:---| | **payment**: 支払いモードでCheckout Sessionを作成します。 | | **setup**: セットアップモードでCheckout Sessionを作成します。 |
+     * @param \PAYJPV2\Model\CheckoutSessionMode $mode Checkout Session のモード  | 値 | |:---| | **payment**: 支払いモード | | **setup**: セットアップモード |
      *
      * @return self
      */
@@ -1123,7 +1130,7 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets uiMode
      *
-     * @param \PAYJPV2\Model\CheckoutSessionUIMode $uiMode Checkout Session の UI モード。デフォルトは `hosted` です。<br>  | 指定できる値 | |:---| | **hosted**: PAY.JPでホスティングしている画面を使用します。 |
+     * @param \PAYJPV2\Model\CheckoutSessionUIMode $uiMode Checkout Session の UI モード  | 値 | |:---| | **hosted**: PAY.JP でホスティングしている画面を使用します。 |
      *
      * @return self
      */
@@ -1133,99 +1140,6 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('non-nullable uiMode cannot be null');
         }
         $this->container['uiMode'] = $uiMode;
-
-        return $this;
-    }
-
-    /**
-     * Gets createdAt
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt(): \DateTime
-    {
-        if ($this->container['createdAt'] === null) {
-            throw new \LogicException('Property "createdAt" is required but has not been set.');
-        }
-
-        return $this->container['createdAt'];
-    }
-
-    /**
-     * Sets createdAt
-     *
-     * @param \DateTime $createdAt 作成日時 (UTC, ISO 8601 形式)
-     *
-     * @return self
-     */
-    public function setCreatedAt(\DateTime $createdAt): self
-    {
-        if (is_null($createdAt)) {
-            throw new \InvalidArgumentException('non-nullable createdAt cannot be null');
-        }
-        $this->container['createdAt'] = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Gets updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt(): \DateTime
-    {
-        if ($this->container['updatedAt'] === null) {
-            throw new \LogicException('Property "updatedAt" is required but has not been set.');
-        }
-
-        return $this->container['updatedAt'];
-    }
-
-    /**
-     * Sets updatedAt
-     *
-     * @param \DateTime $updatedAt 更新日時 (UTC, ISO 8601 形式)
-     *
-     * @return self
-     */
-    public function setUpdatedAt(\DateTime $updatedAt): self
-    {
-        if (is_null($updatedAt)) {
-            throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
-        }
-        $this->container['updatedAt'] = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return array<string,\PAYJPV2\Model\MetadataValue>
-     */
-    public function getMetadata(): array
-    {
-        if ($this->container['metadata'] === null) {
-            throw new \LogicException('Property "metadata" is required but has not been set.');
-        }
-
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param array<string,\PAYJPV2\Model\MetadataValue> $metadata メタデータ
-     *
-     * @return self
-     */
-    public function setMetadata(array $metadata): self
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
 
         return $this;
     }
@@ -1296,6 +1210,40 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
     }
 
     /**
+     * Gets cancelUrl
+     *
+     * @return string|null
+     */
+    public function getCancelUrl(): ?string
+    {
+        return $this->container['cancelUrl'];
+    }
+
+    /**
+     * Sets cancelUrl
+     *
+     * @param string|null $cancelUrl cancelUrl
+     *
+     * @return self
+     */
+    public function setCancelUrl(?string $cancelUrl): self
+    {
+        if (is_null($cancelUrl)) {
+            array_push($this->openAPINullablesSetToNull, 'cancelUrl');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('cancelUrl', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['cancelUrl'] = $cancelUrl;
+
+        return $this;
+    }
+
+    /**
      * Gets url
      *
      * @return string
@@ -1322,6 +1270,99 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('non-nullable url cannot be null');
         }
         $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return array<string,\PAYJPV2\Model\MetadataValue>
+     */
+    public function getMetadata(): array
+    {
+        if ($this->container['metadata'] === null) {
+            throw new \LogicException('Property "metadata" is required but has not been set.');
+        }
+
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param array<string,\PAYJPV2\Model\MetadataValue> $metadata メタデータ
+     *
+     * @return self
+     */
+    public function setMetadata(array $metadata): self
+    {
+        if (is_null($metadata)) {
+            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+        }
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt(): \DateTime
+    {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
+        return $this->container['createdAt'];
+    }
+
+    /**
+     * Sets createdAt
+     *
+     * @param \DateTime $createdAt 作成日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setCreatedAt(\DateTime $createdAt): self
+    {
+        if (is_null($createdAt)) {
+            throw new \InvalidArgumentException('non-nullable createdAt cannot be null');
+        }
+        $this->container['createdAt'] = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt(): \DateTime
+    {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
+        return $this->container['updatedAt'];
+    }
+
+    /**
+     * Sets updatedAt
+     *
+     * @param \DateTime $updatedAt 更新日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setUpdatedAt(\DateTime $updatedAt): self
+    {
+        if (is_null($updatedAt)) {
+            throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
+        }
+        $this->container['updatedAt'] = $updatedAt;
 
         return $this;
     }

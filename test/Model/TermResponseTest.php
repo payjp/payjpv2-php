@@ -80,18 +80,18 @@ class TermResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "object"
      */
-    public function testPropertyId()
+    public function testPropertyObject()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "object"
+     * Test attribute "id"
      */
-    public function testPropertyObject()
+    public function testPropertyId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

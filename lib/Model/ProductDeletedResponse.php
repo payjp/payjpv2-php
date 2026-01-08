@@ -58,8 +58,8 @@ class ProductDeletedResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'object' => 'string',
+        'id' => 'string',
         'deleted' => 'bool',
     ];
 
@@ -71,8 +71,8 @@ class ProductDeletedResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'object' => null,
+        'id' => null,
         'deleted' => null,
     ];
 
@@ -82,8 +82,8 @@ class ProductDeletedResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @var bool[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
         'object' => false,
+        'id' => false,
         'deleted' => false,
     ];
 
@@ -173,8 +173,8 @@ class ProductDeletedResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'object' => 'object',
+        'id' => 'id',
         'deleted' => 'deleted',
     ];
 
@@ -184,8 +184,8 @@ class ProductDeletedResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'object' => 'setObject',
+        'id' => 'setId',
         'deleted' => 'setDeleted',
     ];
 
@@ -195,8 +195,8 @@ class ProductDeletedResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'object' => 'getObject',
+        'id' => 'getId',
         'deleted' => 'getDeleted',
     ];
 
@@ -270,9 +270,9 @@ class ProductDeletedResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'product');
-        $this->setIfExists('deleted', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('deleted', $data ?? [], true);
     }
 
     /**
@@ -302,9 +302,6 @@ class ProductDeletedResponse implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (! is_null($this->container['object']) && ! in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -314,8 +311,8 @@ class ProductDeletedResponse implements ModelInterface, ArrayAccess, \JsonSerial
             );
         }
 
-        if ($this->container['deleted'] === null) {
-            $invalidProperties[] = "'deleted' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
 
         return $invalidProperties;
@@ -332,37 +329,6 @@ class ProductDeletedResponse implements ModelInterface, ArrayAccess, \JsonSerial
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId(): string
-    {
-        if ($this->container['id'] === null) {
-            throw new \LogicException('Property "id" is required but has not been set.');
-        }
-
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id 商品ID
-     *
-     * @return self
-     */
-    public function setId(string $id): self
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets object
@@ -402,27 +368,54 @@ class ProductDeletedResponse implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets deleted
+     * Gets id
      *
-     * @return bool
+     * @return string
      */
-    public function getDeleted(): bool
+    public function getId(): string
     {
-        if ($this->container['deleted'] === null) {
-            throw new \LogicException('Property "deleted" is required but has not been set.');
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
         }
 
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id 商品 ID
+     *
+     * @return self
+     */
+    public function setId(string $id): self
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets deleted
+     *
+     * @return bool|null
+     */
+    public function getDeleted(): ?bool
+    {
         return $this->container['deleted'];
     }
 
     /**
      * Sets deleted
      *
-     * @param bool $deleted 削除されたかどうか
+     * @param bool|null $deleted 削除されたかどうか
      *
      * @return self
      */
-    public function setDeleted(bool $deleted): self
+    public function setDeleted(?bool $deleted): self
     {
         if (is_null($deleted)) {
             throw new \InvalidArgumentException('non-nullable deleted cannot be null');

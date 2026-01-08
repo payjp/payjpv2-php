@@ -58,14 +58,14 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'object' => 'string',
-        'createdAt' => '\DateTime',
-        'updatedAt' => '\DateTime',
+        'id' => 'string',
         'livemode' => 'bool',
         'type' => 'string',
         'pendingWebhooks' => 'int',
         'data' => 'array<string,mixed>',
+        'createdAt' => '\DateTime',
+        'updatedAt' => '\DateTime',
     ];
 
     /**
@@ -76,14 +76,14 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'object' => null,
-        'createdAt' => 'date-time',
-        'updatedAt' => 'date-time',
+        'id' => null,
         'livemode' => null,
         'type' => null,
         'pendingWebhooks' => null,
         'data' => null,
+        'createdAt' => 'date-time',
+        'updatedAt' => 'date-time',
     ];
 
     /**
@@ -92,14 +92,14 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var bool[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
         'object' => false,
-        'createdAt' => false,
-        'updatedAt' => false,
+        'id' => false,
         'livemode' => false,
         'type' => false,
         'pendingWebhooks' => false,
         'data' => false,
+        'createdAt' => false,
+        'updatedAt' => false,
     ];
 
     /**
@@ -188,14 +188,14 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'object' => 'object',
-        'createdAt' => 'created_at',
-        'updatedAt' => 'updated_at',
+        'id' => 'id',
         'livemode' => 'livemode',
         'type' => 'type',
         'pendingWebhooks' => 'pending_webhooks',
         'data' => 'data',
+        'createdAt' => 'created_at',
+        'updatedAt' => 'updated_at',
     ];
 
     /**
@@ -204,14 +204,14 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'object' => 'setObject',
-        'createdAt' => 'setCreatedAt',
-        'updatedAt' => 'setUpdatedAt',
+        'id' => 'setId',
         'livemode' => 'setLivemode',
         'type' => 'setType',
         'pendingWebhooks' => 'setPendingWebhooks',
         'data' => 'setData',
+        'createdAt' => 'setCreatedAt',
+        'updatedAt' => 'setUpdatedAt',
     ];
 
     /**
@@ -220,14 +220,14 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'object' => 'getObject',
-        'createdAt' => 'getCreatedAt',
-        'updatedAt' => 'getUpdatedAt',
+        'id' => 'getId',
         'livemode' => 'getLivemode',
         'type' => 'getType',
         'pendingWebhooks' => 'getPendingWebhooks',
         'data' => 'getData',
+        'createdAt' => 'getCreatedAt',
+        'updatedAt' => 'getUpdatedAt',
     ];
 
     /**
@@ -300,14 +300,14 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'event');
-        $this->setIfExists('createdAt', $data ?? [], null);
-        $this->setIfExists('updatedAt', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('livemode', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('pendingWebhooks', $data ?? [], null);
         $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('createdAt', $data ?? [], null);
+        $this->setIfExists('updatedAt', $data ?? [], null);
     }
 
     /**
@@ -337,9 +337,6 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (! is_null($this->container['object']) && ! in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -349,11 +346,8 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if ($this->container['createdAt'] === null) {
-            $invalidProperties[] = "'createdAt' can't be null";
-        }
-        if ($this->container['updatedAt'] === null) {
-            $invalidProperties[] = "'updatedAt' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
         if ($this->container['livemode'] === null) {
             $invalidProperties[] = "'livemode' can't be null";
@@ -366,6 +360,12 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
+        }
+        if ($this->container['createdAt'] === null) {
+            $invalidProperties[] = "'createdAt' can't be null";
+        }
+        if ($this->container['updatedAt'] === null) {
+            $invalidProperties[] = "'updatedAt' can't be null";
         }
 
         return $invalidProperties;
@@ -382,37 +382,6 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId(): string
-    {
-        if ($this->container['id'] === null) {
-            throw new \LogicException('Property "id" is required but has not been set.');
-        }
-
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id イベントID
-     *
-     * @return self
-     */
-    public function setId(string $id): self
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets object
@@ -452,63 +421,32 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets createdAt
+     * Gets id
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getCreatedAt(): \DateTime
+    public function getId(): string
     {
-        if ($this->container['createdAt'] === null) {
-            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
         }
 
-        return $this->container['createdAt'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets createdAt
+     * Sets id
      *
-     * @param \DateTime $createdAt 作成日時 (UTC, ISO 8601 形式)
+     * @param string $id イベント ID
      *
      * @return self
      */
-    public function setCreatedAt(\DateTime $createdAt): self
+    public function setId(string $id): self
     {
-        if (is_null($createdAt)) {
-            throw new \InvalidArgumentException('non-nullable createdAt cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['createdAt'] = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Gets updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt(): \DateTime
-    {
-        if ($this->container['updatedAt'] === null) {
-            throw new \LogicException('Property "updatedAt" is required but has not been set.');
-        }
-
-        return $this->container['updatedAt'];
-    }
-
-    /**
-     * Sets updatedAt
-     *
-     * @param \DateTime $updatedAt 更新日時 (UTC, ISO 8601 形式)
-     *
-     * @return self
-     */
-    public function setUpdatedAt(\DateTime $updatedAt): self
-    {
-        if (is_null($updatedAt)) {
-            throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
-        }
-        $this->container['updatedAt'] = $updatedAt;
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -592,7 +530,7 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pendingWebhooks
      *
-     * @param int $pendingWebhooks 設定されたURLへの通知が完了していない(2xxのレスポンスが得られていない)webhookの数
+     * @param int $pendingWebhooks 設定された URL への通知が完了していない (2xx のレスポンスが得られていない) webhook の数
      *
      * @return self
      */
@@ -633,6 +571,68 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable data cannot be null');
         }
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt(): \DateTime
+    {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
+        return $this->container['createdAt'];
+    }
+
+    /**
+     * Sets createdAt
+     *
+     * @param \DateTime $createdAt 作成日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setCreatedAt(\DateTime $createdAt): self
+    {
+        if (is_null($createdAt)) {
+            throw new \InvalidArgumentException('non-nullable createdAt cannot be null');
+        }
+        $this->container['createdAt'] = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt(): \DateTime
+    {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
+        return $this->container['updatedAt'];
+    }
+
+    /**
+     * Sets updatedAt
+     *
+     * @param \DateTime $updatedAt 更新日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setUpdatedAt(\DateTime $updatedAt): self
+    {
+        if (is_null($updatedAt)) {
+            throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
+        }
+        $this->container['updatedAt'] = $updatedAt;
 
         return $this;
     }

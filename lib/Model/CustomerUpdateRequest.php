@@ -58,10 +58,10 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
+        'defaultPaymentMethodId' => 'string',
         'email' => 'string',
         'description' => 'string',
         'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
-        'defaultPaymentMethodId' => 'string',
     ];
 
     /**
@@ -72,10 +72,10 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'defaultPaymentMethodId' => null,
         'email' => 'email',
         'description' => null,
         'metadata' => null,
-        'defaultPaymentMethodId' => null,
     ];
 
     /**
@@ -84,10 +84,10 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var bool[]
       */
     protected static array $openAPINullables = [
+        'defaultPaymentMethodId' => true,
         'email' => false,
         'description' => false,
         'metadata' => false,
-        'defaultPaymentMethodId' => true,
     ];
 
     /**
@@ -176,10 +176,10 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
+        'defaultPaymentMethodId' => 'default_payment_method_id',
         'email' => 'email',
         'description' => 'description',
         'metadata' => 'metadata',
-        'defaultPaymentMethodId' => 'default_payment_method_id',
     ];
 
     /**
@@ -188,10 +188,10 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
+        'defaultPaymentMethodId' => 'setDefaultPaymentMethodId',
         'email' => 'setEmail',
         'description' => 'setDescription',
         'metadata' => 'setMetadata',
-        'defaultPaymentMethodId' => 'setDefaultPaymentMethodId',
     ];
 
     /**
@@ -200,10 +200,10 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
+        'defaultPaymentMethodId' => 'getDefaultPaymentMethodId',
         'email' => 'getEmail',
         'description' => 'getDescription',
         'metadata' => 'getMetadata',
-        'defaultPaymentMethodId' => 'getDefaultPaymentMethodId',
     ];
 
     /**
@@ -263,10 +263,10 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('defaultPaymentMethodId', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
-        $this->setIfExists('defaultPaymentMethodId', $data ?? [], null);
     }
 
     /**
@@ -320,6 +320,40 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
+     * Gets defaultPaymentMethodId
+     *
+     * @return string|null
+     */
+    public function getDefaultPaymentMethodId(): ?string
+    {
+        return $this->container['defaultPaymentMethodId'];
+    }
+
+    /**
+     * Sets defaultPaymentMethodId
+     *
+     * @param string|null $defaultPaymentMethodId defaultPaymentMethodId
+     *
+     * @return self
+     */
+    public function setDefaultPaymentMethodId(?string $defaultPaymentMethodId): self
+    {
+        if (is_null($defaultPaymentMethodId)) {
+            array_push($this->openAPINullablesSetToNull, 'defaultPaymentMethodId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('defaultPaymentMethodId', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['defaultPaymentMethodId'] = $defaultPaymentMethodId;
+
+        return $this;
+    }
+
+    /**
      * Gets email
      *
      * @return string|null
@@ -363,7 +397,7 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets description
      *
-     * @param string|null $description 顧客オブジェクトに付加できる任意の文字列です。これは、ダッシュボードで顧客と一緒に表示されます。
+     * @param string|null $description 顧客オブジェクトに付加できる任意の文字列です。管理画面で顧客と一緒に表示されます。
      *
      * @return self
      */
@@ -394,7 +428,7 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets metadata
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。<a href=\"https://docs.pay.jp/v2/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
+     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
      *
      * @return self
      */
@@ -404,40 +438,6 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
         $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets defaultPaymentMethodId
-     *
-     * @return string|null
-     */
-    public function getDefaultPaymentMethodId(): ?string
-    {
-        return $this->container['defaultPaymentMethodId'];
-    }
-
-    /**
-     * Sets defaultPaymentMethodId
-     *
-     * @param string|null $defaultPaymentMethodId defaultPaymentMethodId
-     *
-     * @return self
-     */
-    public function setDefaultPaymentMethodId(?string $defaultPaymentMethodId): self
-    {
-        if (is_null($defaultPaymentMethodId)) {
-            array_push($this->openAPINullablesSetToNull, 'defaultPaymentMethodId');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('defaultPaymentMethodId', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['defaultPaymentMethodId'] = $defaultPaymentMethodId;
 
         return $this;
     }

@@ -136,9 +136,9 @@ class EventsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  string|null $resourceId 取得するeventに紐づくAPIリソースのID (e.g. customer.id) (optional)
-     * @param  string|null $object 取得するeventに紐づくAPIリソースのobject。値はリソース名(e.g. customer, payment_flow) (optional)
-     * @param  string|null $type 取得するeventのtype (optional)
+     * @param  string|null $resourceId 取得する event に紐づく API リソースの ID (optional)
+     * @param  string|null $object 取得する event に紐づく API リソースの object。値はリソース名 (e.g. customer, payment_flow) (optional)
+     * @param  string|null $type 取得する event の type (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
@@ -160,9 +160,9 @@ class EventsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  string|null $resourceId 取得するeventに紐づくAPIリソースのID (e.g. customer.id) (optional)
-     * @param  string|null $object 取得するeventに紐づくAPIリソースのobject。値はリソース名(e.g. customer, payment_flow) (optional)
-     * @param  string|null $type 取得するeventのtype (optional)
+     * @param  string|null $resourceId 取得する event に紐づく API リソースの ID (optional)
+     * @param  string|null $object 取得する event に紐づく API リソースの object。値はリソース名 (e.g. customer, payment_flow) (optional)
+     * @param  string|null $type 取得する event の type (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
@@ -282,9 +282,9 @@ class EventsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  string|null $resourceId 取得するeventに紐づくAPIリソースのID (e.g. customer.id) (optional)
-     * @param  string|null $object 取得するeventに紐づくAPIリソースのobject。値はリソース名(e.g. customer, payment_flow) (optional)
-     * @param  string|null $type 取得するeventのtype (optional)
+     * @param  string|null $resourceId 取得する event に紐づく API リソースの ID (optional)
+     * @param  string|null $object 取得する event に紐づく API リソースの object。値はリソース名 (e.g. customer, payment_flow) (optional)
+     * @param  string|null $type 取得する event の type (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException
@@ -308,9 +308,9 @@ class EventsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  string|null $resourceId 取得するeventに紐づくAPIリソースのID (e.g. customer.id) (optional)
-     * @param  string|null $object 取得するeventに紐づくAPIリソースのobject。値はリソース名(e.g. customer, payment_flow) (optional)
-     * @param  string|null $type 取得するeventのtype (optional)
+     * @param  string|null $resourceId 取得する event に紐づく API リソースの ID (optional)
+     * @param  string|null $object 取得する event に紐づく API リソースの object。値はリソース名 (e.g. customer, payment_flow) (optional)
+     * @param  string|null $type 取得する event の type (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException
@@ -364,9 +364,9 @@ class EventsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  string|null $resourceId 取得するeventに紐づくAPIリソースのID (e.g. customer.id) (optional)
-     * @param  string|null $object 取得するeventに紐づくAPIリソースのobject。値はリソース名(e.g. customer, payment_flow) (optional)
-     * @param  string|null $type 取得するeventのtype (optional)
+     * @param  string|null $resourceId 取得する event に紐づく API リソースの ID (optional)
+     * @param  string|null $object 取得する event に紐づく API リソースの object。値はリソース名 (e.g. customer, payment_flow) (optional)
+     * @param  string|null $type 取得する event の type (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException

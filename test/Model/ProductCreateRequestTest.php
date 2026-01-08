@@ -80,9 +80,27 @@ class ProductCreateRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "defaultPriceId"
+     * Test attribute "name"
      */
-    public function testPropertyDefaultPriceId()
+    public function testPropertyName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "active"
+     */
+    public function testPropertyActive()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -110,33 +128,6 @@ class ProductCreateRequestTest extends TestCase
      * Test attribute "url"
      */
     public function testPropertyUrl()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "name"
-     */
-    public function testPropertyName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "active"
-     */
-    public function testPropertyActive()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

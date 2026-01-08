@@ -108,7 +108,7 @@ $limit = 10; // int | 取得するデータの最大件数
 $startingAfter = 'startingAfter_example'; // string | このIDより後のデータを取得
 $endingBefore = 'endingBefore_example'; // string | このIDより前のデータを取得
 $type = new \PAYJPV2\Model\\PAYJPV2\Model\StatementType(); // \PAYJPV2\Model\StatementType | 明細タイプでフィルタ
-$termId = 'termId_example'; // string | 期間IDでフィルタ
+$termId = 'termId_example'; // string | 集計区間 ID でフィルタ
 
 try {
     $result = $apiInstance->getAllStatements($since, $until, $limit, $startingAfter, $endingBefore, $type, $termId);
@@ -128,7 +128,7 @@ try {
 | **startingAfter** | **string**| このIDより後のデータを取得 | [optional] |
 | **endingBefore** | **string**| このIDより前のデータを取得 | [optional] |
 | **type** | [**\PAYJPV2\Model\StatementType**](../Model/.md)| 明細タイプでフィルタ | [optional] |
-| **termId** | **string**| 期間IDでフィルタ | [optional] |
+| **termId** | **string**| 集計区間 ID でフィルタ | [optional] |
 
 ### Return type
 

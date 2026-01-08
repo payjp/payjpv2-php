@@ -2120,7 +2120,7 @@ class PaymentMethodsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\PaymentMethodResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\PaymentMethodResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function updatePaymentMethod($paymentMethodId, $paymentMethodUpdateRequest, ?string $idempotencyKey = null)
     {
@@ -2140,7 +2140,7 @@ class PaymentMethodsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\PaymentMethodResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\PaymentMethodResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updatePaymentMethodWithHttpInfo($paymentMethodId, $paymentMethodUpdateRequest, ?string $idempotencyKey = null)
     {
@@ -2189,6 +2189,12 @@ class PaymentMethodsApi
                         $request,
                         $response,
                     );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
             }
 
 
@@ -2232,6 +2238,15 @@ class PaymentMethodsApi
 
                     throw $e;
                 case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',

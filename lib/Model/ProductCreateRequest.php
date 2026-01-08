@@ -58,13 +58,12 @@ class ProductCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'defaultPriceId' => 'string',
+        'name' => 'string',
+        'id' => 'string',
+        'active' => 'bool',
         'description' => 'string',
         'unitLabel' => 'string',
         'url' => 'string',
-        'id' => 'string',
-        'name' => 'string',
-        'active' => 'bool',
     ];
 
     /**
@@ -75,13 +74,12 @@ class ProductCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'defaultPriceId' => null,
+        'name' => null,
+        'id' => null,
+        'active' => null,
         'description' => null,
         'unitLabel' => null,
         'url' => null,
-        'id' => null,
-        'name' => null,
-        'active' => null,
     ];
 
     /**
@@ -90,13 +88,12 @@ class ProductCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var bool[]
       */
     protected static array $openAPINullables = [
-        'defaultPriceId' => false,
+        'name' => false,
+        'id' => false,
+        'active' => false,
         'description' => false,
         'unitLabel' => false,
         'url' => false,
-        'id' => false,
-        'name' => false,
-        'active' => false,
     ];
 
     /**
@@ -185,13 +182,12 @@ class ProductCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'defaultPriceId' => 'default_price_id',
+        'name' => 'name',
+        'id' => 'id',
+        'active' => 'active',
         'description' => 'description',
         'unitLabel' => 'unit_label',
         'url' => 'url',
-        'id' => 'id',
-        'name' => 'name',
-        'active' => 'active',
     ];
 
     /**
@@ -200,13 +196,12 @@ class ProductCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'defaultPriceId' => 'setDefaultPriceId',
+        'name' => 'setName',
+        'id' => 'setId',
+        'active' => 'setActive',
         'description' => 'setDescription',
         'unitLabel' => 'setUnitLabel',
         'url' => 'setUrl',
-        'id' => 'setId',
-        'name' => 'setName',
-        'active' => 'setActive',
     ];
 
     /**
@@ -215,13 +210,12 @@ class ProductCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'defaultPriceId' => 'getDefaultPriceId',
+        'name' => 'getName',
+        'id' => 'getId',
+        'active' => 'getActive',
         'description' => 'getDescription',
         'unitLabel' => 'getUnitLabel',
         'url' => 'getUrl',
-        'id' => 'getId',
-        'name' => 'getName',
-        'active' => 'getActive',
     ];
 
     /**
@@ -281,13 +275,12 @@ class ProductCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('defaultPriceId', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('active', $data ?? [], true);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('unitLabel', $data ?? [], null);
         $this->setIfExists('url', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('active', $data ?? [], true);
     }
 
     /**
@@ -337,28 +330,86 @@ class ProductCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets defaultPriceId
+     * Gets name
      *
-     * @return string|null
+     * @return string
      */
-    public function getDefaultPriceId(): ?string
+    public function getName(): string
     {
-        return $this->container['defaultPriceId'];
+        if ($this->container['name'] === null) {
+            throw new \LogicException('Property "name" is required but has not been set.');
+        }
+
+        return $this->container['name'];
     }
 
     /**
-     * Sets defaultPriceId
+     * Sets name
      *
-     * @param string|null $defaultPriceId この商品のデフォルト価格である価格オブジェクトのID。
+     * @param string $name Checkout などで顧客に表示される商品名
      *
      * @return self
      */
-    public function setDefaultPriceId(?string $defaultPriceId): self
+    public function setName(string $name): self
     {
-        if (is_null($defaultPriceId)) {
-            throw new \InvalidArgumentException('non-nullable defaultPriceId cannot be null');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['defaultPriceId'] = $defaultPriceId;
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId(): ?string
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id 商品 ID
+     *
+     * @return self
+     */
+    public function setId(?string $id): self
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets active
+     *
+     * @return bool|null
+     */
+    public function getActive(): ?bool
+    {
+        return $this->container['active'];
+    }
+
+    /**
+     * Sets active
+     *
+     * @param bool|null $active 商品が購入可能かどうか
+     *
+     * @return self
+     */
+    public function setActive(?bool $active): self
+    {
+        if (is_null($active)) {
+            throw new \InvalidArgumentException('non-nullable active cannot be null');
+        }
+        $this->container['active'] = $active;
 
         return $this;
     }
@@ -376,7 +427,7 @@ class ProductCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets description
      *
-     * @param string|null $description Checkoutなどで顧客に表示される商品説明。
+     * @param string|null $description Checkout などで顧客に表示される商品説明
      *
      * @return self
      */
@@ -403,7 +454,7 @@ class ProductCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets unitLabel
      *
-     * @param string|null $unitLabel この製品の単位を表すラベル。設定すると、Checkoutや請求書などに表示されます。（例：「個」、「ライセンス」、「時間」、「回」など）
+     * @param string|null $unitLabel この製品の単位を表すラベル。設定すると、Checkout などに表示されます。（例：「個」、「ライセンス」、「時間」、「回」など）
      *
      * @return self
      */
@@ -430,7 +481,7 @@ class ProductCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets url
      *
-     * @param string|null $url この製品の公開されているウェブページのURL。
+     * @param string|null $url この製品の公開されているウェブページの URL
      *
      * @return self
      */
@@ -440,91 +491,6 @@ class ProductCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable url cannot be null');
         }
         $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId(): ?string
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id 商品ID
-     *
-     * @return self
-     */
-    public function setId(?string $id): self
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName(): string
-    {
-        if ($this->container['name'] === null) {
-            throw new \LogicException('Property "name" is required but has not been set.');
-        }
-
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name Checkoutなどで顧客に表示される商品名。
-     *
-     * @return self
-     */
-    public function setName(string $name): self
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets active
-     *
-     * @return bool|null
-     */
-    public function getActive(): ?bool
-    {
-        return $this->container['active'];
-    }
-
-    /**
-     * Sets active
-     *
-     * @param bool|null $active 商品が購入可能かどうか。デフォルトは `true`。
-     *
-     * @return self
-     */
-    public function setActive(?bool $active): self
-    {
-        if (is_null($active)) {
-            throw new \InvalidArgumentException('non-nullable active cannot be null');
-        }
-        $this->container['active'] = $active;
 
         return $this;
     }

@@ -58,10 +58,10 @@ class PriceUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
+        'active' => 'bool',
         'nickname' => 'string',
         'lookupKey' => 'string',
         'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
-        'active' => 'bool',
     ];
 
     /**
@@ -72,10 +72,10 @@ class PriceUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'active' => null,
         'nickname' => null,
         'lookupKey' => null,
         'metadata' => null,
-        'active' => null,
     ];
 
     /**
@@ -84,10 +84,10 @@ class PriceUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var bool[]
       */
     protected static array $openAPINullables = [
+        'active' => false,
         'nickname' => false,
         'lookupKey' => false,
         'metadata' => false,
-        'active' => false,
     ];
 
     /**
@@ -176,10 +176,10 @@ class PriceUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
+        'active' => 'active',
         'nickname' => 'nickname',
         'lookupKey' => 'lookup_key',
         'metadata' => 'metadata',
-        'active' => 'active',
     ];
 
     /**
@@ -188,10 +188,10 @@ class PriceUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
+        'active' => 'setActive',
         'nickname' => 'setNickname',
         'lookupKey' => 'setLookupKey',
         'metadata' => 'setMetadata',
-        'active' => 'setActive',
     ];
 
     /**
@@ -200,10 +200,10 @@ class PriceUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
+        'active' => 'getActive',
         'nickname' => 'getNickname',
         'lookupKey' => 'getLookupKey',
         'metadata' => 'getMetadata',
-        'active' => 'getActive',
     ];
 
     /**
@@ -263,10 +263,10 @@ class PriceUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('active', $data ?? [], null);
         $this->setIfExists('nickname', $data ?? [], null);
         $this->setIfExists('lookupKey', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
-        $this->setIfExists('active', $data ?? [], null);
     }
 
     /**
@@ -312,6 +312,33 @@ class PriceUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
+     * Gets active
+     *
+     * @return bool|null
+     */
+    public function getActive(): ?bool
+    {
+        return $this->container['active'];
+    }
+
+    /**
+     * Sets active
+     *
+     * @param bool|null $active 価格が有効かどうか
+     *
+     * @return self
+     */
+    public function setActive(?bool $active): self
+    {
+        if (is_null($active)) {
+            throw new \InvalidArgumentException('non-nullable active cannot be null');
+        }
+        $this->container['active'] = $active;
+
+        return $this;
+    }
+
+    /**
      * Gets nickname
      *
      * @return string|null
@@ -324,7 +351,7 @@ class PriceUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets nickname
      *
-     * @param string|null $nickname 価格の名称。PAY.JP のダッシュボードで識別するためのもので、顧客には表示されません。
+     * @param string|null $nickname 価格の名称。PAY.JP の管理画面で識別するためのもので、顧客には表示されません。
      *
      * @return self
      */
@@ -351,7 +378,7 @@ class PriceUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets lookupKey
      *
-     * @param string|null $lookupKey この価格を検索するためのキー。
+     * @param string|null $lookupKey この価格を検索するためのキー
      *
      * @return self
      */
@@ -378,7 +405,7 @@ class PriceUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets metadata
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。<a href=\"https://docs.pay.jp/v2/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
+     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
      *
      * @return self
      */
@@ -388,33 +415,6 @@ class PriceUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
         $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets active
-     *
-     * @return bool|null
-     */
-    public function getActive(): ?bool
-    {
-        return $this->container['active'];
-    }
-
-    /**
-     * Sets active
-     *
-     * @param bool|null $active 価格が有効かどうか。デフォルトは `true`。
-     *
-     * @return self
-     */
-    public function setActive(?bool $active): self
-    {
-        if (is_null($active)) {
-            throw new \InvalidArgumentException('non-nullable active cannot be null');
-        }
-        $this->container['active'] = $active;
 
         return $this;
     }

@@ -447,7 +447,7 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets id
      *
-     * @param string $id ID
+     * @param string $id 税率 ID
      *
      * @return self
      */
@@ -540,7 +540,7 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets percentage
      *
-     * @param float $percentage 税率を % 単位で指定します（例： 10%の場合は「10」と入力）
+     * @param float $percentage 税率 (% 単位)
      *
      * @return self
      */
@@ -571,7 +571,7 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets active
      *
-     * @param bool $active この税率が有効であるかどうか。無効にした場合でも、すでに設定されている定期課金などでは使用可能です。
+     * @param bool $active この税率が有効であるかどうか
      *
      * @return self
      */

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**priceId** | **string** | 料金ID |
+**priceId** | **string** | 料金 ID |
 **quantity** | **int** | 購入する商品の数量 |
-**taxRates** | **string[]** | 税率ID | [optional]
+**taxRates** | **string[]** | 税率 ID | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

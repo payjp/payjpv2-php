@@ -147,7 +147,7 @@ class ProductsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\ProductDetailsResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\ProductDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function createProduct($productCreateRequest, ?string $idempotencyKey = null)
     {
@@ -166,7 +166,7 @@ class ProductsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\ProductDetailsResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\ProductDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createProductWithHttpInfo($productCreateRequest, ?string $idempotencyKey = null)
     {
@@ -209,6 +209,12 @@ class ProductsApi
                         $request,
                         $response,
                     );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
             }
 
 
@@ -243,6 +249,15 @@ class ProductsApi
 
                     throw $e;
                 case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',
@@ -448,7 +463,7 @@ class ProductsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\ProductDeletedResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\ProductDeletedResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function deleteProduct($productId, ?string $idempotencyKey = null)
     {
@@ -467,7 +482,7 @@ class ProductsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\ProductDeletedResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\ProductDeletedResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteProductWithHttpInfo($productId, ?string $idempotencyKey = null)
     {
@@ -510,6 +525,18 @@ class ProductsApi
                         $request,
                         $response,
                     );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
             }
 
 
@@ -544,6 +571,24 @@ class ProductsApi
 
                     throw $e;
                 case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',
@@ -1098,7 +1143,7 @@ class ProductsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\ProductDetailsResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\ProductDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function getProduct($productId, ?string $idempotencyKey = null)
     {
@@ -1117,7 +1162,7 @@ class ProductsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\ProductDetailsResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\ProductDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProductWithHttpInfo($productId, ?string $idempotencyKey = null)
     {
@@ -1160,6 +1205,12 @@ class ProductsApi
                         $request,
                         $response,
                     );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
             }
 
 
@@ -1194,6 +1245,15 @@ class ProductsApi
 
                     throw $e;
                 case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',
@@ -1401,7 +1461,7 @@ class ProductsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\ProductDetailsResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\ProductDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function updateProduct($productId, $productUpdateRequest, ?string $idempotencyKey = null)
     {
@@ -1421,7 +1481,7 @@ class ProductsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\ProductDetailsResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\ProductDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateProductWithHttpInfo($productId, $productUpdateRequest, ?string $idempotencyKey = null)
     {
@@ -1464,6 +1524,18 @@ class ProductsApi
                         $request,
                         $response,
                     );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
             }
 
 
@@ -1498,6 +1570,24 @@ class ProductsApi
 
                     throw $e;
                 case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',

@@ -459,7 +459,7 @@ class PaymentTransactionListResponse implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets data
      *
-     * @param \PAYJPV2\Model\PaymentTransactionResponse[] $data PaymentTransaction一覧
+     * @param \PAYJPV2\Model\PaymentTransactionResponse[] $data PaymentTransaction 一覧
      *
      * @return self
      */

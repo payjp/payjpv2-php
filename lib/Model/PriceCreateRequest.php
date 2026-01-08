@@ -58,14 +58,14 @@ class PriceCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
+        'productId' => 'string',
+        'unitAmount' => 'int',
+        'currency' => '\PAYJPV2\Model\Currency',
+        'id' => 'string',
+        'active' => 'bool',
         'nickname' => 'string',
         'lookupKey' => 'string',
         'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
-        'id' => 'string',
-        'currency' => '\PAYJPV2\Model\Currency',
-        'active' => 'bool',
-        'productId' => 'string',
-        'unitAmount' => 'int',
     ];
 
     /**
@@ -76,14 +76,14 @@ class PriceCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'productId' => null,
+        'unitAmount' => null,
+        'currency' => null,
+        'id' => null,
+        'active' => null,
         'nickname' => null,
         'lookupKey' => null,
         'metadata' => null,
-        'id' => null,
-        'currency' => null,
-        'active' => null,
-        'productId' => null,
-        'unitAmount' => null,
     ];
 
     /**
@@ -92,14 +92,14 @@ class PriceCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var bool[]
       */
     protected static array $openAPINullables = [
+        'productId' => false,
+        'unitAmount' => false,
+        'currency' => false,
+        'id' => false,
+        'active' => false,
         'nickname' => false,
         'lookupKey' => false,
         'metadata' => false,
-        'id' => false,
-        'currency' => false,
-        'active' => false,
-        'productId' => false,
-        'unitAmount' => false,
     ];
 
     /**
@@ -188,14 +188,14 @@ class PriceCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
+        'productId' => 'product_id',
+        'unitAmount' => 'unit_amount',
+        'currency' => 'currency',
+        'id' => 'id',
+        'active' => 'active',
         'nickname' => 'nickname',
         'lookupKey' => 'lookup_key',
         'metadata' => 'metadata',
-        'id' => 'id',
-        'currency' => 'currency',
-        'active' => 'active',
-        'productId' => 'product_id',
-        'unitAmount' => 'unit_amount',
     ];
 
     /**
@@ -204,14 +204,14 @@ class PriceCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
+        'productId' => 'setProductId',
+        'unitAmount' => 'setUnitAmount',
+        'currency' => 'setCurrency',
+        'id' => 'setId',
+        'active' => 'setActive',
         'nickname' => 'setNickname',
         'lookupKey' => 'setLookupKey',
         'metadata' => 'setMetadata',
-        'id' => 'setId',
-        'currency' => 'setCurrency',
-        'active' => 'setActive',
-        'productId' => 'setProductId',
-        'unitAmount' => 'setUnitAmount',
     ];
 
     /**
@@ -220,14 +220,14 @@ class PriceCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
+        'productId' => 'getProductId',
+        'unitAmount' => 'getUnitAmount',
+        'currency' => 'getCurrency',
+        'id' => 'getId',
+        'active' => 'getActive',
         'nickname' => 'getNickname',
         'lookupKey' => 'getLookupKey',
         'metadata' => 'getMetadata',
-        'id' => 'getId',
-        'currency' => 'getCurrency',
-        'active' => 'getActive',
-        'productId' => 'getProductId',
-        'unitAmount' => 'getUnitAmount',
     ];
 
     /**
@@ -287,14 +287,14 @@ class PriceCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('productId', $data ?? [], null);
+        $this->setIfExists('unitAmount', $data ?? [], null);
+        $this->setIfExists('currency', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('active', $data ?? [], true);
         $this->setIfExists('nickname', $data ?? [], null);
         $this->setIfExists('lookupKey', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('currency', $data ?? [], null);
-        $this->setIfExists('active', $data ?? [], true);
-        $this->setIfExists('productId', $data ?? [], null);
-        $this->setIfExists('unitAmount', $data ?? [], null);
     }
 
     /**
@@ -324,9 +324,6 @@ class PriceCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
-        }
         if ($this->container['productId'] === null) {
             $invalidProperties[] = "'productId' can't be null";
         }
@@ -335,6 +332,10 @@ class PriceCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         }
         if (($this->container['unitAmount'] < 0)) {
             $invalidProperties[] = "invalid value for 'unitAmount', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['currency'] === null) {
+            $invalidProperties[] = "'currency' can't be null";
         }
 
         return $invalidProperties;
@@ -353,109 +354,68 @@ class PriceCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets nickname
+     * Gets productId
      *
-     * @return string|null
+     * @return string
      */
-    public function getNickname(): ?string
+    public function getProductId(): string
     {
-        return $this->container['nickname'];
+        if ($this->container['productId'] === null) {
+            throw new \LogicException('Property "productId" is required but has not been set.');
+        }
+
+        return $this->container['productId'];
     }
 
     /**
-     * Sets nickname
+     * Sets productId
      *
-     * @param string|null $nickname 価格の名称。PAY.JP のダッシュボードで識別するためのもので、顧客には表示されません。
+     * @param string $productId この価格が紐付く商品の ID
      *
      * @return self
      */
-    public function setNickname(?string $nickname): self
+    public function setProductId(string $productId): self
     {
-        if (is_null($nickname)) {
-            throw new \InvalidArgumentException('non-nullable nickname cannot be null');
+        if (is_null($productId)) {
+            throw new \InvalidArgumentException('non-nullable productId cannot be null');
         }
-        $this->container['nickname'] = $nickname;
+        $this->container['productId'] = $productId;
 
         return $this;
     }
 
     /**
-     * Gets lookupKey
+     * Gets unitAmount
      *
-     * @return string|null
+     * @return int
      */
-    public function getLookupKey(): ?string
+    public function getUnitAmount(): int
     {
-        return $this->container['lookupKey'];
+        if ($this->container['unitAmount'] === null) {
+            throw new \LogicException('Property "unitAmount" is required but has not been set.');
+        }
+
+        return $this->container['unitAmount'];
     }
 
     /**
-     * Sets lookupKey
+     * Sets unitAmount
      *
-     * @param string|null $lookupKey この価格を検索するためのキー。
+     * @param int $unitAmount 価格の単価
      *
      * @return self
      */
-    public function setLookupKey(?string $lookupKey): self
+    public function setUnitAmount(int $unitAmount): self
     {
-        if (is_null($lookupKey)) {
-            throw new \InvalidArgumentException('non-nullable lookupKey cannot be null');
+        if (is_null($unitAmount)) {
+            throw new \InvalidArgumentException('non-nullable unitAmount cannot be null');
         }
-        $this->container['lookupKey'] = $lookupKey;
 
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return array<string,\PAYJPV2\Model\MetadataValue>|null
-     */
-    public function getMetadata(): ?array
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。<a href=\"https://docs.pay.jp/v2/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
-     *
-     * @return self
-     */
-    public function setMetadata(?array $metadata): self
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+        if (($unitAmount < 0)) {
+            throw new \InvalidArgumentException('invalid value for $unitAmount when calling PriceCreateRequest., must be bigger than or equal to 0.');
         }
-        $this->container['metadata'] = $metadata;
 
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId(): ?string
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id 料金ID
-     *
-     * @return self
-     */
-    public function setId(?string $id): self
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
+        $this->container['unitAmount'] = $unitAmount;
 
         return $this;
     }
@@ -492,6 +452,33 @@ class PriceCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId(): ?string
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id 料金 ID
+     *
+     * @return self
+     */
+    public function setId(?string $id): self
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
      * Gets active
      *
      * @return bool|null
@@ -504,7 +491,7 @@ class PriceCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets active
      *
-     * @param bool|null $active 価格が有効かどうか。デフォルトは `true`。
+     * @param bool|null $active 価格が有効かどうか
      *
      * @return self
      */
@@ -519,68 +506,82 @@ class PriceCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets productId
+     * Gets nickname
      *
-     * @return string
+     * @return string|null
      */
-    public function getProductId(): string
+    public function getNickname(): ?string
     {
-        if ($this->container['productId'] === null) {
-            throw new \LogicException('Property "productId" is required but has not been set.');
-        }
-
-        return $this->container['productId'];
+        return $this->container['nickname'];
     }
 
     /**
-     * Sets productId
+     * Sets nickname
      *
-     * @param string $productId この価格が紐付く商品のID。
+     * @param string|null $nickname 価格の名称。PAY.JP の管理画面で識別するためのもので、顧客には表示されません。
      *
      * @return self
      */
-    public function setProductId(string $productId): self
+    public function setNickname(?string $nickname): self
     {
-        if (is_null($productId)) {
-            throw new \InvalidArgumentException('non-nullable productId cannot be null');
+        if (is_null($nickname)) {
+            throw new \InvalidArgumentException('non-nullable nickname cannot be null');
         }
-        $this->container['productId'] = $productId;
+        $this->container['nickname'] = $nickname;
 
         return $this;
     }
 
     /**
-     * Gets unitAmount
+     * Gets lookupKey
      *
-     * @return int
+     * @return string|null
      */
-    public function getUnitAmount(): int
+    public function getLookupKey(): ?string
     {
-        if ($this->container['unitAmount'] === null) {
-            throw new \LogicException('Property "unitAmount" is required but has not been set.');
-        }
-
-        return $this->container['unitAmount'];
+        return $this->container['lookupKey'];
     }
 
     /**
-     * Sets unitAmount
+     * Sets lookupKey
      *
-     * @param int $unitAmount 価格の単価。0以上の整数となります。
+     * @param string|null $lookupKey この価格を検索するためのキー
      *
      * @return self
      */
-    public function setUnitAmount(int $unitAmount): self
+    public function setLookupKey(?string $lookupKey): self
     {
-        if (is_null($unitAmount)) {
-            throw new \InvalidArgumentException('non-nullable unitAmount cannot be null');
+        if (is_null($lookupKey)) {
+            throw new \InvalidArgumentException('non-nullable lookupKey cannot be null');
         }
+        $this->container['lookupKey'] = $lookupKey;
 
-        if (($unitAmount < 0)) {
-            throw new \InvalidArgumentException('invalid value for $unitAmount when calling PriceCreateRequest., must be bigger than or equal to 0.');
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return array<string,\PAYJPV2\Model\MetadataValue>|null
+     */
+    public function getMetadata(): ?array
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
+     *
+     * @return self
+     */
+    public function setMetadata(?array $metadata): self
+    {
+        if (is_null($metadata)) {
+            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
-
-        $this->container['unitAmount'] = $unitAmount;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }

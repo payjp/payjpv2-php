@@ -421,7 +421,7 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets percentage
      *
-     * @param float $percentage 税率を % 単位で指定します（例： 10%の場合は「10」と入力）
+     * @param float $percentage 税率を % 単位で指定します（例: 10%の場合は「10」と入力）
      *
      * @return self
      */
@@ -502,7 +502,7 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets description
      *
-     * @param string|null $description 説明。ダッシュボード内のみで表示され、顧客には表示されません。
+     * @param string|null $description 説明。管理画面内のみで表示され、顧客には表示されません。
      *
      * @return self
      */
@@ -529,7 +529,7 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets metadata
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。<a href=\"https://docs.pay.jp/v2/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
+     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
      *
      * @return self
      */

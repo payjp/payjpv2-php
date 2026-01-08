@@ -360,7 +360,7 @@ class PaymentMethodApplePayCreateRequest implements ModelInterface, ArrayAccess,
     /**
      * Sets customerId
      *
-     * @param string|null $customerId 顧客ID
+     * @param string|null $customerId 顧客 ID
      *
      * @return self
      */
@@ -414,7 +414,7 @@ class PaymentMethodApplePayCreateRequest implements ModelInterface, ArrayAccess,
     /**
      * Sets metadata
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。<a href=\"https://docs.pay.jp/v2/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
+     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
      *
      * @return self
      */
@@ -445,7 +445,7 @@ class PaymentMethodApplePayCreateRequest implements ModelInterface, ArrayAccess,
     /**
      * Sets type
      *
-     * @param string $type Apple Pay決済の場合は `apple_pay` を指定します。
+     * @param string $type Apple Pay 決済の場合は `apple_pay` を指定します。
      *
      * @return self
      */
@@ -486,7 +486,7 @@ class PaymentMethodApplePayCreateRequest implements ModelInterface, ArrayAccess,
     /**
      * Sets token
      *
-     * @param string $token Apple Payのトークン
+     * @param string $token Apple Pay のトークン
      *
      * @return self
      */

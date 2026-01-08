@@ -41,7 +41,7 @@ $apiInstance = new PAYJPV2\Api\PaymentTransactionsApi(
 $limit = 10; // int | 取得するデータの最大件数
 $startingAfter = 'startingAfter_example'; // string | このIDより後のデータを取得
 $endingBefore = 'endingBefore_example'; // string | このIDより前のデータを取得
-$termId = 'termId_example'; // string | term ID
+$termId = 'termId_example'; // string | 集計区間 ID
 $type = 'type_example'; // string | 取引タイプ
 $paymentMethodType = 'paymentMethodType_example'; // string | 支払い方法タイプ
 
@@ -60,7 +60,7 @@ try {
 | **limit** | **int**| 取得するデータの最大件数 | [optional] [default to 10] |
 | **startingAfter** | **string**| このIDより後のデータを取得 | [optional] |
 | **endingBefore** | **string**| このIDより前のデータを取得 | [optional] |
-| **termId** | **string**| term ID | [optional] |
+| **termId** | **string**| 集計区間 ID | [optional] |
 | **type** | **string**| 取引タイプ | [optional] |
 | **paymentMethodType** | **string**| 支払い方法タイプ | [optional] |
 

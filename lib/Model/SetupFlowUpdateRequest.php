@@ -346,7 +346,7 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets customerId
      *
-     * @param string|null $customerId この SetupFlow が属する顧客の ID。SetupFlow に PaymentMethod が設定されている場合、SetupFlow の設定が成功するとその PaymentMethod は顧客に紐付きます。別の顧客に紐付いている PaymentMethod をこの SetupFlow で使用することはできません。
+     * @param string|null $customerId この SetupFlow に関連付ける顧客の ID。SetupFlow により作られた PaymentMethod はこの顧客に紐付きます。
      *
      * @return self
      */
@@ -373,7 +373,7 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets paymentMethodOptions
      *
-     * @param \PAYJPV2\Model\SetupFlowPaymentMethodOptionsRequest|null $paymentMethodOptions この SetupFlow の支払い方法の個別設定。
+     * @param \PAYJPV2\Model\SetupFlowPaymentMethodOptionsRequest|null $paymentMethodOptions この SetupFlow 固有の支払い方法の設定
      *
      * @return self
      */
@@ -400,7 +400,7 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets paymentMethodTypes
      *
-     * @param string[]|null $paymentMethodTypes この SetupFlow で使用できる支払い方法の種類（カードなど）のリストです。 指定しない場合、ダッシュボードで利用可能な状態にしている支払い方法が自動的に設定されます。
+     * @param string[]|null $paymentMethodTypes この SetupFlow で使用できる支払い方法の種類のリスト。 指定しない場合は、PAY.JP は支払い方法の設定から利用可能な支払い方法を動的に表示します。
      *
      * @return self
      */
@@ -463,7 +463,7 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets metadata
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。<a href=\"https://docs.pay.jp/v2/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
+     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
      *
      * @return self
      */

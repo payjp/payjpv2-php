@@ -58,8 +58,8 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'object' => 'string',
+        'id' => 'string',
         'name' => 'string',
         'active' => 'bool',
         'defaultPriceId' => 'string',
@@ -76,8 +76,8 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'object' => null,
+        'id' => null,
         'name' => null,
         'active' => null,
         'defaultPriceId' => null,
@@ -92,8 +92,8 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @var bool[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
         'object' => false,
+        'id' => false,
         'name' => false,
         'active' => false,
         'defaultPriceId' => true,
@@ -188,8 +188,8 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'object' => 'object',
+        'id' => 'id',
         'name' => 'name',
         'active' => 'active',
         'defaultPriceId' => 'default_price_id',
@@ -204,8 +204,8 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'object' => 'setObject',
+        'id' => 'setId',
         'name' => 'setName',
         'active' => 'setActive',
         'defaultPriceId' => 'setDefaultPriceId',
@@ -220,8 +220,8 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'object' => 'getObject',
+        'id' => 'getId',
         'name' => 'getName',
         'active' => 'getActive',
         'defaultPriceId' => 'getDefaultPriceId',
@@ -300,8 +300,8 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'product');
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('active', $data ?? [], null);
         $this->setIfExists('defaultPriceId', $data ?? [], null);
@@ -337,9 +337,6 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (! is_null($this->container['object']) && ! in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -349,6 +346,9 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
             );
         }
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
@@ -382,37 +382,6 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId(): string
-    {
-        if ($this->container['id'] === null) {
-            throw new \LogicException('Property "id" is required but has not been set.');
-        }
-
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id 商品ID
-     *
-     * @return self
-     */
-    public function setId(string $id): self
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets object
@@ -452,6 +421,37 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId(): string
+    {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id 商品 ID
+     *
+     * @return self
+     */
+    public function setId(string $id): self
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string
@@ -468,7 +468,7 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets name
      *
-     * @param string $name Checkoutなどで顧客に表示される商品名。
+     * @param string $name Checkout などで顧客に表示される商品名
      *
      * @return self
      */
@@ -499,7 +499,7 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets active
      *
-     * @param bool $active 商品が購入可能かどうか。デフォルトは `true`。
+     * @param bool $active 商品が購入可能かどうか
      *
      * @return self
      */

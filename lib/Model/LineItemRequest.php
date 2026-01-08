@@ -328,7 +328,7 @@ class LineItemRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets priceId
      *
-     * @param string $priceId 料金ID
+     * @param string $priceId 料金 ID
      *
      * @return self
      */
@@ -386,7 +386,7 @@ class LineItemRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets taxRates
      *
-     * @param string[]|null $taxRates 税率ID
+     * @param string[]|null $taxRates 税率 ID
      *
      * @return self
      */

@@ -311,7 +311,7 @@ class PaymentMethodAttachRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets customerId
      *
-     * @param string $customerId 顧客ID
+     * @param string $customerId 顧客 ID
      *
      * @return self
      */

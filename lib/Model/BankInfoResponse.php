@@ -516,7 +516,7 @@ class BankInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets bankAccountStatus
      *
-     * @param string $bankAccountStatus 最新振込結果  | 指定できる値 | |:---| | **success**: 成功 | | **failed**: 失敗 | | **pending**: 初回振込み前 |
+     * @param string $bankAccountStatus 最新振込結果  | 値 | |:---| | **success**: 成功 | | **failed**: 失敗 | | **pending**: 初回振込み前 |
      *
      * @return self
      */

@@ -41,9 +41,9 @@ $apiInstance = new PAYJPV2\Api\EventsApi(
 $limit = 10; // int | 取得するデータの最大件数
 $startingAfter = 'startingAfter_example'; // string | このIDより後のデータを取得
 $endingBefore = 'endingBefore_example'; // string | このIDより前のデータを取得
-$resourceId = 'resourceId_example'; // string | 取得するeventに紐づくAPIリソースのID (e.g. customer.id)
-$object = 'object_example'; // string | 取得するeventに紐づくAPIリソースのobject。値はリソース名(e.g. customer, payment_flow)
-$type = 'type_example'; // string | 取得するeventのtype
+$resourceId = 'resourceId_example'; // string | 取得する event に紐づく API リソースの ID
+$object = 'object_example'; // string | 取得する event に紐づく API リソースの object。値はリソース名 (e.g. customer, payment_flow)
+$type = 'type_example'; // string | 取得する event の type
 
 try {
     $result = $apiInstance->getAllEvents($limit, $startingAfter, $endingBefore, $resourceId, $object, $type);
@@ -60,9 +60,9 @@ try {
 | **limit** | **int**| 取得するデータの最大件数 | [optional] [default to 10] |
 | **startingAfter** | **string**| このIDより後のデータを取得 | [optional] |
 | **endingBefore** | **string**| このIDより前のデータを取得 | [optional] |
-| **resourceId** | **string**| 取得するeventに紐づくAPIリソースのID (e.g. customer.id) | [optional] |
-| **object** | **string**| 取得するeventに紐づくAPIリソースのobject。値はリソース名(e.g. customer, payment_flow) | [optional] |
-| **type** | **string**| 取得するeventのtype | [optional] |
+| **resourceId** | **string**| 取得する event に紐づく API リソースの ID | [optional] |
+| **object** | **string**| 取得する event に紐づく API リソースの object。値はリソース名 (e.g. customer, payment_flow) | [optional] |
+| **type** | **string**| 取得する event の type | [optional] |
 
 ### Return type
 

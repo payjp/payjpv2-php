@@ -136,7 +136,7 @@ class PaymentTransactionsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  string|null $termId term ID (optional)
+     * @param  string|null $termId 集計区間 ID (optional)
      * @param  string|null $type 取引タイプ (optional)
      * @param  string|null $paymentMethodType 支払い方法タイプ (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
@@ -160,7 +160,7 @@ class PaymentTransactionsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  string|null $termId term ID (optional)
+     * @param  string|null $termId 集計区間 ID (optional)
      * @param  string|null $type 取引タイプ (optional)
      * @param  string|null $paymentMethodType 支払い方法タイプ (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
@@ -282,7 +282,7 @@ class PaymentTransactionsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  string|null $termId term ID (optional)
+     * @param  string|null $termId 集計区間 ID (optional)
      * @param  string|null $type 取引タイプ (optional)
      * @param  string|null $paymentMethodType 支払い方法タイプ (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
@@ -308,7 +308,7 @@ class PaymentTransactionsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  string|null $termId term ID (optional)
+     * @param  string|null $termId 集計区間 ID (optional)
      * @param  string|null $type 取引タイプ (optional)
      * @param  string|null $paymentMethodType 支払い方法タイプ (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
@@ -364,7 +364,7 @@ class PaymentTransactionsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
-     * @param  string|null $termId term ID (optional)
+     * @param  string|null $termId 集計区間 ID (optional)
      * @param  string|null $type 取引タイプ (optional)
      * @param  string|null $paymentMethodType 支払い方法タイプ (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request

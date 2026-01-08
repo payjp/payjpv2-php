@@ -41,8 +41,8 @@ $apiInstance = new PAYJPV2\Api\TermsApi(
 $limit = 10; // int | 取得するデータの最大件数
 $startingAfter = 'startingAfter_example'; // string | このIDより後のデータを取得
 $endingBefore = 'endingBefore_example'; // string | このIDより前のデータを取得
-$sinceStartAt = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | start_atが指定した日付以降のデータを取得
-$untilStartAt = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | start_atが指定した日付以前のデータを取得
+$sinceStartAt = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | start_at が指定した日付以降のデータを取得
+$untilStartAt = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | start_at が指定した日付以前のデータを取得
 
 try {
     $result = $apiInstance->getAllTerms($limit, $startingAfter, $endingBefore, $sinceStartAt, $untilStartAt);
@@ -59,8 +59,8 @@ try {
 | **limit** | **int**| 取得するデータの最大件数 | [optional] [default to 10] |
 | **startingAfter** | **string**| このIDより後のデータを取得 | [optional] |
 | **endingBefore** | **string**| このIDより前のデータを取得 | [optional] |
-| **sinceStartAt** | **\DateTime**| start_atが指定した日付以降のデータを取得 | [optional] |
-| **untilStartAt** | **\DateTime**| start_atが指定した日付以前のデータを取得 | [optional] |
+| **sinceStartAt** | **\DateTime**| start_at が指定した日付以降のデータを取得 | [optional] |
+| **untilStartAt** | **\DateTime**| start_at が指定した日付以前のデータを取得 | [optional] |
 
 ### Return type
 

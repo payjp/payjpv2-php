@@ -58,8 +58,8 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'object' => 'string',
+        'id' => 'string',
         'livemode' => 'bool',
         'email' => 'string',
         'description' => 'string',
@@ -77,8 +77,8 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'object' => null,
+        'id' => null,
         'livemode' => null,
         'email' => null,
         'description' => null,
@@ -94,8 +94,8 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var bool[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
         'object' => false,
+        'id' => false,
         'livemode' => false,
         'email' => true,
         'description' => true,
@@ -191,8 +191,8 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'object' => 'object',
+        'id' => 'id',
         'livemode' => 'livemode',
         'email' => 'email',
         'description' => 'description',
@@ -208,8 +208,8 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'object' => 'setObject',
+        'id' => 'setId',
         'livemode' => 'setLivemode',
         'email' => 'setEmail',
         'description' => 'setDescription',
@@ -225,8 +225,8 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'object' => 'getObject',
+        'id' => 'getId',
         'livemode' => 'getLivemode',
         'email' => 'getEmail',
         'description' => 'getDescription',
@@ -306,8 +306,8 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'customer');
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('livemode', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
@@ -344,9 +344,6 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (! is_null($this->container['object']) && ! in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -356,6 +353,9 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         if ($this->container['livemode'] === null) {
             $invalidProperties[] = "'livemode' can't be null";
         }
@@ -394,37 +394,6 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId(): string
-    {
-        if ($this->container['id'] === null) {
-            throw new \LogicException('Property "id" is required but has not been set.');
-        }
-
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id 顧客ID
-     *
-     * @return self
-     */
-    public function setId(string $id): self
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
      * Gets object
      *
      * @return string|null
@@ -457,6 +426,37 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['object'] = $object;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId(): string
+    {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id 顧客 ID
+     *
+     * @return self
+     */
+    public function setId(string $id): self
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
 
         return $this;
     }

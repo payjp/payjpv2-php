@@ -58,12 +58,12 @@ class ProductUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
+        'name' => 'string',
+        'active' => 'bool',
         'defaultPriceId' => 'string',
         'description' => 'string',
         'unitLabel' => 'string',
         'url' => 'string',
-        'name' => 'string',
-        'active' => 'bool',
     ];
 
     /**
@@ -74,12 +74,12 @@ class ProductUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'name' => null,
+        'active' => null,
         'defaultPriceId' => null,
         'description' => null,
         'unitLabel' => null,
         'url' => null,
-        'name' => null,
-        'active' => null,
     ];
 
     /**
@@ -88,12 +88,12 @@ class ProductUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var bool[]
       */
     protected static array $openAPINullables = [
+        'name' => false,
+        'active' => false,
         'defaultPriceId' => false,
         'description' => false,
         'unitLabel' => false,
         'url' => false,
-        'name' => false,
-        'active' => false,
     ];
 
     /**
@@ -182,12 +182,12 @@ class ProductUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
+        'name' => 'name',
+        'active' => 'active',
         'defaultPriceId' => 'default_price_id',
         'description' => 'description',
         'unitLabel' => 'unit_label',
         'url' => 'url',
-        'name' => 'name',
-        'active' => 'active',
     ];
 
     /**
@@ -196,12 +196,12 @@ class ProductUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
+        'name' => 'setName',
+        'active' => 'setActive',
         'defaultPriceId' => 'setDefaultPriceId',
         'description' => 'setDescription',
         'unitLabel' => 'setUnitLabel',
         'url' => 'setUrl',
-        'name' => 'setName',
-        'active' => 'setActive',
     ];
 
     /**
@@ -210,12 +210,12 @@ class ProductUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
+        'name' => 'getName',
+        'active' => 'getActive',
         'defaultPriceId' => 'getDefaultPriceId',
         'description' => 'getDescription',
         'unitLabel' => 'getUnitLabel',
         'url' => 'getUrl',
-        'name' => 'getName',
-        'active' => 'getActive',
     ];
 
     /**
@@ -275,12 +275,12 @@ class ProductUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('active', $data ?? [], null);
         $this->setIfExists('defaultPriceId', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('unitLabel', $data ?? [], null);
         $this->setIfExists('url', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('active', $data ?? [], null);
     }
 
     /**
@@ -326,114 +326,6 @@ class ProductUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets defaultPriceId
-     *
-     * @return string|null
-     */
-    public function getDefaultPriceId(): ?string
-    {
-        return $this->container['defaultPriceId'];
-    }
-
-    /**
-     * Sets defaultPriceId
-     *
-     * @param string|null $defaultPriceId この商品のデフォルト価格である価格オブジェクトのID。
-     *
-     * @return self
-     */
-    public function setDefaultPriceId(?string $defaultPriceId): self
-    {
-        if (is_null($defaultPriceId)) {
-            throw new \InvalidArgumentException('non-nullable defaultPriceId cannot be null');
-        }
-        $this->container['defaultPriceId'] = $defaultPriceId;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription(): ?string
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description Checkoutなどで顧客に表示される商品説明。
-     *
-     * @return self
-     */
-    public function setDescription(?string $description): self
-    {
-        if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
-        }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets unitLabel
-     *
-     * @return string|null
-     */
-    public function getUnitLabel(): ?string
-    {
-        return $this->container['unitLabel'];
-    }
-
-    /**
-     * Sets unitLabel
-     *
-     * @param string|null $unitLabel この製品の単位を表すラベル。設定すると、Checkoutや請求書などに表示されます。（例：「個」、「ライセンス」、「時間」、「回」など）
-     *
-     * @return self
-     */
-    public function setUnitLabel(?string $unitLabel): self
-    {
-        if (is_null($unitLabel)) {
-            throw new \InvalidArgumentException('non-nullable unitLabel cannot be null');
-        }
-        $this->container['unitLabel'] = $unitLabel;
-
-        return $this;
-    }
-
-    /**
-     * Gets url
-     *
-     * @return string|null
-     */
-    public function getUrl(): ?string
-    {
-        return $this->container['url'];
-    }
-
-    /**
-     * Sets url
-     *
-     * @param string|null $url この製品の公開されているウェブページのURL。
-     *
-     * @return self
-     */
-    public function setUrl(?string $url): self
-    {
-        if (is_null($url)) {
-            throw new \InvalidArgumentException('non-nullable url cannot be null');
-        }
-        $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
      * @return string|null
@@ -446,7 +338,7 @@ class ProductUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets name
      *
-     * @param string|null $name Checkoutなどで顧客に表示される商品名。
+     * @param string|null $name Checkout などで顧客に表示される商品名
      *
      * @return self
      */
@@ -473,7 +365,7 @@ class ProductUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets active
      *
-     * @param bool|null $active 商品が購入可能かどうか。デフォルトは `true`。
+     * @param bool|null $active 商品が購入可能かどうか
      *
      * @return self
      */
@@ -483,6 +375,114 @@ class ProductUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable active cannot be null');
         }
         $this->container['active'] = $active;
+
+        return $this;
+    }
+
+    /**
+     * Gets defaultPriceId
+     *
+     * @return string|null
+     */
+    public function getDefaultPriceId(): ?string
+    {
+        return $this->container['defaultPriceId'];
+    }
+
+    /**
+     * Sets defaultPriceId
+     *
+     * @param string|null $defaultPriceId この商品のデフォルト価格である価格オブジェクトの ID
+     *
+     * @return self
+     */
+    public function setDefaultPriceId(?string $defaultPriceId): self
+    {
+        if (is_null($defaultPriceId)) {
+            throw new \InvalidArgumentException('non-nullable defaultPriceId cannot be null');
+        }
+        $this->container['defaultPriceId'] = $defaultPriceId;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription(): ?string
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description Checkout などで顧客に表示される商品説明
+     *
+     * @return self
+     */
+    public function setDescription(?string $description): self
+    {
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        }
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets unitLabel
+     *
+     * @return string|null
+     */
+    public function getUnitLabel(): ?string
+    {
+        return $this->container['unitLabel'];
+    }
+
+    /**
+     * Sets unitLabel
+     *
+     * @param string|null $unitLabel この製品の単位を表すラベル。設定すると、Checkout などに表示されます。（例：「個」、「ライセンス」、「時間」、「回」など）
+     *
+     * @return self
+     */
+    public function setUnitLabel(?string $unitLabel): self
+    {
+        if (is_null($unitLabel)) {
+            throw new \InvalidArgumentException('non-nullable unitLabel cannot be null');
+        }
+        $this->container['unitLabel'] = $unitLabel;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string|null
+     */
+    public function getUrl(): ?string
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string|null $url この製品の公開されているウェブページの URL
+     *
+     * @return self
+     */
+    public function setUrl(?string $url): self
+    {
+        if (is_null($url)) {
+            throw new \InvalidArgumentException('non-nullable url cannot be null');
+        }
+        $this->container['url'] = $url;
 
         return $this;
     }

@@ -58,10 +58,8 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'object' => 'string',
-        'createdAt' => '\DateTime',
-        'updatedAt' => '\DateTime',
+        'id' => 'string',
         'livemode' => 'bool',
         'amount' => 'int',
         'currency' => '\PAYJPV2\Model\Currency',
@@ -70,7 +68,6 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'clientSecret' => 'string',
         'customerId' => 'string',
         'description' => 'string',
-        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
         'paymentMethodId' => 'string',
         'paymentMethodOptions' => 'array<string,mixed>',
         'paymentMethodTypes' => '\PAYJPV2\Model\PaymentMethodTypes[]',
@@ -79,6 +76,11 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'returnUrl' => 'string',
         'captureMethod' => '\PAYJPV2\Model\CaptureMethod',
         'lastPaymentError' => 'array<string,mixed>',
+        'cancellationReason' => '\PAYJPV2\Model\PaymentFlowCancellationReason',
+        'canceledAt' => '\DateTime',
+        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
+        'createdAt' => '\DateTime',
+        'updatedAt' => '\DateTime',
     ];
 
     /**
@@ -89,10 +91,8 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'object' => null,
-        'createdAt' => 'date-time',
-        'updatedAt' => 'date-time',
+        'id' => null,
         'livemode' => null,
         'amount' => null,
         'currency' => null,
@@ -101,7 +101,6 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'clientSecret' => null,
         'customerId' => null,
         'description' => null,
-        'metadata' => null,
         'paymentMethodId' => null,
         'paymentMethodOptions' => null,
         'paymentMethodTypes' => null,
@@ -110,6 +109,11 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'returnUrl' => null,
         'captureMethod' => null,
         'lastPaymentError' => null,
+        'cancellationReason' => null,
+        'canceledAt' => 'date-time',
+        'metadata' => null,
+        'createdAt' => 'date-time',
+        'updatedAt' => 'date-time',
     ];
 
     /**
@@ -118,10 +122,8 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var bool[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
         'object' => false,
-        'createdAt' => false,
-        'updatedAt' => false,
+        'id' => false,
         'livemode' => false,
         'amount' => false,
         'currency' => false,
@@ -130,7 +132,6 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'clientSecret' => false,
         'customerId' => true,
         'description' => true,
-        'metadata' => false,
         'paymentMethodId' => true,
         'paymentMethodOptions' => true,
         'paymentMethodTypes' => false,
@@ -139,6 +140,11 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'returnUrl' => true,
         'captureMethod' => false,
         'lastPaymentError' => true,
+        'cancellationReason' => true,
+        'canceledAt' => true,
+        'metadata' => false,
+        'createdAt' => false,
+        'updatedAt' => false,
     ];
 
     /**
@@ -227,10 +233,8 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'object' => 'object',
-        'createdAt' => 'created_at',
-        'updatedAt' => 'updated_at',
+        'id' => 'id',
         'livemode' => 'livemode',
         'amount' => 'amount',
         'currency' => 'currency',
@@ -239,7 +243,6 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'clientSecret' => 'client_secret',
         'customerId' => 'customer_id',
         'description' => 'description',
-        'metadata' => 'metadata',
         'paymentMethodId' => 'payment_method_id',
         'paymentMethodOptions' => 'payment_method_options',
         'paymentMethodTypes' => 'payment_method_types',
@@ -248,6 +251,11 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'returnUrl' => 'return_url',
         'captureMethod' => 'capture_method',
         'lastPaymentError' => 'last_payment_error',
+        'cancellationReason' => 'cancellation_reason',
+        'canceledAt' => 'canceled_at',
+        'metadata' => 'metadata',
+        'createdAt' => 'created_at',
+        'updatedAt' => 'updated_at',
     ];
 
     /**
@@ -256,10 +264,8 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'object' => 'setObject',
-        'createdAt' => 'setCreatedAt',
-        'updatedAt' => 'setUpdatedAt',
+        'id' => 'setId',
         'livemode' => 'setLivemode',
         'amount' => 'setAmount',
         'currency' => 'setCurrency',
@@ -268,7 +274,6 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'clientSecret' => 'setClientSecret',
         'customerId' => 'setCustomerId',
         'description' => 'setDescription',
-        'metadata' => 'setMetadata',
         'paymentMethodId' => 'setPaymentMethodId',
         'paymentMethodOptions' => 'setPaymentMethodOptions',
         'paymentMethodTypes' => 'setPaymentMethodTypes',
@@ -277,6 +282,11 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'returnUrl' => 'setReturnUrl',
         'captureMethod' => 'setCaptureMethod',
         'lastPaymentError' => 'setLastPaymentError',
+        'cancellationReason' => 'setCancellationReason',
+        'canceledAt' => 'setCanceledAt',
+        'metadata' => 'setMetadata',
+        'createdAt' => 'setCreatedAt',
+        'updatedAt' => 'setUpdatedAt',
     ];
 
     /**
@@ -285,10 +295,8 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'object' => 'getObject',
-        'createdAt' => 'getCreatedAt',
-        'updatedAt' => 'getUpdatedAt',
+        'id' => 'getId',
         'livemode' => 'getLivemode',
         'amount' => 'getAmount',
         'currency' => 'getCurrency',
@@ -297,7 +305,6 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'clientSecret' => 'getClientSecret',
         'customerId' => 'getCustomerId',
         'description' => 'getDescription',
-        'metadata' => 'getMetadata',
         'paymentMethodId' => 'getPaymentMethodId',
         'paymentMethodOptions' => 'getPaymentMethodOptions',
         'paymentMethodTypes' => 'getPaymentMethodTypes',
@@ -306,6 +313,11 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'returnUrl' => 'getReturnUrl',
         'captureMethod' => 'getCaptureMethod',
         'lastPaymentError' => 'getLastPaymentError',
+        'cancellationReason' => 'getCancellationReason',
+        'canceledAt' => 'getCanceledAt',
+        'metadata' => 'getMetadata',
+        'createdAt' => 'getCreatedAt',
+        'updatedAt' => 'getUpdatedAt',
     ];
 
     /**
@@ -378,10 +390,8 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'payment_flow');
-        $this->setIfExists('createdAt', $data ?? [], null);
-        $this->setIfExists('updatedAt', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('livemode', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
@@ -390,7 +400,6 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('clientSecret', $data ?? [], null);
         $this->setIfExists('customerId', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('paymentMethodId', $data ?? [], null);
         $this->setIfExists('paymentMethodOptions', $data ?? [], null);
         $this->setIfExists('paymentMethodTypes', $data ?? [], null);
@@ -399,6 +408,11 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('returnUrl', $data ?? [], null);
         $this->setIfExists('captureMethod', $data ?? [], null);
         $this->setIfExists('lastPaymentError', $data ?? [], null);
+        $this->setIfExists('cancellationReason', $data ?? [], null);
+        $this->setIfExists('canceledAt', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('createdAt', $data ?? [], null);
+        $this->setIfExists('updatedAt', $data ?? [], null);
     }
 
     /**
@@ -428,9 +442,6 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (! is_null($this->container['object']) && ! in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -440,11 +451,8 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
             );
         }
 
-        if ($this->container['createdAt'] === null) {
-            $invalidProperties[] = "'createdAt' can't be null";
-        }
-        if ($this->container['updatedAt'] === null) {
-            $invalidProperties[] = "'updatedAt' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
         if ($this->container['livemode'] === null) {
             $invalidProperties[] = "'livemode' can't be null";
@@ -470,9 +478,6 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['description'] === null) {
             $invalidProperties[] = "'description' can't be null";
         }
-        if ($this->container['metadata'] === null) {
-            $invalidProperties[] = "'metadata' can't be null";
-        }
         if ($this->container['paymentMethodId'] === null) {
             $invalidProperties[] = "'paymentMethodId' can't be null";
         }
@@ -497,6 +502,21 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['lastPaymentError'] === null) {
             $invalidProperties[] = "'lastPaymentError' can't be null";
         }
+        if ($this->container['cancellationReason'] === null) {
+            $invalidProperties[] = "'cancellationReason' can't be null";
+        }
+        if ($this->container['canceledAt'] === null) {
+            $invalidProperties[] = "'canceledAt' can't be null";
+        }
+        if ($this->container['metadata'] === null) {
+            $invalidProperties[] = "'metadata' can't be null";
+        }
+        if ($this->container['createdAt'] === null) {
+            $invalidProperties[] = "'createdAt' can't be null";
+        }
+        if ($this->container['updatedAt'] === null) {
+            $invalidProperties[] = "'updatedAt' can't be null";
+        }
 
         return $invalidProperties;
     }
@@ -512,37 +532,6 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId(): string
-    {
-        if ($this->container['id'] === null) {
-            throw new \LogicException('Property "id" is required but has not been set.');
-        }
-
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id 支払いフローID
-     *
-     * @return self
-     */
-    public function setId(string $id): self
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets object
@@ -582,63 +571,32 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets createdAt
+     * Gets id
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getCreatedAt(): \DateTime
+    public function getId(): string
     {
-        if ($this->container['createdAt'] === null) {
-            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
         }
 
-        return $this->container['createdAt'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets createdAt
+     * Sets id
      *
-     * @param \DateTime $createdAt 作成日時 (UTC, ISO 8601 形式)
+     * @param string $id 支払いフロー ID
      *
      * @return self
      */
-    public function setCreatedAt(\DateTime $createdAt): self
+    public function setId(string $id): self
     {
-        if (is_null($createdAt)) {
-            throw new \InvalidArgumentException('non-nullable createdAt cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['createdAt'] = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Gets updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt(): \DateTime
-    {
-        if ($this->container['updatedAt'] === null) {
-            throw new \LogicException('Property "updatedAt" is required but has not been set.');
-        }
-
-        return $this->container['updatedAt'];
-    }
-
-    /**
-     * Sets updatedAt
-     *
-     * @param \DateTime $updatedAt 更新日時 (UTC, ISO 8601 形式)
-     *
-     * @return self
-     */
-    public function setUpdatedAt(\DateTime $updatedAt): self
-    {
-        if (is_null($updatedAt)) {
-            throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
-        }
-        $this->container['updatedAt'] = $updatedAt;
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -821,7 +779,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets clientSecret
      *
-     * @param string $clientSecret このPaymentFlowのクライアントシークレットです。フロントエンドで公開APIキーと合わせて使用しPaymentFlowの情報を取得や支払い処理を行います。**この値はこのPaymentFlowの支払いを行う顧客以外へ公開しないでください。**また保存やログへの記録なども行わないでください。
+     * @param string $clientSecret この PaymentFlow のクライアントシークレットです。フロントエンドで公開 API キーと合わせて使用し PaymentFlow の情報を取得や支払い処理を行います。**この値はこの PaymentFlow の支払いを行う顧客以外へ公開しないでください。**また保存やログへの記録なども行わないでください。
      *
      * @return self
      */
@@ -899,37 +857,6 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
             }
         }
         $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return array<string,\PAYJPV2\Model\MetadataValue>
-     */
-    public function getMetadata(): array
-    {
-        if ($this->container['metadata'] === null) {
-            throw new \LogicException('Property "metadata" is required but has not been set.');
-        }
-
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param array<string,\PAYJPV2\Model\MetadataValue> $metadata メタデータ
-     *
-     * @return self
-     */
-    public function setMetadata(array $metadata): self
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
 
         return $this;
     }
@@ -1019,7 +946,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets paymentMethodTypes
      *
-     * @param \PAYJPV2\Model\PaymentMethodTypes[] $paymentMethodTypes このPaymentFlowで使用できる支払い方法の種類のリスト
+     * @param \PAYJPV2\Model\PaymentMethodTypes[] $paymentMethodTypes この PaymentFlow で使用できる支払い方法の種類のリスト
      *
      * @return self
      */
@@ -1050,7 +977,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets status
      *
-     * @param \PAYJPV2\Model\PaymentFlowStatus $status このPaymentFlowのステータス。<a href=\"https://docs.pay.jp/v2/payment_flows#status\" target=\"_blank\">ステータスの詳細についてはこちらをご覧ください。</a>  | 値 | |:---| | **requires_payment_method**: 支払い方法が必要です。 | | **requires_confirmation**: 確認が必要です。 | | **requires_action**: 顧客のアクションが必要です。 | | **processing**: 処理中です。 | | **requires_capture**: 確定が必要です。 | | **canceled**: キャンセルされました。 | | **succeeded**: 成功しました。 |
+     * @param \PAYJPV2\Model\PaymentFlowStatus $status この PaymentFlow のステータス。<a href=\"https://docs.pay.jp/v2/payment_flows#status\" target=\"_blank\">ステータスの詳細についてはこちらをご覧ください。</a>  | 値 | |:---| | **requires_payment_method**: 支払い方法が必要です。 | | **requires_confirmation**: 確認が必要です。 | | **requires_action**: 顧客のアクションが必要です。 | | **processing**: 処理中です。 | | **requires_capture**: 確定が必要です。 | | **canceled**: キャンセルされました。 | | **succeeded**: 成功しました。 |
      *
      * @return self
      */
@@ -1149,7 +1076,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets captureMethod
      *
-     * @param \PAYJPV2\Model\CaptureMethod $captureMethod 支払いの確定方法  | 指定できる値 | |:---| | **automatic**: (デフォルト) 顧客が支払いを承認すると、自動的に確定させます。 | | **manual**: 顧客が支払いを承認すると一旦確定を保留し、後で Capture API を使用して確定します。（すべての支払い方法がこれをサポートしているわけではありません）。 |
+     * @param \PAYJPV2\Model\CaptureMethod $captureMethod 支払いの確定方法  | 値 | |:---| | **automatic**: (デフォルト) 顧客が支払いを承認すると、自動的に確定させます。 | | **manual**: 顧客が支払いを承認すると一旦確定を保留し、後で Capture API を使用して確定します。（すべての支払い方法がこれをサポートしているわけではありません）。 |
      *
      * @return self
      */
@@ -1193,6 +1120,167 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
             }
         }
         $this->container['lastPaymentError'] = $lastPaymentError;
+
+        return $this;
+    }
+
+    /**
+     * Gets cancellationReason
+     *
+     * @return \PAYJPV2\Model\PaymentFlowCancellationReason|null
+     */
+    public function getCancellationReason(): ?\PAYJPV2\Model\PaymentFlowCancellationReason
+    {
+        return $this->container['cancellationReason'];
+    }
+
+    /**
+     * Sets cancellationReason
+     *
+     * @param \PAYJPV2\Model\PaymentFlowCancellationReason|null $cancellationReason cancellationReason
+     *
+     * @return self
+     */
+    public function setCancellationReason(?\PAYJPV2\Model\PaymentFlowCancellationReason $cancellationReason): self
+    {
+        if (is_null($cancellationReason)) {
+            array_push($this->openAPINullablesSetToNull, 'cancellationReason');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('cancellationReason', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['cancellationReason'] = $cancellationReason;
+
+        return $this;
+    }
+
+    /**
+     * Gets canceledAt
+     *
+     * @return \DateTime|null
+     */
+    public function getCanceledAt(): ?\DateTime
+    {
+        return $this->container['canceledAt'];
+    }
+
+    /**
+     * Sets canceledAt
+     *
+     * @param \DateTime|null $canceledAt canceledAt
+     *
+     * @return self
+     */
+    public function setCanceledAt(?\DateTime $canceledAt): self
+    {
+        if (is_null($canceledAt)) {
+            array_push($this->openAPINullablesSetToNull, 'canceledAt');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('canceledAt', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['canceledAt'] = $canceledAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return array<string,\PAYJPV2\Model\MetadataValue>
+     */
+    public function getMetadata(): array
+    {
+        if ($this->container['metadata'] === null) {
+            throw new \LogicException('Property "metadata" is required but has not been set.');
+        }
+
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param array<string,\PAYJPV2\Model\MetadataValue> $metadata メタデータ
+     *
+     * @return self
+     */
+    public function setMetadata(array $metadata): self
+    {
+        if (is_null($metadata)) {
+            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+        }
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt(): \DateTime
+    {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
+        return $this->container['createdAt'];
+    }
+
+    /**
+     * Sets createdAt
+     *
+     * @param \DateTime $createdAt 作成日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setCreatedAt(\DateTime $createdAt): self
+    {
+        if (is_null($createdAt)) {
+            throw new \InvalidArgumentException('non-nullable createdAt cannot be null');
+        }
+        $this->container['createdAt'] = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt(): \DateTime
+    {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
+        return $this->container['updatedAt'];
+    }
+
+    /**
+     * Sets updatedAt
+     *
+     * @param \DateTime $updatedAt 更新日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setUpdatedAt(\DateTime $updatedAt): self
+    {
+        if (is_null($updatedAt)) {
+            throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
+        }
+        $this->container['updatedAt'] = $updatedAt;
 
         return $this;
     }

@@ -80,6 +80,15 @@ class PriceUpdateRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "active"
+     */
+    public function testPropertyActive()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "nickname"
      */
     public function testPropertyNickname()
@@ -101,15 +110,6 @@ class PriceUpdateRequestTest extends TestCase
      * Test attribute "metadata"
      */
     public function testPropertyMetadata()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "active"
-     */
-    public function testPropertyActive()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

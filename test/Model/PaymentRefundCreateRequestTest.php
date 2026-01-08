@@ -98,18 +98,18 @@ class PaymentRefundCreateRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "metadata"
+     * Test attribute "reason"
      */
-    public function testPropertyMetadata()
+    public function testPropertyReason()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "reason"
+     * Test attribute "metadata"
      */
-    public function testPropertyReason()
+    public function testPropertyMetadata()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

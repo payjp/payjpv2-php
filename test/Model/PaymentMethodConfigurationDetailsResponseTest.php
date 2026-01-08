@@ -80,15 +80,6 @@ class PaymentMethodConfigurationDetailsResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "object"
      */
     public function testPropertyObject()
@@ -98,9 +89,9 @@ class PaymentMethodConfigurationDetailsResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "active"
+     * Test attribute "id"
      */
-    public function testPropertyActive()
+    public function testPropertyId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -110,6 +101,15 @@ class PaymentMethodConfigurationDetailsResponseTest extends TestCase
      * Test attribute "livemode"
      */
     public function testPropertyLivemode()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "active"
+     */
+    public function testPropertyActive()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

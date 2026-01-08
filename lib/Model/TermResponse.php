@@ -58,8 +58,8 @@ class TermResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'object' => 'string',
+        'id' => 'string',
         'livemode' => 'bool',
         'startAt' => '\DateTime',
         'endAt' => '\DateTime',
@@ -74,8 +74,8 @@ class TermResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'object' => null,
+        'id' => null,
         'livemode' => null,
         'startAt' => 'date-time',
         'endAt' => 'date-time',
@@ -88,8 +88,8 @@ class TermResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var bool[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
         'object' => false,
+        'id' => false,
         'livemode' => false,
         'startAt' => false,
         'endAt' => false,
@@ -182,8 +182,8 @@ class TermResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'object' => 'object',
+        'id' => 'id',
         'livemode' => 'livemode',
         'startAt' => 'start_at',
         'endAt' => 'end_at',
@@ -196,8 +196,8 @@ class TermResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'object' => 'setObject',
+        'id' => 'setId',
         'livemode' => 'setLivemode',
         'startAt' => 'setStartAt',
         'endAt' => 'setEndAt',
@@ -210,8 +210,8 @@ class TermResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'object' => 'getObject',
+        'id' => 'getId',
         'livemode' => 'getLivemode',
         'startAt' => 'getStartAt',
         'endAt' => 'getEndAt',
@@ -288,8 +288,8 @@ class TermResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'term');
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('livemode', $data ?? [], null);
         $this->setIfExists('startAt', $data ?? [], null);
         $this->setIfExists('endAt', $data ?? [], null);
@@ -323,9 +323,6 @@ class TermResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (! is_null($this->container['object']) && ! in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -335,6 +332,9 @@ class TermResponse implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         if ($this->container['livemode'] === null) {
             $invalidProperties[] = "'livemode' can't be null";
         }
@@ -362,37 +362,6 @@ class TermResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId(): string
-    {
-        if ($this->container['id'] === null) {
-            throw new \LogicException('Property "id" is required but has not been set.');
-        }
-
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id ID
-     *
-     * @return self
-     */
-    public function setId(string $id): self
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets object
@@ -427,6 +396,37 @@ class TermResponse implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['object'] = $object;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId(): string
+    {
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
+        }
+
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id 集計区間 ID
+     *
+     * @return self
+     */
+    public function setId(string $id): self
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -510,7 +510,7 @@ class TermResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets endAt
      *
-     * @param \DateTime $endAt 区間終了時刻  Termが表す区間はstart_at 以上 end_at 未満 の範囲となります。 翌サイクルのTermの場合nullを返します。
+     * @param \DateTime $endAt 区間終了時刻  Term が表す区間は start_at 以上 end_at 未満の範囲となります。 翌サイクルの Term の場合 null を返します。
      *
      * @return self
      */
@@ -541,7 +541,7 @@ class TermResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets closed
      *
-     * @param bool $closed 締め処理が完了済みならTrue
+     * @param bool $closed 締め処理が完了済みなら true
      *
      * @return self
      */

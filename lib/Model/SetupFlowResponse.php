@@ -58,10 +58,8 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'object' => 'string',
-        'createdAt' => '\DateTime',
-        'updatedAt' => '\DateTime',
+        'id' => 'string',
         'livemode' => 'bool',
         'clientSecret' => 'string',
         'customerId' => 'string',
@@ -74,6 +72,9 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'nextAction' => 'array<string,mixed>',
         'returnUrl' => 'string',
         'lastSetupError' => 'array<string,mixed>',
+        'cancellationReason' => '\PAYJPV2\Model\SetupFlowCancellationReason',
+        'createdAt' => '\DateTime',
+        'updatedAt' => '\DateTime',
     ];
 
     /**
@@ -84,10 +85,8 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'object' => null,
-        'createdAt' => 'date-time',
-        'updatedAt' => 'date-time',
+        'id' => null,
         'livemode' => null,
         'clientSecret' => null,
         'customerId' => null,
@@ -100,6 +99,9 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'nextAction' => null,
         'returnUrl' => null,
         'lastSetupError' => null,
+        'cancellationReason' => null,
+        'createdAt' => 'date-time',
+        'updatedAt' => 'date-time',
     ];
 
     /**
@@ -108,10 +110,8 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var bool[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
         'object' => false,
-        'createdAt' => false,
-        'updatedAt' => false,
+        'id' => false,
         'livemode' => false,
         'clientSecret' => false,
         'customerId' => true,
@@ -124,6 +124,9 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'nextAction' => true,
         'returnUrl' => true,
         'lastSetupError' => true,
+        'cancellationReason' => true,
+        'createdAt' => false,
+        'updatedAt' => false,
     ];
 
     /**
@@ -212,10 +215,8 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'object' => 'object',
-        'createdAt' => 'created_at',
-        'updatedAt' => 'updated_at',
+        'id' => 'id',
         'livemode' => 'livemode',
         'clientSecret' => 'client_secret',
         'customerId' => 'customer_id',
@@ -228,6 +229,9 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'nextAction' => 'next_action',
         'returnUrl' => 'return_url',
         'lastSetupError' => 'last_setup_error',
+        'cancellationReason' => 'cancellation_reason',
+        'createdAt' => 'created_at',
+        'updatedAt' => 'updated_at',
     ];
 
     /**
@@ -236,10 +240,8 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'object' => 'setObject',
-        'createdAt' => 'setCreatedAt',
-        'updatedAt' => 'setUpdatedAt',
+        'id' => 'setId',
         'livemode' => 'setLivemode',
         'clientSecret' => 'setClientSecret',
         'customerId' => 'setCustomerId',
@@ -252,6 +254,9 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'nextAction' => 'setNextAction',
         'returnUrl' => 'setReturnUrl',
         'lastSetupError' => 'setLastSetupError',
+        'cancellationReason' => 'setCancellationReason',
+        'createdAt' => 'setCreatedAt',
+        'updatedAt' => 'setUpdatedAt',
     ];
 
     /**
@@ -260,10 +265,8 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'object' => 'getObject',
-        'createdAt' => 'getCreatedAt',
-        'updatedAt' => 'getUpdatedAt',
+        'id' => 'getId',
         'livemode' => 'getLivemode',
         'clientSecret' => 'getClientSecret',
         'customerId' => 'getCustomerId',
@@ -276,6 +279,9 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'nextAction' => 'getNextAction',
         'returnUrl' => 'getReturnUrl',
         'lastSetupError' => 'getLastSetupError',
+        'cancellationReason' => 'getCancellationReason',
+        'createdAt' => 'getCreatedAt',
+        'updatedAt' => 'getUpdatedAt',
     ];
 
     /**
@@ -348,10 +354,8 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'setup_flow');
-        $this->setIfExists('createdAt', $data ?? [], null);
-        $this->setIfExists('updatedAt', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('livemode', $data ?? [], null);
         $this->setIfExists('clientSecret', $data ?? [], null);
         $this->setIfExists('customerId', $data ?? [], null);
@@ -364,6 +368,9 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('nextAction', $data ?? [], null);
         $this->setIfExists('returnUrl', $data ?? [], null);
         $this->setIfExists('lastSetupError', $data ?? [], null);
+        $this->setIfExists('cancellationReason', $data ?? [], null);
+        $this->setIfExists('createdAt', $data ?? [], null);
+        $this->setIfExists('updatedAt', $data ?? [], null);
     }
 
     /**
@@ -393,9 +400,6 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (! is_null($this->container['object']) && ! in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -405,11 +409,8 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
             );
         }
 
-        if ($this->container['createdAt'] === null) {
-            $invalidProperties[] = "'createdAt' can't be null";
-        }
-        if ($this->container['updatedAt'] === null) {
-            $invalidProperties[] = "'updatedAt' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
         if ($this->container['livemode'] === null) {
             $invalidProperties[] = "'livemode' can't be null";
@@ -447,6 +448,15 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         if ($this->container['lastSetupError'] === null) {
             $invalidProperties[] = "'lastSetupError' can't be null";
         }
+        if ($this->container['cancellationReason'] === null) {
+            $invalidProperties[] = "'cancellationReason' can't be null";
+        }
+        if ($this->container['createdAt'] === null) {
+            $invalidProperties[] = "'createdAt' can't be null";
+        }
+        if ($this->container['updatedAt'] === null) {
+            $invalidProperties[] = "'updatedAt' can't be null";
+        }
 
         return $invalidProperties;
     }
@@ -462,37 +472,6 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId(): string
-    {
-        if ($this->container['id'] === null) {
-            throw new \LogicException('Property "id" is required but has not been set.');
-        }
-
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id ID
-     *
-     * @return self
-     */
-    public function setId(string $id): self
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets object
@@ -532,63 +511,32 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets createdAt
+     * Gets id
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getCreatedAt(): \DateTime
+    public function getId(): string
     {
-        if ($this->container['createdAt'] === null) {
-            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        if ($this->container['id'] === null) {
+            throw new \LogicException('Property "id" is required but has not been set.');
         }
 
-        return $this->container['createdAt'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets createdAt
+     * Sets id
      *
-     * @param \DateTime $createdAt 作成日時 (UTC, ISO 8601 形式)
+     * @param string $id ID
      *
      * @return self
      */
-    public function setCreatedAt(\DateTime $createdAt): self
+    public function setId(string $id): self
     {
-        if (is_null($createdAt)) {
-            throw new \InvalidArgumentException('non-nullable createdAt cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['createdAt'] = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Gets updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt(): \DateTime
-    {
-        if ($this->container['updatedAt'] === null) {
-            throw new \LogicException('Property "updatedAt" is required but has not been set.');
-        }
-
-        return $this->container['updatedAt'];
-    }
-
-    /**
-     * Sets updatedAt
-     *
-     * @param \DateTime $updatedAt 更新日時 (UTC, ISO 8601 形式)
-     *
-     * @return self
-     */
-    public function setUpdatedAt(\DateTime $updatedAt): self
-    {
-        if (is_null($updatedAt)) {
-            throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
-        }
-        $this->container['updatedAt'] = $updatedAt;
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -641,7 +589,7 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets clientSecret
      *
-     * @param string $clientSecret この SetupFlow のクライアントシークレットです。フロントエンドで公開鍵と合わせて使用し、SetupFlow の取得や支払い処理を行います。**この値はこの SetupFlow の支払いを行う顧客以外へ公開しないでください。
+     * @param string $clientSecret この SetupFlow のクライアントシークレットです。フロントエンドで公開鍵と合わせて使用し、SetupFlow の取得や支払い方法の登録処理を行います。**この値はこの SetupFlow を利用する顧客以外へ公開しないでください。
      *
      * @return self
      */
@@ -839,7 +787,7 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets paymentMethodTypes
      *
-     * @param \PAYJPV2\Model\PaymentMethodTypes[] $paymentMethodTypes この SetupFlow で使用できる支払い方法の種類（カードなど）のリストです。 指定しない場合、ダッシュボードで利用可能な状態にしている支払い方法が自動的に設定されます。
+     * @param \PAYJPV2\Model\PaymentMethodTypes[] $paymentMethodTypes この SetupFlow で使用できる支払い方法の種類のリスト
      *
      * @return self
      */
@@ -870,7 +818,7 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets status
      *
-     * @param \PAYJPV2\Model\SetupFlowStatus $status この SetupFlow のステータスです。<a href=\"https://docs.pay.jp/v2/setup_flows#status\" target=\"_blank\">ステータスの詳細についてはこちらをご覧ください。</a>  | 値 | |:---| | **requires_payment_method**: 支払い方法が必要です。 | | **requires_confirmation**: 確認が必要です。 | | **requires_action**: 顧客のアクションが必要です。 | | **processing**: 処理中です。 | | **succeeded**: 成功しました。 | | **canceled**: キャンセルされました。 |
+     * @param \PAYJPV2\Model\SetupFlowStatus $status この SetupFlow のステータスです。<a href=\"https://docs.pay.jp/v2/guide/payments/setupflow#setup-flow-%E3%81%AE%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9\" target=\"_blank\">ステータスの詳細についてはこちらをご覧ください。</a>  | 値 | |:---| | **requires_payment_method**: 支払い方法が必要です。 | | **requires_confirmation**: 確認が必要です。 | | **requires_action**: 顧客のアクションが必要です。 | | **processing**: 処理中です。 | | **succeeded**: 成功しました。 | | **canceled**: キャンセルされました。 |
      *
      * @return self
      */
@@ -982,6 +930,102 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
             }
         }
         $this->container['lastSetupError'] = $lastSetupError;
+
+        return $this;
+    }
+
+    /**
+     * Gets cancellationReason
+     *
+     * @return \PAYJPV2\Model\SetupFlowCancellationReason|null
+     */
+    public function getCancellationReason(): ?\PAYJPV2\Model\SetupFlowCancellationReason
+    {
+        return $this->container['cancellationReason'];
+    }
+
+    /**
+     * Sets cancellationReason
+     *
+     * @param \PAYJPV2\Model\SetupFlowCancellationReason|null $cancellationReason cancellationReason
+     *
+     * @return self
+     */
+    public function setCancellationReason(?\PAYJPV2\Model\SetupFlowCancellationReason $cancellationReason): self
+    {
+        if (is_null($cancellationReason)) {
+            array_push($this->openAPINullablesSetToNull, 'cancellationReason');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('cancellationReason', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['cancellationReason'] = $cancellationReason;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt(): \DateTime
+    {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
+        return $this->container['createdAt'];
+    }
+
+    /**
+     * Sets createdAt
+     *
+     * @param \DateTime $createdAt 作成日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setCreatedAt(\DateTime $createdAt): self
+    {
+        if (is_null($createdAt)) {
+            throw new \InvalidArgumentException('non-nullable createdAt cannot be null');
+        }
+        $this->container['createdAt'] = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt(): \DateTime
+    {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
+        return $this->container['updatedAt'];
+    }
+
+    /**
+     * Sets updatedAt
+     *
+     * @param \DateTime $updatedAt 更新日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setUpdatedAt(\DateTime $updatedAt): self
+    {
+        if (is_null($updatedAt)) {
+            throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
+        }
+        $this->container['updatedAt'] = $updatedAt;
 
         return $this;
     }

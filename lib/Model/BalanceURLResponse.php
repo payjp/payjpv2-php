@@ -387,7 +387,7 @@ class BalanceURLResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets url
      *
-     * @param string $url 残高明細書ダウンロードURL
+     * @param string $url 残高明細書ダウンロード URL
      *
      * @return self
      */
@@ -418,7 +418,7 @@ class BalanceURLResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets expires
      *
-     * @param \DateTime $expires 有効期限の日付。  有効期限は発行から1時間です。
+     * @param \DateTime $expires 有効期限の日付  有効期限は発行から1時間です。
      *
      * @return self
      */

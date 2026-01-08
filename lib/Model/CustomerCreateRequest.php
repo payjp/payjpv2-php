@@ -58,11 +58,11 @@ class CustomerCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
+        'paymentMethodId' => 'string',
         'email' => 'string',
         'description' => 'string',
         'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
-        'id' => 'string',
-        'paymentMethodId' => 'string',
     ];
 
     /**
@@ -73,11 +73,11 @@ class CustomerCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => null,
+        'paymentMethodId' => null,
         'email' => 'email',
         'description' => null,
         'metadata' => null,
-        'id' => null,
-        'paymentMethodId' => null,
     ];
 
     /**
@@ -86,11 +86,11 @@ class CustomerCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var bool[]
       */
     protected static array $openAPINullables = [
+        'id' => false,
+        'paymentMethodId' => false,
         'email' => false,
         'description' => false,
         'metadata' => false,
-        'id' => false,
-        'paymentMethodId' => false,
     ];
 
     /**
@@ -179,11 +179,11 @@ class CustomerCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
+        'paymentMethodId' => 'payment_method_id',
         'email' => 'email',
         'description' => 'description',
         'metadata' => 'metadata',
-        'id' => 'id',
-        'paymentMethodId' => 'payment_method_id',
     ];
 
     /**
@@ -192,11 +192,11 @@ class CustomerCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
+        'paymentMethodId' => 'setPaymentMethodId',
         'email' => 'setEmail',
         'description' => 'setDescription',
         'metadata' => 'setMetadata',
-        'id' => 'setId',
-        'paymentMethodId' => 'setPaymentMethodId',
     ];
 
     /**
@@ -205,11 +205,11 @@ class CustomerCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
+        'paymentMethodId' => 'getPaymentMethodId',
         'email' => 'getEmail',
         'description' => 'getDescription',
         'metadata' => 'getMetadata',
-        'id' => 'getId',
-        'paymentMethodId' => 'getPaymentMethodId',
     ];
 
     /**
@@ -269,11 +269,11 @@ class CustomerCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('paymentMethodId', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('paymentMethodId', $data ?? [], null);
     }
 
     /**
@@ -303,20 +303,20 @@ class CustomerCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if (! is_null($this->container['email']) && (mb_strlen($this->container['email']) > 255)) {
-            $invalidProperties[] = "invalid value for 'email', the character length must be smaller than or equal to 255.";
-        }
-
-        if (! is_null($this->container['description']) && (mb_strlen($this->container['description']) > 255)) {
-            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 255.";
-        }
-
         if (! is_null($this->container['id']) && (mb_strlen($this->container['id']) > 100)) {
             $invalidProperties[] = "invalid value for 'id', the character length must be smaller than or equal to 100.";
         }
 
         if (! is_null($this->container['id']) && ! preg_match("/^[-_0-9A-Za-z]+$/", $this->container['id'])) {
             $invalidProperties[] = "invalid value for 'id', must be conform to the pattern /^[-_0-9A-Za-z]+$/.";
+        }
+
+        if (! is_null($this->container['email']) && (mb_strlen($this->container['email']) > 255)) {
+            $invalidProperties[] = "invalid value for 'email', the character length must be smaller than or equal to 255.";
+        }
+
+        if (! is_null($this->container['description']) && (mb_strlen($this->container['description']) > 255)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 255.";
         }
 
         return $invalidProperties;
@@ -333,6 +333,67 @@ class CustomerCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId(): ?string
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id 顧客 ID。100桁までの一意な文字列を指定できます。使える文字は半角英数字、ハイフン(-)、アンダースコア(_)です。未指定時は `cus_` で始まる一意な文字列が自動生成されます。
+     *
+     * @return self
+     */
+    public function setId(?string $id): self
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        if ((mb_strlen($id) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $id when calling CustomerCreateRequest., must be smaller than or equal to 100.');
+        }
+        if ((! preg_match("/^[-_0-9A-Za-z]+$/", ObjectSerializer::toString($id)))) {
+            throw new \InvalidArgumentException("invalid value for \$id when calling CustomerCreateRequest., must conform to the pattern /^[-_0-9A-Za-z]+$/.");
+        }
+
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets paymentMethodId
+     *
+     * @return string|null
+     */
+    public function getPaymentMethodId(): ?string
+    {
+        return $this->container['paymentMethodId'];
+    }
+
+    /**
+     * Sets paymentMethodId
+     *
+     * @param string|null $paymentMethodId 顧客に紐づける支払い方法 ID。同時にデフォルトの支払い方法として登録されます。
+     *
+     * @return self
+     */
+    public function setPaymentMethodId(?string $paymentMethodId): self
+    {
+        if (is_null($paymentMethodId)) {
+            throw new \InvalidArgumentException('non-nullable paymentMethodId cannot be null');
+        }
+        $this->container['paymentMethodId'] = $paymentMethodId;
+
+        return $this;
+    }
 
     /**
      * Gets email
@@ -378,7 +439,7 @@ class CustomerCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets description
      *
-     * @param string|null $description 顧客オブジェクトに付加できる任意の文字列です。これは、ダッシュボードで顧客と一緒に表示されます。
+     * @param string|null $description 顧客オブジェクトに付加できる任意の文字列です。管理画面で顧客と一緒に表示されます。
      *
      * @return self
      */
@@ -409,7 +470,7 @@ class CustomerCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets metadata
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。<a href=\"https://docs.pay.jp/v2/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
+     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
      *
      * @return self
      */
@@ -419,67 +480,6 @@ class CustomerCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
         $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId(): ?string
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id 顧客ID。100桁までの一意な文字列を指定できます。使える文字は半角英数字、ハイフン(-)、アンダースコア(_)です。未指定時は `cus_` で始まる32桁までの一意な文字列が自動生成されます。
-     *
-     * @return self
-     */
-    public function setId(?string $id): self
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        if ((mb_strlen($id) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $id when calling CustomerCreateRequest., must be smaller than or equal to 100.');
-        }
-        if ((! preg_match("/^[-_0-9A-Za-z]+$/", ObjectSerializer::toString($id)))) {
-            throw new \InvalidArgumentException("invalid value for \$id when calling CustomerCreateRequest., must conform to the pattern /^[-_0-9A-Za-z]+$/.");
-        }
-
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets paymentMethodId
-     *
-     * @return string|null
-     */
-    public function getPaymentMethodId(): ?string
-    {
-        return $this->container['paymentMethodId'];
-    }
-
-    /**
-     * Sets paymentMethodId
-     *
-     * @param string|null $paymentMethodId 顧客に紐づける支払い方法ID
-     *
-     * @return self
-     */
-    public function setPaymentMethodId(?string $paymentMethodId): self
-    {
-        if (is_null($paymentMethodId)) {
-            throw new \InvalidArgumentException('non-nullable paymentMethodId cannot be null');
-        }
-        $this->container['paymentMethodId'] = $paymentMethodId;
 
         return $this;
     }

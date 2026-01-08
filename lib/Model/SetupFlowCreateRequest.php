@@ -59,11 +59,11 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'customerId' => 'string',
-        'description' => 'string',
-        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
         'paymentMethodOptions' => '\PAYJPV2\Model\SetupFlowPaymentMethodOptionsRequest',
         'paymentMethodTypes' => 'string[]',
         'usage' => '\PAYJPV2\Model\Usage',
+        'description' => 'string',
+        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
     ];
 
     /**
@@ -75,11 +75,11 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPIFormats = [
         'customerId' => null,
-        'description' => null,
-        'metadata' => null,
         'paymentMethodOptions' => null,
         'paymentMethodTypes' => null,
         'usage' => null,
+        'description' => null,
+        'metadata' => null,
     ];
 
     /**
@@ -89,11 +89,11 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static array $openAPINullables = [
         'customerId' => false,
-        'description' => false,
-        'metadata' => false,
         'paymentMethodOptions' => false,
         'paymentMethodTypes' => false,
         'usage' => false,
+        'description' => false,
+        'metadata' => false,
     ];
 
     /**
@@ -183,11 +183,11 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $attributeMap = [
         'customerId' => 'customer_id',
-        'description' => 'description',
-        'metadata' => 'metadata',
         'paymentMethodOptions' => 'payment_method_options',
         'paymentMethodTypes' => 'payment_method_types',
         'usage' => 'usage',
+        'description' => 'description',
+        'metadata' => 'metadata',
     ];
 
     /**
@@ -197,11 +197,11 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $setters = [
         'customerId' => 'setCustomerId',
-        'description' => 'setDescription',
-        'metadata' => 'setMetadata',
         'paymentMethodOptions' => 'setPaymentMethodOptions',
         'paymentMethodTypes' => 'setPaymentMethodTypes',
         'usage' => 'setUsage',
+        'description' => 'setDescription',
+        'metadata' => 'setMetadata',
     ];
 
     /**
@@ -211,11 +211,11 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $getters = [
         'customerId' => 'getCustomerId',
-        'description' => 'getDescription',
-        'metadata' => 'getMetadata',
         'paymentMethodOptions' => 'getPaymentMethodOptions',
         'paymentMethodTypes' => 'getPaymentMethodTypes',
         'usage' => 'getUsage',
+        'description' => 'getDescription',
+        'metadata' => 'getMetadata',
     ];
 
     /**
@@ -291,11 +291,11 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
     public function __construct(?array $data = null)
     {
         $this->setIfExists('customerId', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('paymentMethodOptions', $data ?? [], null);
         $this->setIfExists('paymentMethodTypes', $data ?? [], null);
         $this->setIfExists('usage', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
     }
 
     /**
@@ -353,7 +353,7 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets customerId
      *
-     * @param string|null $customerId この SetupFlow が属する顧客の ID。SetupFlow に PaymentMethod が設定されている場合、SetupFlow の設定が成功するとその PaymentMethod は顧客に紐付きます。別の顧客に紐付いている PaymentMethod をこの SetupFlow で使用することはできません。
+     * @param string|null $customerId この SetupFlow に関連付ける顧客の ID。SetupFlow により作られた PaymentMethod はこの顧客に紐付きます。
      *
      * @return self
      */
@@ -363,6 +363,96 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable customerId cannot be null');
         }
         $this->container['customerId'] = $customerId;
+
+        return $this;
+    }
+
+    /**
+     * Gets paymentMethodOptions
+     *
+     * @return \PAYJPV2\Model\SetupFlowPaymentMethodOptionsRequest|null
+     */
+    public function getPaymentMethodOptions(): ?\PAYJPV2\Model\SetupFlowPaymentMethodOptionsRequest
+    {
+        return $this->container['paymentMethodOptions'];
+    }
+
+    /**
+     * Sets paymentMethodOptions
+     *
+     * @param \PAYJPV2\Model\SetupFlowPaymentMethodOptionsRequest|null $paymentMethodOptions この SetupFlow 固有の支払い方法の設定
+     *
+     * @return self
+     */
+    public function setPaymentMethodOptions(?\PAYJPV2\Model\SetupFlowPaymentMethodOptionsRequest $paymentMethodOptions): self
+    {
+        if (is_null($paymentMethodOptions)) {
+            throw new \InvalidArgumentException('non-nullable paymentMethodOptions cannot be null');
+        }
+        $this->container['paymentMethodOptions'] = $paymentMethodOptions;
+
+        return $this;
+    }
+
+    /**
+     * Gets paymentMethodTypes
+     *
+     * @return string[]|null
+     */
+    public function getPaymentMethodTypes(): ?array
+    {
+        return $this->container['paymentMethodTypes'];
+    }
+
+    /**
+     * Sets paymentMethodTypes
+     *
+     * @param string[]|null $paymentMethodTypes この SetupFlow で使用できる支払い方法の種類のリスト。 指定しない場合は、PAY.JP は支払い方法の設定から利用可能な支払い方法を動的に表示します。
+     *
+     * @return self
+     */
+    public function setPaymentMethodTypes(?array $paymentMethodTypes): self
+    {
+        if (is_null($paymentMethodTypes)) {
+            throw new \InvalidArgumentException('non-nullable paymentMethodTypes cannot be null');
+        }
+        $allowedValues = $this->getPaymentMethodTypesAllowableValues();
+        if (array_diff($paymentMethodTypes, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'paymentMethodTypes', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['paymentMethodTypes'] = $paymentMethodTypes;
+
+        return $this;
+    }
+
+    /**
+     * Gets usage
+     *
+     * @return \PAYJPV2\Model\Usage|null
+     */
+    public function getUsage(): ?\PAYJPV2\Model\Usage
+    {
+        return $this->container['usage'];
+    }
+
+    /**
+     * Sets usage
+     *
+     * @param \PAYJPV2\Model\Usage|null $usage 支払い方法が今後どのように使用されるかを指定します。指定されていない場合、この値はデフォルトで `off_session` になります。  | 値 | |:---| | **off_session**: 定期課金など、顧客がカートなどの決済フローにいるかどうか不明な場合は `off_session` を使用してください。 | | **on_session**: 顧客がカートなどの決済フローにいる場合にのみ支払い方法を利用する場合は `on_session` を使用してください。 |
+     *
+     * @return self
+     */
+    public function setUsage(?\PAYJPV2\Model\Usage $usage): self
+    {
+        if (is_null($usage)) {
+            throw new \InvalidArgumentException('non-nullable usage cannot be null');
+        }
+        $this->container['usage'] = $usage;
 
         return $this;
     }
@@ -407,7 +497,7 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets metadata
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。<a href=\"https://docs.pay.jp/v2/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
+     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
      *
      * @return self
      */
@@ -417,96 +507,6 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
         $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets paymentMethodOptions
-     *
-     * @return \PAYJPV2\Model\SetupFlowPaymentMethodOptionsRequest|null
-     */
-    public function getPaymentMethodOptions(): ?\PAYJPV2\Model\SetupFlowPaymentMethodOptionsRequest
-    {
-        return $this->container['paymentMethodOptions'];
-    }
-
-    /**
-     * Sets paymentMethodOptions
-     *
-     * @param \PAYJPV2\Model\SetupFlowPaymentMethodOptionsRequest|null $paymentMethodOptions この SetupFlow の支払い方法の個別設定。
-     *
-     * @return self
-     */
-    public function setPaymentMethodOptions(?\PAYJPV2\Model\SetupFlowPaymentMethodOptionsRequest $paymentMethodOptions): self
-    {
-        if (is_null($paymentMethodOptions)) {
-            throw new \InvalidArgumentException('non-nullable paymentMethodOptions cannot be null');
-        }
-        $this->container['paymentMethodOptions'] = $paymentMethodOptions;
-
-        return $this;
-    }
-
-    /**
-     * Gets paymentMethodTypes
-     *
-     * @return string[]|null
-     */
-    public function getPaymentMethodTypes(): ?array
-    {
-        return $this->container['paymentMethodTypes'];
-    }
-
-    /**
-     * Sets paymentMethodTypes
-     *
-     * @param string[]|null $paymentMethodTypes この SetupFlow で使用できる支払い方法の種類（カードなど）のリストです。 指定しない場合、ダッシュボードで利用可能な状態にしている支払い方法が自動的に設定されます。
-     *
-     * @return self
-     */
-    public function setPaymentMethodTypes(?array $paymentMethodTypes): self
-    {
-        if (is_null($paymentMethodTypes)) {
-            throw new \InvalidArgumentException('non-nullable paymentMethodTypes cannot be null');
-        }
-        $allowedValues = $this->getPaymentMethodTypesAllowableValues();
-        if (array_diff($paymentMethodTypes, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'paymentMethodTypes', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['paymentMethodTypes'] = $paymentMethodTypes;
-
-        return $this;
-    }
-
-    /**
-     * Gets usage
-     *
-     * @return \PAYJPV2\Model\Usage|null
-     */
-    public function getUsage(): ?\PAYJPV2\Model\Usage
-    {
-        return $this->container['usage'];
-    }
-
-    /**
-     * Sets usage
-     *
-     * @param \PAYJPV2\Model\Usage|null $usage 支払い方法が今後どのように使用されるかを指定します。指定されていない場合、この値はデフォルトで `off_session` になります。  | 指定できる値 | |:---| | **off_session**: 定期課金など、顧客がカートなどの決済フローにいるかどうか不明な場合は `off_session` を使用してください。 | | **on_session**: 顧客がカートなどの決済フローにいる場合にのみ支払い方法を利用する場合は `on_session` を使用してください。 |
-     *
-     * @return self
-     */
-    public function setUsage(?\PAYJPV2\Model\Usage $usage): self
-    {
-        if (is_null($usage)) {
-            throw new \InvalidArgumentException('non-nullable usage cannot be null');
-        }
-        $this->container['usage'] = $usage;
 
         return $this;
     }

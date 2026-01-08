@@ -358,7 +358,7 @@ class CheckoutSessionPaymentMethodOptionsCardRequest implements ModelInterface, 
     /**
      * Sets requestExtendedAuthorization
      *
-     * @param string|null $requestExtendedAuthorization オーソリ期間の延長要求。  | 指定できる値 | |:---| | **if_available**: オーソリ期間の延長が可能な場合に延長要求を行います。 | | **never**: オーソリ期間の延長要求を行いません。 |
+     * @param string|null $requestExtendedAuthorization オーソリ期間の延長要求  | 指定できる値 | |:---| | **if_available**: オーソリ期間の延長が可能な場合に延長要求を行います。 | | **never**: オーソリ期間の延長要求を行いません。 |
      *
      * @return self
      */
@@ -395,7 +395,7 @@ class CheckoutSessionPaymentMethodOptionsCardRequest implements ModelInterface, 
     /**
      * Sets requestThreeDSecure
      *
-     * @param string|null $requestThreeDSecure 3Dセキュア認証の要求方法。  | 指定できる値 | |:---| | **any**: 3Dセキュア認証を要求します。 | | **automatic**: 必要な場合にのみ3Dセキュア認証を要求します。 |
+     * @param string|null $requestThreeDSecure 3D セキュア認証の要求方法  | 指定できる値 | |:---| | **any**: 3D セキュア認証を要求します。 | | **automatic**: 必要な場合にのみ 3D セキュア認証を要求します。 |
      *
      * @return self
      */

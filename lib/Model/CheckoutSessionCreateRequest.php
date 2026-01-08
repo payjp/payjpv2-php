@@ -58,23 +58,23 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
+        'mode' => '\PAYJPV2\Model\CheckoutSessionMode',
         'clientReferenceId' => 'string',
         'customerId' => 'string',
         'customerEmail' => 'string',
         'customerCreation' => '\PAYJPV2\Model\CustomerCreation',
         'lineItems' => '\PAYJPV2\Model\LineItemRequest[]',
-        'mode' => '\PAYJPV2\Model\CheckoutSessionMode',
         'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
         'successUrl' => 'string',
         'cancelUrl' => 'string',
         'currency' => '\PAYJPV2\Model\Currency',
         'expiresAt' => '\DateTime',
         'locale' => '\PAYJPV2\Model\Locale',
-        'paymentFlowData' => '\PAYJPV2\Model\PaymentFlowDataRequest',
-        'paymentMethodOptions' => '\PAYJPV2\Model\CheckoutSessionPaymentMethodOptionsRequest',
         'paymentMethodTypes' => '\PAYJPV2\Model\PaymentMethodTypes[]',
-        'setupFlowData' => '\PAYJPV2\Model\SetupFlowDataRequest',
+        'paymentMethodOptions' => '\PAYJPV2\Model\CheckoutSessionPaymentMethodOptionsRequest',
+        'paymentFlowData' => '\PAYJPV2\Model\PaymentFlowDataRequest',
         'submitType' => '\PAYJPV2\Model\CheckoutSessionSubmitType',
+        'setupFlowData' => '\PAYJPV2\Model\SetupFlowDataRequest',
         'uiMode' => '\PAYJPV2\Model\CheckoutSessionUIMode',
     ];
 
@@ -86,23 +86,23 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'mode' => null,
         'clientReferenceId' => null,
         'customerId' => null,
         'customerEmail' => 'email',
         'customerCreation' => null,
         'lineItems' => null,
-        'mode' => null,
         'metadata' => null,
         'successUrl' => null,
         'cancelUrl' => null,
         'currency' => null,
         'expiresAt' => 'date-time',
         'locale' => null,
-        'paymentFlowData' => null,
-        'paymentMethodOptions' => null,
         'paymentMethodTypes' => null,
-        'setupFlowData' => null,
+        'paymentMethodOptions' => null,
+        'paymentFlowData' => null,
         'submitType' => null,
+        'setupFlowData' => null,
         'uiMode' => null,
     ];
 
@@ -112,23 +112,23 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
       * @var bool[]
       */
     protected static array $openAPINullables = [
+        'mode' => false,
         'clientReferenceId' => false,
         'customerId' => false,
         'customerEmail' => false,
         'customerCreation' => false,
         'lineItems' => false,
-        'mode' => false,
         'metadata' => false,
         'successUrl' => false,
         'cancelUrl' => false,
         'currency' => false,
         'expiresAt' => false,
         'locale' => false,
-        'paymentFlowData' => false,
-        'paymentMethodOptions' => false,
         'paymentMethodTypes' => false,
-        'setupFlowData' => false,
+        'paymentMethodOptions' => false,
+        'paymentFlowData' => false,
         'submitType' => false,
+        'setupFlowData' => false,
         'uiMode' => false,
     ];
 
@@ -218,23 +218,23 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
+        'mode' => 'mode',
         'clientReferenceId' => 'client_reference_id',
         'customerId' => 'customer_id',
         'customerEmail' => 'customer_email',
         'customerCreation' => 'customer_creation',
         'lineItems' => 'line_items',
-        'mode' => 'mode',
         'metadata' => 'metadata',
         'successUrl' => 'success_url',
         'cancelUrl' => 'cancel_url',
         'currency' => 'currency',
         'expiresAt' => 'expires_at',
         'locale' => 'locale',
-        'paymentFlowData' => 'payment_flow_data',
-        'paymentMethodOptions' => 'payment_method_options',
         'paymentMethodTypes' => 'payment_method_types',
-        'setupFlowData' => 'setup_flow_data',
+        'paymentMethodOptions' => 'payment_method_options',
+        'paymentFlowData' => 'payment_flow_data',
         'submitType' => 'submit_type',
+        'setupFlowData' => 'setup_flow_data',
         'uiMode' => 'ui_mode',
     ];
 
@@ -244,23 +244,23 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
+        'mode' => 'setMode',
         'clientReferenceId' => 'setClientReferenceId',
         'customerId' => 'setCustomerId',
         'customerEmail' => 'setCustomerEmail',
         'customerCreation' => 'setCustomerCreation',
         'lineItems' => 'setLineItems',
-        'mode' => 'setMode',
         'metadata' => 'setMetadata',
         'successUrl' => 'setSuccessUrl',
         'cancelUrl' => 'setCancelUrl',
         'currency' => 'setCurrency',
         'expiresAt' => 'setExpiresAt',
         'locale' => 'setLocale',
-        'paymentFlowData' => 'setPaymentFlowData',
-        'paymentMethodOptions' => 'setPaymentMethodOptions',
         'paymentMethodTypes' => 'setPaymentMethodTypes',
-        'setupFlowData' => 'setSetupFlowData',
+        'paymentMethodOptions' => 'setPaymentMethodOptions',
+        'paymentFlowData' => 'setPaymentFlowData',
         'submitType' => 'setSubmitType',
+        'setupFlowData' => 'setSetupFlowData',
         'uiMode' => 'setUiMode',
     ];
 
@@ -270,23 +270,23 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
+        'mode' => 'getMode',
         'clientReferenceId' => 'getClientReferenceId',
         'customerId' => 'getCustomerId',
         'customerEmail' => 'getCustomerEmail',
         'customerCreation' => 'getCustomerCreation',
         'lineItems' => 'getLineItems',
-        'mode' => 'getMode',
         'metadata' => 'getMetadata',
         'successUrl' => 'getSuccessUrl',
         'cancelUrl' => 'getCancelUrl',
         'currency' => 'getCurrency',
         'expiresAt' => 'getExpiresAt',
         'locale' => 'getLocale',
-        'paymentFlowData' => 'getPaymentFlowData',
-        'paymentMethodOptions' => 'getPaymentMethodOptions',
         'paymentMethodTypes' => 'getPaymentMethodTypes',
-        'setupFlowData' => 'getSetupFlowData',
+        'paymentMethodOptions' => 'getPaymentMethodOptions',
+        'paymentFlowData' => 'getPaymentFlowData',
         'submitType' => 'getSubmitType',
+        'setupFlowData' => 'getSetupFlowData',
         'uiMode' => 'getUiMode',
     ];
 
@@ -347,23 +347,23 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('mode', $data ?? [], null);
         $this->setIfExists('clientReferenceId', $data ?? [], null);
         $this->setIfExists('customerId', $data ?? [], null);
         $this->setIfExists('customerEmail', $data ?? [], null);
         $this->setIfExists('customerCreation', $data ?? [], null);
         $this->setIfExists('lineItems', $data ?? [], null);
-        $this->setIfExists('mode', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('successUrl', $data ?? [], null);
         $this->setIfExists('cancelUrl', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('expiresAt', $data ?? [], null);
         $this->setIfExists('locale', $data ?? [], null);
-        $this->setIfExists('paymentFlowData', $data ?? [], null);
-        $this->setIfExists('paymentMethodOptions', $data ?? [], null);
         $this->setIfExists('paymentMethodTypes', $data ?? [], null);
-        $this->setIfExists('setupFlowData', $data ?? [], null);
+        $this->setIfExists('paymentMethodOptions', $data ?? [], null);
+        $this->setIfExists('paymentFlowData', $data ?? [], null);
         $this->setIfExists('submitType', $data ?? [], null);
+        $this->setIfExists('setupFlowData', $data ?? [], null);
         $this->setIfExists('uiMode', $data ?? [], null);
     }
 
@@ -394,12 +394,11 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
-        if (! is_null($this->container['lineItems']) && (count($this->container['lineItems']) > 100)) {
-            $invalidProperties[] = "invalid value for 'lineItems', number of items must be less than or equal to 100.";
-        }
-
         if ($this->container['mode'] === null) {
             $invalidProperties[] = "'mode' can't be null";
+        }
+        if (! is_null($this->container['lineItems']) && (count($this->container['lineItems']) > 100)) {
+            $invalidProperties[] = "invalid value for 'lineItems', number of items must be less than or equal to 100.";
         }
 
         return $invalidProperties;
@@ -416,6 +415,37 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets mode
+     *
+     * @return \PAYJPV2\Model\CheckoutSessionMode
+     */
+    public function getMode(): \PAYJPV2\Model\CheckoutSessionMode
+    {
+        if ($this->container['mode'] === null) {
+            throw new \LogicException('Property "mode" is required but has not been set.');
+        }
+
+        return $this->container['mode'];
+    }
+
+    /**
+     * Sets mode
+     *
+     * @param \PAYJPV2\Model\CheckoutSessionMode $mode Checkout Session のモード  | 指定できる値 | |:---| | **payment**: 支払いモードで Checkout Session を作成します。 | | **setup**: セットアップモードで Checkout Session を作成します。 |
+     *
+     * @return self
+     */
+    public function setMode(\PAYJPV2\Model\CheckoutSessionMode $mode): self
+    {
+        if (is_null($mode)) {
+            throw new \InvalidArgumentException('non-nullable mode cannot be null');
+        }
+        $this->container['mode'] = $mode;
+
+        return $this;
+    }
 
     /**
      * Gets clientReferenceId
@@ -457,7 +487,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets customerId
      *
-     * @param string|null $customerId 顧客ID
+     * @param string|null $customerId 顧客 ID
      *
      * @return self
      */
@@ -484,7 +514,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets customerEmail
      *
-     * @param string|null $customerEmail 顧客オブジェクトを作成する時に使われます。指定されていない場合、顧客にメールアドレスの入力を求めます。すでに顧客のメールアドレスを持っている場合は、このパラメータを使ってあらかじめ情報を入力しておくことが可能です。支払いが完了した後に顧客情報を取得したい場合は、customer属性を使用します。
+     * @param string|null $customerEmail 顧客オブジェクトを作成する時に使われます。指定されていない場合、顧客にメールアドレスの入力を求めます。すでに顧客のメールアドレスを持っている場合は、このパラメータを使ってあらかじめ情報を入力しておくことが可能です。
      *
      * @return self
      */
@@ -511,7 +541,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets customerCreation
      *
-     * @param \PAYJPV2\Model\CustomerCreation|null $customerCreation Checkout Session の確定時に Customer を作成するかどうかを指定します。<br> Customer が作成されない場合でも `customer_details` で Checkout に入力されたメールアドレス、住所、その他の顧客データを取得できます。<br> Customer を作成しない Session は、ダッシュボードでゲスト顧客としてグループ化されます。<br> `payment` および `setup` モードでのみ設定可能です。
+     * @param \PAYJPV2\Model\CustomerCreation|null $customerCreation Checkout Session の確定時に Customer を作成するかどうかを指定します。<br> `payment` および `setup` モードでのみ設定可能です。
      *
      * @return self
      */
@@ -538,7 +568,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets lineItems
      *
-     * @param \PAYJPV2\Model\LineItemRequest[]|null $lineItems 顧客が購入する商品のリストです。このパラメーターを使用して、1回限りまたは定期的な料金を渡します。  `payment` モードの場合、最大100個のラインアイテムを使用できます。 <!-- `subscription` モードの場合、定期的な料金のラインアイテムは最大20個、1回限りの料金のラインアイテムは最大20個です。1回限りの料金のラインアイテムは、最初の請求書にのみ記載されます。 -->
+     * @param \PAYJPV2\Model\LineItemRequest[]|null $lineItems 顧客が購入する商品のリストです。このパラメーターを使用して、1回限りまたは定期的な料金を渡します。  `payment` モードの場合、最大100個のラインアイテムを使用できます。
      *
      * @return self
      */
@@ -557,37 +587,6 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     }
 
     /**
-     * Gets mode
-     *
-     * @return \PAYJPV2\Model\CheckoutSessionMode
-     */
-    public function getMode(): \PAYJPV2\Model\CheckoutSessionMode
-    {
-        if ($this->container['mode'] === null) {
-            throw new \LogicException('Property "mode" is required but has not been set.');
-        }
-
-        return $this->container['mode'];
-    }
-
-    /**
-     * Sets mode
-     *
-     * @param \PAYJPV2\Model\CheckoutSessionMode $mode Checkout Session のモード  | 指定できる値 | |:---| | **payment**: 支払いモードでCheckout Sessionを作成します。 | | **setup**: セットアップモードでCheckout Sessionを作成します。 |
-     *
-     * @return self
-     */
-    public function setMode(\PAYJPV2\Model\CheckoutSessionMode $mode): self
-    {
-        if (is_null($mode)) {
-            throw new \InvalidArgumentException('non-nullable mode cannot be null');
-        }
-        $this->container['mode'] = $mode;
-
-        return $this;
-    }
-
-    /**
      * Gets metadata
      *
      * @return array<string,\PAYJPV2\Model\MetadataValue>|null
@@ -600,7 +599,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets metadata
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。<a href=\"https://docs.pay.jp/v2/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
+     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
      *
      * @return self
      */
@@ -627,7 +626,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets successUrl
      *
-     * @param string|null $successUrl 支払いや設定が完了した際に、PAY.JP が顧客をリダイレクトするURL。成功したCheckout Sessionからの情報をページで使用したい場合は、成功ページのカスタマイズに関するガイドをお読みください。
+     * @param string|null $successUrl 支払いや設定が完了した際に、PAY.JP が顧客をリダイレクトする URL。成功した Checkout Session からの情報をページで使用したい場合は、成功ページのカスタマイズに関するガイドをお読みください。
      *
      * @return self
      */
@@ -654,7 +653,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets cancelUrl
      *
-     * @param string|null $cancelUrl キャンセル時のリダイレクトURL
+     * @param string|null $cancelUrl キャンセル時のリダイレクト URL
      *
      * @return self
      */
@@ -708,7 +707,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets expiresAt
      *
-     * @param \DateTime|null $expiresAt Checkout Session の有効期限が失効する日時。
+     * @param \DateTime|null $expiresAt Checkout Session の有効期限が失効する日時
      *
      * @return self
      */
@@ -750,28 +749,28 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     }
 
     /**
-     * Gets paymentFlowData
+     * Gets paymentMethodTypes
      *
-     * @return \PAYJPV2\Model\PaymentFlowDataRequest|null
+     * @return \PAYJPV2\Model\PaymentMethodTypes[]|null
      */
-    public function getPaymentFlowData(): ?\PAYJPV2\Model\PaymentFlowDataRequest
+    public function getPaymentMethodTypes(): ?array
     {
-        return $this->container['paymentFlowData'];
+        return $this->container['paymentMethodTypes'];
     }
 
     /**
-     * Sets paymentFlowData
+     * Sets paymentMethodTypes
      *
-     * @param \PAYJPV2\Model\PaymentFlowDataRequest|null $paymentFlowData `payment` モード指定時に PaymentFlow 作成に使用するパラメーター。
+     * @param \PAYJPV2\Model\PaymentMethodTypes[]|null $paymentMethodTypes この PaymentFlow で使用できる支払い方法の種類（カードなど）のリストです。指定しない場合、管理画面で利用可能な状態にしている支払い方法を自動的に表示します。
      *
      * @return self
      */
-    public function setPaymentFlowData(?\PAYJPV2\Model\PaymentFlowDataRequest $paymentFlowData): self
+    public function setPaymentMethodTypes(?array $paymentMethodTypes): self
     {
-        if (is_null($paymentFlowData)) {
-            throw new \InvalidArgumentException('non-nullable paymentFlowData cannot be null');
+        if (is_null($paymentMethodTypes)) {
+            throw new \InvalidArgumentException('non-nullable paymentMethodTypes cannot be null');
         }
-        $this->container['paymentFlowData'] = $paymentFlowData;
+        $this->container['paymentMethodTypes'] = $paymentMethodTypes;
 
         return $this;
     }
@@ -789,7 +788,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets paymentMethodOptions
      *
-     * @param \PAYJPV2\Model\CheckoutSessionPaymentMethodOptionsRequest|null $paymentMethodOptions この PaymentFlow の支払い方法の個別設定。
+     * @param \PAYJPV2\Model\CheckoutSessionPaymentMethodOptionsRequest|null $paymentMethodOptions この PaymentFlow の支払い方法の個別設定
      *
      * @return self
      */
@@ -804,55 +803,28 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     }
 
     /**
-     * Gets paymentMethodTypes
+     * Gets paymentFlowData
      *
-     * @return \PAYJPV2\Model\PaymentMethodTypes[]|null
+     * @return \PAYJPV2\Model\PaymentFlowDataRequest|null
      */
-    public function getPaymentMethodTypes(): ?array
+    public function getPaymentFlowData(): ?\PAYJPV2\Model\PaymentFlowDataRequest
     {
-        return $this->container['paymentMethodTypes'];
+        return $this->container['paymentFlowData'];
     }
 
     /**
-     * Sets paymentMethodTypes
+     * Sets paymentFlowData
      *
-     * @param \PAYJPV2\Model\PaymentMethodTypes[]|null $paymentMethodTypes この PaymentFlow で使用できる支払い方法の種類（カードなど）のリストです。 指定しない場合、ダッシュボードで利用可能な状態にしている支払い方法を自動的に表示します。
+     * @param \PAYJPV2\Model\PaymentFlowDataRequest|null $paymentFlowData `payment` モード指定時に PaymentFlow 作成に使用するパラメーター
      *
      * @return self
      */
-    public function setPaymentMethodTypes(?array $paymentMethodTypes): self
+    public function setPaymentFlowData(?\PAYJPV2\Model\PaymentFlowDataRequest $paymentFlowData): self
     {
-        if (is_null($paymentMethodTypes)) {
-            throw new \InvalidArgumentException('non-nullable paymentMethodTypes cannot be null');
+        if (is_null($paymentFlowData)) {
+            throw new \InvalidArgumentException('non-nullable paymentFlowData cannot be null');
         }
-        $this->container['paymentMethodTypes'] = $paymentMethodTypes;
-
-        return $this;
-    }
-
-    /**
-     * Gets setupFlowData
-     *
-     * @return \PAYJPV2\Model\SetupFlowDataRequest|null
-     */
-    public function getSetupFlowData(): ?\PAYJPV2\Model\SetupFlowDataRequest
-    {
-        return $this->container['setupFlowData'];
-    }
-
-    /**
-     * Sets setupFlowData
-     *
-     * @param \PAYJPV2\Model\SetupFlowDataRequest|null $setupFlowData `setup` モードの Checkout Session を作成する際、SetupFlow の作成に渡されるパラメーター
-     *
-     * @return self
-     */
-    public function setSetupFlowData(?\PAYJPV2\Model\SetupFlowDataRequest $setupFlowData): self
-    {
-        if (is_null($setupFlowData)) {
-            throw new \InvalidArgumentException('non-nullable setupFlowData cannot be null');
-        }
-        $this->container['setupFlowData'] = $setupFlowData;
+        $this->container['paymentFlowData'] = $paymentFlowData;
 
         return $this;
     }
@@ -885,6 +857,33 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     }
 
     /**
+     * Gets setupFlowData
+     *
+     * @return \PAYJPV2\Model\SetupFlowDataRequest|null
+     */
+    public function getSetupFlowData(): ?\PAYJPV2\Model\SetupFlowDataRequest
+    {
+        return $this->container['setupFlowData'];
+    }
+
+    /**
+     * Sets setupFlowData
+     *
+     * @param \PAYJPV2\Model\SetupFlowDataRequest|null $setupFlowData `setup` モードの Checkout Session を作成する際、SetupFlow の作成に渡されるパラメーター
+     *
+     * @return self
+     */
+    public function setSetupFlowData(?\PAYJPV2\Model\SetupFlowDataRequest $setupFlowData): self
+    {
+        if (is_null($setupFlowData)) {
+            throw new \InvalidArgumentException('non-nullable setupFlowData cannot be null');
+        }
+        $this->container['setupFlowData'] = $setupFlowData;
+
+        return $this;
+    }
+
+    /**
      * Gets uiMode
      *
      * @return \PAYJPV2\Model\CheckoutSessionUIMode|null
@@ -897,7 +896,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets uiMode
      *
-     * @param \PAYJPV2\Model\CheckoutSessionUIMode|null $uiMode Checkout Session の UI モード。デフォルトは `hosted` です。<br>  | 指定できる値 | |:---| | **hosted**: PAY.JPでホスティングしている画面を使用します。 |
+     * @param \PAYJPV2\Model\CheckoutSessionUIMode|null $uiMode Checkout Session の UI モード。デフォルトは `hosted` です。  | 指定できる値 | |:---| | **hosted**: PAY.JP でホスティングしている画面を使用します。 |
      *
      * @return self
      */

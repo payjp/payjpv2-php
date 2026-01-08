@@ -80,15 +80,6 @@ class PaymentRefundResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "object"
      */
     public function testPropertyObject()
@@ -98,18 +89,9 @@ class PaymentRefundResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "createdAt"
+     * Test attribute "id"
      */
-    public function testPropertyCreatedAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "updatedAt"
-     */
-    public function testPropertyUpdatedAt()
+    public function testPropertyId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -119,6 +101,15 @@ class PaymentRefundResponseTest extends TestCase
      * Test attribute "livemode"
      */
     public function testPropertyLivemode()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "paymentFlowId"
+     */
+    public function testPropertyPaymentFlowId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -143,15 +134,6 @@ class PaymentRefundResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "paymentFlowId"
-     */
-    public function testPropertyPaymentFlowId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "reason"
      */
     public function testPropertyReason()
@@ -164,6 +146,24 @@ class PaymentRefundResponseTest extends TestCase
      * Test attribute "metadata"
      */
     public function testPropertyMetadata()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "createdAt"
+     */
+    public function testPropertyCreatedAt()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "updatedAt"
+     */
+    public function testPropertyUpdatedAt()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
