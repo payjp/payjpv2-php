@@ -260,7 +260,6 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     public const PAYMENT_METHOD_TYPES_CARD = 'card';
-    public const PAYMENT_METHOD_TYPES_APPLE_PAY = 'apple_pay';
 
     /**
      * Gets allowable values of the enum
@@ -271,7 +270,6 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
     {
         return [
             self::PAYMENT_METHOD_TYPES_CARD,
-            self::PAYMENT_METHOD_TYPES_APPLE_PAY,
         ];
     }
 

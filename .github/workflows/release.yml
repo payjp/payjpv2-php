@@ -1,48 +1,26 @@
-name: Release
+name: release
 
 on:
-  push:
-    tags:
-      - 'v*'
+  release:
+    types: [published]
 
 jobs:
-  release:
+  test:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.1'
-        extensions: curl, json, mbstring
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.1"
+          extensions: curl, json, mbstring
 
-    - name: Install dependencies
-      run: composer install --no-dev --optimize-autoloader
+      - name: Install dependencies
+        run: composer install --dev
 
-    - name: Run tests
-      run: |
-        composer install --dev
-        vendor/bin/phpunit
-
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        draft: false
-        prerelease: false
-        body: |
-          ## Changes
-
-          See the [CHANGELOG](CHANGELOG.md) for details.
-
-          ## Installation
-
-          ```bash
-          composer require payjp/payjpv2-php:${{ github.ref_name }}
-          ```
+      - name: Run tests
+        run: vendor/bin/phpunit

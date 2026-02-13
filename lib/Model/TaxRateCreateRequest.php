@@ -326,6 +326,13 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         if ($this->container['percentage'] === null) {
             $invalidProperties[] = "'percentage' can't be null";
         }
+        if (($this->container['percentage'] > 100.0)) {
+            $invalidProperties[] = "invalid value for 'percentage', must be smaller than or equal to 100.0.";
+        }
+
+        if (($this->container['percentage'] < 0.0)) {
+            $invalidProperties[] = "invalid value for 'percentage', must be bigger than or equal to 0.0.";
+        }
 
         return $invalidProperties;
     }
@@ -430,6 +437,14 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         if (is_null($percentage)) {
             throw new \InvalidArgumentException('non-nullable percentage cannot be null');
         }
+
+        if (($percentage > 100.0)) {
+            throw new \InvalidArgumentException('invalid value for $percentage when calling TaxRateCreateRequest., must be smaller than or equal to 100.0.');
+        }
+        if (($percentage < 0.0)) {
+            throw new \InvalidArgumentException('invalid value for $percentage when calling TaxRateCreateRequest., must be bigger than or equal to 0.0.');
+        }
+
         $this->container['percentage'] = $percentage;
 
         return $this;
