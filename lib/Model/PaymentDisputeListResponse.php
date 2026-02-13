@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PaymentFlowDataRequest
+ * PaymentDisputeListResponse
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use ArrayAccess;
 use PAYJPV2\ObjectSerializer;
 
 /**
- * PaymentFlowDataRequest Class Doc Comment
+ * PaymentDisputeListResponse Class Doc Comment
  *
  * @category Class
  * @package  PAYJPV2
@@ -41,7 +41,7 @@ use PAYJPV2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class PaymentDisputeListResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PaymentFlowDataRequest';
+    protected static $openAPIModelName = 'PaymentDisputeListResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,10 @@ class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'captureMethod' => '\PAYJPV2\Model\CaptureMethod',
-        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
+        'object' => 'string',
+        'url' => 'string',
+        'hasMore' => 'bool',
+        'data' => '\PAYJPV2\Model\PaymentDisputeResponse[]',
     ];
 
     /**
@@ -70,8 +72,10 @@ class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'captureMethod' => null,
-        'metadata' => null,
+        'object' => null,
+        'url' => null,
+        'hasMore' => null,
+        'data' => null,
     ];
 
     /**
@@ -80,8 +84,10 @@ class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @var bool[]
       */
     protected static array $openAPINullables = [
-        'captureMethod' => false,
-        'metadata' => false,
+        'object' => false,
+        'url' => false,
+        'hasMore' => false,
+        'data' => false,
     ];
 
     /**
@@ -170,8 +176,10 @@ class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'captureMethod' => 'capture_method',
-        'metadata' => 'metadata',
+        'object' => 'object',
+        'url' => 'url',
+        'hasMore' => 'has_more',
+        'data' => 'data',
     ];
 
     /**
@@ -180,8 +188,10 @@ class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'captureMethod' => 'setCaptureMethod',
-        'metadata' => 'setMetadata',
+        'object' => 'setObject',
+        'url' => 'setUrl',
+        'hasMore' => 'setHasMore',
+        'data' => 'setData',
     ];
 
     /**
@@ -190,8 +200,10 @@ class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'captureMethod' => 'getCaptureMethod',
-        'metadata' => 'getMetadata',
+        'object' => 'getObject',
+        'url' => 'getUrl',
+        'hasMore' => 'getHasMore',
+        'data' => 'getData',
     ];
 
     /**
@@ -235,6 +247,19 @@ class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
+    public const OBJECT__LIST = 'list';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getObjectAllowableValues()
+    {
+        return [
+            self::OBJECT__LIST,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -251,8 +276,10 @@ class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('captureMethod', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('object', $data ?? [], 'list');
+        $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('hasMore', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
     }
 
     /**
@@ -282,6 +309,25 @@ class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getObjectAllowableValues();
+        if (! is_null($this->container['object']) && ! in_array($this->container['object'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'object', must be one of '%s'",
+                $this->container['object'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['url'] === null) {
+            $invalidProperties[] = "'url' can't be null";
+        }
+        if ($this->container['hasMore'] === null) {
+            $invalidProperties[] = "'hasMore' can't be null";
+        }
+        if ($this->container['data'] === null) {
+            $invalidProperties[] = "'data' can't be null";
+        }
+
         return $invalidProperties;
     }
 
@@ -298,55 +344,131 @@ class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets captureMethod
+     * Gets object
      *
-     * @return \PAYJPV2\Model\CaptureMethod|null
+     * @return string|null
      */
-    public function getCaptureMethod(): ?\PAYJPV2\Model\CaptureMethod
+    public function getObject(): ?string
     {
-        return $this->container['captureMethod'];
+        return $this->container['object'];
     }
 
     /**
-     * Sets captureMethod
+     * Sets object
      *
-     * @param \PAYJPV2\Model\CaptureMethod|null $captureMethod 支払いの確定方法を指定します。  | 指定できる値 | |:---| | **automatic**: 顧客が支払いを承認すると自動的に確定します。 | | **manual**: 顧客が支払いを承認すると一旦確定を保留し、後で Payment Flow の Capture API を使用して確定します。（すべての支払い方法がこれをサポートしているわけではありません）。 |
+     * @param string|null $object object
      *
      * @return self
      */
-    public function setCaptureMethod(?\PAYJPV2\Model\CaptureMethod $captureMethod): self
+    public function setObject(?string $object): self
     {
-        if (is_null($captureMethod)) {
-            throw new \InvalidArgumentException('non-nullable captureMethod cannot be null');
+        if (is_null($object)) {
+            throw new \InvalidArgumentException('non-nullable object cannot be null');
         }
-        $this->container['captureMethod'] = $captureMethod;
+        $allowedValues = $this->getObjectAllowableValues();
+        if (! in_array($object, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'object', must be one of '%s'",
+                    $object,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['object'] = $object;
 
         return $this;
     }
 
     /**
-     * Gets metadata
+     * Gets url
      *
-     * @return array<string,\PAYJPV2\Model\MetadataValue>|null
+     * @return string
      */
-    public function getMetadata(): ?array
+    public function getUrl(): string
     {
-        return $this->container['metadata'];
+        if ($this->container['url'] === null) {
+            throw new \LogicException('Property "url" is required but has not been set.');
+        }
+
+        return $this->container['url'];
     }
 
     /**
-     * Sets metadata
+     * Sets url
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
+     * @param string $url リスト取得URL
      *
      * @return self
      */
-    public function setMetadata(?array $metadata): self
+    public function setUrl(string $url): self
     {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+        if (is_null($url)) {
+            throw new \InvalidArgumentException('non-nullable url cannot be null');
         }
-        $this->container['metadata'] = $metadata;
+        $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets hasMore
+     *
+     * @return bool
+     */
+    public function getHasMore(): bool
+    {
+        if ($this->container['hasMore'] === null) {
+            throw new \LogicException('Property "hasMore" is required but has not been set.');
+        }
+
+        return $this->container['hasMore'];
+    }
+
+    /**
+     * Sets hasMore
+     *
+     * @param bool $hasMore 次のページがあるかどうか
+     *
+     * @return self
+     */
+    public function setHasMore(bool $hasMore): self
+    {
+        if (is_null($hasMore)) {
+            throw new \InvalidArgumentException('non-nullable hasMore cannot be null');
+        }
+        $this->container['hasMore'] = $hasMore;
+
+        return $this;
+    }
+
+    /**
+     * Gets data
+     *
+     * @return \PAYJPV2\Model\PaymentDisputeResponse[]
+     */
+    public function getData(): array
+    {
+        if ($this->container['data'] === null) {
+            throw new \LogicException('Property "data" is required but has not been set.');
+        }
+
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param \PAYJPV2\Model\PaymentDisputeResponse[] $data PaymentDispute リスト
+     *
+     * @return self
+     */
+    public function setData(array $data): self
+    {
+        if (is_null($data)) {
+            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        }
+        $this->container['data'] = $data;
 
         return $this;
     }

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **amountTax** | **int** | 税額 |
 **amountTotal** | **int** | 割引と税金が適用された後のすべての商品の合計金額 |
 **currency** | [**\PAYJPV2\Model\Currency**](Currency.md) | 価格の通貨。現在は &#x60;jpy&#x60; のみサポートしています。 |
-**description** | **string** | 説明 |
+**description** | **string** |  |
 **price** | [**\PAYJPV2\Model\PriceDetailsResponse**](PriceDetailsResponse.md) | 料金情報 |
 **quantity** | **int** | 数量 |
 

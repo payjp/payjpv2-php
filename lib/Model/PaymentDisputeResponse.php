@@ -1,7 +1,7 @@
 <?php
 
 /**
- * CheckoutSessionLineItemDataResponse
+ * PaymentDisputeResponse
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use ArrayAccess;
 use PAYJPV2\ObjectSerializer;
 
 /**
- * CheckoutSessionLineItemDataResponse Class Doc Comment
+ * PaymentDisputeResponse Class Doc Comment
  *
  * @category Class
  * @package  PAYJPV2
@@ -41,7 +41,7 @@ use PAYJPV2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class PaymentDisputeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CheckoutSessionLineItemDataResponse';
+    protected static $openAPIModelName = 'PaymentDisputeResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,13 +60,17 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'object' => 'string',
         'id' => 'string',
-        'amountSubtotal' => 'int',
-        'amountTax' => 'int',
-        'amountTotal' => 'int',
+        'livemode' => 'bool',
+        'paymentFlowId' => 'string',
+        'amount' => 'int',
         'currency' => '\PAYJPV2\Model\Currency',
-        'description' => 'string',
-        'price' => '\PAYJPV2\Model\PriceDetailsResponse',
-        'quantity' => 'int',
+        'status' => '\PAYJPV2\Model\PaymentDisputeStatus',
+        'reason' => '\PAYJPV2\Model\PaymentDisputeReason',
+        'dueBy' => '\DateTime',
+        'paymentMethodType' => '\PAYJPV2\Model\PaymentMethodTypes',
+        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
+        'createdAt' => '\DateTime',
+        'updatedAt' => '\DateTime',
     ];
 
     /**
@@ -79,13 +83,17 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'object' => null,
         'id' => null,
-        'amountSubtotal' => null,
-        'amountTax' => null,
-        'amountTotal' => null,
+        'livemode' => null,
+        'paymentFlowId' => null,
+        'amount' => null,
         'currency' => null,
-        'description' => null,
-        'price' => null,
-        'quantity' => null,
+        'status' => null,
+        'reason' => null,
+        'dueBy' => 'date-time',
+        'paymentMethodType' => null,
+        'metadata' => null,
+        'createdAt' => 'date-time',
+        'updatedAt' => 'date-time',
     ];
 
     /**
@@ -96,13 +104,17 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
     protected static array $openAPINullables = [
         'object' => false,
         'id' => false,
-        'amountSubtotal' => false,
-        'amountTax' => false,
-        'amountTotal' => false,
+        'livemode' => false,
+        'paymentFlowId' => false,
+        'amount' => false,
         'currency' => false,
-        'description' => true,
-        'price' => false,
-        'quantity' => false,
+        'status' => false,
+        'reason' => true,
+        'dueBy' => true,
+        'paymentMethodType' => false,
+        'metadata' => false,
+        'createdAt' => false,
+        'updatedAt' => false,
     ];
 
     /**
@@ -193,13 +205,17 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'object' => 'object',
         'id' => 'id',
-        'amountSubtotal' => 'amount_subtotal',
-        'amountTax' => 'amount_tax',
-        'amountTotal' => 'amount_total',
+        'livemode' => 'livemode',
+        'paymentFlowId' => 'payment_flow_id',
+        'amount' => 'amount',
         'currency' => 'currency',
-        'description' => 'description',
-        'price' => 'price',
-        'quantity' => 'quantity',
+        'status' => 'status',
+        'reason' => 'reason',
+        'dueBy' => 'due_by',
+        'paymentMethodType' => 'payment_method_type',
+        'metadata' => 'metadata',
+        'createdAt' => 'created_at',
+        'updatedAt' => 'updated_at',
     ];
 
     /**
@@ -210,13 +226,17 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'object' => 'setObject',
         'id' => 'setId',
-        'amountSubtotal' => 'setAmountSubtotal',
-        'amountTax' => 'setAmountTax',
-        'amountTotal' => 'setAmountTotal',
+        'livemode' => 'setLivemode',
+        'paymentFlowId' => 'setPaymentFlowId',
+        'amount' => 'setAmount',
         'currency' => 'setCurrency',
-        'description' => 'setDescription',
-        'price' => 'setPrice',
-        'quantity' => 'setQuantity',
+        'status' => 'setStatus',
+        'reason' => 'setReason',
+        'dueBy' => 'setDueBy',
+        'paymentMethodType' => 'setPaymentMethodType',
+        'metadata' => 'setMetadata',
+        'createdAt' => 'setCreatedAt',
+        'updatedAt' => 'setUpdatedAt',
     ];
 
     /**
@@ -227,13 +247,17 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'object' => 'getObject',
         'id' => 'getId',
-        'amountSubtotal' => 'getAmountSubtotal',
-        'amountTax' => 'getAmountTax',
-        'amountTotal' => 'getAmountTotal',
+        'livemode' => 'getLivemode',
+        'paymentFlowId' => 'getPaymentFlowId',
+        'amount' => 'getAmount',
         'currency' => 'getCurrency',
-        'description' => 'getDescription',
-        'price' => 'getPrice',
-        'quantity' => 'getQuantity',
+        'status' => 'getStatus',
+        'reason' => 'getReason',
+        'dueBy' => 'getDueBy',
+        'paymentMethodType' => 'getPaymentMethodType',
+        'metadata' => 'getMetadata',
+        'createdAt' => 'getCreatedAt',
+        'updatedAt' => 'getUpdatedAt',
     ];
 
     /**
@@ -277,7 +301,7 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    public const OBJECT_LINE_ITEM = 'line_item';
+    public const OBJECT_PAYMENT_DISPUTE = 'payment_dispute';
 
     /**
      * Gets allowable values of the enum
@@ -287,7 +311,7 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
     public function getObjectAllowableValues()
     {
         return [
-            self::OBJECT_LINE_ITEM,
+            self::OBJECT_PAYMENT_DISPUTE,
         ];
     }
 
@@ -306,15 +330,19 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('object', $data ?? [], 'line_item');
+        $this->setIfExists('object', $data ?? [], 'payment_dispute');
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('amountSubtotal', $data ?? [], null);
-        $this->setIfExists('amountTax', $data ?? [], null);
-        $this->setIfExists('amountTotal', $data ?? [], null);
+        $this->setIfExists('livemode', $data ?? [], null);
+        $this->setIfExists('paymentFlowId', $data ?? [], null);
+        $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('price', $data ?? [], null);
-        $this->setIfExists('quantity', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('reason', $data ?? [], null);
+        $this->setIfExists('dueBy', $data ?? [], null);
+        $this->setIfExists('paymentMethodType', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('createdAt', $data ?? [], null);
+        $this->setIfExists('updatedAt', $data ?? [], null);
     }
 
     /**
@@ -356,26 +384,38 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['amountSubtotal'] === null) {
-            $invalidProperties[] = "'amountSubtotal' can't be null";
+        if ($this->container['livemode'] === null) {
+            $invalidProperties[] = "'livemode' can't be null";
         }
-        if ($this->container['amountTax'] === null) {
-            $invalidProperties[] = "'amountTax' can't be null";
+        if ($this->container['paymentFlowId'] === null) {
+            $invalidProperties[] = "'paymentFlowId' can't be null";
         }
-        if ($this->container['amountTotal'] === null) {
-            $invalidProperties[] = "'amountTotal' can't be null";
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
         }
         if ($this->container['currency'] === null) {
             $invalidProperties[] = "'currency' can't be null";
         }
-        if ($this->container['description'] === null) {
-            $invalidProperties[] = "'description' can't be null";
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
         }
-        if ($this->container['price'] === null) {
-            $invalidProperties[] = "'price' can't be null";
+        if ($this->container['reason'] === null) {
+            $invalidProperties[] = "'reason' can't be null";
         }
-        if ($this->container['quantity'] === null) {
-            $invalidProperties[] = "'quantity' can't be null";
+        if ($this->container['dueBy'] === null) {
+            $invalidProperties[] = "'dueBy' can't be null";
+        }
+        if ($this->container['paymentMethodType'] === null) {
+            $invalidProperties[] = "'paymentMethodType' can't be null";
+        }
+        if ($this->container['metadata'] === null) {
+            $invalidProperties[] = "'metadata' can't be null";
+        }
+        if ($this->container['createdAt'] === null) {
+            $invalidProperties[] = "'createdAt' can't be null";
+        }
+        if ($this->container['updatedAt'] === null) {
+            $invalidProperties[] = "'updatedAt' can't be null";
         }
 
         return $invalidProperties;
@@ -447,7 +487,7 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id ID
+     * @param string $id PaymentDispute ID
      *
      * @return self
      */
@@ -462,94 +502,94 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets amountSubtotal
+     * Gets livemode
      *
-     * @return int
+     * @return bool
      */
-    public function getAmountSubtotal(): int
+    public function getLivemode(): bool
     {
-        if ($this->container['amountSubtotal'] === null) {
-            throw new \LogicException('Property "amountSubtotal" is required but has not been set.');
+        if ($this->container['livemode'] === null) {
+            throw new \LogicException('Property "livemode" is required but has not been set.');
         }
 
-        return $this->container['amountSubtotal'];
+        return $this->container['livemode'];
     }
 
     /**
-     * Sets amountSubtotal
+     * Sets livemode
      *
-     * @param int $amountSubtotal 割引や税金が適用される前のすべての商品の合計金額
+     * @param bool $livemode 本番環境かどうか
      *
      * @return self
      */
-    public function setAmountSubtotal(int $amountSubtotal): self
+    public function setLivemode(bool $livemode): self
     {
-        if (is_null($amountSubtotal)) {
-            throw new \InvalidArgumentException('non-nullable amountSubtotal cannot be null');
+        if (is_null($livemode)) {
+            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
         }
-        $this->container['amountSubtotal'] = $amountSubtotal;
+        $this->container['livemode'] = $livemode;
 
         return $this;
     }
 
     /**
-     * Gets amountTax
+     * Gets paymentFlowId
      *
-     * @return int
+     * @return string
      */
-    public function getAmountTax(): int
+    public function getPaymentFlowId(): string
     {
-        if ($this->container['amountTax'] === null) {
-            throw new \LogicException('Property "amountTax" is required but has not been set.');
+        if ($this->container['paymentFlowId'] === null) {
+            throw new \LogicException('Property "paymentFlowId" is required but has not been set.');
         }
 
-        return $this->container['amountTax'];
+        return $this->container['paymentFlowId'];
     }
 
     /**
-     * Sets amountTax
+     * Sets paymentFlowId
      *
-     * @param int $amountTax 税額
+     * @param string $paymentFlowId 関連する PaymentFlow の ID
      *
      * @return self
      */
-    public function setAmountTax(int $amountTax): self
+    public function setPaymentFlowId(string $paymentFlowId): self
     {
-        if (is_null($amountTax)) {
-            throw new \InvalidArgumentException('non-nullable amountTax cannot be null');
+        if (is_null($paymentFlowId)) {
+            throw new \InvalidArgumentException('non-nullable paymentFlowId cannot be null');
         }
-        $this->container['amountTax'] = $amountTax;
+        $this->container['paymentFlowId'] = $paymentFlowId;
 
         return $this;
     }
 
     /**
-     * Gets amountTotal
+     * Gets amount
      *
      * @return int
      */
-    public function getAmountTotal(): int
+    public function getAmount(): int
     {
-        if ($this->container['amountTotal'] === null) {
-            throw new \LogicException('Property "amountTotal" is required but has not been set.');
+        if ($this->container['amount'] === null) {
+            throw new \LogicException('Property "amount" is required but has not been set.');
         }
 
-        return $this->container['amountTotal'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets amountTotal
+     * Sets amount
      *
-     * @param int $amountTotal 割引と税金が適用された後のすべての商品の合計金額
+     * @param int $amount 金額
      *
      * @return self
      */
-    public function setAmountTotal(int $amountTotal): self
+    public function setAmount(int $amount): self
     {
-        if (is_null($amountTotal)) {
-            throw new \InvalidArgumentException('non-nullable amountTotal cannot be null');
+        if (is_null($amount)) {
+            throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
-        $this->container['amountTotal'] = $amountTotal;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
@@ -571,7 +611,7 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param \PAYJPV2\Model\Currency $currency 価格の通貨。現在は `jpy` のみサポートしています。
+     * @param \PAYJPV2\Model\Currency $currency 通貨コード (ISO 4217)
      *
      * @return self
      */
@@ -586,97 +626,224 @@ class CheckoutSessionLineItemDataResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets description
+     * Gets status
      *
-     * @return string|null
+     * @return \PAYJPV2\Model\PaymentDisputeStatus
      */
-    public function getDescription(): ?string
+    public function getStatus(): \PAYJPV2\Model\PaymentDisputeStatus
     {
-        return $this->container['description'];
+        if ($this->container['status'] === null) {
+            throw new \LogicException('Property "status" is required but has not been set.');
+        }
+
+        return $this->container['status'];
     }
 
     /**
-     * Sets description
+     * Sets status
      *
-     * @param string|null $description description
+     * @param \PAYJPV2\Model\PaymentDisputeStatus $status disputeのステータス  | 値 | |:---| | **pre_warning_needs_response**: 利用照会 | | **warning_needs_response**: 配送保留 | | **warning_needs_refund**: 配送停止 | | **warning_under_review**: 加盟店回答済 | | **needs_response**: チャージバック | | **under_review**: 反証済 | | **lost**: チャージバック受入 | | **cancel**: 取下げ |
      *
      * @return self
      */
-    public function setDescription(?string $description): self
+    public function setStatus(\PAYJPV2\Model\PaymentDisputeStatus $status): self
     {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets reason
+     *
+     * @return \PAYJPV2\Model\PaymentDisputeReason|null
+     */
+    public function getReason(): ?\PAYJPV2\Model\PaymentDisputeReason
+    {
+        return $this->container['reason'];
+    }
+
+    /**
+     * Sets reason
+     *
+     * @param \PAYJPV2\Model\PaymentDisputeReason|null $reason reason
+     *
+     * @return self
+     */
+    public function setReason(?\PAYJPV2\Model\PaymentDisputeReason $reason): self
+    {
+        if (is_null($reason)) {
+            array_push($this->openAPINullablesSetToNull, 'reason');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
+            $index = array_search('reason', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['description'] = $description;
+        $this->container['reason'] = $reason;
 
         return $this;
     }
 
     /**
-     * Gets price
+     * Gets dueBy
      *
-     * @return \PAYJPV2\Model\PriceDetailsResponse
+     * @return \DateTime|null
      */
-    public function getPrice(): \PAYJPV2\Model\PriceDetailsResponse
+    public function getDueBy(): ?\DateTime
     {
-        if ($this->container['price'] === null) {
-            throw new \LogicException('Property "price" is required but has not been set.');
-        }
-
-        return $this->container['price'];
+        return $this->container['dueBy'];
     }
 
     /**
-     * Sets price
+     * Sets dueBy
      *
-     * @param \PAYJPV2\Model\PriceDetailsResponse $price 料金情報
+     * @param \DateTime|null $dueBy dueBy
      *
      * @return self
      */
-    public function setPrice(\PAYJPV2\Model\PriceDetailsResponse $price): self
+    public function setDueBy(?\DateTime $dueBy): self
     {
-        if (is_null($price)) {
-            throw new \InvalidArgumentException('non-nullable price cannot be null');
+        if (is_null($dueBy)) {
+            array_push($this->openAPINullablesSetToNull, 'dueBy');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('dueBy', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['price'] = $price;
+        $this->container['dueBy'] = $dueBy;
 
         return $this;
     }
 
     /**
-     * Gets quantity
+     * Gets paymentMethodType
      *
-     * @return int
+     * @return \PAYJPV2\Model\PaymentMethodTypes
      */
-    public function getQuantity(): int
+    public function getPaymentMethodType(): \PAYJPV2\Model\PaymentMethodTypes
     {
-        if ($this->container['quantity'] === null) {
-            throw new \LogicException('Property "quantity" is required but has not been set.');
+        if ($this->container['paymentMethodType'] === null) {
+            throw new \LogicException('Property "paymentMethodType" is required but has not been set.');
         }
 
-        return $this->container['quantity'];
+        return $this->container['paymentMethodType'];
     }
 
     /**
-     * Sets quantity
+     * Sets paymentMethodType
      *
-     * @param int $quantity 数量
+     * @param \PAYJPV2\Model\PaymentMethodTypes $paymentMethodType 支払い方法の種類
      *
      * @return self
      */
-    public function setQuantity(int $quantity): self
+    public function setPaymentMethodType(\PAYJPV2\Model\PaymentMethodTypes $paymentMethodType): self
     {
-        if (is_null($quantity)) {
-            throw new \InvalidArgumentException('non-nullable quantity cannot be null');
+        if (is_null($paymentMethodType)) {
+            throw new \InvalidArgumentException('non-nullable paymentMethodType cannot be null');
         }
-        $this->container['quantity'] = $quantity;
+        $this->container['paymentMethodType'] = $paymentMethodType;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return array<string,\PAYJPV2\Model\MetadataValue>
+     */
+    public function getMetadata(): array
+    {
+        if ($this->container['metadata'] === null) {
+            throw new \LogicException('Property "metadata" is required but has not been set.');
+        }
+
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param array<string,\PAYJPV2\Model\MetadataValue> $metadata メタデータ
+     *
+     * @return self
+     */
+    public function setMetadata(array $metadata): self
+    {
+        if (is_null($metadata)) {
+            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+        }
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt(): \DateTime
+    {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
+        return $this->container['createdAt'];
+    }
+
+    /**
+     * Sets createdAt
+     *
+     * @param \DateTime $createdAt 作成日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setCreatedAt(\DateTime $createdAt): self
+    {
+        if (is_null($createdAt)) {
+            throw new \InvalidArgumentException('non-nullable createdAt cannot be null');
+        }
+        $this->container['createdAt'] = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt(): \DateTime
+    {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
+        return $this->container['updatedAt'];
+    }
+
+    /**
+     * Sets updatedAt
+     *
+     * @param \DateTime $updatedAt 更新日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setUpdatedAt(\DateTime $updatedAt): self
+    {
+        if (is_null($updatedAt)) {
+            throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
+        }
+        $this->container['updatedAt'] = $updatedAt;
 
         return $this;
     }
