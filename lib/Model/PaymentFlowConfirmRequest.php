@@ -91,7 +91,7 @@ class PaymentFlowConfirmRequest implements ModelInterface, ArrayAccess, \JsonSer
         'paymentMethodId' => false,
         'paymentMethodOptions' => false,
         'paymentMethodTypes' => false,
-        'captureMethod' => false,
+        'captureMethod' => true,
         'returnUrl' => false,
         'description' => false,
     ];
@@ -419,14 +419,21 @@ class PaymentFlowConfirmRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets captureMethod
      *
-     * @param \PAYJPV2\Model\CaptureMethod|null $captureMethod 支払いの確定方法を指定します。  | 値 | |:---| | **automatic**: (デフォルト) 顧客が支払いを承認すると、自動的に確定させます。 | | **manual**: 顧客が支払いを承認すると一旦確定を保留し、後で Payment Flow の Capture API を使用して確定します。（すべての支払い方法がこれをサポートしているわけではありません）。 |
+     * @param \PAYJPV2\Model\CaptureMethod|null $captureMethod captureMethod
      *
      * @return self
      */
     public function setCaptureMethod(?\PAYJPV2\Model\CaptureMethod $captureMethod): self
     {
         if (is_null($captureMethod)) {
-            throw new \InvalidArgumentException('non-nullable captureMethod cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'captureMethod');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('captureMethod', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['captureMethod'] = $captureMethod;
 
@@ -473,7 +480,7 @@ class PaymentFlowConfirmRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets description
      *
-     * @param string|null $description オブジェクトにセットする任意の文字列。ユーザーには表示されません。
+     * @param string|null $description オブジェクトにセットする任意の文字列。
      *
      * @return self
      */

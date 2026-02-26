@@ -101,7 +101,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'payjp/payjpv2 PHPBindings/1.0.5';
+    protected $userAgent = 'payjp/payjpv2 PHPBindings/1.0.6';
 
     /**
      * Debug switch (default set to false)
@@ -339,7 +339,7 @@ class Configuration
     public static function buildClientUserAgent(): string
     {
         $uaInfo = [
-            'bindings_version' => '1.0.5',
+            'bindings_version' => '1.0.6',
             'lang' => 'php',
             'lang_version' => PHP_VERSION,
             'publisher' => 'payjp',
@@ -458,7 +458,7 @@ class Configuration
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    The version of the OpenAPI document: 2.0.0' . PHP_EOL;
-        $report .= '    SDK Package Version: 1.0.5' . PHP_EOL;
+        $report .= '    SDK Package Version: 1.0.6' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;

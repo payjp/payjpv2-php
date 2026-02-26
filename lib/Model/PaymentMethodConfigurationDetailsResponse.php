@@ -65,6 +65,7 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
         'name' => 'string',
         'paypay' => '\PAYJPV2\Model\PaymentMethodConfigurationSettingResponse',
         'card' => '\PAYJPV2\Model\PaymentMethodConfigurationSettingResponse',
+        'applePay' => '\PAYJPV2\Model\PaymentMethodConfigurationSettingResponse',
     ];
 
     /**
@@ -82,6 +83,7 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
         'name' => null,
         'paypay' => null,
         'card' => null,
+        'applePay' => null,
     ];
 
     /**
@@ -97,6 +99,7 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
         'name' => true,
         'paypay' => false,
         'card' => false,
+        'applePay' => false,
     ];
 
     /**
@@ -192,6 +195,7 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
         'name' => 'name',
         'paypay' => 'paypay',
         'card' => 'card',
+        'applePay' => 'apple_pay',
     ];
 
     /**
@@ -207,6 +211,7 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
         'name' => 'setName',
         'paypay' => 'setPaypay',
         'card' => 'setCard',
+        'applePay' => 'setApplePay',
     ];
 
     /**
@@ -222,6 +227,7 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
         'name' => 'getName',
         'paypay' => 'getPaypay',
         'card' => 'getCard',
+        'applePay' => 'getApplePay',
     ];
 
     /**
@@ -301,6 +307,7 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('paypay', $data ?? [], null);
         $this->setIfExists('card', $data ?? [], null);
+        $this->setIfExists('applePay', $data ?? [], null);
     }
 
     /**
@@ -356,6 +363,9 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
         }
         if ($this->container['card'] === null) {
             $invalidProperties[] = "'card' can't be null";
+        }
+        if ($this->container['applePay'] === null) {
+            $invalidProperties[] = "'applePay' can't be null";
         }
 
         return $invalidProperties;
@@ -595,6 +605,37 @@ class PaymentMethodConfigurationDetailsResponse implements ModelInterface, Array
             throw new \InvalidArgumentException('non-nullable card cannot be null');
         }
         $this->container['card'] = $card;
+
+        return $this;
+    }
+
+    /**
+     * Gets applePay
+     *
+     * @return \PAYJPV2\Model\PaymentMethodConfigurationSettingResponse
+     */
+    public function getApplePay(): \PAYJPV2\Model\PaymentMethodConfigurationSettingResponse
+    {
+        if ($this->container['applePay'] === null) {
+            throw new \LogicException('Property "applePay" is required but has not been set.');
+        }
+
+        return $this->container['applePay'];
+    }
+
+    /**
+     * Sets applePay
+     *
+     * @param \PAYJPV2\Model\PaymentMethodConfigurationSettingResponse $applePay Apple Pay の設定
+     *
+     * @return self
+     */
+    public function setApplePay(\PAYJPV2\Model\PaymentMethodConfigurationSettingResponse $applePay): self
+    {
+        if (is_null($applePay)) {
+            throw new \InvalidArgumentException('non-nullable applePay cannot be null');
+        }
+        $this->container['applePay'] = $applePay;
 
         return $this;
     }

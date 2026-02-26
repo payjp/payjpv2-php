@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PaymentFlowCancelRequest
+ * ApplePayConfigRequest
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use ArrayAccess;
 use PAYJPV2\ObjectSerializer;
 
 /**
- * PaymentFlowCancelRequest Class Doc Comment
+ * ApplePayConfigRequest Class Doc Comment
  *
  * @category Class
  * @package  PAYJPV2
@@ -41,7 +41,7 @@ use PAYJPV2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PaymentFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class ApplePayConfigRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PaymentFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PaymentFlowCancelRequest';
+    protected static $openAPIModelName = 'ApplePayConfigRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class PaymentFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'cancellationReason' => 'string',
+        'displayPreference' => '\PAYJPV2\Model\DisplayPreferenceRequest',
     ];
 
     /**
@@ -69,7 +69,7 @@ class PaymentFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'cancellationReason' => null,
+        'displayPreference' => null,
     ];
 
     /**
@@ -78,7 +78,7 @@ class PaymentFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSeri
       * @var bool[]
       */
     protected static array $openAPINullables = [
-        'cancellationReason' => false,
+        'displayPreference' => true,
     ];
 
     /**
@@ -167,7 +167,7 @@ class PaymentFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'cancellationReason' => 'cancellation_reason',
+        'displayPreference' => 'display_preference',
     ];
 
     /**
@@ -176,7 +176,7 @@ class PaymentFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'cancellationReason' => 'setCancellationReason',
+        'displayPreference' => 'setDisplayPreference',
     ];
 
     /**
@@ -185,7 +185,7 @@ class PaymentFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'cancellationReason' => 'getCancellationReason',
+        'displayPreference' => 'getDisplayPreference',
     ];
 
     /**
@@ -229,25 +229,6 @@ class PaymentFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSeri
         return self::$openAPIModelName;
     }
 
-    public const CANCELLATION_REASON_DUPLICATE = 'duplicate';
-    public const CANCELLATION_REASON_FRAUDULENT = 'fraudulent';
-    public const CANCELLATION_REASON_REQUESTED_BY_CUSTOMER = 'requested_by_customer';
-    public const CANCELLATION_REASON_ABANDONED = 'abandoned';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCancellationReasonAllowableValues()
-    {
-        return [
-            self::CANCELLATION_REASON_DUPLICATE,
-            self::CANCELLATION_REASON_FRAUDULENT,
-            self::CANCELLATION_REASON_REQUESTED_BY_CUSTOMER,
-            self::CANCELLATION_REASON_ABANDONED,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -264,7 +245,7 @@ class PaymentFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('cancellationReason', $data ?? [], null);
+        $this->setIfExists('displayPreference', $data ?? [], null);
     }
 
     /**
@@ -294,15 +275,6 @@ class PaymentFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getCancellationReasonAllowableValues();
-        if (! is_null($this->container['cancellationReason']) && ! in_array($this->container['cancellationReason'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'cancellationReason', must be one of '%s'",
-                $this->container['cancellationReason'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -319,38 +291,35 @@ class PaymentFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets cancellationReason
+     * Gets displayPreference
      *
-     * @return string|null
+     * @return \PAYJPV2\Model\DisplayPreferenceRequest|null
      */
-    public function getCancellationReason(): ?string
+    public function getDisplayPreference(): ?\PAYJPV2\Model\DisplayPreferenceRequest
     {
-        return $this->container['cancellationReason'];
+        return $this->container['displayPreference'];
     }
 
     /**
-     * Sets cancellationReason
+     * Sets displayPreference
      *
-     * @param string|null $cancellationReason この PaymentFlow のキャンセル理由 | 値 | |:---| | **duplicate**: 重複した支払いである場合。 | | **fraudulent**: 不正な利用だと考えられる場合。 | | **requested_by_customer**: 顧客がキャンセルを要求した場合。 | | **abandoned**: 顧客が支払いを完了しなかった場合。 |
+     * @param \PAYJPV2\Model\DisplayPreferenceRequest|null $displayPreference displayPreference
      *
      * @return self
      */
-    public function setCancellationReason(?string $cancellationReason): self
+    public function setDisplayPreference(?\PAYJPV2\Model\DisplayPreferenceRequest $displayPreference): self
     {
-        if (is_null($cancellationReason)) {
-            throw new \InvalidArgumentException('non-nullable cancellationReason cannot be null');
+        if (is_null($displayPreference)) {
+            array_push($this->openAPINullablesSetToNull, 'displayPreference');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('displayPreference', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $allowedValues = $this->getCancellationReasonAllowableValues();
-        if (! in_array($cancellationReason, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'cancellationReason', must be one of '%s'",
-                    $cancellationReason,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['cancellationReason'] = $cancellationReason;
+        $this->container['displayPreference'] = $displayPreference;
 
         return $this;
     }

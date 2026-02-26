@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **name** | **string** |  |
 **paypay** | [**\PAYJPV2\Model\PaymentMethodConfigurationSettingResponse**](PaymentMethodConfigurationSettingResponse.md) | PayPay の設定 |
 **card** | [**\PAYJPV2\Model\PaymentMethodConfigurationSettingResponse**](PaymentMethodConfigurationSettingResponse.md) | カードの設定 |
+**applePay** | [**\PAYJPV2\Model\PaymentMethodConfigurationSettingResponse**](PaymentMethodConfigurationSettingResponse.md) | Apple Pay の設定 |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
