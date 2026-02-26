@@ -62,6 +62,7 @@ class PaymentMethodConfigurationUpdateRequest implements ModelInterface, ArrayAc
         'name' => 'string',
         'card' => '\PAYJPV2\Model\CardConfigRequest',
         'paypay' => '\PAYJPV2\Model\PayPayConfigRequest',
+        'applePay' => '\PAYJPV2\Model\ApplePayConfigRequest',
     ];
 
     /**
@@ -76,6 +77,7 @@ class PaymentMethodConfigurationUpdateRequest implements ModelInterface, ArrayAc
         'name' => null,
         'card' => null,
         'paypay' => null,
+        'applePay' => null,
     ];
 
     /**
@@ -88,6 +90,7 @@ class PaymentMethodConfigurationUpdateRequest implements ModelInterface, ArrayAc
         'name' => true,
         'card' => true,
         'paypay' => true,
+        'applePay' => true,
     ];
 
     /**
@@ -180,6 +183,7 @@ class PaymentMethodConfigurationUpdateRequest implements ModelInterface, ArrayAc
         'name' => 'name',
         'card' => 'card',
         'paypay' => 'paypay',
+        'applePay' => 'apple_pay',
     ];
 
     /**
@@ -192,6 +196,7 @@ class PaymentMethodConfigurationUpdateRequest implements ModelInterface, ArrayAc
         'name' => 'setName',
         'card' => 'setCard',
         'paypay' => 'setPaypay',
+        'applePay' => 'setApplePay',
     ];
 
     /**
@@ -204,6 +209,7 @@ class PaymentMethodConfigurationUpdateRequest implements ModelInterface, ArrayAc
         'name' => 'getName',
         'card' => 'getCard',
         'paypay' => 'getPaypay',
+        'applePay' => 'getApplePay',
     ];
 
     /**
@@ -267,6 +273,7 @@ class PaymentMethodConfigurationUpdateRequest implements ModelInterface, ArrayAc
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('card', $data ?? [], null);
         $this->setIfExists('paypay', $data ?? [], null);
+        $this->setIfExists('applePay', $data ?? [], null);
     }
 
     /**
@@ -443,6 +450,40 @@ class PaymentMethodConfigurationUpdateRequest implements ModelInterface, ArrayAc
             }
         }
         $this->container['paypay'] = $paypay;
+
+        return $this;
+    }
+
+    /**
+     * Gets applePay
+     *
+     * @return \PAYJPV2\Model\ApplePayConfigRequest|null
+     */
+    public function getApplePay(): ?\PAYJPV2\Model\ApplePayConfigRequest
+    {
+        return $this->container['applePay'];
+    }
+
+    /**
+     * Sets applePay
+     *
+     * @param \PAYJPV2\Model\ApplePayConfigRequest|null $applePay applePay
+     *
+     * @return self
+     */
+    public function setApplePay(?\PAYJPV2\Model\ApplePayConfigRequest $applePay): self
+    {
+        if (is_null($applePay)) {
+            array_push($this->openAPINullablesSetToNull, 'applePay');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('applePay', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['applePay'] = $applePay;
 
         return $this;
     }

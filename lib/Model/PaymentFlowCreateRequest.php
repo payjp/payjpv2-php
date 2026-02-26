@@ -647,7 +647,7 @@ class PaymentFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets description
      *
-     * @param string|null $description オブジェクトにセットする任意の文字列。ユーザーには表示されません。
+     * @param string|null $description オブジェクトにセットする任意の文字列。
      *
      * @return self
      */

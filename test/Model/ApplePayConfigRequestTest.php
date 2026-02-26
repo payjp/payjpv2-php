@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PaymentFlowDataRequestTest
+ * ApplePayConfigRequestTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace PAYJPV2\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * PaymentFlowDataRequestTest Class Doc Comment
+ * ApplePayConfigRequestTest Class Doc Comment
  *
  * @category    Class
- * @description PaymentFlowDataRequest
+ * @description ApplePayConfigRequest
  * @package     PAYJPV2
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class PaymentFlowDataRequestTest extends TestCase
+class ApplePayConfigRequestTest extends TestCase
 {
     /**
      * Setup before running any test case
@@ -71,36 +71,18 @@ class PaymentFlowDataRequestTest extends TestCase
     }
 
     /**
-     * Test "PaymentFlowDataRequest"
+     * Test "ApplePayConfigRequest"
      */
-    public function testPaymentFlowDataRequest()
+    public function testApplePayConfigRequest()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "captureMethod"
+     * Test attribute "displayPreference"
      */
-    public function testPropertyCaptureMethod()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "description"
-     */
-    public function testPropertyDescription()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "metadata"
-     */
-    public function testPropertyMetadata()
+    public function testPropertyDisplayPreference()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

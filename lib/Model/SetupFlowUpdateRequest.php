@@ -434,7 +434,7 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets description
      *
-     * @param string|null $description 説明。顧客に表示されます。
+     * @param string|null $description 説明。
      *
      * @return self
      */

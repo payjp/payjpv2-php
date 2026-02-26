@@ -80,6 +80,15 @@ class SetupFlowDataRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "metadata"
      */
     public function testPropertyMetadata()

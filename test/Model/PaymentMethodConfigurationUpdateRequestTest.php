@@ -114,4 +114,13 @@ class PaymentMethodConfigurationUpdateRequestTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "applePay"
+     */
+    public function testPropertyApplePay()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

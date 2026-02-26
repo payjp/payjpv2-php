@@ -299,8 +299,8 @@ class PaymentRefundCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
         if ($this->container['paymentFlowId'] === null) {
             $invalidProperties[] = "'paymentFlowId' can't be null";
         }
-        if (! is_null($this->container['amount']) && ($this->container['amount'] < 0)) {
-            $invalidProperties[] = "invalid value for 'amount', must be bigger than or equal to 0.";
+        if (! is_null($this->container['amount']) && ($this->container['amount'] < 1)) {
+            $invalidProperties[] = "invalid value for 'amount', must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -372,8 +372,8 @@ class PaymentRefundCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
 
-        if (($amount < 0)) {
-            throw new \InvalidArgumentException('invalid value for $amount when calling PaymentRefundCreateRequest., must be bigger than or equal to 0.');
+        if (($amount < 1)) {
+            throw new \InvalidArgumentException('invalid value for $amount when calling PaymentRefundCreateRequest., must be bigger than or equal to 1.');
         }
 
         $this->container['amount'] = $amount;

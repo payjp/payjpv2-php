@@ -58,6 +58,7 @@ class SetupFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
+        'description' => 'string',
         'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
     ];
 
@@ -69,6 +70,7 @@ class SetupFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'description' => null,
         'metadata' => null,
     ];
 
@@ -78,6 +80,7 @@ class SetupFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var bool[]
       */
     protected static array $openAPINullables = [
+        'description' => true,
         'metadata' => false,
     ];
 
@@ -167,6 +170,7 @@ class SetupFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
+        'description' => 'description',
         'metadata' => 'metadata',
     ];
 
@@ -176,6 +180,7 @@ class SetupFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
+        'description' => 'setDescription',
         'metadata' => 'setMetadata',
     ];
 
@@ -185,6 +190,7 @@ class SetupFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
+        'description' => 'getDescription',
         'metadata' => 'getMetadata',
     ];
 
@@ -245,6 +251,7 @@ class SetupFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
     }
 
@@ -289,6 +296,40 @@ class SetupFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription(): ?string
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description description
+     *
+     * @return self
+     */
+    public function setDescription(?string $description): self
+    {
+        if (is_null($description)) {
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['description'] = $description;
+
+        return $this;
+    }
 
     /**
      * Gets metadata

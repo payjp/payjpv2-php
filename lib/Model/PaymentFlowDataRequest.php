@@ -59,6 +59,7 @@ class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'captureMethod' => '\PAYJPV2\Model\CaptureMethod',
+        'description' => 'string',
         'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
     ];
 
@@ -71,6 +72,7 @@ class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPIFormats = [
         'captureMethod' => null,
+        'description' => null,
         'metadata' => null,
     ];
 
@@ -81,6 +83,7 @@ class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static array $openAPINullables = [
         'captureMethod' => false,
+        'description' => true,
         'metadata' => false,
     ];
 
@@ -171,6 +174,7 @@ class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $attributeMap = [
         'captureMethod' => 'capture_method',
+        'description' => 'description',
         'metadata' => 'metadata',
     ];
 
@@ -181,6 +185,7 @@ class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $setters = [
         'captureMethod' => 'setCaptureMethod',
+        'description' => 'setDescription',
         'metadata' => 'setMetadata',
     ];
 
@@ -191,6 +196,7 @@ class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $getters = [
         'captureMethod' => 'getCaptureMethod',
+        'description' => 'getDescription',
         'metadata' => 'getMetadata',
     ];
 
@@ -252,6 +258,7 @@ class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerial
     public function __construct(?array $data = null)
     {
         $this->setIfExists('captureMethod', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
     }
 
@@ -320,6 +327,40 @@ class PaymentFlowDataRequest implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable captureMethod cannot be null');
         }
         $this->container['captureMethod'] = $captureMethod;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription(): ?string
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description description
+     *
+     * @return self
+     */
+    public function setDescription(?string $description): self
+    {
+        if (is_null($description)) {
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['description'] = $description;
 
         return $this;
     }
