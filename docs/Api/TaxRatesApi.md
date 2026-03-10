@@ -76,7 +76,7 @@ try {
 ## `getAllTaxRates()`
 
 ```php
-getAllTaxRates($limit, $startingAfter, $endingBefore): \PAYJPV2\Model\TaxRateListResponse
+getAllTaxRates($limit, $startingAfter, $endingBefore, $active, $inclusive): \PAYJPV2\Model\TaxRateListResponse
 ```
 
 Get All Tax Rates
@@ -106,9 +106,11 @@ $apiInstance = new PAYJPV2\Api\TaxRatesApi(
 $limit = 10; // int | 取得するデータの最大件数
 $startingAfter = 'startingAfter_example'; // string | このIDより後のデータを取得
 $endingBefore = 'endingBefore_example'; // string | このIDより前のデータを取得
+$active = True; // bool | この税率が有効であるかどうか。無効にした場合でも、すでに設定されている定期課金などでは使用可能です。
+$inclusive = True; // bool | 税込みかどうか。税込 = `true` 税抜 = `false`
 
 try {
-    $result = $apiInstance->getAllTaxRates($limit, $startingAfter, $endingBefore);
+    $result = $apiInstance->getAllTaxRates($limit, $startingAfter, $endingBefore, $active, $inclusive);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaxRatesApi->getAllTaxRates: ', $e->getMessage(), PHP_EOL;
@@ -122,6 +124,8 @@ try {
 | **limit** | **int**| 取得するデータの最大件数 | [optional] [default to 10] |
 | **startingAfter** | **string**| このIDより後のデータを取得 | [optional] |
 | **endingBefore** | **string**| このIDより前のデータを取得 | [optional] |
+| **active** | **bool**| この税率が有効であるかどうか。無効にした場合でも、すでに設定されている定期課金などでは使用可能です。 | [optional] |
+| **inclusive** | **bool**| 税込みかどうか。税込 &#x3D; &#x60;true&#x60; 税抜 &#x3D; &#x60;false&#x60; | [optional] |
 
 ### Return type
 

@@ -98,6 +98,15 @@ class ProductDetailsResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "livemode"
+     */
+    public function testPropertyLivemode()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "name"
      */
     public function testPropertyName()
@@ -146,6 +155,24 @@ class ProductDetailsResponseTest extends TestCase
      * Test attribute "url"
      */
     public function testPropertyUrl()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "createdAt"
+     */
+    public function testPropertyCreatedAt()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "updatedAt"
+     */
+    public function testPropertyUpdatedAt()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
