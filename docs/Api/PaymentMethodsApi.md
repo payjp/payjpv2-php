@@ -86,6 +86,8 @@ createPaymentMethod($paymentMethodCreateRequest): \PAYJPV2\Model\PaymentMethodRe
 
 Create Payment Method
 
+**このエンドポイントはテストモードでのみ使用できます。**
+
 ### Example
 
 ```php

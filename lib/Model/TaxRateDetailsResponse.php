@@ -60,12 +60,15 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPITypes = [
         'object' => 'string',
         'id' => 'string',
+        'livemode' => 'bool',
         'displayName' => 'string',
         'inclusive' => 'bool',
         'percentage' => 'float',
         'active' => 'bool',
         'country' => '\PAYJPV2\Model\Country',
         'description' => 'string',
+        'createdAt' => '\DateTime',
+        'updatedAt' => '\DateTime',
         'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
     ];
 
@@ -79,12 +82,15 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPIFormats = [
         'object' => null,
         'id' => null,
+        'livemode' => null,
         'displayName' => null,
         'inclusive' => null,
         'percentage' => null,
         'active' => null,
         'country' => null,
         'description' => null,
+        'createdAt' => 'date-time',
+        'updatedAt' => 'date-time',
         'metadata' => null,
     ];
 
@@ -96,12 +102,15 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static array $openAPINullables = [
         'object' => false,
         'id' => false,
+        'livemode' => false,
         'displayName' => false,
         'inclusive' => false,
         'percentage' => false,
         'active' => false,
         'country' => true,
         'description' => true,
+        'createdAt' => false,
+        'updatedAt' => false,
         'metadata' => false,
     ];
 
@@ -193,12 +202,15 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $attributeMap = [
         'object' => 'object',
         'id' => 'id',
+        'livemode' => 'livemode',
         'displayName' => 'display_name',
         'inclusive' => 'inclusive',
         'percentage' => 'percentage',
         'active' => 'active',
         'country' => 'country',
         'description' => 'description',
+        'createdAt' => 'created_at',
+        'updatedAt' => 'updated_at',
         'metadata' => 'metadata',
     ];
 
@@ -210,12 +222,15 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $setters = [
         'object' => 'setObject',
         'id' => 'setId',
+        'livemode' => 'setLivemode',
         'displayName' => 'setDisplayName',
         'inclusive' => 'setInclusive',
         'percentage' => 'setPercentage',
         'active' => 'setActive',
         'country' => 'setCountry',
         'description' => 'setDescription',
+        'createdAt' => 'setCreatedAt',
+        'updatedAt' => 'setUpdatedAt',
         'metadata' => 'setMetadata',
     ];
 
@@ -227,12 +242,15 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $getters = [
         'object' => 'getObject',
         'id' => 'getId',
+        'livemode' => 'getLivemode',
         'displayName' => 'getDisplayName',
         'inclusive' => 'getInclusive',
         'percentage' => 'getPercentage',
         'active' => 'getActive',
         'country' => 'getCountry',
         'description' => 'getDescription',
+        'createdAt' => 'getCreatedAt',
+        'updatedAt' => 'getUpdatedAt',
         'metadata' => 'getMetadata',
     ];
 
@@ -308,12 +326,15 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $this->setIfExists('object', $data ?? [], 'tax_rate');
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('livemode', $data ?? [], null);
         $this->setIfExists('displayName', $data ?? [], null);
         $this->setIfExists('inclusive', $data ?? [], null);
         $this->setIfExists('percentage', $data ?? [], null);
         $this->setIfExists('active', $data ?? [], null);
         $this->setIfExists('country', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('createdAt', $data ?? [], null);
+        $this->setIfExists('updatedAt', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
     }
 
@@ -356,6 +377,9 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
+        if ($this->container['livemode'] === null) {
+            $invalidProperties[] = "'livemode' can't be null";
+        }
         if ($this->container['displayName'] === null) {
             $invalidProperties[] = "'displayName' can't be null";
         }
@@ -373,6 +397,12 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
         }
         if ($this->container['description'] === null) {
             $invalidProperties[] = "'description' can't be null";
+        }
+        if ($this->container['createdAt'] === null) {
+            $invalidProperties[] = "'createdAt' can't be null";
+        }
+        if ($this->container['updatedAt'] === null) {
+            $invalidProperties[] = "'updatedAt' can't be null";
         }
         if ($this->container['metadata'] === null) {
             $invalidProperties[] = "'metadata' can't be null";
@@ -457,6 +487,37 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets livemode
+     *
+     * @return bool
+     */
+    public function getLivemode(): bool
+    {
+        if ($this->container['livemode'] === null) {
+            throw new \LogicException('Property "livemode" is required but has not been set.');
+        }
+
+        return $this->container['livemode'];
+    }
+
+    /**
+     * Sets livemode
+     *
+     * @param bool $livemode 本番環境かどうか
+     *
+     * @return self
+     */
+    public function setLivemode(bool $livemode): self
+    {
+        if (is_null($livemode)) {
+            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
+        }
+        $this->container['livemode'] = $livemode;
 
         return $this;
     }
@@ -649,6 +710,68 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
             }
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt(): \DateTime
+    {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
+        return $this->container['createdAt'];
+    }
+
+    /**
+     * Sets createdAt
+     *
+     * @param \DateTime $createdAt 作成日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setCreatedAt(\DateTime $createdAt): self
+    {
+        if (is_null($createdAt)) {
+            throw new \InvalidArgumentException('non-nullable createdAt cannot be null');
+        }
+        $this->container['createdAt'] = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt(): \DateTime
+    {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
+        return $this->container['updatedAt'];
+    }
+
+    /**
+     * Sets updatedAt
+     *
+     * @param \DateTime $updatedAt 更新日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setUpdatedAt(\DateTime $updatedAt): self
+    {
+        if (is_null($updatedAt)) {
+            throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
+        }
+        $this->container['updatedAt'] = $updatedAt;
 
         return $this;
     }

@@ -98,6 +98,15 @@ class TaxRateDetailsResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "livemode"
+     */
+    public function testPropertyLivemode()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "displayName"
      */
     public function testPropertyDisplayName()
@@ -146,6 +155,24 @@ class TaxRateDetailsResponseTest extends TestCase
      * Test attribute "description"
      */
     public function testPropertyDescription()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "createdAt"
+     */
+    public function testPropertyCreatedAt()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "updatedAt"
+     */
+    public function testPropertyUpdatedAt()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

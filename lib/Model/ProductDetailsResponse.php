@@ -60,12 +60,15 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPITypes = [
         'object' => 'string',
         'id' => 'string',
+        'livemode' => 'bool',
         'name' => 'string',
         'active' => 'bool',
         'defaultPriceId' => 'string',
         'description' => 'string',
         'unitLabel' => 'string',
         'url' => 'string',
+        'createdAt' => '\DateTime',
+        'updatedAt' => '\DateTime',
     ];
 
     /**
@@ -78,12 +81,15 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPIFormats = [
         'object' => null,
         'id' => null,
+        'livemode' => null,
         'name' => null,
         'active' => null,
         'defaultPriceId' => null,
         'description' => null,
         'unitLabel' => null,
         'url' => null,
+        'createdAt' => 'date-time',
+        'updatedAt' => 'date-time',
     ];
 
     /**
@@ -94,12 +100,15 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static array $openAPINullables = [
         'object' => false,
         'id' => false,
+        'livemode' => false,
         'name' => false,
         'active' => false,
         'defaultPriceId' => true,
         'description' => true,
         'unitLabel' => true,
         'url' => true,
+        'createdAt' => false,
+        'updatedAt' => false,
     ];
 
     /**
@@ -190,12 +199,15 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $attributeMap = [
         'object' => 'object',
         'id' => 'id',
+        'livemode' => 'livemode',
         'name' => 'name',
         'active' => 'active',
         'defaultPriceId' => 'default_price_id',
         'description' => 'description',
         'unitLabel' => 'unit_label',
         'url' => 'url',
+        'createdAt' => 'created_at',
+        'updatedAt' => 'updated_at',
     ];
 
     /**
@@ -206,12 +218,15 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $setters = [
         'object' => 'setObject',
         'id' => 'setId',
+        'livemode' => 'setLivemode',
         'name' => 'setName',
         'active' => 'setActive',
         'defaultPriceId' => 'setDefaultPriceId',
         'description' => 'setDescription',
         'unitLabel' => 'setUnitLabel',
         'url' => 'setUrl',
+        'createdAt' => 'setCreatedAt',
+        'updatedAt' => 'setUpdatedAt',
     ];
 
     /**
@@ -222,12 +237,15 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $getters = [
         'object' => 'getObject',
         'id' => 'getId',
+        'livemode' => 'getLivemode',
         'name' => 'getName',
         'active' => 'getActive',
         'defaultPriceId' => 'getDefaultPriceId',
         'description' => 'getDescription',
         'unitLabel' => 'getUnitLabel',
         'url' => 'getUrl',
+        'createdAt' => 'getCreatedAt',
+        'updatedAt' => 'getUpdatedAt',
     ];
 
     /**
@@ -302,12 +320,15 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $this->setIfExists('object', $data ?? [], 'product');
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('livemode', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('active', $data ?? [], null);
         $this->setIfExists('defaultPriceId', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('unitLabel', $data ?? [], null);
         $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('createdAt', $data ?? [], null);
+        $this->setIfExists('updatedAt', $data ?? [], null);
     }
 
     /**
@@ -349,6 +370,9 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
+        if ($this->container['livemode'] === null) {
+            $invalidProperties[] = "'livemode' can't be null";
+        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
@@ -366,6 +390,12 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
         }
         if ($this->container['url'] === null) {
             $invalidProperties[] = "'url' can't be null";
+        }
+        if ($this->container['createdAt'] === null) {
+            $invalidProperties[] = "'createdAt' can't be null";
+        }
+        if ($this->container['updatedAt'] === null) {
+            $invalidProperties[] = "'updatedAt' can't be null";
         }
 
         return $invalidProperties;
@@ -447,6 +477,37 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets livemode
+     *
+     * @return bool
+     */
+    public function getLivemode(): bool
+    {
+        if ($this->container['livemode'] === null) {
+            throw new \LogicException('Property "livemode" is required but has not been set.');
+        }
+
+        return $this->container['livemode'];
+    }
+
+    /**
+     * Sets livemode
+     *
+     * @param bool $livemode 本番環境かどうか
+     *
+     * @return self
+     */
+    public function setLivemode(bool $livemode): self
+    {
+        if (is_null($livemode)) {
+            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
+        }
+        $this->container['livemode'] = $livemode;
 
         return $this;
     }
@@ -645,6 +706,68 @@ class ProductDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
             }
         }
         $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt(): \DateTime
+    {
+        if ($this->container['createdAt'] === null) {
+            throw new \LogicException('Property "createdAt" is required but has not been set.');
+        }
+
+        return $this->container['createdAt'];
+    }
+
+    /**
+     * Sets createdAt
+     *
+     * @param \DateTime $createdAt 作成日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setCreatedAt(\DateTime $createdAt): self
+    {
+        if (is_null($createdAt)) {
+            throw new \InvalidArgumentException('non-nullable createdAt cannot be null');
+        }
+        $this->container['createdAt'] = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt(): \DateTime
+    {
+        if ($this->container['updatedAt'] === null) {
+            throw new \LogicException('Property "updatedAt" is required but has not been set.');
+        }
+
+        return $this->container['updatedAt'];
+    }
+
+    /**
+     * Sets updatedAt
+     *
+     * @param \DateTime $updatedAt 更新日時 (UTC, ISO 8601 形式)
+     *
+     * @return self
+     */
+    public function setUpdatedAt(\DateTime $updatedAt): self
+    {
+        if (is_null($updatedAt)) {
+            throw new \InvalidArgumentException('non-nullable updatedAt cannot be null');
+        }
+        $this->container['updatedAt'] = $updatedAt;
 
         return $this;
     }

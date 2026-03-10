@@ -443,15 +443,17 @@ class TaxRatesApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
+     * @param  bool|null $active この税率が有効であるかどうか。無効にした場合でも、すでに設定されている定期課金などでは使用可能です。 (optional)
+     * @param  bool|null $inclusive 税込みかどうか。税込 &#x3D; &#x60;true&#x60; 税抜 &#x3D; &#x60;false&#x60; (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PAYJPV2\Model\TaxRateListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
-    public function getAllTaxRates($limit = 10, $startingAfter = null, $endingBefore = null, ?string $idempotencyKey = null)
+    public function getAllTaxRates($limit = 10, $startingAfter = null, $endingBefore = null, $active = null, $inclusive = null, ?string $idempotencyKey = null)
     {
-        list($response) = $this->getAllTaxRatesWithHttpInfo($limit, $startingAfter, $endingBefore, $idempotencyKey);
+        list($response) = $this->getAllTaxRatesWithHttpInfo($limit, $startingAfter, $endingBefore, $active, $inclusive, $idempotencyKey);
 
         return $response;
     }
@@ -464,15 +466,17 @@ class TaxRatesApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
+     * @param  bool|null $active この税率が有効であるかどうか。無効にした場合でも、すでに設定されている定期課金などでは使用可能です。 (optional)
+     * @param  bool|null $inclusive 税込みかどうか。税込 &#x3D; &#x60;true&#x60; 税抜 &#x3D; &#x60;false&#x60; (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PAYJPV2\Model\TaxRateListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllTaxRatesWithHttpInfo($limit = 10, $startingAfter = null, $endingBefore = null, ?string $idempotencyKey = null)
+    public function getAllTaxRatesWithHttpInfo($limit = 10, $startingAfter = null, $endingBefore = null, $active = null, $inclusive = null, ?string $idempotencyKey = null)
     {
-        $request = $this->getAllTaxRatesRequest($limit, $startingAfter, $endingBefore, $idempotencyKey);
+        $request = $this->getAllTaxRatesRequest($limit, $startingAfter, $endingBefore, $active, $inclusive, $idempotencyKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -583,14 +587,16 @@ class TaxRatesApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
+     * @param  bool|null $active この税率が有効であるかどうか。無効にした場合でも、すでに設定されている定期課金などでは使用可能です。 (optional)
+     * @param  bool|null $inclusive 税込みかどうか。税込 &#x3D; &#x60;true&#x60; 税抜 &#x3D; &#x60;false&#x60; (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllTaxRatesAsync($limit = 10, $startingAfter = null, $endingBefore = null, ?string $idempotencyKey = null)
+    public function getAllTaxRatesAsync($limit = 10, $startingAfter = null, $endingBefore = null, $active = null, $inclusive = null, ?string $idempotencyKey = null)
     {
-        return $this->getAllTaxRatesAsyncWithHttpInfo($limit, $startingAfter, $endingBefore, $idempotencyKey)
+        return $this->getAllTaxRatesAsyncWithHttpInfo($limit, $startingAfter, $endingBefore, $active, $inclusive, $idempotencyKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -606,15 +612,17 @@ class TaxRatesApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
+     * @param  bool|null $active この税率が有効であるかどうか。無効にした場合でも、すでに設定されている定期課金などでは使用可能です。 (optional)
+     * @param  bool|null $inclusive 税込みかどうか。税込 &#x3D; &#x60;true&#x60; 税抜 &#x3D; &#x60;false&#x60; (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllTaxRatesAsyncWithHttpInfo($limit = 10, $startingAfter = null, $endingBefore = null, ?string $idempotencyKey = null)
+    public function getAllTaxRatesAsyncWithHttpInfo($limit = 10, $startingAfter = null, $endingBefore = null, $active = null, $inclusive = null, ?string $idempotencyKey = null)
     {
         $returnType = '\PAYJPV2\Model\TaxRateListResponse';
-        $request = $this->getAllTaxRatesRequest($limit, $startingAfter, $endingBefore, $idempotencyKey);
+        $request = $this->getAllTaxRatesRequest($limit, $startingAfter, $endingBefore, $active, $inclusive, $idempotencyKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -659,12 +667,14 @@ class TaxRatesApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
+     * @param  bool|null $active この税率が有効であるかどうか。無効にした場合でも、すでに設定されている定期課金などでは使用可能です。 (optional)
+     * @param  bool|null $inclusive 税込みかどうか。税込 &#x3D; &#x60;true&#x60; 税抜 &#x3D; &#x60;false&#x60; (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAllTaxRatesRequest($limit = 10, $startingAfter = null, $endingBefore = null, ?string $idempotencyKey = null)
+    public function getAllTaxRatesRequest($limit = 10, $startingAfter = null, $endingBefore = null, $active = null, $inclusive = null, ?string $idempotencyKey = null)
     {
 
         if ($limit !== null && $limit > 100) {
@@ -673,6 +683,8 @@ class TaxRatesApi
         if ($limit !== null && $limit < 1) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling TaxRatesApi.getAllTaxRates, must be bigger than or equal to 1.');
         }
+
+
 
 
 
@@ -712,6 +724,24 @@ class TaxRatesApi
             $endingBefore,
             'ending_before', // param base name
             'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $active,
+            'active', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $inclusive,
+            'inclusive', // param base name
+            'boolean', // openApiType
             'form', // style
             true, // explode
             false // required
