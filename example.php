@@ -25,6 +25,7 @@ try {
     $createRequest = new \PAYJPV2\Model\CustomerCreateRequest();
     $createRequest->setEmail('test@example.com');
     $createRequest->setDescription('Test customer from PHP SDK');
+    $createRequest->setMetadata(['key1' => 'value1', 'key2' => 123, 'key3' => true]);
 
     $idempotencyKey = str_replace('.', '_', uniqid('', true));
     echo "Using Idempotency-Key: " . $idempotencyKey . "\n";
@@ -32,25 +33,29 @@ try {
     $customer = $customersApi->createCustomer($createRequest, idempotencyKey: $idempotencyKey);
     $customerId = $customer->getId();
     echo "Created customer: " . $customerId . "\n";
-    echo "Email: " . $customer->getEmail() . "\n\n";
+    echo "Email: " . $customer->getEmail() . "\n";
+    echo "Metadata: " . json_encode($customer->getMetadata()) . "\n\n";
 
     // 2. Get Customer
     echo "=== 2. Get Customer ===\n";
     $retrieved = $customersApi->getCustomer($customerId);
     echo "Retrieved customer: " . $retrieved->getId() . "\n";
     echo "Email: " . $retrieved->getEmail() . "\n";
-    echo "Description: " . ($retrieved->getDescription() ?? '(none)') . "\n\n";
+    echo "Description: " . ($retrieved->getDescription() ?? '(none)') . "\n";
+    echo "Metadata: " . json_encode($retrieved->getMetadata()) . "\n\n";
 
     // 3. Update Customer
     echo "=== 3. Update Customer ===\n";
     $updateRequest = new \PAYJPV2\Model\CustomerUpdateRequest();
     $updateRequest->setDescription('Updated description from PHP SDK');
     $updateRequest->setEmail('updated@example.com');
+    $updateRequest->setMetadata(['key1' => 'updated_value', 'key4' => 456]);
 
     $updated = $customersApi->updateCustomer($customerId, $updateRequest);
     echo "Updated customer: " . $updated->getId() . "\n";
     echo "New email: " . $updated->getEmail() . "\n";
-    echo "New description: " . ($updated->getDescription() ?? '(none)') . "\n\n";
+    echo "New description: " . ($updated->getDescription() ?? '(none)') . "\n";
+    echo "Metadata: " . json_encode($updated->getMetadata()) . "\n\n";
 
     // 4. List Customers
     echo "=== 4. List Customers ===\n";

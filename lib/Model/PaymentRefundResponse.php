@@ -65,7 +65,7 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'amount' => 'int',
         'status' => '\PAYJPV2\Model\PaymentRefundStatus',
         'reason' => '\PAYJPV2\Model\PaymentRefundReason',
-        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
+        'metadata' => 'array<string,mixed>',
         'createdAt' => '\DateTime',
         'updatedAt' => '\DateTime',
     ];
@@ -632,7 +632,7 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets metadata
      *
-     * @return array<string,\PAYJPV2\Model\MetadataValue>
+     * @return array<string,mixed>
      */
     public function getMetadata(): array
     {
@@ -646,7 +646,7 @@ class PaymentRefundResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets metadata
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue> $metadata メタデータ
+     * @param array<string,mixed> $metadata メタデータ
      *
      * @return self
      */

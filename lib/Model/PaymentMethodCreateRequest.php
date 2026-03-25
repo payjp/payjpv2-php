@@ -60,7 +60,7 @@ class PaymentMethodCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPITypes = [
         'customerId' => 'string',
         'billingDetails' => '\PAYJPV2\Model\PaymentMethodBillingDetailsRequest',
-        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
+        'metadata' => 'array<string,mixed>',
         'type' => 'string',
         'card' => '\PAYJPV2\Model\PaymentMethodCreateCardDetailsRequest',
         'token' => 'string',
@@ -428,7 +428,7 @@ class PaymentMethodCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets metadata
      *
-     * @return array<string,\PAYJPV2\Model\MetadataValue>|null
+     * @return array<string,mixed>|null
      */
     public function getMetadata(): ?array
     {
@@ -438,7 +438,7 @@ class PaymentMethodCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets metadata
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
+     * @param array<string,mixed>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
      *
      * @return self
      */

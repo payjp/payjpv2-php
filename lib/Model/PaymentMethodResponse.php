@@ -64,7 +64,7 @@ class PaymentMethodResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'type' => 'string',
         'customerId' => 'string',
         'detachedAt' => '\DateTime',
-        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
+        'metadata' => 'array<string,mixed>',
         'createdAt' => '\DateTime',
         'updatedAt' => '\DateTime',
         'billingDetails' => '\PAYJPV2\Model\PaymentMethodBillingDetailsResponse',
@@ -644,7 +644,7 @@ class PaymentMethodResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets metadata
      *
-     * @return array<string,\PAYJPV2\Model\MetadataValue>
+     * @return array<string,mixed>
      */
     public function getMetadata(): array
     {
@@ -658,7 +658,7 @@ class PaymentMethodResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets metadata
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue> $metadata メタデータ
+     * @param array<string,mixed> $metadata メタデータ
      *
      * @return self
      */

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **reason** | [**\PAYJPV2\Model\PaymentDisputeReason**](PaymentDisputeReason.md) |  |
 **dueBy** | **\DateTime** |  |
 **paymentMethodType** | [**\PAYJPV2\Model\PaymentMethodTypes**](PaymentMethodTypes.md) | 支払い方法の種類 |
-**metadata** | [**array<string,\PAYJPV2\Model\MetadataValue>**](MetadataValue.md) | メタデータ |
+**metadata** | **array<string,mixed>** | メタデータ |
 **createdAt** | **\DateTime** | 作成日時 (UTC, ISO 8601 形式) |
 **updatedAt** | **\DateTime** | 更新日時 (UTC, ISO 8601 形式) |
 

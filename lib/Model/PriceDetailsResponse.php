@@ -68,7 +68,7 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'nickname' => 'string',
         'type' => '\PAYJPV2\Model\PriceType',
         'lookupKey' => 'string',
-        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
+        'metadata' => 'array<string,mixed>',
         'createdAt' => '\DateTime',
         'updatedAt' => '\DateTime',
     ];
@@ -758,7 +758,7 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets metadata
      *
-     * @return array<string,\PAYJPV2\Model\MetadataValue>
+     * @return array<string,mixed>
      */
     public function getMetadata(): array
     {
@@ -772,7 +772,7 @@ class PriceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets metadata
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue> $metadata メタデータ
+     * @param array<string,mixed> $metadata メタデータ
      *
      * @return self
      */

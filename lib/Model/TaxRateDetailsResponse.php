@@ -69,7 +69,7 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'description' => 'string',
         'createdAt' => '\DateTime',
         'updatedAt' => '\DateTime',
-        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
+        'metadata' => 'array<string,mixed>',
     ];
 
     /**
@@ -779,7 +779,7 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets metadata
      *
-     * @return array<string,\PAYJPV2\Model\MetadataValue>
+     * @return array<string,mixed>
      */
     public function getMetadata(): array
     {
@@ -793,7 +793,7 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets metadata
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue> $metadata メタデータ
+     * @param array<string,mixed> $metadata メタデータ
      *
      * @return self
      */
