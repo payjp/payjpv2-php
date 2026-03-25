@@ -64,7 +64,7 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'clientSecret' => 'string',
         'customerId' => 'string',
         'description' => 'string',
-        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
+        'metadata' => 'array<string,mixed>',
         'paymentMethodId' => 'string',
         'paymentMethodOptions' => 'array<string,mixed>',
         'paymentMethodTypes' => '\PAYJPV2\Model\PaymentMethodTypes[]',
@@ -674,7 +674,7 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets metadata
      *
-     * @return array<string,\PAYJPV2\Model\MetadataValue>
+     * @return array<string,mixed>
      */
     public function getMetadata(): array
     {
@@ -688,7 +688,7 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets metadata
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue> $metadata メタデータ
+     * @param array<string,mixed> $metadata メタデータ
      *
      * @return self
      */

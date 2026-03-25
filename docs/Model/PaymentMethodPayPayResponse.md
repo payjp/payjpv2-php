@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **type** | **string** |  |
 **customerId** | **string** |  |
 **detachedAt** | **\DateTime** |  |
-**metadata** | [**array<string,\PAYJPV2\Model\MetadataValue>**](MetadataValue.md) | メタデータ |
+**metadata** | **array<string,mixed>** | メタデータ |
 **createdAt** | **\DateTime** | 作成日時 (UTC, ISO 8601 形式) |
 **updatedAt** | **\DateTime** | 更新日時 (UTC, ISO 8601 形式) |
 **billingDetails** | [**\PAYJPV2\Model\PaymentMethodBillingDetailsResponse**](PaymentMethodBillingDetailsResponse.md) | 請求先情報 |

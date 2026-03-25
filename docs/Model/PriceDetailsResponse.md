@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **nickname** | **string** |  |
 **type** | [**\PAYJPV2\Model\PriceType**](PriceType.md) | 一度限りの購入を表す &#x60;one_time&#x60; が入ります。 |
 **lookupKey** | **string** |  |
-**metadata** | [**array<string,\PAYJPV2\Model\MetadataValue>**](MetadataValue.md) | メタデータ |
+**metadata** | **array<string,mixed>** | メタデータ |
 **createdAt** | **\DateTime** | 作成日時 (UTC, ISO 8601 形式) |
 **updatedAt** | **\DateTime** | 更新日時 (UTC, ISO 8601 形式) |
 

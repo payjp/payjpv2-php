@@ -17,14 +17,14 @@ Name | Type | Description | Notes
 **paymentMethodId** | **string** |  |
 **paymentMethodOptions** | **array<string,mixed>** |  |
 **paymentMethodTypes** | [**\PAYJPV2\Model\PaymentMethodTypes[]**](PaymentMethodTypes.md) | この PaymentFlow で使用できる支払い方法の種類のリスト |
-**status** | [**\PAYJPV2\Model\PaymentFlowStatus**](PaymentFlowStatus.md) | この PaymentFlow のステータス。&lt;a href&#x3D;\&quot;https://docs.pay.jp/v2/payment_flows#status\&quot; target&#x3D;\&quot;_blank\&quot;&gt;ステータスの詳細についてはこちらをご覧ください。&lt;/a&gt;  | 値 | |:---| | **requires_payment_method**: 支払い方法が必要です。 | | **requires_confirmation**: 確認が必要です。 | | **requires_action**: 顧客のアクションが必要です。 | | **processing**: 処理中です。 | | **requires_capture**: 確定が必要です。 | | **canceled**: キャンセルされました。 | | **succeeded**: 成功しました。 | |
+**status** | [**\PAYJPV2\Model\PaymentFlowStatus**](PaymentFlowStatus.md) | この PaymentFlow のステータス。  | 値 | |:---| | **requires_payment_method**: 支払い方法が必要です。 | | **requires_confirmation**: 確認が必要です。 | | **requires_action**: 顧客のアクションが必要です。 | | **processing**: 処理中です。 | | **requires_capture**: 確定が必要です。 | | **canceled**: キャンセルされました。 | | **succeeded**: 成功しました。 | |
 **nextAction** | **array<string,mixed>** |  |
 **returnUrl** | **string** |  |
 **captureMethod** | [**\PAYJPV2\Model\CaptureMethod**](CaptureMethod.md) | 支払いの確定方法  | 値 | |:---| | **automatic**: (デフォルト) 顧客が支払いを承認すると、自動的に確定させます。 | | **manual**: 顧客が支払いを承認すると一旦確定を保留し、後で Capture API を使用して確定します。（すべての支払い方法がこれをサポートしているわけではありません）。 | |
 **lastPaymentError** | **array<string,mixed>** |  |
 **cancellationReason** | [**\PAYJPV2\Model\PaymentFlowCancellationReason**](PaymentFlowCancellationReason.md) |  |
 **canceledAt** | **\DateTime** |  |
-**metadata** | [**array<string,\PAYJPV2\Model\MetadataValue>**](MetadataValue.md) | メタデータ |
+**metadata** | **array<string,mixed>** | メタデータ |
 **createdAt** | **\DateTime** | 作成日時 (UTC, ISO 8601 形式) |
 **updatedAt** | **\DateTime** | 更新日時 (UTC, ISO 8601 形式) |
 

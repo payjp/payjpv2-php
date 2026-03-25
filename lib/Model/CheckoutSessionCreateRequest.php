@@ -64,7 +64,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
         'customerEmail' => 'string',
         'customerCreation' => '\PAYJPV2\Model\CustomerCreation',
         'lineItems' => '\PAYJPV2\Model\LineItemRequest[]',
-        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
+        'metadata' => 'array<string,mixed>',
         'successUrl' => 'string',
         'cancelUrl' => 'string',
         'currency' => '\PAYJPV2\Model\Currency',
@@ -589,7 +589,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets metadata
      *
-     * @return array<string,\PAYJPV2\Model\MetadataValue>|null
+     * @return array<string,mixed>|null
      */
     public function getMetadata(): ?array
     {
@@ -599,7 +599,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets metadata
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
+     * @param array<string,mixed>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
      *
      * @return self
      */

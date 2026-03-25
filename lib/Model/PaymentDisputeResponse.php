@@ -68,7 +68,7 @@ class PaymentDisputeResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'reason' => '\PAYJPV2\Model\PaymentDisputeReason',
         'dueBy' => '\DateTime',
         'paymentMethodType' => '\PAYJPV2\Model\PaymentMethodTypes',
-        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
+        'metadata' => 'array<string,mixed>',
         'createdAt' => '\DateTime',
         'updatedAt' => '\DateTime',
     ];
@@ -758,7 +758,7 @@ class PaymentDisputeResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets metadata
      *
-     * @return array<string,\PAYJPV2\Model\MetadataValue>
+     * @return array<string,mixed>
      */
     public function getMetadata(): array
     {
@@ -772,7 +772,7 @@ class PaymentDisputeResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets metadata
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue> $metadata メタデータ
+     * @param array<string,mixed> $metadata メタデータ
      *
      * @return self
      */

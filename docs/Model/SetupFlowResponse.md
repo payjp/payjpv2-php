@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **clientSecret** | **string** | この SetupFlow のクライアントシークレットです。フロントエンドで公開鍵と合わせて使用し、SetupFlow の取得や支払い方法の登録処理を行います。**この値はこの SetupFlow を利用する顧客以外へ公開しないでください。 |
 **customerId** | **string** |  |
 **description** | **string** |  |
-**metadata** | [**array<string,\PAYJPV2\Model\MetadataValue>**](MetadataValue.md) | メタデータ |
+**metadata** | **array<string,mixed>** | メタデータ |
 **paymentMethodId** | **string** |  |
 **paymentMethodOptions** | **array<string,mixed>** |  |
 **paymentMethodTypes** | [**\PAYJPV2\Model\PaymentMethodTypes[]**](PaymentMethodTypes.md) | この SetupFlow で使用できる支払い方法の種類のリスト |

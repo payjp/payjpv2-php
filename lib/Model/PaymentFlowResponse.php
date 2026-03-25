@@ -78,7 +78,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'lastPaymentError' => 'array<string,mixed>',
         'cancellationReason' => '\PAYJPV2\Model\PaymentFlowCancellationReason',
         'canceledAt' => '\DateTime',
-        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
+        'metadata' => 'array<string,mixed>',
         'createdAt' => '\DateTime',
         'updatedAt' => '\DateTime',
     ];
@@ -977,7 +977,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets status
      *
-     * @param \PAYJPV2\Model\PaymentFlowStatus $status この PaymentFlow のステータス。<a href=\"https://docs.pay.jp/v2/payment_flows#status\" target=\"_blank\">ステータスの詳細についてはこちらをご覧ください。</a>  | 値 | |:---| | **requires_payment_method**: 支払い方法が必要です。 | | **requires_confirmation**: 確認が必要です。 | | **requires_action**: 顧客のアクションが必要です。 | | **processing**: 処理中です。 | | **requires_capture**: 確定が必要です。 | | **canceled**: キャンセルされました。 | | **succeeded**: 成功しました。 |
+     * @param \PAYJPV2\Model\PaymentFlowStatus $status この PaymentFlow のステータス。  | 値 | |:---| | **requires_payment_method**: 支払い方法が必要です。 | | **requires_confirmation**: 確認が必要です。 | | **requires_action**: 顧客のアクションが必要です。 | | **processing**: 処理中です。 | | **requires_capture**: 確定が必要です。 | | **canceled**: キャンセルされました。 | | **succeeded**: 成功しました。 |
      *
      * @return self
      */
@@ -1195,7 +1195,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets metadata
      *
-     * @return array<string,\PAYJPV2\Model\MetadataValue>
+     * @return array<string,mixed>
      */
     public function getMetadata(): array
     {
@@ -1209,7 +1209,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets metadata
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue> $metadata メタデータ
+     * @param array<string,mixed> $metadata メタデータ
      *
      * @return self
      */

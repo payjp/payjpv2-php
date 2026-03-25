@@ -61,7 +61,7 @@ class PaymentRefundCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
         'paymentFlowId' => 'string',
         'amount' => 'int',
         'reason' => '\PAYJPV2\Model\PaymentRefundReason',
-        'metadata' => 'array<string,\PAYJPV2\Model\MetadataValue>',
+        'metadata' => 'array<string,mixed>',
     ];
 
     /**
@@ -411,7 +411,7 @@ class PaymentRefundCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets metadata
      *
-     * @return array<string,\PAYJPV2\Model\MetadataValue>|null
+     * @return array<string,mixed>|null
      */
     public function getMetadata(): ?array
     {
@@ -421,7 +421,7 @@ class PaymentRefundCreateRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets metadata
      *
-     * @param array<string,\PAYJPV2\Model\MetadataValue>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
+     * @param array<string,mixed>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
      *
      * @return self
      */
