@@ -14,5 +14,4 @@ composer.phar
 # PHPUnit cache
 .phpunit.result.cache
 
-# Generated intermediate file
 openapi-converted.json
