@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **lastPaymentError** | **array<string,mixed>** |  |
 **cancellationReason** | [**\PAYJPV2\Model\PaymentFlowCancellationReason**](PaymentFlowCancellationReason.md) |  |
 **canceledAt** | **\DateTime** |  |
+**expiredAt** | **\DateTime** |  | [optional]
 **metadata** | **array<string,mixed>** | メタデータ |
 **createdAt** | **\DateTime** | 作成日時 (UTC, ISO 8601 形式) |
 **updatedAt** | **\DateTime** | 更新日時 (UTC, ISO 8601 形式) |

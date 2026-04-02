@@ -236,6 +236,7 @@ class CheckoutSessionPaymentMethodOptionsCardRequest implements ModelInterface, 
     }
 
     public const REQUEST_EXTENDED_AUTHORIZATION_IF_AVAILABLE = 'if_available';
+    public const REQUEST_EXTENDED_AUTHORIZATION_MUST_EXTEND = 'must_extend';
     public const REQUEST_EXTENDED_AUTHORIZATION_NEVER = 'never';
     public const REQUEST_THREE_D_SECURE_ANY = 'any';
     public const REQUEST_THREE_D_SECURE_AUTOMATIC = 'automatic';
@@ -249,6 +250,7 @@ class CheckoutSessionPaymentMethodOptionsCardRequest implements ModelInterface, 
     {
         return [
             self::REQUEST_EXTENDED_AUTHORIZATION_IF_AVAILABLE,
+            self::REQUEST_EXTENDED_AUTHORIZATION_MUST_EXTEND,
             self::REQUEST_EXTENDED_AUTHORIZATION_NEVER,
         ];
     }
@@ -358,7 +360,7 @@ class CheckoutSessionPaymentMethodOptionsCardRequest implements ModelInterface, 
     /**
      * Sets requestExtendedAuthorization
      *
-     * @param string|null $requestExtendedAuthorization オーソリ期間の延長要求  | 指定できる値 | |:---| | **if_available**: オーソリ期間の延長が可能な場合に延長要求を行います。 | | **never**: オーソリ期間の延長要求を行いません。 |
+     * @param string|null $requestExtendedAuthorization オーソリ期間の延長要求  | 指定できる値 | |:---| | **if_available**: オーソリ期間の延長が可能な場合に延長要求を行います。 | | **must_extend**: オーソリ期間の延長を必須とします。延長できない場合はエラーを返します。 | | **never**: オーソリ期間の延長要求を行いません。 |
      *
      * @return self
      */
