@@ -260,6 +260,15 @@ class PaymentFlowResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "expiredAt"
+     */
+    public function testPropertyExpiredAt()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "metadata"
      */
     public function testPropertyMetadata()

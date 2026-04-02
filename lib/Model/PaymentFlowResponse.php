@@ -78,6 +78,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'lastPaymentError' => 'array<string,mixed>',
         'cancellationReason' => '\PAYJPV2\Model\PaymentFlowCancellationReason',
         'canceledAt' => '\DateTime',
+        'expiredAt' => '\DateTime',
         'metadata' => 'array<string,mixed>',
         'createdAt' => '\DateTime',
         'updatedAt' => '\DateTime',
@@ -111,6 +112,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'lastPaymentError' => null,
         'cancellationReason' => null,
         'canceledAt' => 'date-time',
+        'expiredAt' => 'date-time',
         'metadata' => null,
         'createdAt' => 'date-time',
         'updatedAt' => 'date-time',
@@ -142,6 +144,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'lastPaymentError' => true,
         'cancellationReason' => true,
         'canceledAt' => true,
+        'expiredAt' => true,
         'metadata' => false,
         'createdAt' => false,
         'updatedAt' => false,
@@ -253,6 +256,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'lastPaymentError' => 'last_payment_error',
         'cancellationReason' => 'cancellation_reason',
         'canceledAt' => 'canceled_at',
+        'expiredAt' => 'expired_at',
         'metadata' => 'metadata',
         'createdAt' => 'created_at',
         'updatedAt' => 'updated_at',
@@ -284,6 +288,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'lastPaymentError' => 'setLastPaymentError',
         'cancellationReason' => 'setCancellationReason',
         'canceledAt' => 'setCanceledAt',
+        'expiredAt' => 'setExpiredAt',
         'metadata' => 'setMetadata',
         'createdAt' => 'setCreatedAt',
         'updatedAt' => 'setUpdatedAt',
@@ -315,6 +320,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'lastPaymentError' => 'getLastPaymentError',
         'cancellationReason' => 'getCancellationReason',
         'canceledAt' => 'getCanceledAt',
+        'expiredAt' => 'getExpiredAt',
         'metadata' => 'getMetadata',
         'createdAt' => 'getCreatedAt',
         'updatedAt' => 'getUpdatedAt',
@@ -410,6 +416,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('lastPaymentError', $data ?? [], null);
         $this->setIfExists('cancellationReason', $data ?? [], null);
         $this->setIfExists('canceledAt', $data ?? [], null);
+        $this->setIfExists('expiredAt', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('createdAt', $data ?? [], null);
         $this->setIfExists('updatedAt', $data ?? [], null);
@@ -1188,6 +1195,40 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
             }
         }
         $this->container['canceledAt'] = $canceledAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiredAt
+     *
+     * @return \DateTime|null
+     */
+    public function getExpiredAt(): ?\DateTime
+    {
+        return $this->container['expiredAt'];
+    }
+
+    /**
+     * Sets expiredAt
+     *
+     * @param \DateTime|null $expiredAt expiredAt
+     *
+     * @return self
+     */
+    public function setExpiredAt(?\DateTime $expiredAt): self
+    {
+        if (is_null($expiredAt)) {
+            array_push($this->openAPINullablesSetToNull, 'expiredAt');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expiredAt', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['expiredAt'] = $expiredAt;
 
         return $this;
     }
