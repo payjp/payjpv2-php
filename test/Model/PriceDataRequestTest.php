@@ -1,7 +1,7 @@
 <?php
 
 /**
- * LineItemRequestTest
+ * PriceDataRequestTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace PAYJPV2\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * LineItemRequestTest Class Doc Comment
+ * PriceDataRequestTest Class Doc Comment
  *
  * @category    Class
- * @description LineItemRequest
+ * @description PriceDataRequest
  * @package     PAYJPV2
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class LineItemRequestTest extends TestCase
+class PriceDataRequestTest extends TestCase
 {
     /**
      * Setup before running any test case
@@ -71,45 +71,45 @@ class LineItemRequestTest extends TestCase
     }
 
     /**
-     * Test "LineItemRequest"
+     * Test "PriceDataRequest"
      */
-    public function testLineItemRequest()
+    public function testPriceDataRequest()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "priceId"
+     * Test attribute "currency"
      */
-    public function testPropertyPriceId()
+    public function testPropertyCurrency()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "priceData"
+     * Test attribute "unitAmount"
      */
-    public function testPropertyPriceData()
+    public function testPropertyUnitAmount()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "quantity"
+     * Test attribute "productId"
      */
-    public function testPropertyQuantity()
+    public function testPropertyProductId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "taxRates"
+     * Test attribute "productData"
      */
-    public function testPropertyTaxRates()
+    public function testPropertyProductData()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
