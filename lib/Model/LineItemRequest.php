@@ -59,6 +59,7 @@ class LineItemRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'priceId' => 'string',
+        'priceData' => '\PAYJPV2\Model\PriceDataRequest',
         'quantity' => 'int',
         'taxRates' => 'string[]',
     ];
@@ -72,6 +73,7 @@ class LineItemRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'priceId' => null,
+        'priceData' => null,
         'quantity' => null,
         'taxRates' => null,
     ];
@@ -82,7 +84,8 @@ class LineItemRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var bool[]
       */
     protected static array $openAPINullables = [
-        'priceId' => false,
+        'priceId' => true,
+        'priceData' => true,
         'quantity' => false,
         'taxRates' => false,
     ];
@@ -174,6 +177,7 @@ class LineItemRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'priceId' => 'price_id',
+        'priceData' => 'price_data',
         'quantity' => 'quantity',
         'taxRates' => 'tax_rates',
     ];
@@ -185,6 +189,7 @@ class LineItemRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'priceId' => 'setPriceId',
+        'priceData' => 'setPriceData',
         'quantity' => 'setQuantity',
         'taxRates' => 'setTaxRates',
     ];
@@ -196,6 +201,7 @@ class LineItemRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'priceId' => 'getPriceId',
+        'priceData' => 'getPriceData',
         'quantity' => 'getQuantity',
         'taxRates' => 'getTaxRates',
     ];
@@ -258,6 +264,7 @@ class LineItemRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('priceId', $data ?? [], null);
+        $this->setIfExists('priceData', $data ?? [], null);
         $this->setIfExists('quantity', $data ?? [], null);
         $this->setIfExists('taxRates', $data ?? [], null);
     }
@@ -289,9 +296,6 @@ class LineItemRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['priceId'] === null) {
-            $invalidProperties[] = "'priceId' can't be null";
-        }
         if ($this->container['quantity'] === null) {
             $invalidProperties[] = "'quantity' can't be null";
         }
@@ -314,30 +318,67 @@ class LineItemRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets priceId
      *
-     * @return string
+     * @return string|null
      */
-    public function getPriceId(): string
+    public function getPriceId(): ?string
     {
-        if ($this->container['priceId'] === null) {
-            throw new \LogicException('Property "priceId" is required but has not been set.');
-        }
-
         return $this->container['priceId'];
     }
 
     /**
      * Sets priceId
      *
-     * @param string $priceId 料金 ID
+     * @param string|null $priceId priceId
      *
      * @return self
      */
-    public function setPriceId(string $priceId): self
+    public function setPriceId(?string $priceId): self
     {
         if (is_null($priceId)) {
-            throw new \InvalidArgumentException('non-nullable priceId cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'priceId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('priceId', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['priceId'] = $priceId;
+
+        return $this;
+    }
+
+    /**
+     * Gets priceData
+     *
+     * @return \PAYJPV2\Model\PriceDataRequest|null
+     */
+    public function getPriceData(): ?\PAYJPV2\Model\PriceDataRequest
+    {
+        return $this->container['priceData'];
+    }
+
+    /**
+     * Sets priceData
+     *
+     * @param \PAYJPV2\Model\PriceDataRequest|null $priceData priceData
+     *
+     * @return self
+     */
+    public function setPriceData(?\PAYJPV2\Model\PriceDataRequest $priceData): self
+    {
+        if (is_null($priceData)) {
+            array_push($this->openAPINullablesSetToNull, 'priceData');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('priceData', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['priceData'] = $priceData;
 
         return $this;
     }

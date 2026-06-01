@@ -1,7 +1,7 @@
 <?php
 
 /**
- * LineItemRequestTest
+ * ProductDataRequestTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace PAYJPV2\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * LineItemRequestTest Class Doc Comment
+ * ProductDataRequestTest Class Doc Comment
  *
  * @category    Class
- * @description LineItemRequest
+ * @description ProductDataRequest
  * @package     PAYJPV2
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class LineItemRequestTest extends TestCase
+class ProductDataRequestTest extends TestCase
 {
     /**
      * Setup before running any test case
@@ -71,45 +71,27 @@ class LineItemRequestTest extends TestCase
     }
 
     /**
-     * Test "LineItemRequest"
+     * Test "ProductDataRequest"
      */
-    public function testLineItemRequest()
+    public function testProductDataRequest()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "priceId"
+     * Test attribute "name"
      */
-    public function testPropertyPriceId()
+    public function testPropertyName()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "priceData"
+     * Test attribute "description"
      */
-    public function testPropertyPriceData()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "quantity"
-     */
-    public function testPropertyQuantity()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "taxRates"
-     */
-    public function testPropertyTaxRates()
+    public function testPropertyDescription()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

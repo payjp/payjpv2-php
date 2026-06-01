@@ -1,7 +1,7 @@
 <?php
 
 /**
- * CustomerUpdateRequest
+ * ProductDataRequest
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use ArrayAccess;
 use PAYJPV2\ObjectSerializer;
 
 /**
- * CustomerUpdateRequest Class Doc Comment
+ * ProductDataRequest Class Doc Comment
  *
  * @category Class
  * @package  PAYJPV2
@@ -41,7 +41,7 @@ use PAYJPV2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProductDataRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CustomerUpdateRequest';
+    protected static $openAPIModelName = 'ProductDataRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,8 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'defaultPaymentMethodId' => 'string',
-        'email' => 'string',
+        'name' => 'string',
         'description' => 'string',
-        'metadata' => 'array<string,mixed>',
     ];
 
     /**
@@ -72,10 +70,8 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'defaultPaymentMethodId' => null,
-        'email' => 'email',
+        'name' => null,
         'description' => null,
-        'metadata' => null,
     ];
 
     /**
@@ -84,10 +80,8 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var bool[]
       */
     protected static array $openAPINullables = [
-        'defaultPaymentMethodId' => false,
-        'email' => false,
-        'description' => false,
-        'metadata' => false,
+        'name' => false,
+        'description' => true,
     ];
 
     /**
@@ -176,10 +170,8 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'defaultPaymentMethodId' => 'default_payment_method_id',
-        'email' => 'email',
+        'name' => 'name',
         'description' => 'description',
-        'metadata' => 'metadata',
     ];
 
     /**
@@ -188,10 +180,8 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'defaultPaymentMethodId' => 'setDefaultPaymentMethodId',
-        'email' => 'setEmail',
+        'name' => 'setName',
         'description' => 'setDescription',
-        'metadata' => 'setMetadata',
     ];
 
     /**
@@ -200,10 +190,8 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'defaultPaymentMethodId' => 'getDefaultPaymentMethodId',
-        'email' => 'getEmail',
+        'name' => 'getName',
         'description' => 'getDescription',
-        'metadata' => 'getMetadata',
     ];
 
     /**
@@ -263,10 +251,8 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('defaultPaymentMethodId', $data ?? [], null);
-        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
     }
 
     /**
@@ -296,12 +282,8 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if (! is_null($this->container['email']) && (mb_strlen($this->container['email']) > 255)) {
-            $invalidProperties[] = "invalid value for 'email', the character length must be smaller than or equal to 255.";
-        }
-
-        if (! is_null($this->container['description']) && (mb_strlen($this->container['description']) > 255)) {
-            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 255.";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
 
         return $invalidProperties;
@@ -320,59 +302,32 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets defaultPaymentMethodId
+     * Gets name
      *
-     * @return string|null
+     * @return string
      */
-    public function getDefaultPaymentMethodId(): ?string
+    public function getName(): string
     {
-        return $this->container['defaultPaymentMethodId'];
+        if ($this->container['name'] === null) {
+            throw new \LogicException('Property "name" is required but has not been set.');
+        }
+
+        return $this->container['name'];
     }
 
     /**
-     * Sets defaultPaymentMethodId
+     * Sets name
      *
-     * @param string|null $defaultPaymentMethodId 支払いにデフォルトで使用される支払い方法 ID
+     * @param string $name Checkout などで顧客に表示される商品名
      *
      * @return self
      */
-    public function setDefaultPaymentMethodId(?string $defaultPaymentMethodId): self
+    public function setName(string $name): self
     {
-        if (is_null($defaultPaymentMethodId)) {
-            throw new \InvalidArgumentException('non-nullable defaultPaymentMethodId cannot be null');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['defaultPaymentMethodId'] = $defaultPaymentMethodId;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string|null
-     */
-    public function getEmail(): ?string
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string|null $email 顧客のメールアドレス。メールアドレスの形式が正しいかどうかは検証されます。
-     *
-     * @return self
-     */
-    public function setEmail(?string $email): self
-    {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
-        }
-        if ((mb_strlen($email) > 255)) {
-            throw new \InvalidArgumentException('invalid length for $email when calling CustomerUpdateRequest., must be smaller than or equal to 255.');
-        }
-
-        $this->container['email'] = $email;
+        $this->container['name'] = $name;
 
         return $this;
     }
@@ -390,47 +345,23 @@ class CustomerUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets description
      *
-     * @param string|null $description 顧客オブジェクトに付加できる任意の文字列です。管理画面で顧客と一緒に表示されます。
+     * @param string|null $description description
      *
      * @return self
      */
     public function setDescription(?string $description): self
     {
         if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        if ((mb_strlen($description) > 255)) {
-            throw new \InvalidArgumentException('invalid length for $description when calling CustomerUpdateRequest., must be smaller than or equal to 255.');
-        }
-
         $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return array<string,mixed>|null
-     */
-    public function getMetadata(): ?array
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param array<string,mixed>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
-     *
-     * @return self
-     */
-    public function setMetadata(?array $metadata): self
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
 
         return $this;
     }
