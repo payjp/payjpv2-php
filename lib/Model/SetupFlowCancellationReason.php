@@ -41,6 +41,7 @@ enum SetupFlowCancellationReason: string
 {
     case ABANDONED = 'abandoned';
     case DUPLICATE = 'duplicate';
+    case EXPIRED = 'expired';
     case REQUESTED_BY_CUSTOMER = 'requested_by_customer';
 
     /**
