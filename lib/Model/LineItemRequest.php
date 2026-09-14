@@ -299,6 +299,9 @@ class LineItemRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['quantity'] === null) {
             $invalidProperties[] = "'quantity' can't be null";
         }
+        if (! is_null($this->container['taxRates']) && (count($this->container['taxRates']) > 1)) {
+            $invalidProperties[] = "invalid value for 'taxRates', number of items must be less than or equal to 1.";
+        }
 
         return $invalidProperties;
     }
@@ -435,6 +438,10 @@ class LineItemRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($taxRates)) {
             throw new \InvalidArgumentException('non-nullable taxRates cannot be null');
+        }
+
+        if ((count($taxRates) > 1)) {
+            throw new \InvalidArgumentException('invalid value for $taxRates when calling LineItemRequest., number of items must be less than or equal to 1.');
         }
         $this->container['taxRates'] = $taxRates;
 
