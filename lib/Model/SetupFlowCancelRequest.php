@@ -303,7 +303,7 @@ class SetupFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets cancellationReason
      *
-     * @param \PAYJPV2\Model\SetupFlowCancellationReason|null $cancellationReason この SetupFlow のキャンセル理由。  | 値 | |:---| | **abandoned**: 顧客が SetupFlow を完了しなかった場合。 | | **requested_by_customer**: 顧客がキャンセルを要求した場合。 | | **duplicate**: 支払い方法が重複している場合。 |
+     * @param \PAYJPV2\Model\SetupFlowCancellationReason|null $cancellationReason この SetupFlow のキャンセル理由。  | 値 | |:---| | **abandoned**: 顧客が SetupFlow を完了しなかった場合。 | | **requested_by_customer**: 顧客がキャンセルを要求した場合。 | | **duplicate**: 支払い方法が重複している場合。 |  `expired` はシステムが自動的に設定する値のため、リクエストでは指定できません。
      *
      * @return self
      */

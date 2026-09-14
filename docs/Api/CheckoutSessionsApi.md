@@ -5,6 +5,7 @@ All URIs are relative to https://api.pay.jp, except if the operation defines ano
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createCheckoutSession()**](CheckoutSessionsApi.md#createCheckoutSession) | **POST** /v2/checkout/sessions | Create Checkout Session |
+| [**expireCheckoutSession()**](CheckoutSessionsApi.md#expireCheckoutSession) | **POST** /v2/checkout/sessions/{checkout_session_id}/expire | Expire Checkout Session |
 | [**getAllCheckoutSessionLineItems()**](CheckoutSessionsApi.md#getAllCheckoutSessionLineItems) | **GET** /v2/checkout/sessions/{checkout_session_id}/line_items | Get All Checkout Session Line Items |
 | [**getAllCheckoutSessions()**](CheckoutSessionsApi.md#getAllCheckoutSessions) | **GET** /v2/checkout/sessions | Get All Checkout Sessions |
 | [**getCheckoutSession()**](CheckoutSessionsApi.md#getCheckoutSession) | **GET** /v2/checkout/sessions/{checkout_session_id} | Get Checkout Session |
@@ -68,6 +69,69 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`, `application/problem+json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `expireCheckoutSession()`
+
+```php
+expireCheckoutSession($checkoutSessionId): \PAYJPV2\Model\CheckoutSessionDetailsResponse
+```
+
+Expire Checkout Session
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: HTTPBasic
+$config = PAYJPV2\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: HTTPBearer
+$config = PAYJPV2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new PAYJPV2\Api\CheckoutSessionsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$checkoutSessionId = 'checkoutSessionId_example'; // string
+
+try {
+    $result = $apiInstance->expireCheckoutSession($checkoutSessionId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CheckoutSessionsApi->expireCheckoutSession: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **checkoutSessionId** | **string**|  | |
+
+### Return type
+
+[**\PAYJPV2\Model\CheckoutSessionDetailsResponse**](../Model/CheckoutSessionDetailsResponse.md)
+
+### Authorization
+
+[HTTPBasic](../../README.md#HTTPBasic), [HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`, `application/problem+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

@@ -81,6 +81,18 @@ class CheckoutSessionsApiTest extends TestCase
     }
 
     /**
+     * Test case for expireCheckoutSession
+     *
+     * Expire Checkout Session.
+     *
+     */
+    public function testExpireCheckoutSession()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getAllCheckoutSessionLineItems
      *
      * Get All Checkout Session Line Items.
