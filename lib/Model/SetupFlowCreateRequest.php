@@ -62,6 +62,7 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'paymentMethodOptions' => '\PAYJPV2\Model\SetupFlowPaymentMethodOptionsRequest',
         'paymentMethodTypes' => 'string[]',
         'usage' => '\PAYJPV2\Model\Usage',
+        'redirectOptions' => '\PAYJPV2\Model\RedirectOptionsRequest',
         'description' => 'string',
         'metadata' => 'array<string,mixed>',
     ];
@@ -78,6 +79,7 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'paymentMethodOptions' => null,
         'paymentMethodTypes' => null,
         'usage' => null,
+        'redirectOptions' => null,
         'description' => null,
         'metadata' => null,
     ];
@@ -92,6 +94,7 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'paymentMethodOptions' => false,
         'paymentMethodTypes' => false,
         'usage' => false,
+        'redirectOptions' => false,
         'description' => false,
         'metadata' => false,
     ];
@@ -186,6 +189,7 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'paymentMethodOptions' => 'payment_method_options',
         'paymentMethodTypes' => 'payment_method_types',
         'usage' => 'usage',
+        'redirectOptions' => 'redirect_options',
         'description' => 'description',
         'metadata' => 'metadata',
     ];
@@ -200,6 +204,7 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'paymentMethodOptions' => 'setPaymentMethodOptions',
         'paymentMethodTypes' => 'setPaymentMethodTypes',
         'usage' => 'setUsage',
+        'redirectOptions' => 'setRedirectOptions',
         'description' => 'setDescription',
         'metadata' => 'setMetadata',
     ];
@@ -214,6 +219,7 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'paymentMethodOptions' => 'getPaymentMethodOptions',
         'paymentMethodTypes' => 'getPaymentMethodTypes',
         'usage' => 'getUsage',
+        'redirectOptions' => 'getRedirectOptions',
         'description' => 'getDescription',
         'metadata' => 'getMetadata',
     ];
@@ -292,6 +298,7 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('paymentMethodOptions', $data ?? [], null);
         $this->setIfExists('paymentMethodTypes', $data ?? [], null);
         $this->setIfExists('usage', $data ?? [], null);
+        $this->setIfExists('redirectOptions', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
     }
@@ -451,6 +458,33 @@ class SetupFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable usage cannot be null');
         }
         $this->container['usage'] = $usage;
+
+        return $this;
+    }
+
+    /**
+     * Gets redirectOptions
+     *
+     * @return \PAYJPV2\Model\RedirectOptionsRequest|null
+     */
+    public function getRedirectOptions(): ?\PAYJPV2\Model\RedirectOptionsRequest
+    {
+        return $this->container['redirectOptions'];
+    }
+
+    /**
+     * Sets redirectOptions
+     *
+     * @param \PAYJPV2\Model\RedirectOptionsRequest|null $redirectOptions return_url へリダイレクトする際のオプション
+     *
+     * @return self
+     */
+    public function setRedirectOptions(?\PAYJPV2\Model\RedirectOptionsRequest $redirectOptions): self
+    {
+        if (is_null($redirectOptions)) {
+            throw new \InvalidArgumentException('non-nullable redirectOptions cannot be null');
+        }
+        $this->container['redirectOptions'] = $redirectOptions;
 
         return $this;
     }

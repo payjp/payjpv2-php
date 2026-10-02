@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **metadata** | **array<string,mixed>** | キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。&lt;a href&#x3D;\&quot;https://docs.pay.jp/v2/guide/developers/metadata\&quot;&gt;詳細はメタデータのドキュメントを参照してください。&lt;/a&gt; | [optional]
 **successUrl** | **string** | 支払いや設定が完了した際に、PAY.JP が顧客をリダイレクトする URL。成功した Checkout Session からの情報をページで使用したい場合は、成功ページのカスタマイズに関するガイドをお読みください。 | [optional]
 **cancelUrl** | **string** | キャンセル時のリダイレクト URL | [optional]
+**redirectOptions** | [**\PAYJPV2\Model\RedirectOptionsRequest**](RedirectOptionsRequest.md) | Checkout から success_url へリダイレクトする際のオプション。Checkout が作成する PaymentFlow / SetupFlow に引き継がれます。 | [optional]
 **currency** | [**\PAYJPV2\Model\Currency**](Currency.md) | 価格の通貨。現在は &#x60;jpy&#x60; のみサポートしています。 | [optional]
 **expiresAt** | **\DateTime** | Checkout Session の有効期限が失効する日時 | [optional]
 **locale** | [**\PAYJPV2\Model\Locale**](Locale.md) | Checkout 画面の表示言語を指定します。  | 指定できる値 | |:---| | **ja**: 日本語で表示します。 | | [optional]

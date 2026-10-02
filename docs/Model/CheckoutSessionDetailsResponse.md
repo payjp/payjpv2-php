@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **status** | [**\PAYJPV2\Model\CheckoutSessionStatus**](CheckoutSessionStatus.md) | チェックアウトセッションのステータス |
 **successUrl** | **string** |  |
 **cancelUrl** | **string** |  |
+**redirectOptions** | [**\PAYJPV2\Model\RedirectOptionsResponse**](RedirectOptionsResponse.md) | success_url へリダイレクトする際のオプション |
 **url** | **string** | URL |
 **metadata** | **array<string,mixed>** | メタデータ |
 **createdAt** | **\DateTime** | 作成日時 (UTC, ISO 8601 形式) |

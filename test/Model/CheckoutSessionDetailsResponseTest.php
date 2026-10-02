@@ -269,6 +269,15 @@ class CheckoutSessionDetailsResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "redirectOptions"
+     */
+    public function testPropertyRedirectOptions()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "url"
      */
     public function testPropertyUrl()

@@ -64,6 +64,7 @@ class PaymentFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'paymentMethodOptions' => '\PAYJPV2\Model\PaymentFlowPaymentMethodOptionsRequest',
         'paymentMethodTypes' => '\PAYJPV2\Model\PaymentMethodTypes[]',
         'returnUrl' => 'string',
+        'redirectOptions' => '\PAYJPV2\Model\RedirectOptionsRequest',
         'description' => 'string',
         'metadata' => 'array<string,mixed>',
     ];
@@ -82,6 +83,7 @@ class PaymentFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'paymentMethodOptions' => null,
         'paymentMethodTypes' => null,
         'returnUrl' => null,
+        'redirectOptions' => null,
         'description' => null,
         'metadata' => null,
     ];
@@ -98,6 +100,7 @@ class PaymentFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'paymentMethodOptions' => false,
         'paymentMethodTypes' => false,
         'returnUrl' => false,
+        'redirectOptions' => false,
         'description' => false,
         'metadata' => false,
     ];
@@ -194,6 +197,7 @@ class PaymentFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'paymentMethodOptions' => 'payment_method_options',
         'paymentMethodTypes' => 'payment_method_types',
         'returnUrl' => 'return_url',
+        'redirectOptions' => 'redirect_options',
         'description' => 'description',
         'metadata' => 'metadata',
     ];
@@ -210,6 +214,7 @@ class PaymentFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'paymentMethodOptions' => 'setPaymentMethodOptions',
         'paymentMethodTypes' => 'setPaymentMethodTypes',
         'returnUrl' => 'setReturnUrl',
+        'redirectOptions' => 'setRedirectOptions',
         'description' => 'setDescription',
         'metadata' => 'setMetadata',
     ];
@@ -226,6 +231,7 @@ class PaymentFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'paymentMethodOptions' => 'getPaymentMethodOptions',
         'paymentMethodTypes' => 'getPaymentMethodTypes',
         'returnUrl' => 'getReturnUrl',
+        'redirectOptions' => 'getRedirectOptions',
         'description' => 'getDescription',
         'metadata' => 'getMetadata',
     ];
@@ -293,6 +299,7 @@ class PaymentFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('paymentMethodOptions', $data ?? [], null);
         $this->setIfExists('paymentMethodTypes', $data ?? [], null);
         $this->setIfExists('returnUrl', $data ?? [], null);
+        $this->setIfExists('redirectOptions', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
     }
@@ -513,6 +520,33 @@ class PaymentFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable returnUrl cannot be null');
         }
         $this->container['returnUrl'] = $returnUrl;
+
+        return $this;
+    }
+
+    /**
+     * Gets redirectOptions
+     *
+     * @return \PAYJPV2\Model\RedirectOptionsRequest|null
+     */
+    public function getRedirectOptions(): ?\PAYJPV2\Model\RedirectOptionsRequest
+    {
+        return $this->container['redirectOptions'];
+    }
+
+    /**
+     * Sets redirectOptions
+     *
+     * @param \PAYJPV2\Model\RedirectOptionsRequest|null $redirectOptions return_url へリダイレクトする際のオプション
+     *
+     * @return self
+     */
+    public function setRedirectOptions(?\PAYJPV2\Model\RedirectOptionsRequest $redirectOptions): self
+    {
+        if (is_null($redirectOptions)) {
+            throw new \InvalidArgumentException('non-nullable redirectOptions cannot be null');
+        }
+        $this->container['redirectOptions'] = $redirectOptions;
 
         return $this;
     }

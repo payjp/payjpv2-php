@@ -134,6 +134,15 @@ class TaxRateCreateRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "taxType"
+     */
+    public function testPropertyTaxType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "metadata"
      */
     public function testPropertyMetadata()

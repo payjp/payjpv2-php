@@ -161,6 +161,15 @@ class CheckoutSessionCreateRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "redirectOptions"
+     */
+    public function testPropertyRedirectOptions()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "currency"
      */
     public function testPropertyCurrency()

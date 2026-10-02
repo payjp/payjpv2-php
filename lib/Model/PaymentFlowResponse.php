@@ -74,6 +74,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'status' => '\PAYJPV2\Model\PaymentFlowStatus',
         'nextAction' => 'array<string,mixed>',
         'returnUrl' => 'string',
+        'redirectOptions' => '\PAYJPV2\Model\RedirectOptionsResponse',
         'captureMethod' => '\PAYJPV2\Model\CaptureMethod',
         'lastPaymentError' => 'array<string,mixed>',
         'cancellationReason' => '\PAYJPV2\Model\PaymentFlowCancellationReason',
@@ -108,6 +109,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'status' => null,
         'nextAction' => null,
         'returnUrl' => null,
+        'redirectOptions' => null,
         'captureMethod' => null,
         'lastPaymentError' => null,
         'cancellationReason' => null,
@@ -140,6 +142,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'status' => false,
         'nextAction' => true,
         'returnUrl' => true,
+        'redirectOptions' => false,
         'captureMethod' => false,
         'lastPaymentError' => true,
         'cancellationReason' => true,
@@ -252,6 +255,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'status' => 'status',
         'nextAction' => 'next_action',
         'returnUrl' => 'return_url',
+        'redirectOptions' => 'redirect_options',
         'captureMethod' => 'capture_method',
         'lastPaymentError' => 'last_payment_error',
         'cancellationReason' => 'cancellation_reason',
@@ -284,6 +288,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'status' => 'setStatus',
         'nextAction' => 'setNextAction',
         'returnUrl' => 'setReturnUrl',
+        'redirectOptions' => 'setRedirectOptions',
         'captureMethod' => 'setCaptureMethod',
         'lastPaymentError' => 'setLastPaymentError',
         'cancellationReason' => 'setCancellationReason',
@@ -316,6 +321,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'status' => 'getStatus',
         'nextAction' => 'getNextAction',
         'returnUrl' => 'getReturnUrl',
+        'redirectOptions' => 'getRedirectOptions',
         'captureMethod' => 'getCaptureMethod',
         'lastPaymentError' => 'getLastPaymentError',
         'cancellationReason' => 'getCancellationReason',
@@ -412,6 +418,7 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('nextAction', $data ?? [], null);
         $this->setIfExists('returnUrl', $data ?? [], null);
+        $this->setIfExists('redirectOptions', $data ?? [], null);
         $this->setIfExists('captureMethod', $data ?? [], null);
         $this->setIfExists('lastPaymentError', $data ?? [], null);
         $this->setIfExists('cancellationReason', $data ?? [], null);
@@ -502,6 +509,9 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         }
         if ($this->container['returnUrl'] === null) {
             $invalidProperties[] = "'returnUrl' can't be null";
+        }
+        if ($this->container['redirectOptions'] === null) {
+            $invalidProperties[] = "'redirectOptions' can't be null";
         }
         if ($this->container['captureMethod'] === null) {
             $invalidProperties[] = "'captureMethod' can't be null";
@@ -1062,6 +1072,37 @@ class PaymentFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializa
             }
         }
         $this->container['returnUrl'] = $returnUrl;
+
+        return $this;
+    }
+
+    /**
+     * Gets redirectOptions
+     *
+     * @return \PAYJPV2\Model\RedirectOptionsResponse
+     */
+    public function getRedirectOptions(): \PAYJPV2\Model\RedirectOptionsResponse
+    {
+        if ($this->container['redirectOptions'] === null) {
+            throw new \LogicException('Property "redirectOptions" is required but has not been set.');
+        }
+
+        return $this->container['redirectOptions'];
+    }
+
+    /**
+     * Sets redirectOptions
+     *
+     * @param \PAYJPV2\Model\RedirectOptionsResponse $redirectOptions return_url へリダイレクトする際のオプション
+     *
+     * @return self
+     */
+    public function setRedirectOptions(\PAYJPV2\Model\RedirectOptionsResponse $redirectOptions): self
+    {
+        if (is_null($redirectOptions)) {
+            throw new \InvalidArgumentException('non-nullable redirectOptions cannot be null');
+        }
+        $this->container['redirectOptions'] = $redirectOptions;
 
         return $this;
     }

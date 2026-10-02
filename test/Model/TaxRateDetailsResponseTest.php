@@ -161,6 +161,15 @@ class TaxRateDetailsResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "taxType"
+     */
+    public function testPropertyTaxType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "createdAt"
      */
     public function testPropertyCreatedAt()
