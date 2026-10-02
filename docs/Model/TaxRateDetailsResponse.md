@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **active** | **bool** | この税率が有効であるかどうか |
 **country** | [**\PAYJPV2\Model\Country**](Country.md) |  |
 **description** | **string** |  |
+**taxType** | [**\PAYJPV2\Model\TaxType**](TaxType.md) |  |
 **createdAt** | **\DateTime** | 作成日時 (UTC, ISO 8601 形式) |
 **updatedAt** | **\DateTime** | 更新日時 (UTC, ISO 8601 形式) |
 **metadata** | **array<string,mixed>** | メタデータ |

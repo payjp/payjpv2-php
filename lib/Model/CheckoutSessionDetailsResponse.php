@@ -79,6 +79,7 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
         'status' => '\PAYJPV2\Model\CheckoutSessionStatus',
         'successUrl' => 'string',
         'cancelUrl' => 'string',
+        'redirectOptions' => '\PAYJPV2\Model\RedirectOptionsResponse',
         'url' => 'string',
         'metadata' => 'array<string,mixed>',
         'createdAt' => '\DateTime',
@@ -114,6 +115,7 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
         'status' => null,
         'successUrl' => null,
         'cancelUrl' => null,
+        'redirectOptions' => null,
         'url' => null,
         'metadata' => null,
         'createdAt' => 'date-time',
@@ -147,6 +149,7 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
         'status' => false,
         'successUrl' => true,
         'cancelUrl' => true,
+        'redirectOptions' => false,
         'url' => false,
         'metadata' => false,
         'createdAt' => false,
@@ -260,6 +263,7 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
         'status' => 'status',
         'successUrl' => 'success_url',
         'cancelUrl' => 'cancel_url',
+        'redirectOptions' => 'redirect_options',
         'url' => 'url',
         'metadata' => 'metadata',
         'createdAt' => 'created_at',
@@ -293,6 +297,7 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
         'status' => 'setStatus',
         'successUrl' => 'setSuccessUrl',
         'cancelUrl' => 'setCancelUrl',
+        'redirectOptions' => 'setRedirectOptions',
         'url' => 'setUrl',
         'metadata' => 'setMetadata',
         'createdAt' => 'setCreatedAt',
@@ -326,6 +331,7 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
         'status' => 'getStatus',
         'successUrl' => 'getSuccessUrl',
         'cancelUrl' => 'getCancelUrl',
+        'redirectOptions' => 'getRedirectOptions',
         'url' => 'getUrl',
         'metadata' => 'getMetadata',
         'createdAt' => 'getCreatedAt',
@@ -423,6 +429,7 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('successUrl', $data ?? [], null);
         $this->setIfExists('cancelUrl', $data ?? [], null);
+        $this->setIfExists('redirectOptions', $data ?? [], null);
         $this->setIfExists('url', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('createdAt', $data ?? [], null);
@@ -515,6 +522,9 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
         }
         if ($this->container['cancelUrl'] === null) {
             $invalidProperties[] = "'cancelUrl' can't be null";
+        }
+        if ($this->container['redirectOptions'] === null) {
+            $invalidProperties[] = "'redirectOptions' can't be null";
         }
         if ($this->container['url'] === null) {
             $invalidProperties[] = "'url' can't be null";
@@ -1239,6 +1249,37 @@ class CheckoutSessionDetailsResponse implements ModelInterface, ArrayAccess, \Js
             }
         }
         $this->container['cancelUrl'] = $cancelUrl;
+
+        return $this;
+    }
+
+    /**
+     * Gets redirectOptions
+     *
+     * @return \PAYJPV2\Model\RedirectOptionsResponse
+     */
+    public function getRedirectOptions(): \PAYJPV2\Model\RedirectOptionsResponse
+    {
+        if ($this->container['redirectOptions'] === null) {
+            throw new \LogicException('Property "redirectOptions" is required but has not been set.');
+        }
+
+        return $this->container['redirectOptions'];
+    }
+
+    /**
+     * Sets redirectOptions
+     *
+     * @param \PAYJPV2\Model\RedirectOptionsResponse $redirectOptions success_url へリダイレクトする際のオプション
+     *
+     * @return self
+     */
+    public function setRedirectOptions(\PAYJPV2\Model\RedirectOptionsResponse $redirectOptions): self
+    {
+        if (is_null($redirectOptions)) {
+            throw new \InvalidArgumentException('non-nullable redirectOptions cannot be null');
+        }
+        $this->container['redirectOptions'] = $redirectOptions;
 
         return $this;
     }

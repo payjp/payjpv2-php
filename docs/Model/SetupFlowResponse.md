@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **status** | [**\PAYJPV2\Model\SetupFlowStatus**](SetupFlowStatus.md) | この SetupFlow のステータスです。&lt;a href&#x3D;\&quot;https://docs.pay.jp/v2/guide/payments/setupflow#setup-flow-%E3%81%AE%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9\&quot; target&#x3D;\&quot;_blank\&quot;&gt;ステータスの詳細についてはこちらをご覧ください。&lt;/a&gt;  | 値 | |:---| | **requires_payment_method**: 支払い方法が必要です。 | | **requires_confirmation**: 確認が必要です。 | | **requires_action**: 顧客のアクションが必要です。 | | **processing**: 処理中です。 | | **succeeded**: 成功しました。 | | **canceled**: キャンセルされました。 | |
 **nextAction** | **array<string,mixed>** |  |
 **returnUrl** | **string** |  |
+**redirectOptions** | [**\PAYJPV2\Model\RedirectOptionsResponse**](RedirectOptionsResponse.md) | return_url へリダイレクトする際のオプション |
 **lastSetupError** | **array<string,mixed>** |  |
 **cancellationReason** | [**\PAYJPV2\Model\SetupFlowCancellationReason**](SetupFlowCancellationReason.md) |  |
 **createdAt** | **\DateTime** | 作成日時 (UTC, ISO 8601 形式) |

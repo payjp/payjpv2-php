@@ -67,6 +67,7 @@ class PaymentFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'captureMethod' => '\PAYJPV2\Model\CaptureMethod',
         'confirm' => 'bool',
         'returnUrl' => 'string',
+        'redirectOptions' => '\PAYJPV2\Model\RedirectOptionsRequest',
         'description' => 'string',
         'metadata' => 'array<string,mixed>',
     ];
@@ -88,6 +89,7 @@ class PaymentFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'captureMethod' => null,
         'confirm' => null,
         'returnUrl' => null,
+        'redirectOptions' => null,
         'description' => null,
         'metadata' => null,
     ];
@@ -107,6 +109,7 @@ class PaymentFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'captureMethod' => false,
         'confirm' => false,
         'returnUrl' => false,
+        'redirectOptions' => false,
         'description' => false,
         'metadata' => false,
     ];
@@ -206,6 +209,7 @@ class PaymentFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'captureMethod' => 'capture_method',
         'confirm' => 'confirm',
         'returnUrl' => 'return_url',
+        'redirectOptions' => 'redirect_options',
         'description' => 'description',
         'metadata' => 'metadata',
     ];
@@ -225,6 +229,7 @@ class PaymentFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'captureMethod' => 'setCaptureMethod',
         'confirm' => 'setConfirm',
         'returnUrl' => 'setReturnUrl',
+        'redirectOptions' => 'setRedirectOptions',
         'description' => 'setDescription',
         'metadata' => 'setMetadata',
     ];
@@ -244,6 +249,7 @@ class PaymentFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'captureMethod' => 'getCaptureMethod',
         'confirm' => 'getConfirm',
         'returnUrl' => 'getReturnUrl',
+        'redirectOptions' => 'getRedirectOptions',
         'description' => 'getDescription',
         'metadata' => 'getMetadata',
     ];
@@ -314,6 +320,7 @@ class PaymentFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('captureMethod', $data ?? [], null);
         $this->setIfExists('confirm', $data ?? [], false);
         $this->setIfExists('returnUrl', $data ?? [], null);
+        $this->setIfExists('redirectOptions', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
     }
@@ -630,6 +637,33 @@ class PaymentFlowCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable returnUrl cannot be null');
         }
         $this->container['returnUrl'] = $returnUrl;
+
+        return $this;
+    }
+
+    /**
+     * Gets redirectOptions
+     *
+     * @return \PAYJPV2\Model\RedirectOptionsRequest|null
+     */
+    public function getRedirectOptions(): ?\PAYJPV2\Model\RedirectOptionsRequest
+    {
+        return $this->container['redirectOptions'];
+    }
+
+    /**
+     * Sets redirectOptions
+     *
+     * @param \PAYJPV2\Model\RedirectOptionsRequest|null $redirectOptions return_url へリダイレクトする際のオプション
+     *
+     * @return self
+     */
+    public function setRedirectOptions(?\PAYJPV2\Model\RedirectOptionsRequest $redirectOptions): self
+    {
+        if (is_null($redirectOptions)) {
+            throw new \InvalidArgumentException('non-nullable redirectOptions cannot be null');
+        }
+        $this->container['redirectOptions'] = $redirectOptions;
 
         return $this;
     }

@@ -67,6 +67,7 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'active' => 'bool',
         'country' => '\PAYJPV2\Model\Country',
         'description' => 'string',
+        'taxType' => '\PAYJPV2\Model\TaxType',
         'createdAt' => '\DateTime',
         'updatedAt' => '\DateTime',
         'metadata' => 'array<string,mixed>',
@@ -89,6 +90,7 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'active' => null,
         'country' => null,
         'description' => null,
+        'taxType' => null,
         'createdAt' => 'date-time',
         'updatedAt' => 'date-time',
         'metadata' => null,
@@ -109,6 +111,7 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'active' => false,
         'country' => true,
         'description' => true,
+        'taxType' => true,
         'createdAt' => false,
         'updatedAt' => false,
         'metadata' => false,
@@ -209,6 +212,7 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'active' => 'active',
         'country' => 'country',
         'description' => 'description',
+        'taxType' => 'tax_type',
         'createdAt' => 'created_at',
         'updatedAt' => 'updated_at',
         'metadata' => 'metadata',
@@ -229,6 +233,7 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'active' => 'setActive',
         'country' => 'setCountry',
         'description' => 'setDescription',
+        'taxType' => 'setTaxType',
         'createdAt' => 'setCreatedAt',
         'updatedAt' => 'setUpdatedAt',
         'metadata' => 'setMetadata',
@@ -249,6 +254,7 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'active' => 'getActive',
         'country' => 'getCountry',
         'description' => 'getDescription',
+        'taxType' => 'getTaxType',
         'createdAt' => 'getCreatedAt',
         'updatedAt' => 'getUpdatedAt',
         'metadata' => 'getMetadata',
@@ -333,6 +339,7 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('active', $data ?? [], null);
         $this->setIfExists('country', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('taxType', $data ?? [], null);
         $this->setIfExists('createdAt', $data ?? [], null);
         $this->setIfExists('updatedAt', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
@@ -397,6 +404,9 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
         }
         if ($this->container['description'] === null) {
             $invalidProperties[] = "'description' can't be null";
+        }
+        if ($this->container['taxType'] === null) {
+            $invalidProperties[] = "'taxType' can't be null";
         }
         if ($this->container['createdAt'] === null) {
             $invalidProperties[] = "'createdAt' can't be null";
@@ -710,6 +720,40 @@ class TaxRateDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerial
             }
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets taxType
+     *
+     * @return \PAYJPV2\Model\TaxType|null
+     */
+    public function getTaxType(): ?\PAYJPV2\Model\TaxType
+    {
+        return $this->container['taxType'];
+    }
+
+    /**
+     * Sets taxType
+     *
+     * @param \PAYJPV2\Model\TaxType|null $taxType taxType
+     *
+     * @return self
+     */
+    public function setTaxType(?\PAYJPV2\Model\TaxType $taxType): self
+    {
+        if (is_null($taxType)) {
+            array_push($this->openAPINullablesSetToNull, 'taxType');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('taxType', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['taxType'] = $taxType;
 
         return $this;
     }

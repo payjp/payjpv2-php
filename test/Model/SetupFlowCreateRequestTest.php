@@ -116,6 +116,15 @@ class SetupFlowCreateRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "redirectOptions"
+     */
+    public function testPropertyRedirectOptions()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "description"
      */
     public function testPropertyDescription()

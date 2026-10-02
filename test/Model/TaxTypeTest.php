@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TaxRateUpdateRequestTest
+ * TaxTypeTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace PAYJPV2\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TaxRateUpdateRequestTest Class Doc Comment
+ * TaxTypeTest Class Doc Comment
  *
  * @category    Class
- * @description TaxRateUpdateRequest
+ * @description TaxType
  * @package     PAYJPV2
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TaxRateUpdateRequestTest extends TestCase
+class TaxTypeTest extends TestCase
 {
     /**
      * Setup before running any test case
@@ -71,63 +71,9 @@ class TaxRateUpdateRequestTest extends TestCase
     }
 
     /**
-     * Test "TaxRateUpdateRequest"
+     * Test "TaxType"
      */
-    public function testTaxRateUpdateRequest()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "active"
-     */
-    public function testPropertyActive()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "country"
-     */
-    public function testPropertyCountry()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "description"
-     */
-    public function testPropertyDescription()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "displayName"
-     */
-    public function testPropertyDisplayName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "taxType"
-     */
-    public function testPropertyTaxType()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "metadata"
-     */
-    public function testPropertyMetadata()
+    public function testTaxType()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

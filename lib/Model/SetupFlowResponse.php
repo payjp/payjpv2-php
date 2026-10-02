@@ -71,6 +71,7 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'status' => '\PAYJPV2\Model\SetupFlowStatus',
         'nextAction' => 'array<string,mixed>',
         'returnUrl' => 'string',
+        'redirectOptions' => '\PAYJPV2\Model\RedirectOptionsResponse',
         'lastSetupError' => 'array<string,mixed>',
         'cancellationReason' => '\PAYJPV2\Model\SetupFlowCancellationReason',
         'createdAt' => '\DateTime',
@@ -98,6 +99,7 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'status' => null,
         'nextAction' => null,
         'returnUrl' => null,
+        'redirectOptions' => null,
         'lastSetupError' => null,
         'cancellationReason' => null,
         'createdAt' => 'date-time',
@@ -123,6 +125,7 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'status' => false,
         'nextAction' => true,
         'returnUrl' => true,
+        'redirectOptions' => false,
         'lastSetupError' => true,
         'cancellationReason' => true,
         'createdAt' => false,
@@ -228,6 +231,7 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'status' => 'status',
         'nextAction' => 'next_action',
         'returnUrl' => 'return_url',
+        'redirectOptions' => 'redirect_options',
         'lastSetupError' => 'last_setup_error',
         'cancellationReason' => 'cancellation_reason',
         'createdAt' => 'created_at',
@@ -253,6 +257,7 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'status' => 'setStatus',
         'nextAction' => 'setNextAction',
         'returnUrl' => 'setReturnUrl',
+        'redirectOptions' => 'setRedirectOptions',
         'lastSetupError' => 'setLastSetupError',
         'cancellationReason' => 'setCancellationReason',
         'createdAt' => 'setCreatedAt',
@@ -278,6 +283,7 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'status' => 'getStatus',
         'nextAction' => 'getNextAction',
         'returnUrl' => 'getReturnUrl',
+        'redirectOptions' => 'getRedirectOptions',
         'lastSetupError' => 'getLastSetupError',
         'cancellationReason' => 'getCancellationReason',
         'createdAt' => 'getCreatedAt',
@@ -367,6 +373,7 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('nextAction', $data ?? [], null);
         $this->setIfExists('returnUrl', $data ?? [], null);
+        $this->setIfExists('redirectOptions', $data ?? [], null);
         $this->setIfExists('lastSetupError', $data ?? [], null);
         $this->setIfExists('cancellationReason', $data ?? [], null);
         $this->setIfExists('createdAt', $data ?? [], null);
@@ -444,6 +451,9 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         }
         if ($this->container['returnUrl'] === null) {
             $invalidProperties[] = "'returnUrl' can't be null";
+        }
+        if ($this->container['redirectOptions'] === null) {
+            $invalidProperties[] = "'redirectOptions' can't be null";
         }
         if ($this->container['lastSetupError'] === null) {
             $invalidProperties[] = "'lastSetupError' can't be null";
@@ -896,6 +906,37 @@ class SetupFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
             }
         }
         $this->container['returnUrl'] = $returnUrl;
+
+        return $this;
+    }
+
+    /**
+     * Gets redirectOptions
+     *
+     * @return \PAYJPV2\Model\RedirectOptionsResponse
+     */
+    public function getRedirectOptions(): \PAYJPV2\Model\RedirectOptionsResponse
+    {
+        if ($this->container['redirectOptions'] === null) {
+            throw new \LogicException('Property "redirectOptions" is required but has not been set.');
+        }
+
+        return $this->container['redirectOptions'];
+    }
+
+    /**
+     * Sets redirectOptions
+     *
+     * @param \PAYJPV2\Model\RedirectOptionsResponse $redirectOptions return_url へリダイレクトする際のオプション
+     *
+     * @return self
+     */
+    public function setRedirectOptions(\PAYJPV2\Model\RedirectOptionsResponse $redirectOptions): self
+    {
+        if (is_null($redirectOptions)) {
+            throw new \InvalidArgumentException('non-nullable redirectOptions cannot be null');
+        }
+        $this->container['redirectOptions'] = $redirectOptions;
 
         return $this;
     }

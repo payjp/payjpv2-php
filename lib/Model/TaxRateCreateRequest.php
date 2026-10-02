@@ -64,6 +64,7 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'active' => 'bool',
         'country' => '\PAYJPV2\Model\Country',
         'description' => 'string',
+        'taxType' => '\PAYJPV2\Model\TaxType',
         'metadata' => 'array<string,mixed>',
     ];
 
@@ -81,6 +82,7 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'active' => null,
         'country' => null,
         'description' => null,
+        'taxType' => null,
         'metadata' => null,
     ];
 
@@ -96,6 +98,7 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'active' => false,
         'country' => false,
         'description' => false,
+        'taxType' => true,
         'metadata' => false,
     ];
 
@@ -191,6 +194,7 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'active' => 'active',
         'country' => 'country',
         'description' => 'description',
+        'taxType' => 'tax_type',
         'metadata' => 'metadata',
     ];
 
@@ -206,6 +210,7 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'active' => 'setActive',
         'country' => 'setCountry',
         'description' => 'setDescription',
+        'taxType' => 'setTaxType',
         'metadata' => 'setMetadata',
     ];
 
@@ -221,6 +226,7 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'active' => 'getActive',
         'country' => 'getCountry',
         'description' => 'getDescription',
+        'taxType' => 'getTaxType',
         'metadata' => 'getMetadata',
     ];
 
@@ -287,6 +293,7 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('active', $data ?? [], true);
         $this->setIfExists('country', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('taxType', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
     }
 
@@ -527,6 +534,40 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets taxType
+     *
+     * @return \PAYJPV2\Model\TaxType|null
+     */
+    public function getTaxType(): ?\PAYJPV2\Model\TaxType
+    {
+        return $this->container['taxType'];
+    }
+
+    /**
+     * Sets taxType
+     *
+     * @param \PAYJPV2\Model\TaxType|null $taxType taxType
+     *
+     * @return self
+     */
+    public function setTaxType(?\PAYJPV2\Model\TaxType $taxType): self
+    {
+        if (is_null($taxType)) {
+            array_push($this->openAPINullablesSetToNull, 'taxType');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('taxType', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['taxType'] = $taxType;
 
         return $this;
     }

@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **status** | [**\PAYJPV2\Model\PaymentFlowStatus**](PaymentFlowStatus.md) | この PaymentFlow のステータス。  | 値 | |:---| | **requires_payment_method**: 支払い方法が必要です。 | | **requires_confirmation**: 確認が必要です。 | | **requires_action**: 顧客のアクションが必要です。 | | **processing**: 処理中です。 | | **requires_capture**: 確定が必要です。 | | **canceled**: キャンセルされました。 | | **succeeded**: 成功しました。 | |
 **nextAction** | **array<string,mixed>** |  |
 **returnUrl** | **string** |  |
+**redirectOptions** | [**\PAYJPV2\Model\RedirectOptionsResponse**](RedirectOptionsResponse.md) | return_url へリダイレクトする際のオプション |
 **captureMethod** | [**\PAYJPV2\Model\CaptureMethod**](CaptureMethod.md) | 支払いの確定方法  | 値 | |:---| | **automatic**: (デフォルト) 顧客が支払いを承認すると、自動的に確定させます。 | | **manual**: 顧客が支払いを承認すると一旦確定を保留し、後で Capture API を使用して確定します。（すべての支払い方法がこれをサポートしているわけではありません）。 | |
 **lastPaymentError** | **array<string,mixed>** |  |
 **cancellationReason** | [**\PAYJPV2\Model\PaymentFlowCancellationReason**](PaymentFlowCancellationReason.md) |  |

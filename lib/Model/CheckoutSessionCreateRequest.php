@@ -67,6 +67,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
         'metadata' => 'array<string,mixed>',
         'successUrl' => 'string',
         'cancelUrl' => 'string',
+        'redirectOptions' => '\PAYJPV2\Model\RedirectOptionsRequest',
         'currency' => '\PAYJPV2\Model\Currency',
         'expiresAt' => '\DateTime',
         'locale' => '\PAYJPV2\Model\Locale',
@@ -95,6 +96,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
         'metadata' => null,
         'successUrl' => null,
         'cancelUrl' => null,
+        'redirectOptions' => null,
         'currency' => null,
         'expiresAt' => 'date-time',
         'locale' => null,
@@ -121,6 +123,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
         'metadata' => false,
         'successUrl' => false,
         'cancelUrl' => false,
+        'redirectOptions' => false,
         'currency' => false,
         'expiresAt' => false,
         'locale' => false,
@@ -227,6 +230,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
         'metadata' => 'metadata',
         'successUrl' => 'success_url',
         'cancelUrl' => 'cancel_url',
+        'redirectOptions' => 'redirect_options',
         'currency' => 'currency',
         'expiresAt' => 'expires_at',
         'locale' => 'locale',
@@ -253,6 +257,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
         'metadata' => 'setMetadata',
         'successUrl' => 'setSuccessUrl',
         'cancelUrl' => 'setCancelUrl',
+        'redirectOptions' => 'setRedirectOptions',
         'currency' => 'setCurrency',
         'expiresAt' => 'setExpiresAt',
         'locale' => 'setLocale',
@@ -279,6 +284,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
         'metadata' => 'getMetadata',
         'successUrl' => 'getSuccessUrl',
         'cancelUrl' => 'getCancelUrl',
+        'redirectOptions' => 'getRedirectOptions',
         'currency' => 'getCurrency',
         'expiresAt' => 'getExpiresAt',
         'locale' => 'getLocale',
@@ -356,6 +362,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('successUrl', $data ?? [], null);
         $this->setIfExists('cancelUrl', $data ?? [], null);
+        $this->setIfExists('redirectOptions', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('expiresAt', $data ?? [], null);
         $this->setIfExists('locale', $data ?? [], null);
@@ -663,6 +670,33 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable cancelUrl cannot be null');
         }
         $this->container['cancelUrl'] = $cancelUrl;
+
+        return $this;
+    }
+
+    /**
+     * Gets redirectOptions
+     *
+     * @return \PAYJPV2\Model\RedirectOptionsRequest|null
+     */
+    public function getRedirectOptions(): ?\PAYJPV2\Model\RedirectOptionsRequest
+    {
+        return $this->container['redirectOptions'];
+    }
+
+    /**
+     * Sets redirectOptions
+     *
+     * @param \PAYJPV2\Model\RedirectOptionsRequest|null $redirectOptions Checkout から success_url へリダイレクトする際のオプション。Checkout が作成する PaymentFlow / SetupFlow に引き継がれます。
+     *
+     * @return self
+     */
+    public function setRedirectOptions(?\PAYJPV2\Model\RedirectOptionsRequest $redirectOptions): self
+    {
+        if (is_null($redirectOptions)) {
+            throw new \InvalidArgumentException('non-nullable redirectOptions cannot be null');
+        }
+        $this->container['redirectOptions'] = $redirectOptions;
 
         return $this;
     }

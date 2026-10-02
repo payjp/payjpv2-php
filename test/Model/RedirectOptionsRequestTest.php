@@ -1,7 +1,7 @@
 <?php
 
 /**
- * SetupFlowUpdateRequestTest
+ * RedirectOptionsRequestTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace PAYJPV2\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * SetupFlowUpdateRequestTest Class Doc Comment
+ * RedirectOptionsRequestTest Class Doc Comment
  *
  * @category    Class
- * @description SetupFlowUpdateRequest
+ * @description RedirectOptionsRequest
  * @package     PAYJPV2
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class SetupFlowUpdateRequestTest extends TestCase
+class RedirectOptionsRequestTest extends TestCase
 {
     /**
      * Setup before running any test case
@@ -71,63 +71,18 @@ class SetupFlowUpdateRequestTest extends TestCase
     }
 
     /**
-     * Test "SetupFlowUpdateRequest"
+     * Test "RedirectOptionsRequest"
      */
-    public function testSetupFlowUpdateRequest()
+    public function testRedirectOptionsRequest()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customerId"
+     * Test attribute "includeClientSecret"
      */
-    public function testPropertyCustomerId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "paymentMethodOptions"
-     */
-    public function testPropertyPaymentMethodOptions()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "paymentMethodTypes"
-     */
-    public function testPropertyPaymentMethodTypes()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "redirectOptions"
-     */
-    public function testPropertyRedirectOptions()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "description"
-     */
-    public function testPropertyDescription()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "metadata"
-     */
-    public function testPropertyMetadata()
+    public function testPropertyIncludeClientSecret()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

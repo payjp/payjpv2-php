@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TaxRateUpdateRequest
+ * RedirectOptionsRequest
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use ArrayAccess;
 use PAYJPV2\ObjectSerializer;
 
 /**
- * TaxRateUpdateRequest Class Doc Comment
+ * RedirectOptionsRequest Class Doc Comment
  *
  * @category Class
  * @package  PAYJPV2
@@ -41,7 +41,7 @@ use PAYJPV2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TaxRateUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class RedirectOptionsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class TaxRateUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TaxRateUpdateRequest';
+    protected static $openAPIModelName = 'RedirectOptionsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,12 +58,7 @@ class TaxRateUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'active' => 'bool',
-        'country' => '\PAYJPV2\Model\Country',
-        'description' => 'string',
-        'displayName' => 'string',
-        'taxType' => '\PAYJPV2\Model\TaxType',
-        'metadata' => 'array<string,mixed>',
+        'includeClientSecret' => 'bool',
     ];
 
     /**
@@ -74,12 +69,7 @@ class TaxRateUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'active' => null,
-        'country' => null,
-        'description' => null,
-        'displayName' => null,
-        'taxType' => null,
-        'metadata' => null,
+        'includeClientSecret' => null,
     ];
 
     /**
@@ -88,12 +78,7 @@ class TaxRateUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var bool[]
       */
     protected static array $openAPINullables = [
-        'active' => false,
-        'country' => false,
-        'description' => false,
-        'displayName' => false,
-        'taxType' => true,
-        'metadata' => false,
+        'includeClientSecret' => false,
     ];
 
     /**
@@ -182,12 +167,7 @@ class TaxRateUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'active' => 'active',
-        'country' => 'country',
-        'description' => 'description',
-        'displayName' => 'display_name',
-        'taxType' => 'tax_type',
-        'metadata' => 'metadata',
+        'includeClientSecret' => 'include_client_secret',
     ];
 
     /**
@@ -196,12 +176,7 @@ class TaxRateUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'active' => 'setActive',
-        'country' => 'setCountry',
-        'description' => 'setDescription',
-        'displayName' => 'setDisplayName',
-        'taxType' => 'setTaxType',
-        'metadata' => 'setMetadata',
+        'includeClientSecret' => 'setIncludeClientSecret',
     ];
 
     /**
@@ -210,12 +185,7 @@ class TaxRateUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'active' => 'getActive',
-        'country' => 'getCountry',
-        'description' => 'getDescription',
-        'displayName' => 'getDisplayName',
-        'taxType' => 'getTaxType',
-        'metadata' => 'getMetadata',
+        'includeClientSecret' => 'getIncludeClientSecret',
     ];
 
     /**
@@ -275,12 +245,7 @@ class TaxRateUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('active', $data ?? [], null);
-        $this->setIfExists('country', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('displayName', $data ?? [], null);
-        $this->setIfExists('taxType', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('includeClientSecret', $data ?? [], null);
     }
 
     /**
@@ -326,170 +291,28 @@ class TaxRateUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets active
+     * Gets includeClientSecret
      *
      * @return bool|null
      */
-    public function getActive(): ?bool
+    public function getIncludeClientSecret(): ?bool
     {
-        return $this->container['active'];
+        return $this->container['includeClientSecret'];
     }
 
     /**
-     * Sets active
+     * Sets includeClientSecret
      *
-     * @param bool|null $active この税率が有効であるかどうか。無効にした場合でも、すでに設定されている定期課金などでは使用可能です。
+     * @param bool|null $includeClientSecret return_url へリダイレクトする際、クエリパラメーターに client_secret を付与するかどうか。デフォルトは `true` です。
      *
      * @return self
      */
-    public function setActive(?bool $active): self
+    public function setIncludeClientSecret(?bool $includeClientSecret): self
     {
-        if (is_null($active)) {
-            throw new \InvalidArgumentException('non-nullable active cannot be null');
+        if (is_null($includeClientSecret)) {
+            throw new \InvalidArgumentException('non-nullable includeClientSecret cannot be null');
         }
-        $this->container['active'] = $active;
-
-        return $this;
-    }
-
-    /**
-     * Gets country
-     *
-     * @return \PAYJPV2\Model\Country|null
-     */
-    public function getCountry(): ?\PAYJPV2\Model\Country
-    {
-        return $this->container['country'];
-    }
-
-    /**
-     * Sets country
-     *
-     * @param \PAYJPV2\Model\Country|null $country 有効な2文字の <a href=\"https://ja.wikipedia.org/wiki/ISO_3166-1\" target=\"_blank\">ISO 国コード</a>
-     *
-     * @return self
-     */
-    public function setCountry(?\PAYJPV2\Model\Country $country): self
-    {
-        if (is_null($country)) {
-            throw new \InvalidArgumentException('non-nullable country cannot be null');
-        }
-        $this->container['country'] = $country;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription(): ?string
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description 説明。管理画面内のみで表示され、顧客には表示されません。
-     *
-     * @return self
-     */
-    public function setDescription(?string $description): self
-    {
-        if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
-        }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets displayName
-     *
-     * @return string|null
-     */
-    public function getDisplayName(): ?string
-    {
-        return $this->container['displayName'];
-    }
-
-    /**
-     * Sets displayName
-     *
-     * @param string|null $displayName 表示名。顧客に表示されます。
-     *
-     * @return self
-     */
-    public function setDisplayName(?string $displayName): self
-    {
-        if (is_null($displayName)) {
-            throw new \InvalidArgumentException('non-nullable displayName cannot be null');
-        }
-        $this->container['displayName'] = $displayName;
-
-        return $this;
-    }
-
-    /**
-     * Gets taxType
-     *
-     * @return \PAYJPV2\Model\TaxType|null
-     */
-    public function getTaxType(): ?\PAYJPV2\Model\TaxType
-    {
-        return $this->container['taxType'];
-    }
-
-    /**
-     * Sets taxType
-     *
-     * @param \PAYJPV2\Model\TaxType|null $taxType taxType
-     *
-     * @return self
-     */
-    public function setTaxType(?\PAYJPV2\Model\TaxType $taxType): self
-    {
-        if (is_null($taxType)) {
-            array_push($this->openAPINullablesSetToNull, 'taxType');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('taxType', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['taxType'] = $taxType;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return array<string,mixed>|null
-     */
-    public function getMetadata(): ?array
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param array<string,mixed>|null $metadata キーバリューの任意のデータを格納できます。20件まで登録可能で、空文字列を指定するとそのキーを削除できます。<a href=\"https://docs.pay.jp/v2/guide/developers/metadata\">詳細はメタデータのドキュメントを参照してください。</a>
-     *
-     * @return self
-     */
-    public function setMetadata(?array $metadata): self
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
+        $this->container['includeClientSecret'] = $includeClientSecret;
 
         return $this;
     }
