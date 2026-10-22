@@ -150,7 +150,7 @@ class CheckoutSessionsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\CheckoutSessionDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\CheckoutSessionDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function createCheckoutSession($checkoutSessionCreateRequest, ?string $idempotencyKey = null)
     {
@@ -169,7 +169,7 @@ class CheckoutSessionsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\CheckoutSessionDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\CheckoutSessionDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createCheckoutSessionWithHttpInfo($checkoutSessionCreateRequest, ?string $idempotencyKey = null)
     {
@@ -207,6 +207,12 @@ class CheckoutSessionsApi
                         $response,
                     );
                 case 422:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 429:
                     return $this->handleResponseWithDataType(
                         '\PAYJPV2\Model\ErrorResponse',
                         $request,
@@ -252,6 +258,15 @@ class CheckoutSessionsApi
 
                     throw $e;
                 case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',
@@ -466,7 +481,7 @@ class CheckoutSessionsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\CheckoutSessionDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\CheckoutSessionDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function expireCheckoutSession($checkoutSessionId, ?string $idempotencyKey = null)
     {
@@ -485,7 +500,7 @@ class CheckoutSessionsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\CheckoutSessionDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\CheckoutSessionDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function expireCheckoutSessionWithHttpInfo($checkoutSessionId, ?string $idempotencyKey = null)
     {
@@ -523,6 +538,12 @@ class CheckoutSessionsApi
                         $response,
                     );
                 case 422:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 429:
                     return $this->handleResponseWithDataType(
                         '\PAYJPV2\Model\ErrorResponse',
                         $request,
@@ -574,6 +595,15 @@ class CheckoutSessionsApi
 
                     throw $e;
                 case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',
@@ -801,7 +831,7 @@ class CheckoutSessionsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\CheckoutSessionLineItemListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\CheckoutSessionLineItemListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function getAllCheckoutSessionLineItems($checkoutSessionId, $limit = 10, $startingAfter = null, $endingBefore = null, ?string $idempotencyKey = null)
     {
@@ -823,7 +853,7 @@ class CheckoutSessionsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\CheckoutSessionLineItemListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\CheckoutSessionLineItemListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllCheckoutSessionLineItemsWithHttpInfo($checkoutSessionId, $limit = 10, $startingAfter = null, $endingBefore = null, ?string $idempotencyKey = null)
     {
@@ -861,6 +891,12 @@ class CheckoutSessionsApi
                         $response,
                     );
                 case 422:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 429:
                     return $this->handleResponseWithDataType(
                         '\PAYJPV2\Model\ErrorResponse',
                         $request,
@@ -912,6 +948,15 @@ class CheckoutSessionsApi
 
                     throw $e;
                 case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',
@@ -1183,7 +1228,7 @@ class CheckoutSessionsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\CheckoutSessionListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\CheckoutSessionListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function getAllCheckoutSessions($limit = 10, $startingAfter = null, $endingBefore = null, ?string $idempotencyKey = null)
     {
@@ -1204,7 +1249,7 @@ class CheckoutSessionsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\CheckoutSessionListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\CheckoutSessionListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllCheckoutSessionsWithHttpInfo($limit = 10, $startingAfter = null, $endingBefore = null, ?string $idempotencyKey = null)
     {
@@ -1242,6 +1287,12 @@ class CheckoutSessionsApi
                         $response,
                     );
                 case 422:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 429:
                     return $this->handleResponseWithDataType(
                         '\PAYJPV2\Model\ErrorResponse',
                         $request,
@@ -1287,6 +1338,15 @@ class CheckoutSessionsApi
 
                     throw $e;
                 case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',
@@ -1529,7 +1589,7 @@ class CheckoutSessionsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\CheckoutSessionDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\CheckoutSessionDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function getCheckoutSession($checkoutSessionId, ?string $idempotencyKey = null)
     {
@@ -1548,7 +1608,7 @@ class CheckoutSessionsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\CheckoutSessionDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\CheckoutSessionDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCheckoutSessionWithHttpInfo($checkoutSessionId, ?string $idempotencyKey = null)
     {
@@ -1586,6 +1646,12 @@ class CheckoutSessionsApi
                         $response,
                     );
                 case 422:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 429:
                     return $this->handleResponseWithDataType(
                         '\PAYJPV2\Model\ErrorResponse',
                         $request,
@@ -1631,6 +1697,15 @@ class CheckoutSessionsApi
 
                     throw $e;
                 case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',
@@ -1847,7 +1922,7 @@ class CheckoutSessionsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\CheckoutSessionDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\CheckoutSessionDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function updateCheckoutSession($checkoutSessionId, $checkoutSessionUpdateRequest, ?string $idempotencyKey = null)
     {
@@ -1867,7 +1942,7 @@ class CheckoutSessionsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\CheckoutSessionDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\CheckoutSessionDetailsResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateCheckoutSessionWithHttpInfo($checkoutSessionId, $checkoutSessionUpdateRequest, ?string $idempotencyKey = null)
     {
@@ -1905,6 +1980,12 @@ class CheckoutSessionsApi
                         $response,
                     );
                 case 422:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 429:
                     return $this->handleResponseWithDataType(
                         '\PAYJPV2\Model\ErrorResponse',
                         $request,
@@ -1956,6 +2037,15 @@ class CheckoutSessionsApi
 
                     throw $e;
                 case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',

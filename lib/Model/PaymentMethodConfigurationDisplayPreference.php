@@ -58,8 +58,8 @@ class PaymentMethodConfigurationDisplayPreference implements ModelInterface, Arr
       * @var string[]
       */
     protected static $openAPITypes = [
-        'preference' => 'string',
-        'value' => 'string',
+        'preference' => '\PAYJPV2\Model\PaymentMethodConfigurationPreference',
+        'value' => '\PAYJPV2\Model\PaymentMethodConfigurationValue',
     ];
 
     /**
@@ -235,38 +235,6 @@ class PaymentMethodConfigurationDisplayPreference implements ModelInterface, Arr
         return self::$openAPIModelName;
     }
 
-    public const PREFERENCE_NONE = 'none';
-    public const PREFERENCE_OFF = 'off';
-    public const PREFERENCE_ON = 'on';
-    public const VALUE_OFF = 'off';
-    public const VALUE_ON = 'on';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getPreferenceAllowableValues()
-    {
-        return [
-            self::PREFERENCE_NONE,
-            self::PREFERENCE_OFF,
-            self::PREFERENCE_ON,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getValueAllowableValues()
-    {
-        return [
-            self::VALUE_OFF,
-            self::VALUE_ON,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -314,24 +282,6 @@ class PaymentMethodConfigurationDisplayPreference implements ModelInterface, Arr
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getPreferenceAllowableValues();
-        if (! is_null($this->container['preference']) && ! in_array($this->container['preference'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'preference', must be one of '%s'",
-                $this->container['preference'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getValueAllowableValues();
-        if (! is_null($this->container['value']) && ! in_array($this->container['value'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'value', must be one of '%s'",
-                $this->container['value'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -350,9 +300,9 @@ class PaymentMethodConfigurationDisplayPreference implements ModelInterface, Arr
     /**
      * Gets preference
      *
-     * @return string|null
+     * @return \PAYJPV2\Model\PaymentMethodConfigurationPreference|null
      */
-    public function getPreference(): ?string
+    public function getPreference(): ?\PAYJPV2\Model\PaymentMethodConfigurationPreference
     {
         return $this->container['preference'];
     }
@@ -360,24 +310,14 @@ class PaymentMethodConfigurationDisplayPreference implements ModelInterface, Arr
     /**
      * Sets preference
      *
-     * @param string|null $preference この支払い方法がアカウントで有効になっているかどうか  | 値 | |:---| | **on**: この決済手段を決済画面に表示する | | **off**: この決済手段を決済画面に表示しない | | **none**: デフォルト設定を使用 |
+     * @param \PAYJPV2\Model\PaymentMethodConfigurationPreference|null $preference この支払い方法がアカウントで有効になっているかどうか  | 値 | |:---| | **on**: この決済手段を決済画面に表示する | | **off**: この決済手段を決済画面に表示しない | | **none**: デフォルト設定を使用 |
      *
      * @return self
      */
-    public function setPreference(?string $preference): self
+    public function setPreference(?\PAYJPV2\Model\PaymentMethodConfigurationPreference $preference): self
     {
         if (is_null($preference)) {
             throw new \InvalidArgumentException('non-nullable preference cannot be null');
-        }
-        $allowedValues = $this->getPreferenceAllowableValues();
-        if (! in_array($preference, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'preference', must be one of '%s'",
-                    $preference,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['preference'] = $preference;
 
@@ -387,9 +327,9 @@ class PaymentMethodConfigurationDisplayPreference implements ModelInterface, Arr
     /**
      * Gets value
      *
-     * @return string|null
+     * @return \PAYJPV2\Model\PaymentMethodConfigurationValue|null
      */
-    public function getValue(): ?string
+    public function getValue(): ?\PAYJPV2\Model\PaymentMethodConfigurationValue
     {
         return $this->container['value'];
     }
@@ -397,24 +337,14 @@ class PaymentMethodConfigurationDisplayPreference implements ModelInterface, Arr
     /**
      * Sets value
      *
-     * @param string|null $value この支払い方法を決済画面に表示するかどうか。  | 値 | |:---| | **on**: この決済手段を決済画面に表示する | | **off**: この決済手段を決済画面に表示しない |
+     * @param \PAYJPV2\Model\PaymentMethodConfigurationValue|null $value この支払い方法を決済画面に表示するかどうか。  | 値 | |:---| | **on**: この決済手段を決済画面に表示する | | **off**: この決済手段を決済画面に表示しない |
      *
      * @return self
      */
-    public function setValue(?string $value): self
+    public function setValue(?\PAYJPV2\Model\PaymentMethodConfigurationValue $value): self
     {
         if (is_null($value)) {
             throw new \InvalidArgumentException('non-nullable value cannot be null');
-        }
-        $allowedValues = $this->getValueAllowableValues();
-        if (! in_array($value, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'value', must be one of '%s'",
-                    $value,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['value'] = $value;
 

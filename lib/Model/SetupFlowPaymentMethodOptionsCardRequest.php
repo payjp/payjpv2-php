@@ -58,7 +58,7 @@ class SetupFlowPaymentMethodOptionsCardRequest implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $openAPITypes = [
-        'requestThreeDSecure' => 'string',
+        'requestThreeDSecure' => '\PAYJPV2\Model\RequestThreeDSecure',
     ];
 
     /**
@@ -229,21 +229,6 @@ class SetupFlowPaymentMethodOptionsCardRequest implements ModelInterface, ArrayA
         return self::$openAPIModelName;
     }
 
-    public const REQUEST_THREE_D_SECURE_AUTOMATIC = 'automatic';
-    public const REQUEST_THREE_D_SECURE_ANY = 'any';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRequestThreeDSecureAllowableValues()
-    {
-        return [
-            self::REQUEST_THREE_D_SECURE_AUTOMATIC,
-            self::REQUEST_THREE_D_SECURE_ANY,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -290,15 +275,6 @@ class SetupFlowPaymentMethodOptionsCardRequest implements ModelInterface, ArrayA
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getRequestThreeDSecureAllowableValues();
-        if (! is_null($this->container['requestThreeDSecure']) && ! in_array($this->container['requestThreeDSecure'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'requestThreeDSecure', must be one of '%s'",
-                $this->container['requestThreeDSecure'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -317,9 +293,9 @@ class SetupFlowPaymentMethodOptionsCardRequest implements ModelInterface, ArrayA
     /**
      * Gets requestThreeDSecure
      *
-     * @return string|null
+     * @return \PAYJPV2\Model\RequestThreeDSecure|null
      */
-    public function getRequestThreeDSecure(): ?string
+    public function getRequestThreeDSecure(): ?\PAYJPV2\Model\RequestThreeDSecure
     {
         return $this->container['requestThreeDSecure'];
     }
@@ -327,24 +303,14 @@ class SetupFlowPaymentMethodOptionsCardRequest implements ModelInterface, ArrayA
     /**
      * Sets requestThreeDSecure
      *
-     * @param string|null $requestThreeDSecure 3D セキュア認証の要求方法。  | 値 | |:---| | **any**: 3D セキュア認証を要求します。 | | **automatic**: 必要な場合にのみ 3D セキュア認証を要求します。 |
+     * @param \PAYJPV2\Model\RequestThreeDSecure|null $requestThreeDSecure 3D セキュア認証の要求方法。  | 値 | |:---| | **any**: 3D セキュア認証を要求します。 | | **automatic**: 必要な場合にのみ 3D セキュア認証を要求します。 |
      *
      * @return self
      */
-    public function setRequestThreeDSecure(?string $requestThreeDSecure): self
+    public function setRequestThreeDSecure(?\PAYJPV2\Model\RequestThreeDSecure $requestThreeDSecure): self
     {
         if (is_null($requestThreeDSecure)) {
             throw new \InvalidArgumentException('non-nullable requestThreeDSecure cannot be null');
-        }
-        $allowedValues = $this->getRequestThreeDSecureAllowableValues();
-        if (! in_array($requestThreeDSecure, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'requestThreeDSecure', must be one of '%s'",
-                    $requestThreeDSecure,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['requestThreeDSecure'] = $requestThreeDSecure;
 

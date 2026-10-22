@@ -58,8 +58,8 @@ class PaymentFlowPaymentMethodOptionsCardRequest implements ModelInterface, Arra
       * @var string[]
       */
     protected static $openAPITypes = [
-        'requestExtendedAuthorization' => 'string',
-        'requestThreeDSecure' => 'string',
+        'requestExtendedAuthorization' => '\PAYJPV2\Model\RequestExtendedAuthorization',
+        'requestThreeDSecure' => '\PAYJPV2\Model\RequestThreeDSecure',
     ];
 
     /**
@@ -235,38 +235,6 @@ class PaymentFlowPaymentMethodOptionsCardRequest implements ModelInterface, Arra
         return self::$openAPIModelName;
     }
 
-    public const REQUEST_EXTENDED_AUTHORIZATION_IF_AVAILABLE = 'if_available';
-    public const REQUEST_EXTENDED_AUTHORIZATION_MUST_EXTEND = 'must_extend';
-    public const REQUEST_EXTENDED_AUTHORIZATION_NEVER = 'never';
-    public const REQUEST_THREE_D_SECURE_ANY = 'any';
-    public const REQUEST_THREE_D_SECURE_AUTOMATIC = 'automatic';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRequestExtendedAuthorizationAllowableValues()
-    {
-        return [
-            self::REQUEST_EXTENDED_AUTHORIZATION_IF_AVAILABLE,
-            self::REQUEST_EXTENDED_AUTHORIZATION_MUST_EXTEND,
-            self::REQUEST_EXTENDED_AUTHORIZATION_NEVER,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRequestThreeDSecureAllowableValues()
-    {
-        return [
-            self::REQUEST_THREE_D_SECURE_ANY,
-            self::REQUEST_THREE_D_SECURE_AUTOMATIC,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -314,24 +282,6 @@ class PaymentFlowPaymentMethodOptionsCardRequest implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getRequestExtendedAuthorizationAllowableValues();
-        if (! is_null($this->container['requestExtendedAuthorization']) && ! in_array($this->container['requestExtendedAuthorization'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'requestExtendedAuthorization', must be one of '%s'",
-                $this->container['requestExtendedAuthorization'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getRequestThreeDSecureAllowableValues();
-        if (! is_null($this->container['requestThreeDSecure']) && ! in_array($this->container['requestThreeDSecure'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'requestThreeDSecure', must be one of '%s'",
-                $this->container['requestThreeDSecure'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -350,9 +300,9 @@ class PaymentFlowPaymentMethodOptionsCardRequest implements ModelInterface, Arra
     /**
      * Gets requestExtendedAuthorization
      *
-     * @return string|null
+     * @return \PAYJPV2\Model\RequestExtendedAuthorization|null
      */
-    public function getRequestExtendedAuthorization(): ?string
+    public function getRequestExtendedAuthorization(): ?\PAYJPV2\Model\RequestExtendedAuthorization
     {
         return $this->container['requestExtendedAuthorization'];
     }
@@ -360,24 +310,14 @@ class PaymentFlowPaymentMethodOptionsCardRequest implements ModelInterface, Arra
     /**
      * Sets requestExtendedAuthorization
      *
-     * @param string|null $requestExtendedAuthorization オーソリ期間の延長要求  | 値 | |:---| | **if_available**: オーソリ期間の延長が可能な場合に延長要求を行います。 | | **must_extend**: オーソリ期間の延長を必須とします。延長できない場合はエラーを返します。 | | **never**: オーソリ期間の延長要求を行いません。 |
+     * @param \PAYJPV2\Model\RequestExtendedAuthorization|null $requestExtendedAuthorization オーソリ期間の延長要求  | 値 | |:---| | **if_available**: オーソリ期間の延長が可能な場合に延長要求を行います。 | | **must_extend**: オーソリ期間の延長を必須とします。延長できない場合はエラーを返します。 | | **never**: オーソリ期間の延長要求を行いません。 |
      *
      * @return self
      */
-    public function setRequestExtendedAuthorization(?string $requestExtendedAuthorization): self
+    public function setRequestExtendedAuthorization(?\PAYJPV2\Model\RequestExtendedAuthorization $requestExtendedAuthorization): self
     {
         if (is_null($requestExtendedAuthorization)) {
             throw new \InvalidArgumentException('non-nullable requestExtendedAuthorization cannot be null');
-        }
-        $allowedValues = $this->getRequestExtendedAuthorizationAllowableValues();
-        if (! in_array($requestExtendedAuthorization, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'requestExtendedAuthorization', must be one of '%s'",
-                    $requestExtendedAuthorization,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['requestExtendedAuthorization'] = $requestExtendedAuthorization;
 
@@ -387,9 +327,9 @@ class PaymentFlowPaymentMethodOptionsCardRequest implements ModelInterface, Arra
     /**
      * Gets requestThreeDSecure
      *
-     * @return string|null
+     * @return \PAYJPV2\Model\RequestThreeDSecure|null
      */
-    public function getRequestThreeDSecure(): ?string
+    public function getRequestThreeDSecure(): ?\PAYJPV2\Model\RequestThreeDSecure
     {
         return $this->container['requestThreeDSecure'];
     }
@@ -397,24 +337,14 @@ class PaymentFlowPaymentMethodOptionsCardRequest implements ModelInterface, Arra
     /**
      * Sets requestThreeDSecure
      *
-     * @param string|null $requestThreeDSecure 3D セキュア認証の要求方法。  | 値 | |:---| | **any**: 3D セキュア認証を要求します。 | | **automatic**: 必要な場合にのみ 3D セキュア認証を要求します。 |
+     * @param \PAYJPV2\Model\RequestThreeDSecure|null $requestThreeDSecure 3D セキュア認証の要求方法。  | 値 | |:---| | **any**: 3D セキュア認証を要求します。 | | **automatic**: 必要な場合にのみ 3D セキュア認証を要求します。 |
      *
      * @return self
      */
-    public function setRequestThreeDSecure(?string $requestThreeDSecure): self
+    public function setRequestThreeDSecure(?\PAYJPV2\Model\RequestThreeDSecure $requestThreeDSecure): self
     {
         if (is_null($requestThreeDSecure)) {
             throw new \InvalidArgumentException('non-nullable requestThreeDSecure cannot be null');
-        }
-        $allowedValues = $this->getRequestThreeDSecureAllowableValues();
-        if (! in_array($requestThreeDSecure, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'requestThreeDSecure', must be one of '%s'",
-                    $requestThreeDSecure,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['requestThreeDSecure'] = $requestThreeDSecure;
 

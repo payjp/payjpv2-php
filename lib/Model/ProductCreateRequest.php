@@ -313,6 +313,9 @@ class ProductCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
+        if (! is_null($this->container['id']) && (mb_strlen($this->container['id']) > 255)) {
+            $invalidProperties[] = "invalid value for 'id', the character length must be smaller than or equal to 255.";
+        }
 
         return $invalidProperties;
     }
@@ -373,7 +376,7 @@ class ProductCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets id
      *
-     * @param string|null $id 商品 ID
+     * @param string|null $id 商品 ID（255文字以内）
      *
      * @return self
      */
@@ -382,6 +385,10 @@ class ProductCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         if (is_null($id)) {
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
+        if ((mb_strlen($id) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $id when calling ProductCreateRequest., must be smaller than or equal to 255.');
+        }
+
         $this->container['id'] = $id;
 
         return $this;

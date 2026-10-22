@@ -510,8 +510,15 @@ class ObjectSerializer
 
 
         // PHP 8.1+ backed enum support
+        // Unknown values fall back to UNKNOWN_DEFAULT_OPEN_API (added in model_enum.mustache) so that
+        // enum values added on the API side do not break older clients.
         if (enum_exists($class)) {
-            return $class::from($data);
+            $value = $class::tryFrom($data);
+            if ($value === null && defined($class . '::UNKNOWN_DEFAULT_OPEN_API')) {
+                return constant($class . '::UNKNOWN_DEFAULT_OPEN_API');
+            }
+
+            return $value ?? $class::from($data);
         }
 
         if (method_exists($class, 'getAllowableEnumValues')) {

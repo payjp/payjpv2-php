@@ -137,13 +137,13 @@ class PaymentTransactionsApi
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
      * @param  string|null $termId 集計区間 ID (optional)
-     * @param  string|null $type 取引タイプ (optional)
-     * @param  string|null $paymentMethodType 支払い方法タイプ (optional)
+     * @param  \PAYJPV2\Model\PaymentTransactionType|null $type 取引タイプ (optional)
+     * @param  \PAYJPV2\Model\PaymentMethodTypes|null $paymentMethodType 支払い方法タイプ (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\PaymentTransactionListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\PaymentTransactionListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function getAllPaymentTransactions($limit = 10, $startingAfter = null, $endingBefore = null, $termId = null, $type = null, $paymentMethodType = null, ?string $idempotencyKey = null)
     {
@@ -161,13 +161,13 @@ class PaymentTransactionsApi
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
      * @param  string|null $termId 集計区間 ID (optional)
-     * @param  string|null $type 取引タイプ (optional)
-     * @param  string|null $paymentMethodType 支払い方法タイプ (optional)
+     * @param  \PAYJPV2\Model\PaymentTransactionType|null $type 取引タイプ (optional)
+     * @param  \PAYJPV2\Model\PaymentMethodTypes|null $paymentMethodType 支払い方法タイプ (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\PaymentTransactionListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\PaymentTransactionListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllPaymentTransactionsWithHttpInfo($limit = 10, $startingAfter = null, $endingBefore = null, $termId = null, $type = null, $paymentMethodType = null, ?string $idempotencyKey = null)
     {
@@ -205,6 +205,12 @@ class PaymentTransactionsApi
                         $response,
                     );
                 case 422:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 429:
                     return $this->handleResponseWithDataType(
                         '\PAYJPV2\Model\ErrorResponse',
                         $request,
@@ -264,6 +270,15 @@ class PaymentTransactionsApi
                     $e->setResponseObject($data);
 
                     throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -298,8 +313,8 @@ class PaymentTransactionsApi
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
      * @param  string|null $termId 集計区間 ID (optional)
-     * @param  string|null $type 取引タイプ (optional)
-     * @param  string|null $paymentMethodType 支払い方法タイプ (optional)
+     * @param  \PAYJPV2\Model\PaymentTransactionType|null $type 取引タイプ (optional)
+     * @param  \PAYJPV2\Model\PaymentMethodTypes|null $paymentMethodType 支払い方法タイプ (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException
@@ -324,8 +339,8 @@ class PaymentTransactionsApi
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
      * @param  string|null $termId 集計区間 ID (optional)
-     * @param  string|null $type 取引タイプ (optional)
-     * @param  string|null $paymentMethodType 支払い方法タイプ (optional)
+     * @param  \PAYJPV2\Model\PaymentTransactionType|null $type 取引タイプ (optional)
+     * @param  \PAYJPV2\Model\PaymentMethodTypes|null $paymentMethodType 支払い方法タイプ (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException
@@ -380,8 +395,8 @@ class PaymentTransactionsApi
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
      * @param  string|null $termId 集計区間 ID (optional)
-     * @param  string|null $type 取引タイプ (optional)
-     * @param  string|null $paymentMethodType 支払い方法タイプ (optional)
+     * @param  \PAYJPV2\Model\PaymentTransactionType|null $type 取引タイプ (optional)
+     * @param  \PAYJPV2\Model\PaymentMethodTypes|null $paymentMethodType 支払い方法タイプ (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException
@@ -455,7 +470,7 @@ class PaymentTransactionsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $type,
             'type', // param base name
-            'string', // openApiType
+            'PaymentTransactionType', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -464,7 +479,7 @@ class PaymentTransactionsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $paymentMethodType,
             'payment_method_type', // param base name
-            'string', // openApiType
+            'PaymentMethodTypes', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -546,7 +561,7 @@ class PaymentTransactionsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\PaymentTransactionResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\PaymentTransactionResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function getPaymentTransaction($paymentTransactionId, ?string $idempotencyKey = null)
     {
@@ -565,7 +580,7 @@ class PaymentTransactionsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\PaymentTransactionResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\PaymentTransactionResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentTransactionWithHttpInfo($paymentTransactionId, ?string $idempotencyKey = null)
     {
@@ -603,6 +618,12 @@ class PaymentTransactionsApi
                         $response,
                     );
                 case 422:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 429:
                     return $this->handleResponseWithDataType(
                         '\PAYJPV2\Model\ErrorResponse',
                         $request,
@@ -648,6 +669,15 @@ class PaymentTransactionsApi
 
                     throw $e;
                 case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',

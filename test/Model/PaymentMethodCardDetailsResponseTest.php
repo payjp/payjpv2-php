@@ -132,4 +132,13 @@ class PaymentMethodCardDetailsResponseTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "funding"
+     */
+    public function testPropertyFunding()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }
