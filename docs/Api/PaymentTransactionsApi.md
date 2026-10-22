@@ -42,8 +42,8 @@ $limit = 10; // int | 取得するデータの最大件数
 $startingAfter = 'startingAfter_example'; // string | このIDより後のデータを取得
 $endingBefore = 'endingBefore_example'; // string | このIDより前のデータを取得
 $termId = 'termId_example'; // string | 集計区間 ID
-$type = 'type_example'; // string | 取引タイプ
-$paymentMethodType = 'paymentMethodType_example'; // string | 支払い方法タイプ
+$type = new \PAYJPV2\Model\\PAYJPV2\Model\PaymentTransactionType(); // \PAYJPV2\Model\PaymentTransactionType | 取引タイプ
+$paymentMethodType = new \PAYJPV2\Model\\PAYJPV2\Model\PaymentMethodTypes(); // \PAYJPV2\Model\PaymentMethodTypes | 支払い方法タイプ
 
 try {
     $result = $apiInstance->getAllPaymentTransactions($limit, $startingAfter, $endingBefore, $termId, $type, $paymentMethodType);
@@ -61,8 +61,8 @@ try {
 | **startingAfter** | **string**| このIDより後のデータを取得 | [optional] |
 | **endingBefore** | **string**| このIDより前のデータを取得 | [optional] |
 | **termId** | **string**| 集計区間 ID | [optional] |
-| **type** | **string**| 取引タイプ | [optional] |
-| **paymentMethodType** | **string**| 支払い方法タイプ | [optional] |
+| **type** | [**\PAYJPV2\Model\PaymentTransactionType**](../Model/.md)| 取引タイプ | [optional] |
+| **paymentMethodType** | [**\PAYJPV2\Model\PaymentMethodTypes**](../Model/.md)| 支払い方法タイプ | [optional] |
 
 ### Return type
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**requestExtendedAuthorization** | **string** | オーソリ期間の延長要求  | 指定できる値 | |:---| | **if_available**: オーソリ期間の延長が可能な場合に延長要求を行います。 | | **must_extend**: オーソリ期間の延長を必須とします。延長できない場合はエラーを返します。 | | **never**: オーソリ期間の延長要求を行いません。 | | [optional]
-**requestThreeDSecure** | **string** | 3D セキュア認証の要求方法  | 指定できる値 | |:---| | **any**: 3D セキュア認証を要求します。 | | **automatic**: 必要な場合にのみ 3D セキュア認証を要求します。 | | [optional]
+**requestExtendedAuthorization** | [**\PAYJPV2\Model\RequestExtendedAuthorization**](RequestExtendedAuthorization.md) | オーソリ期間の延長要求  | 指定できる値 | |:---| | **if_available**: オーソリ期間の延長が可能な場合に延長要求を行います。 | | **must_extend**: オーソリ期間の延長を必須とします。延長できない場合はエラーを返します。 | | **never**: オーソリ期間の延長要求を行いません。 | | [optional]
+**requestThreeDSecure** | [**\PAYJPV2\Model\RequestThreeDSecure**](RequestThreeDSecure.md) | 3D セキュア認証の要求方法  | 指定できる値 | |:---| | **any**: 3D セキュア認証を要求します。 | | **automatic**: 必要な場合にのみ 3D セキュア認証を要求します。 | | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

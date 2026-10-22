@@ -59,11 +59,12 @@ class PaymentMethodCardDetailsResponse implements ModelInterface, ArrayAccess, \
       */
     protected static $openAPITypes = [
         'last4' => 'string',
-        'brand' => 'string',
+        'brand' => '\PAYJPV2\Model\CardBrand',
         'expMonth' => 'int',
         'expYear' => 'int',
         'fingerprint' => 'string',
         'country' => 'string',
+        'funding' => '\PAYJPV2\Model\CardFunding',
     ];
 
     /**
@@ -80,6 +81,7 @@ class PaymentMethodCardDetailsResponse implements ModelInterface, ArrayAccess, \
         'expYear' => null,
         'fingerprint' => null,
         'country' => null,
+        'funding' => null,
     ];
 
     /**
@@ -94,6 +96,7 @@ class PaymentMethodCardDetailsResponse implements ModelInterface, ArrayAccess, \
         'expYear' => false,
         'fingerprint' => false,
         'country' => true,
+        'funding' => true,
     ];
 
     /**
@@ -188,6 +191,7 @@ class PaymentMethodCardDetailsResponse implements ModelInterface, ArrayAccess, \
         'expYear' => 'exp_year',
         'fingerprint' => 'fingerprint',
         'country' => 'country',
+        'funding' => 'funding',
     ];
 
     /**
@@ -202,6 +206,7 @@ class PaymentMethodCardDetailsResponse implements ModelInterface, ArrayAccess, \
         'expYear' => 'setExpYear',
         'fingerprint' => 'setFingerprint',
         'country' => 'setCountry',
+        'funding' => 'setFunding',
     ];
 
     /**
@@ -216,6 +221,7 @@ class PaymentMethodCardDetailsResponse implements ModelInterface, ArrayAccess, \
         'expYear' => 'getExpYear',
         'fingerprint' => 'getFingerprint',
         'country' => 'getCountry',
+        'funding' => 'getFunding',
     ];
 
     /**
@@ -281,6 +287,7 @@ class PaymentMethodCardDetailsResponse implements ModelInterface, ArrayAccess, \
         $this->setIfExists('expYear', $data ?? [], null);
         $this->setIfExists('fingerprint', $data ?? [], null);
         $this->setIfExists('country', $data ?? [], null);
+        $this->setIfExists('funding', $data ?? [], null);
     }
 
     /**
@@ -327,6 +334,9 @@ class PaymentMethodCardDetailsResponse implements ModelInterface, ArrayAccess, \
         }
         if ($this->container['country'] === null) {
             $invalidProperties[] = "'country' can't be null";
+        }
+        if ($this->container['funding'] === null) {
+            $invalidProperties[] = "'funding' can't be null";
         }
 
         return $invalidProperties;
@@ -378,9 +388,9 @@ class PaymentMethodCardDetailsResponse implements ModelInterface, ArrayAccess, \
     /**
      * Gets brand
      *
-     * @return string
+     * @return \PAYJPV2\Model\CardBrand
      */
-    public function getBrand(): string
+    public function getBrand(): \PAYJPV2\Model\CardBrand
     {
         if ($this->container['brand'] === null) {
             throw new \LogicException('Property "brand" is required but has not been set.');
@@ -392,11 +402,11 @@ class PaymentMethodCardDetailsResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets brand
      *
-     * @param string $brand カードのブランド
+     * @param \PAYJPV2\Model\CardBrand $brand brand
      *
      * @return self
      */
-    public function setBrand(string $brand): self
+    public function setBrand(\PAYJPV2\Model\CardBrand $brand): self
     {
         if (is_null($brand)) {
             throw new \InvalidArgumentException('non-nullable brand cannot be null');
@@ -529,6 +539,40 @@ class PaymentMethodCardDetailsResponse implements ModelInterface, ArrayAccess, \
             }
         }
         $this->container['country'] = $country;
+
+        return $this;
+    }
+
+    /**
+     * Gets funding
+     *
+     * @return \PAYJPV2\Model\CardFunding|null
+     */
+    public function getFunding(): ?\PAYJPV2\Model\CardFunding
+    {
+        return $this->container['funding'];
+    }
+
+    /**
+     * Sets funding
+     *
+     * @param \PAYJPV2\Model\CardFunding|null $funding funding
+     *
+     * @return self
+     */
+    public function setFunding(?\PAYJPV2\Model\CardFunding $funding): self
+    {
+        if (is_null($funding)) {
+            array_push($this->openAPINullablesSetToNull, 'funding');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('funding', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['funding'] = $funding;
 
         return $this;
     }

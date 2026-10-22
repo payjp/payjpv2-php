@@ -741,7 +741,7 @@ class CheckoutSessionCreateRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets expiresAt
      *
-     * @param \DateTime|null $expiresAt Checkout Session の有効期限が失効する日時
+     * @param \DateTime|null $expiresAt Checkout Session の有効期限が失効する日時<br> 24時間以内の日時を指定できます。未指定の場合は作成時点から24時間後になります。
      *
      * @return self
      */

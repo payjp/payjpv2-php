@@ -63,7 +63,7 @@ class BankInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'bankAccountType' => 'string',
         'bankAccountNumber' => 'string',
         'bankAccountHolderName' => 'string',
-        'bankAccountStatus' => 'string',
+        'bankAccountStatus' => '\PAYJPV2\Model\BankAccountStatus',
     ];
 
     /**
@@ -423,7 +423,7 @@ class BankInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets bankAccountType
      *
-     * @param string $bankAccountType 口座種別
+     * @param string $bankAccountType 口座種別。`普通` または `当座`
      *
      * @return self
      */
@@ -502,9 +502,9 @@ class BankInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets bankAccountStatus
      *
-     * @return string
+     * @return \PAYJPV2\Model\BankAccountStatus
      */
-    public function getBankAccountStatus(): string
+    public function getBankAccountStatus(): \PAYJPV2\Model\BankAccountStatus
     {
         if ($this->container['bankAccountStatus'] === null) {
             throw new \LogicException('Property "bankAccountStatus" is required but has not been set.');
@@ -516,11 +516,11 @@ class BankInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets bankAccountStatus
      *
-     * @param string $bankAccountStatus 最新振込結果  | 値 | |:---| | **success**: 成功 | | **failed**: 失敗 | | **pending**: 初回振込み前 |
+     * @param \PAYJPV2\Model\BankAccountStatus $bankAccountStatus 最新振込結果  | 値 | |:---| | **success**: 成功 | | **failed**: 失敗 | | **pending**: 初回振込み前 |
      *
      * @return self
      */
-    public function setBankAccountStatus(string $bankAccountStatus): self
+    public function setBankAccountStatus(\PAYJPV2\Model\BankAccountStatus $bankAccountStatus): self
     {
         if (is_null($bankAccountStatus)) {
             throw new \InvalidArgumentException('non-nullable bankAccountStatus cannot be null');

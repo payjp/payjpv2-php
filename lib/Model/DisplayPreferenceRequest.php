@@ -58,7 +58,7 @@ class DisplayPreferenceRequest implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'preference' => 'string',
+        'preference' => '\PAYJPV2\Model\PaymentMethodConfigurationPreference',
     ];
 
     /**
@@ -229,23 +229,6 @@ class DisplayPreferenceRequest implements ModelInterface, ArrayAccess, \JsonSeri
         return self::$openAPIModelName;
     }
 
-    public const PREFERENCE_NONE = 'none';
-    public const PREFERENCE_OFF = 'off';
-    public const PREFERENCE_ON = 'on';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getPreferenceAllowableValues()
-    {
-        return [
-            self::PREFERENCE_NONE,
-            self::PREFERENCE_OFF,
-            self::PREFERENCE_ON,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -295,14 +278,6 @@ class DisplayPreferenceRequest implements ModelInterface, ArrayAccess, \JsonSeri
         if ($this->container['preference'] === null) {
             $invalidProperties[] = "'preference' can't be null";
         }
-        $allowedValues = $this->getPreferenceAllowableValues();
-        if (! is_null($this->container['preference']) && ! in_array($this->container['preference'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'preference', must be one of '%s'",
-                $this->container['preference'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -322,9 +297,9 @@ class DisplayPreferenceRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets preference
      *
-     * @return string
+     * @return \PAYJPV2\Model\PaymentMethodConfigurationPreference
      */
-    public function getPreference(): string
+    public function getPreference(): \PAYJPV2\Model\PaymentMethodConfigurationPreference
     {
         if ($this->container['preference'] === null) {
             throw new \LogicException('Property "preference" is required but has not been set.');
@@ -336,24 +311,14 @@ class DisplayPreferenceRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets preference
      *
-     * @param string $preference この支払い方法がアカウントで有効になっているかどうか  | 値 | |:---| | **on**: この決済手段を決済画面に表示する | | **off**: この決済手段を決済画面に表示しない | | **none**: デフォルト設定を使用 |
+     * @param \PAYJPV2\Model\PaymentMethodConfigurationPreference $preference この支払い方法がアカウントで有効になっているかどうか  | 値 | |:---| | **on**: この決済手段を決済画面に表示する | | **off**: この決済手段を決済画面に表示しない | | **none**: デフォルト設定を使用 |
      *
      * @return self
      */
-    public function setPreference(string $preference): self
+    public function setPreference(\PAYJPV2\Model\PaymentMethodConfigurationPreference $preference): self
     {
         if (is_null($preference)) {
             throw new \InvalidArgumentException('non-nullable preference cannot be null');
-        }
-        $allowedValues = $this->getPreferenceAllowableValues();
-        if (! in_array($preference, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'preference', must be one of '%s'",
-                    $preference,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['preference'] = $preference;
 

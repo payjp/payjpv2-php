@@ -29,6 +29,8 @@
 
 namespace PAYJPV2\Model;
 
+use PAYJPV2\ObjectSerializer;
+
 /**
  * BalanceState Class Doc Comment
  *
@@ -45,11 +47,17 @@ enum BalanceState: string
     case CLAIM = 'claim';
 
     /**
+     * Fallback for values unknown to this SDK version, so that enum values added on the API side
+     * do not break older clients (see ObjectSerializer::deserialize)
+     */
+    case UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
+    /**
      * Gets allowable values of the enum
      * @return string[]
      */
     public static function getAllowableEnumValues(): array
     {
-        return array_column(self::cases(), 'value');
+        return array_values(array_diff(array_column(self::cases(), 'value'), [self::UNKNOWN_DEFAULT_OPEN_API->value]));
     }
 }

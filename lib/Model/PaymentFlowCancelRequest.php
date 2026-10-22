@@ -58,7 +58,7 @@ class PaymentFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'cancellationReason' => 'string',
+        'cancellationReason' => '\PAYJPV2\Model\PaymentFlowCancellationReason',
     ];
 
     /**
@@ -229,25 +229,6 @@ class PaymentFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSeri
         return self::$openAPIModelName;
     }
 
-    public const CANCELLATION_REASON_DUPLICATE = 'duplicate';
-    public const CANCELLATION_REASON_FRAUDULENT = 'fraudulent';
-    public const CANCELLATION_REASON_REQUESTED_BY_CUSTOMER = 'requested_by_customer';
-    public const CANCELLATION_REASON_ABANDONED = 'abandoned';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCancellationReasonAllowableValues()
-    {
-        return [
-            self::CANCELLATION_REASON_DUPLICATE,
-            self::CANCELLATION_REASON_FRAUDULENT,
-            self::CANCELLATION_REASON_REQUESTED_BY_CUSTOMER,
-            self::CANCELLATION_REASON_ABANDONED,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -294,15 +275,6 @@ class PaymentFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getCancellationReasonAllowableValues();
-        if (! is_null($this->container['cancellationReason']) && ! in_array($this->container['cancellationReason'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'cancellationReason', must be one of '%s'",
-                $this->container['cancellationReason'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -321,9 +293,9 @@ class PaymentFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets cancellationReason
      *
-     * @return string|null
+     * @return \PAYJPV2\Model\PaymentFlowCancellationReason|null
      */
-    public function getCancellationReason(): ?string
+    public function getCancellationReason(): ?\PAYJPV2\Model\PaymentFlowCancellationReason
     {
         return $this->container['cancellationReason'];
     }
@@ -331,24 +303,14 @@ class PaymentFlowCancelRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets cancellationReason
      *
-     * @param string|null $cancellationReason この PaymentFlow のキャンセル理由 | 値 | |:---| | **duplicate**: 重複した支払いである場合。 | | **fraudulent**: 不正な利用だと考えられる場合。 | | **requested_by_customer**: 顧客がキャンセルを要求した場合。 | | **abandoned**: 顧客が支払いを完了しなかった場合。 |
+     * @param \PAYJPV2\Model\PaymentFlowCancellationReason|null $cancellationReason この PaymentFlow のキャンセル理由 | 値 | |:---| | **duplicate**: 重複した支払いである場合。 | | **fraudulent**: 不正な利用だと考えられる場合。 | | **requested_by_customer**: 顧客がキャンセルを要求した場合。 | | **abandoned**: 顧客が支払いを完了しなかった場合。 |
      *
      * @return self
      */
-    public function setCancellationReason(?string $cancellationReason): self
+    public function setCancellationReason(?\PAYJPV2\Model\PaymentFlowCancellationReason $cancellationReason): self
     {
         if (is_null($cancellationReason)) {
             throw new \InvalidArgumentException('non-nullable cancellationReason cannot be null');
-        }
-        $allowedValues = $this->getCancellationReasonAllowableValues();
-        if (! in_array($cancellationReason, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'cancellationReason', must be one of '%s'",
-                    $cancellationReason,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['cancellationReason'] = $cancellationReason;
 

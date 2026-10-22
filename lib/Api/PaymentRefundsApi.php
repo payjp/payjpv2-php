@@ -144,7 +144,7 @@ class PaymentRefundsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\PaymentRefundResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\PaymentRefundResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function createPaymentRefund($paymentRefundCreateRequest, ?string $idempotencyKey = null)
     {
@@ -163,7 +163,7 @@ class PaymentRefundsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\PaymentRefundResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\PaymentRefundResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createPaymentRefundWithHttpInfo($paymentRefundCreateRequest, ?string $idempotencyKey = null)
     {
@@ -201,6 +201,12 @@ class PaymentRefundsApi
                         $response,
                     );
                 case 422:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 429:
                     return $this->handleResponseWithDataType(
                         '\PAYJPV2\Model\ErrorResponse',
                         $request,
@@ -258,6 +264,15 @@ class PaymentRefundsApi
 
                     throw $e;
                 case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',
@@ -492,7 +507,7 @@ class PaymentRefundsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\PaymentRefundListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\PaymentRefundListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function getAllPaymentRefunds($limit = 10, $startingAfter = null, $endingBefore = null, ?string $idempotencyKey = null)
     {
@@ -513,7 +528,7 @@ class PaymentRefundsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\PaymentRefundListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\PaymentRefundListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllPaymentRefundsWithHttpInfo($limit = 10, $startingAfter = null, $endingBefore = null, ?string $idempotencyKey = null)
     {
@@ -551,6 +566,12 @@ class PaymentRefundsApi
                         $response,
                     );
                 case 422:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 429:
                     return $this->handleResponseWithDataType(
                         '\PAYJPV2\Model\ErrorResponse',
                         $request,
@@ -596,6 +617,15 @@ class PaymentRefundsApi
 
                     throw $e;
                 case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',
@@ -838,7 +868,7 @@ class PaymentRefundsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\PaymentRefundResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\PaymentRefundResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function getPaymentRefund($paymentRefundId, ?string $idempotencyKey = null)
     {
@@ -857,7 +887,7 @@ class PaymentRefundsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\PaymentRefundResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\PaymentRefundResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentRefundWithHttpInfo($paymentRefundId, ?string $idempotencyKey = null)
     {
@@ -895,6 +925,12 @@ class PaymentRefundsApi
                         $response,
                     );
                 case 422:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 429:
                     return $this->handleResponseWithDataType(
                         '\PAYJPV2\Model\ErrorResponse',
                         $request,
@@ -940,6 +976,15 @@ class PaymentRefundsApi
 
                     throw $e;
                 case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',
@@ -1156,7 +1201,7 @@ class PaymentRefundsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\PaymentRefundResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\PaymentRefundResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function updatePaymentRefund($paymentRefundId, $paymentRefundUpdateRequest, ?string $idempotencyKey = null)
     {
@@ -1176,7 +1221,7 @@ class PaymentRefundsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\PaymentRefundResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\PaymentRefundResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updatePaymentRefundWithHttpInfo($paymentRefundId, $paymentRefundUpdateRequest, ?string $idempotencyKey = null)
     {
@@ -1214,6 +1259,12 @@ class PaymentRefundsApi
                         $response,
                     );
                 case 422:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 429:
                     return $this->handleResponseWithDataType(
                         '\PAYJPV2\Model\ErrorResponse',
                         $request,
@@ -1265,6 +1316,15 @@ class PaymentRefundsApi
 
                     throw $e;
                 case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',

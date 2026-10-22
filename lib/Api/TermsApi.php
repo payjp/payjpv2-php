@@ -142,7 +142,7 @@ class TermsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\TermListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\TermListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function getAllTerms($limit = 10, $startingAfter = null, $endingBefore = null, $sinceStartAt = null, $untilStartAt = null, ?string $idempotencyKey = null)
     {
@@ -165,7 +165,7 @@ class TermsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\TermListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\TermListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllTermsWithHttpInfo($limit = 10, $startingAfter = null, $endingBefore = null, $sinceStartAt = null, $untilStartAt = null, ?string $idempotencyKey = null)
     {
@@ -203,6 +203,12 @@ class TermsApi
                         $response,
                     );
                 case 422:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 429:
                     return $this->handleResponseWithDataType(
                         '\PAYJPV2\Model\ErrorResponse',
                         $request,
@@ -248,6 +254,15 @@ class TermsApi
 
                     throw $e;
                 case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',
@@ -516,7 +531,7 @@ class TermsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PAYJPV2\Model\TermResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
+     * @return \PAYJPV2\Model\TermResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
     public function getTerm($termId, ?string $idempotencyKey = null)
     {
@@ -535,7 +550,7 @@ class TermsApi
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PAYJPV2\Model\TermResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PAYJPV2\Model\TermResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTermWithHttpInfo($termId, ?string $idempotencyKey = null)
     {
@@ -573,6 +588,12 @@ class TermsApi
                         $response,
                     );
                 case 422:
+                    return $this->handleResponseWithDataType(
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 429:
                     return $this->handleResponseWithDataType(
                         '\PAYJPV2\Model\ErrorResponse',
                         $request,
@@ -618,6 +639,15 @@ class TermsApi
 
                     throw $e;
                 case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PAYJPV2\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+
+                    throw $e;
+                case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PAYJPV2\Model\ErrorResponse',
