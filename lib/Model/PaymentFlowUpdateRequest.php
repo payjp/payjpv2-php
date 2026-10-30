@@ -367,7 +367,7 @@ class PaymentFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets amount
      *
-     * @param int|null $amount 支払い予定の金額。50円以上9,999,999円以下である必要があります。
+     * @param int|null $amount 支払い予定の金額。50円以上9,999,999円以下である必要があります。status が requires_payment_method または requires_confirmation のときのみ指定できます。
      *
      * @return self
      */
@@ -402,7 +402,7 @@ class PaymentFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets customerId
      *
-     * @param string|null $customerId この PaymentFlow に関連付ける顧客の ID
+     * @param string|null $customerId この PaymentFlow に関連付ける顧客の ID。status が requires_payment_method または requires_confirmation のときのみ指定できます。
      *
      * @return self
      */
@@ -429,7 +429,7 @@ class PaymentFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets paymentMethodId
      *
-     * @param string|null $paymentMethodId 支払い方法 ID。customer_id の指定が必須です。Customer が所持する PaymentMethod のみ指定できます。payment_method_id を指定せず、Customer に default_payment_method_id が設定されている場合はそちらが自動でセットされます。
+     * @param string|null $paymentMethodId 支払い方法 ID。customer_id の指定が必須です。Customer が所持する PaymentMethod のみ指定できます。payment_method_id を指定せず、Customer に default_payment_method_id が設定されている場合はそちらが自動でセットされます。status が requires_payment_method または requires_confirmation のときのみ指定できます。
      *
      * @return self
      */
@@ -456,7 +456,7 @@ class PaymentFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets paymentMethodOptions
      *
-     * @param \PAYJPV2\Model\PaymentFlowPaymentMethodOptionsRequest|null $paymentMethodOptions この PaymentFlow 固有の支払い方法の設定
+     * @param \PAYJPV2\Model\PaymentFlowPaymentMethodOptionsRequest|null $paymentMethodOptions この PaymentFlow 固有の支払い方法の設定。status が requires_payment_method または requires_confirmation のときのみ指定できます。
      *
      * @return self
      */
@@ -483,7 +483,7 @@ class PaymentFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets paymentMethodTypes
      *
-     * @param \PAYJPV2\Model\PaymentMethodTypes[]|null $paymentMethodTypes この PaymentFlow で使用できる支払い方法の種類のリスト。指定しない場合は、PAY.JP は支払い方法の設定から利用可能な支払い方法を動的に表示します。
+     * @param \PAYJPV2\Model\PaymentMethodTypes[]|null $paymentMethodTypes この PaymentFlow で使用できる支払い方法の種類のリスト。指定しない場合は、PAY.JP は支払い方法の設定から利用可能な支払い方法を動的に表示します。status が requires_payment_method または requires_confirmation のときのみ指定できます。
      *
      * @return self
      */
@@ -510,7 +510,7 @@ class PaymentFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets returnUrl
      *
-     * @param string|null $returnUrl 顧客が支払いを完了後かキャンセルした後にリダイレクトされる URL。アプリにリダイレクトしたい場合は URI Scheme を指定できます。
+     * @param string|null $returnUrl 顧客が支払いを完了後かキャンセルした後にリダイレクトされる URL。アプリにリダイレクトしたい場合は URI Scheme を指定できます。status が requires_payment_method または requires_confirmation のときのみ指定できます。
      *
      * @return self
      */
@@ -537,7 +537,7 @@ class PaymentFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets redirectOptions
      *
-     * @param \PAYJPV2\Model\RedirectOptionsRequest|null $redirectOptions return_url へリダイレクトする際のオプション
+     * @param \PAYJPV2\Model\RedirectOptionsRequest|null $redirectOptions return_url へリダイレクトする際のオプション。status が requires_payment_method または requires_confirmation のときのみ指定できます。
      *
      * @return self
      */

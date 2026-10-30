@@ -845,15 +845,16 @@ class SetupFlowsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
+     * @param  string|null $customerId 指定した顧客のデータのみを取得 (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PAYJPV2\Model\SetupFlowListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse
      */
-    public function getAllSetupFlows($limit = 10, $startingAfter = null, $endingBefore = null, ?string $idempotencyKey = null)
+    public function getAllSetupFlows($limit = 10, $startingAfter = null, $endingBefore = null, $customerId = null, ?string $idempotencyKey = null)
     {
-        list($response) = $this->getAllSetupFlowsWithHttpInfo($limit, $startingAfter, $endingBefore, $idempotencyKey);
+        list($response) = $this->getAllSetupFlowsWithHttpInfo($limit, $startingAfter, $endingBefore, $customerId, $idempotencyKey);
 
         return $response;
     }
@@ -866,15 +867,16 @@ class SetupFlowsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
+     * @param  string|null $customerId 指定した顧客のデータのみを取得 (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \PAYJPV2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PAYJPV2\Model\SetupFlowListResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse|\PAYJPV2\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllSetupFlowsWithHttpInfo($limit = 10, $startingAfter = null, $endingBefore = null, ?string $idempotencyKey = null)
+    public function getAllSetupFlowsWithHttpInfo($limit = 10, $startingAfter = null, $endingBefore = null, $customerId = null, ?string $idempotencyKey = null)
     {
-        $request = $this->getAllSetupFlowsRequest($limit, $startingAfter, $endingBefore, $idempotencyKey);
+        $request = $this->getAllSetupFlowsRequest($limit, $startingAfter, $endingBefore, $customerId, $idempotencyKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1000,14 +1002,15 @@ class SetupFlowsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
+     * @param  string|null $customerId 指定した顧客のデータのみを取得 (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllSetupFlowsAsync($limit = 10, $startingAfter = null, $endingBefore = null, ?string $idempotencyKey = null)
+    public function getAllSetupFlowsAsync($limit = 10, $startingAfter = null, $endingBefore = null, $customerId = null, ?string $idempotencyKey = null)
     {
-        return $this->getAllSetupFlowsAsyncWithHttpInfo($limit, $startingAfter, $endingBefore, $idempotencyKey)
+        return $this->getAllSetupFlowsAsyncWithHttpInfo($limit, $startingAfter, $endingBefore, $customerId, $idempotencyKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1023,15 +1026,16 @@ class SetupFlowsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
+     * @param  string|null $customerId 指定した顧客のデータのみを取得 (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllSetupFlowsAsyncWithHttpInfo($limit = 10, $startingAfter = null, $endingBefore = null, ?string $idempotencyKey = null)
+    public function getAllSetupFlowsAsyncWithHttpInfo($limit = 10, $startingAfter = null, $endingBefore = null, $customerId = null, ?string $idempotencyKey = null)
     {
         $returnType = '\PAYJPV2\Model\SetupFlowListResponse';
-        $request = $this->getAllSetupFlowsRequest($limit, $startingAfter, $endingBefore, $idempotencyKey);
+        $request = $this->getAllSetupFlowsRequest($limit, $startingAfter, $endingBefore, $customerId, $idempotencyKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1076,12 +1080,13 @@ class SetupFlowsApi
      * @param  int|null $limit 取得するデータの最大件数 (optional, default to 10)
      * @param  string|null $startingAfter このIDより後のデータを取得 (optional)
      * @param  string|null $endingBefore このIDより前のデータを取得 (optional)
+     * @param  string|null $customerId 指定した顧客のデータのみを取得 (optional)
      * @param  string|null $idempotencyKey Idempotency key for the request
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAllSetupFlowsRequest($limit = 10, $startingAfter = null, $endingBefore = null, ?string $idempotencyKey = null)
+    public function getAllSetupFlowsRequest($limit = 10, $startingAfter = null, $endingBefore = null, $customerId = null, ?string $idempotencyKey = null)
     {
 
         if ($limit !== null && $limit > 100) {
@@ -1090,6 +1095,7 @@ class SetupFlowsApi
         if ($limit !== null && $limit < 1) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling SetupFlowsApi.getAllSetupFlows, must be bigger than or equal to 1.');
         }
+
 
 
 
@@ -1128,6 +1134,15 @@ class SetupFlowsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $endingBefore,
             'ending_before', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $customerId,
+            'customer_id', // param base name
             'string', // openApiType
             'form', // style
             true, // explode
