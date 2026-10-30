@@ -142,7 +142,7 @@ try {
 ## `getAllSetupFlows()`
 
 ```php
-getAllSetupFlows($limit, $startingAfter, $endingBefore): \PAYJPV2\Model\SetupFlowListResponse
+getAllSetupFlows($limit, $startingAfter, $endingBefore, $customerId): \PAYJPV2\Model\SetupFlowListResponse
 ```
 
 Get All Setup Flows
@@ -172,9 +172,10 @@ $apiInstance = new PAYJPV2\Api\SetupFlowsApi(
 $limit = 10; // int | 取得するデータの最大件数
 $startingAfter = 'startingAfter_example'; // string | このIDより後のデータを取得
 $endingBefore = 'endingBefore_example'; // string | このIDより前のデータを取得
+$customerId = 'customerId_example'; // string | 指定した顧客のデータのみを取得
 
 try {
-    $result = $apiInstance->getAllSetupFlows($limit, $startingAfter, $endingBefore);
+    $result = $apiInstance->getAllSetupFlows($limit, $startingAfter, $endingBefore, $customerId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SetupFlowsApi->getAllSetupFlows: ', $e->getMessage(), PHP_EOL;
@@ -188,6 +189,7 @@ try {
 | **limit** | **int**| 取得するデータの最大件数 | [optional] [default to 10] |
 | **startingAfter** | **string**| このIDより後のデータを取得 | [optional] |
 | **endingBefore** | **string**| このIDより前のデータを取得 | [optional] |
+| **customerId** | **string**| 指定した顧客のデータのみを取得 | [optional] |
 
 ### Return type
 

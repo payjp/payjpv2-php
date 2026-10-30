@@ -351,7 +351,7 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets customerId
      *
-     * @param string|null $customerId この SetupFlow に関連付ける顧客の ID。SetupFlow により作られた PaymentMethod はこの顧客に紐付きます。
+     * @param string|null $customerId この SetupFlow に関連付ける顧客の ID。SetupFlow により作られた PaymentMethod はこの顧客に紐付きます。status が requires_payment_method または requires_confirmation のときのみ指定できます。
      *
      * @return self
      */
@@ -378,7 +378,7 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets paymentMethodOptions
      *
-     * @param \PAYJPV2\Model\SetupFlowPaymentMethodOptionsRequest|null $paymentMethodOptions この SetupFlow 固有の支払い方法の設定
+     * @param \PAYJPV2\Model\SetupFlowPaymentMethodOptionsRequest|null $paymentMethodOptions この SetupFlow 固有の支払い方法の設定。status が requires_payment_method または requires_confirmation のときのみ指定できます。
      *
      * @return self
      */
@@ -405,7 +405,7 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets paymentMethodTypes
      *
-     * @param string[]|null $paymentMethodTypes この SetupFlow で使用できる支払い方法の種類のリスト。 指定しない場合は、PAY.JP は支払い方法の設定から利用可能な支払い方法を動的に表示します。
+     * @param string[]|null $paymentMethodTypes この SetupFlow で使用できる支払い方法の種類のリスト。指定しない場合は、PAY.JP は支払い方法の設定から利用可能な支払い方法を動的に表示します。status が requires_payment_method または requires_confirmation のときのみ指定できます。
      *
      * @return self
      */
@@ -441,7 +441,7 @@ class SetupFlowUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets redirectOptions
      *
-     * @param \PAYJPV2\Model\RedirectOptionsRequest|null $redirectOptions return_url へリダイレクトする際のオプション
+     * @param \PAYJPV2\Model\RedirectOptionsRequest|null $redirectOptions return_url へリダイレクトする際のオプション。status が requires_payment_method または requires_confirmation のときのみ指定できます。
      *
      * @return self
      */
